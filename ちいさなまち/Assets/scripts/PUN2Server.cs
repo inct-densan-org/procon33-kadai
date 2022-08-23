@@ -3,7 +3,7 @@ using Photon.Realtime;
 using UnityEngine;
 
 // MonoBehaviourPunCallbacksを継承して、PUNのコールバックを受け取れるようにする
-public class test : MonoBehaviourPunCallbacks
+public class PUN2Server : MonoBehaviourPunCallbacks
 {
 
     public GameObject clone;
