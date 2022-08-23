@@ -28,7 +28,7 @@ public class move : MonoBehaviourPunCallbacks
         {
             float x = Input.GetAxis("Horizontal");
             float y = Input.GetAxis("Vertical");
-            var input = new Vector3(x, y, 0f);
+            var input = new Vector3(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical") , 0f);
             transform.Translate(5f * Time.deltaTime * input.normalized);
             popo = transform.position;
             if (x <= 0.1&&0<x){ animator.SetFloat(idX, 0.5f); animator.SetFloat(idY, 0); }
