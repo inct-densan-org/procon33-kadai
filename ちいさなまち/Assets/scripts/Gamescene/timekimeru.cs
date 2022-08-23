@@ -24,7 +24,7 @@ public class timekimeru : MonoBehaviourPunCallbacks
         PhotonNetwork.CurrentRoom.SetCustomProperties(roomHash);
         if (p1==PhotonNetwork.LocalPlayer)
         {
-            Debug.Log("ˆê”Ô‚Å‚·");
+           
             
             //var hashtable = new ExitGames.Client.Photon.Hashtable();
             //hashtable["Score"] = 0;
