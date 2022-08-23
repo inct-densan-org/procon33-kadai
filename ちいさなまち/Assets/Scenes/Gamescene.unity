@@ -449,18 +449,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 558082331}
     m_Modifications:
-    - target: {fileID: 845646481, guid: 6826b2489de5597428ec9e22d3bb8600, type: 3}
-      propertyPath: m_SynchronizeLayers.Array.data[0].SynchronizeType
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 845646481, guid: 6826b2489de5597428ec9e22d3bb8600, type: 3}
-      propertyPath: m_SynchronizeParameters.Array.data[0].SynchronizeType
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 845646481, guid: 6826b2489de5597428ec9e22d3bb8600, type: 3}
-      propertyPath: m_SynchronizeParameters.Array.data[1].SynchronizeType
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 1764103865, guid: 6826b2489de5597428ec9e22d3bb8600, type: 3}
       propertyPath: sceneViewId
       value: 1
@@ -628,10 +616,9 @@ Transform:
   m_LocalPosition: {x: -0.07694049, y: -0.3051837, z: 0.0760916}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 956193380}
+  m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &558082327
 GameObject:
@@ -941,7 +928,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &956193376
 GameObject:
@@ -1036,8 +1023,8 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 742829101}
-  m_Father: {fileID: 504948808}
-  m_RootOrder: 0
+  m_Father: {fileID: 0}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -1199,7 +1186,7 @@ Transform:
   m_Children:
   - {fileID: 1890420229}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1395202595
 MonoBehaviour:
