@@ -1,0 +1,2234 @@
+fileFormatVersion: 2
+guid: f66a4175711e78140846b25f3864b472
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: LF-Chara-KGirl01_0
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 448
+        width: 26
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 99744c8951b15d44a94ac54ecde6e73e
+      internalID: 1981591518
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LF-Chara-KGirl01_1
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 448
+        width: 25
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3256a6d3b35faf646a13cad27e6f9de5
+      internalID: -1490071803
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LF-Chara-KGirl01_2
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 448
+        width: 26
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8f77345786a09e84e8dad59e3c4e99bd
+      internalID: -2079324571
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LF-Chara-KGirl01_3
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 448
+        width: 25
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 62515966ea4581d4ca29a86724630818
+      internalID: -106317890
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LF-Chara-KGirl01_4
+      rect:
+        serializedVersion: 2
+        x: 131
+        y: 448
+        width: 25
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a5ea457c4c6feb84cad943462724c823
+      internalID: -8584648
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LF-Chara-KGirl01_5
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 448
+        width: 25
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bb986ac97b73f2e4d9cd2e5f0e3b44d6
+      internalID: 317366737
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LF-Chara-KGirl01_6
+      rect:
+        serializedVersion: 2
+        x: 195
+        y: 448
+        width: 23
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cbe220a23cfd85a4285c04e79921d41b
+      internalID: 227661844
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LF-Chara-KGirl01_7
+      rect:
+        serializedVersion: 2
+        x: 227
+        y: 448
+        width: 25
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 267101821b1f69b48a91efbb02c501c5
+      internalID: -735900645
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LF-Chara-KGirl01_8
+      rect:
+        serializedVersion: 2
+        x: 261
+        y: 448
+        width: 23
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e842bc8982892804388bce13d83d4e78
+      internalID: -1355289012
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LF-Chara-KGirl01_9
+      rect:
+        serializedVersion: 2
+        x: 292
+        y: 448
+        width: 22
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b25c21a3a0ee8524cb5e629cd8db2d03
+      internalID: 2038949044
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LF-Chara-KGirl01_10
+      rect:
+        serializedVersion: 2
+        x: 323
+        y: 448
+        width: 25
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6df552d156b20f94db03084493d838f5
+      internalID: -327979677
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LF-Chara-KGirl01_11
+      rect:
+        serializedVersion: 2
+        x: 357
+        y: 448
+        width: 22
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c416b9bc2552c224399c4830fad7c171
+      internalID: 1632753742
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LF-Chara-KGirl01_12
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 384
+        width: 25
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 12dd86da1a183cf4b946b7c65a8de720
+      internalID: -731166722
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LF-Chara-KGirl01_13
+      rect:
+        serializedVersion: 2
+        x: 37
+        y: 384
+        width: 23
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fb8a4e45ce09b7e41ac7357e61b1f2b3
+      internalID: -496047396
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LF-Chara-KGirl01_14
+      rect:
+        serializedVersion: 2
+        x: 69
+        y: 384
+        width: 24
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f5c379f780f617e46b22e9bdd0a3e6bf
+      internalID: 1136435992
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LF-Chara-KGirl01_15
+      rect:
+        serializedVersion: 2
+        x: 101
+        y: 384
+        width: 25
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: df4f308793e13bc47ae5eeed4a384729
+      internalID: 1498181055
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LF-Chara-KGirl01_16
+      rect:
+        serializedVersion: 2
+        x: 133
+        y: 384
+        width: 23
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 89e1ea52d0806c8419fe176b4ed9ffe3
+      internalID: -715733436
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LF-Chara-KGirl01_17
+      rect:
+        serializedVersion: 2
+        x: 165
+        y: 384
+        width: 24
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b2eb0e37719032b4cbc431876b06f046
+      internalID: 1436978978
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LF-Chara-KGirl01_18
+      rect:
+        serializedVersion: 2
+        x: 196
+        y: 384
+        width: 27
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: be3b1146e92ac1849af3b7fe8f280fe9
+      internalID: -681220
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LF-Chara-KGirl01_19
+      rect:
+        serializedVersion: 2
+        x: 228
+        y: 384
+        width: 26
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5a54d0526ddd70141ad9616d548c4f21
+      internalID: -106649177
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LF-Chara-KGirl01_20
+      rect:
+        serializedVersion: 2
+        x: 261
+        y: 384
+        width: 25
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b85ce4ae473af094da5d44bd797bd5a1
+      internalID: 1967229181
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LF-Chara-KGirl01_21
+      rect:
+        serializedVersion: 2
+        x: 292
+        y: 384
+        width: 27
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8cfb4567320dc494cbf8a7035e213295
+      internalID: -1852135310
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LF-Chara-KGirl01_22
+      rect:
+        serializedVersion: 2
+        x: 324
+        y: 384
+        width: 26
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f7c6d89d058785c40b782ee58300fc3d
+      internalID: -1046974541
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LF-Chara-KGirl01_23
+      rect:
+        serializedVersion: 2
+        x: 357
+        y: 384
+        width: 25
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d9f5397a638043a4c8a0e231dc78cd71
+      internalID: -74723698
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LF-Chara-KGirl01_24
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 320
+        width: 25
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0024d70358fff3142a7cd676b9a219bf
+      internalID: -1489337700
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LF-Chara-KGirl01_25
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 320
+        width: 23
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 005ba57c64eb3914cb9e07a6863b3a9c
+      internalID: -961845022
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LF-Chara-KGirl01_26
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 320
+        width: 24
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 561cca98cc1d33e43b39f6a11ec6d862
+      internalID: -1282644333
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LF-Chara-KGirl01_27
+      rect:
+        serializedVersion: 2
+        x: 98
+        y: 320
+        width: 25
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: af46f36c757ed6648b406faac16bef18
+      internalID: 2051616345
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LF-Chara-KGirl01_28
+      rect:
+        serializedVersion: 2
+        x: 132
+        y: 320
+        width: 23
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a79bfda337ff53d44a982bcabba3f67e
+      internalID: 1678482542
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LF-Chara-KGirl01_29
+      rect:
+        serializedVersion: 2
+        x: 163
+        y: 320
+        width: 24
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a9efe63b1c2e7f349b9bb398961cd16f
+      internalID: 885520415
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LF-Chara-KGirl01_30
+      rect:
+        serializedVersion: 2
+        x: 193
+        y: 320
+        width: 27
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 73f0e4b8cf6a19e4e90be13432351a59
+      internalID: 2089554930
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LF-Chara-KGirl01_31
+      rect:
+        serializedVersion: 2
+        x: 226
+        y: 320
+        width: 26
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 45116c0b41017f64e973b87697fa8e38
+      internalID: -706008241
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LF-Chara-KGirl01_32
+      rect:
+        serializedVersion: 2
+        x: 258
+        y: 320
+        width: 25
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5be2579948cef0e4da01fbaa34b67cc0
+      internalID: 588830383
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LF-Chara-KGirl01_33
+      rect:
+        serializedVersion: 2
+        x: 289
+        y: 320
+        width: 27
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cd6ff82c4bdc8354ba17501bcbe7292f
+      internalID: -259038261
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LF-Chara-KGirl01_34
+      rect:
+        serializedVersion: 2
+        x: 322
+        y: 320
+        width: 26
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d205ea9b27156a04fbc262bdcc4f29ff
+      internalID: 1169685644
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LF-Chara-KGirl01_35
+      rect:
+        serializedVersion: 2
+        x: 354
+        y: 320
+        width: 25
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cbb88fc81e084d8419cf7cb9f64dc4a9
+      internalID: -72467753
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LF-Chara-KGirl01_36
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 256
+        width: 25
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3f60eec1e18fa8f4fa343eb2de0854cb
+      internalID: -590664001
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LF-Chara-KGirl01_37
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 256
+        width: 25
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 63b39e9c513296042b042a364e8a6ad2
+      internalID: 1131637149
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LF-Chara-KGirl01_38
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 256
+        width: 25
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bd480d26455732a4fae0c9a099393fa0
+      internalID: 877167993
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LF-Chara-KGirl01_39
+      rect:
+        serializedVersion: 2
+        x: 98
+        y: 256
+        width: 25
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1ed76c2b833b834409f2ed1fccdb4f17
+      internalID: 387632001
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LF-Chara-KGirl01_40
+      rect:
+        serializedVersion: 2
+        x: 131
+        y: 256
+        width: 25
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cb1db84e438b4fb41b083ac30a4b11b8
+      internalID: -1191432459
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LF-Chara-KGirl01_41
+      rect:
+        serializedVersion: 2
+        x: 164
+        y: 256
+        width: 25
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c84bd4018f539c045973321a38b4f9f0
+      internalID: 892791822
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LF-Chara-KGirl01_42
+      rect:
+        serializedVersion: 2
+        x: 195
+        y: 256
+        width: 23
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 046aae6036fbd0848b0f5c8db3d50985
+      internalID: -561001912
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LF-Chara-KGirl01_43
+      rect:
+        serializedVersion: 2
+        x: 227
+        y: 256
+        width: 25
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5a438af0e36213e4f9e69193f9f1a724
+      internalID: -1278556605
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LF-Chara-KGirl01_44
+      rect:
+        serializedVersion: 2
+        x: 261
+        y: 256
+        width: 23
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9837746f1e688a746ae12811f99db4e4
+      internalID: -1134265051
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LF-Chara-KGirl01_45
+      rect:
+        serializedVersion: 2
+        x: 293
+        y: 256
+        width: 21
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: baddf27e7a8f1904dba174b3905e9131
+      internalID: -1361629992
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LF-Chara-KGirl01_46
+      rect:
+        serializedVersion: 2
+        x: 323
+        y: 256
+        width: 25
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 844f3b569555aec439f40045d41cab53
+      internalID: -1957158373
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LF-Chara-KGirl01_47
+      rect:
+        serializedVersion: 2
+        x: 357
+        y: 256
+        width: 21
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3c2dbf77ebd0fd640b5e4acfdf468304
+      internalID: 188129996
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LF-Chara-KGirl01_48
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 192
+        width: 27
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4530f5f81e71b304597c4067b76e06eb
+      internalID: 37473183
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LF-Chara-KGirl01_49
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 192
+        width: 27
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b9598ab1659bf404d97af2a0d6a167a0
+      internalID: 316039461
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LF-Chara-KGirl01_50
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 192
+        width: 27
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 77f1483761955a547a50477f2b2790e1
+      internalID: 1517593332
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LF-Chara-KGirl01_51
+      rect:
+        serializedVersion: 2
+        x: 98
+        y: 192
+        width: 27
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3c250509dd8c79f4d8417f730bf1aadc
+      internalID: -86867773
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LF-Chara-KGirl01_52
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 192
+        width: 27
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1601db3cf6071554e937af8547994f6a
+      internalID: 969043904
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LF-Chara-KGirl01_53
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 192
+        width: 27
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4a9c7644e99cd7f4bb04847807ad9be1
+      internalID: 1902766933
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LF-Chara-KGirl01_54
+      rect:
+        serializedVersion: 2
+        x: 195
+        y: 192
+        width: 23
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5b26d33436e58d944b2c60aacd293c6d
+      internalID: 510699354
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LF-Chara-KGirl01_55
+      rect:
+        serializedVersion: 2
+        x: 227
+        y: 192
+        width: 25
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3b3d78afb7f677144b62579245f98c94
+      internalID: 1959806716
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LF-Chara-KGirl01_56
+      rect:
+        serializedVersion: 2
+        x: 261
+        y: 192
+        width: 23
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a10a123ebe43ba4419aa45f5302a1555
+      internalID: 413192679
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LF-Chara-KGirl01_57
+      rect:
+        serializedVersion: 2
+        x: 291
+        y: 192
+        width: 23
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5a1e855f046e3e341b1d0b70b68bb152
+      internalID: -763988729
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LF-Chara-KGirl01_58
+      rect:
+        serializedVersion: 2
+        x: 323
+        y: 192
+        width: 25
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0aef892206b622b4bbb6f1f88fe0100e
+      internalID: 192247495
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LF-Chara-KGirl01_59
+      rect:
+        serializedVersion: 2
+        x: 357
+        y: 192
+        width: 23
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6b9c443ed215765429ca67d5128cd091
+      internalID: -1209733632
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LF-Chara-KGirl01_60
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 128
+        width: 24
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4c3f77daf9e7d23478f46ef634c60b11
+      internalID: -2013559029
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LF-Chara-KGirl01_61
+      rect:
+        serializedVersion: 2
+        x: 37
+        y: 128
+        width: 24
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 979e7ff3d3cafc84da3f091947e6bbe7
+      internalID: 966900453
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LF-Chara-KGirl01_62
+      rect:
+        serializedVersion: 2
+        x: 69
+        y: 128
+        width: 24
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d05934aef35cfd64097887a92c15ae67
+      internalID: -2078094092
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LF-Chara-KGirl01_63
+      rect:
+        serializedVersion: 2
+        x: 101
+        y: 128
+        width: 24
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f03c7d23f7ed0ad4f84bf4a877494732
+      internalID: 1582699600
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LF-Chara-KGirl01_64
+      rect:
+        serializedVersion: 2
+        x: 133
+        y: 128
+        width: 24
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7fd108d0143ced0409ba42e43083f397
+      internalID: -1460688599
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LF-Chara-KGirl01_65
+      rect:
+        serializedVersion: 2
+        x: 165
+        y: 128
+        width: 24
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 32ce6c5651646894ca481132828d8ed8
+      internalID: -48573722
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LF-Chara-KGirl01_66
+      rect:
+        serializedVersion: 2
+        x: 197
+        y: 128
+        width: 27
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 135282bcd33f3e749aae96cc4d150c98
+      internalID: -920383231
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LF-Chara-KGirl01_67
+      rect:
+        serializedVersion: 2
+        x: 229
+        y: 128
+        width: 27
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f8d58fd6a99e3294396e4841a99c7b27
+      internalID: 573050372
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LF-Chara-KGirl01_68
+      rect:
+        serializedVersion: 2
+        x: 261
+        y: 128
+        width: 26
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8a8d9e478f5e5f243a1322f7c5451648
+      internalID: 393695275
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LF-Chara-KGirl01_69
+      rect:
+        serializedVersion: 2
+        x: 293
+        y: 128
+        width: 27
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2258cc4435513ca43a1ea6352aa99f19
+      internalID: -1712676900
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LF-Chara-KGirl01_70
+      rect:
+        serializedVersion: 2
+        x: 325
+        y: 128
+        width: 27
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: be2076f2e8cc4694ca77fba13cb6d978
+      internalID: -138259954
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LF-Chara-KGirl01_71
+      rect:
+        serializedVersion: 2
+        x: 357
+        y: 128
+        width: 26
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3ddbd4af4958068488e42faa2392e140
+      internalID: 1953241265
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LF-Chara-KGirl01_72
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 64
+        width: 24
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 74c96a30026eb8b448c00cce7988901d
+      internalID: 1587444904
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LF-Chara-KGirl01_73
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 64
+        width: 24
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d2b0059be54af7847917e3e03ae5dfe9
+      internalID: 1754614831
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LF-Chara-KGirl01_74
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 64
+        width: 24
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f9835ce49e715894ea728282f4f5c26b
+      internalID: -1996763741
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LF-Chara-KGirl01_75
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 64
+        width: 24
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e7f813a1ac7307b44ae03723bac63de8
+      internalID: -1358760301
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LF-Chara-KGirl01_76
+      rect:
+        serializedVersion: 2
+        x: 131
+        y: 64
+        width: 24
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 36eafd87c54fa2e4ba529beb5b4b9a30
+      internalID: -500773103
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LF-Chara-KGirl01_77
+      rect:
+        serializedVersion: 2
+        x: 163
+        y: 64
+        width: 24
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2689c0b509997ca46a4d8ca067519170
+      internalID: 1467521154
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LF-Chara-KGirl01_78
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 64
+        width: 27
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0308dfcaa8d926b458f6a103a1275996
+      internalID: 257265745
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LF-Chara-KGirl01_79
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 64
+        width: 27
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 67c9c9786d0f1574e972c5da98e42430
+      internalID: 457385239
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LF-Chara-KGirl01_80
+      rect:
+        serializedVersion: 2
+        x: 257
+        y: 64
+        width: 26
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ddecb5a40eb44e84ca543dd6298b3a7d
+      internalID: -2029805945
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LF-Chara-KGirl01_81
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 64
+        width: 27
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 72fd5d2cfb661544c98182cac1af2e7a
+      internalID: 1534130004
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LF-Chara-KGirl01_82
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 64
+        width: 27
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0aa6efc7db8a2d84cb0ea018f4c8611c
+      internalID: 1223976654
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LF-Chara-KGirl01_83
+      rect:
+        serializedVersion: 2
+        x: 353
+        y: 64
+        width: 26
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5655ff078e8e18a49a62230b2fe79330
+      internalID: -34272482
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LF-Chara-KGirl01_84
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 0
+        width: 27
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 675f9a3c6781aca4abc04ea55cb8c380
+      internalID: -352911377
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LF-Chara-KGirl01_85
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 0
+        width: 27
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 202cac89d23177747b8ae2225375fc95
+      internalID: -646817031
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LF-Chara-KGirl01_86
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 0
+        width: 27
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3ac158c3928a7814b9e9a96cd388aa59
+      internalID: -2121157228
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LF-Chara-KGirl01_87
+      rect:
+        serializedVersion: 2
+        x: 98
+        y: 0
+        width: 27
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d9ae62a4c46592446aa9ee97335e4e73
+      internalID: -627764200
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LF-Chara-KGirl01_88
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 0
+        width: 27
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 96027b487d75dcc4c8b4e274ab8b187b
+      internalID: 1367409444
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LF-Chara-KGirl01_89
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 0
+        width: 27
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2418e3cc71038a147a00680df914e773
+      internalID: 138233065
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LF-Chara-KGirl01_90
+      rect:
+        serializedVersion: 2
+        x: 195
+        y: 0
+        width: 23
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ba8eeeb233cdc5d419403d15934a437d
+      internalID: -851297184
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LF-Chara-KGirl01_91
+      rect:
+        serializedVersion: 2
+        x: 227
+        y: 0
+        width: 25
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 48f767d7d128a414aa3c67fc66c782c0
+      internalID: 769763413
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LF-Chara-KGirl01_92
+      rect:
+        serializedVersion: 2
+        x: 261
+        y: 0
+        width: 23
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1b59a27f09edb424c94aeefa27fd38f9
+      internalID: -193182749
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LF-Chara-KGirl01_93
+      rect:
+        serializedVersion: 2
+        x: 292
+        y: 0
+        width: 22
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cc04b7a910c51d443abe9325747d8497
+      internalID: 1193106069
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LF-Chara-KGirl01_94
+      rect:
+        serializedVersion: 2
+        x: 323
+        y: 0
+        width: 25
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a3f9a39cb3ec81e4fbbe292ebb73683b
+      internalID: -172665287
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LF-Chara-KGirl01_95
+      rect:
+        serializedVersion: 2
+        x: 357
+        y: 0
+        width: 22
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 58619d29928230443bf48ccf61d56c28
+      internalID: -1091974615
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      LF-Chara-KGirl01_15: 1498181055
+      LF-Chara-KGirl01_11: 1632753742
+      LF-Chara-KGirl01_3: -106317890
+      LF-Chara-KGirl01_42: -561001912
+      LF-Chara-KGirl01_32: 588830383
+      LF-Chara-KGirl01_54: 510699354
+      LF-Chara-KGirl01_60: -2013559029
+      LF-Chara-KGirl01_13: -496047396
+      LF-Chara-KGirl01_74: -1996763741
+      LF-Chara-KGirl01_56: 413192679
+      LF-Chara-KGirl01_37: 1131637149
+      LF-Chara-KGirl01_8: -1355289012
+      LF-Chara-KGirl01_27: 2051616345
+      LF-Chara-KGirl01_24: -1489337700
+      LF-Chara-KGirl01_59: -1209733632
+      LF-Chara-KGirl01_57: -763988729
+      LF-Chara-KGirl01_16: -715733436
+      LF-Chara-KGirl01_94: -172665287
+      LF-Chara-KGirl01_2: -2079324571
+      LF-Chara-KGirl01_77: 1467521154
+      LF-Chara-KGirl01_33: -259038261
+      LF-Chara-KGirl01_90: -851297184
+      LF-Chara-KGirl01_51: -86867773
+      LF-Chara-KGirl01_41: 892791822
+      LF-Chara-KGirl01_84: -352911377
+      LF-Chara-KGirl01_68: 393695275
+      LF-Chara-KGirl01_18: -681220
+      LF-Chara-KGirl01_82: 1223976654
+      LF-Chara-KGirl01_93: 1193106069
+      LF-Chara-KGirl01_30: 2089554930
+      LF-Chara-KGirl01_38: 877167993
+      LF-Chara-KGirl01_31: -706008241
+      LF-Chara-KGirl01_52: 969043904
+      LF-Chara-KGirl01_95: -1091974615
+      LF-Chara-KGirl01_5: 317366737
+      LF-Chara-KGirl01_65: -48573722
+      LF-Chara-KGirl01_4: -8584648
+      LF-Chara-KGirl01_9: 2038949044
+      LF-Chara-KGirl01_55: 1959806716
+      LF-Chara-KGirl01_17: 1436978978
+      LF-Chara-KGirl01_72: 1587444904
+      LF-Chara-KGirl01_85: -646817031
+      LF-Chara-KGirl01_71: 1953241265
+      LF-Chara-KGirl01_80: -2029805945
+      LF-Chara-KGirl01_69: -1712676900
+      LF-Chara-KGirl01_83: -34272482
+      LF-Chara-KGirl01_76: -500773103
+      LF-Chara-KGirl01_58: 192247495
+      LF-Chara-KGirl01_79: 457385239
+      LF-Chara-KGirl01_46: -1957158373
+      LF-Chara-KGirl01_1: -1490071803
+      LF-Chara-KGirl01_87: -627764200
+      LF-Chara-KGirl01_45: -1361629992
+      LF-Chara-KGirl01_29: 885520415
+      LF-Chara-KGirl01_35: -72467753
+      LF-Chara-KGirl01_22: -1046974541
+      LF-Chara-KGirl01_23: -74723698
+      LF-Chara-KGirl01_44: -1134265051
+      LF-Chara-KGirl01_70: -138259954
+      LF-Chara-KGirl01_25: -961845022
+      LF-Chara-KGirl01_47: 188129996
+      LF-Chara-KGirl01_12: -731166722
+      LF-Chara-KGirl01_61: 966900453
+      LF-Chara-KGirl01_91: 769763413
+      LF-Chara-KGirl01_92: -193182749
+      LF-Chara-KGirl01_28: 1678482542
+      LF-Chara-KGirl01_34: 1169685644
+      LF-Chara-KGirl01_62: -2078094092
+      LF-Chara-KGirl01_73: 1754614831
+      LF-Chara-KGirl01_75: -1358760301
+      LF-Chara-KGirl01_64: -1460688599
+      LF-Chara-KGirl01_53: 1902766933
+      LF-Chara-KGirl01_67: 573050372
+      LF-Chara-KGirl01_88: 1367409444
+      LF-Chara-KGirl01_49: 316039461
+      LF-Chara-KGirl01_63: 1582699600
+      LF-Chara-KGirl01_26: -1282644333
+      LF-Chara-KGirl01_66: -920383231
+      LF-Chara-KGirl01_48: 37473183
+      LF-Chara-KGirl01_36: -590664001
+      LF-Chara-KGirl01_78: 257265745
+      LF-Chara-KGirl01_10: -327979677
+      LF-Chara-KGirl01_7: -735900645
+      LF-Chara-KGirl01_43: -1278556605
+      LF-Chara-KGirl01_19: -106649177
+      LF-Chara-KGirl01_21: -1852135310
+      LF-Chara-KGirl01_40: -1191432459
+      LF-Chara-KGirl01_0: 1981591518
+      LF-Chara-KGirl01_39: 387632001
+      LF-Chara-KGirl01_89: 138233065
+      LF-Chara-KGirl01_6: 227661844
+      LF-Chara-KGirl01_20: 1967229181
+      LF-Chara-KGirl01_81: 1534130004
+      LF-Chara-KGirl01_14: 1136435992
+      LF-Chara-KGirl01_86: -2121157228
+      LF-Chara-KGirl01_50: 1517593332
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
