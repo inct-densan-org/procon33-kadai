@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 845646480}
   - component: {fileID: 845646481}
   - component: {fileID: 845646482}
+  - component: {fileID: 5855374804919831948}
   m_Layer: 0
   m_Name: Avator
   m_TagString: Untagged
@@ -201,3 +202,18 @@ MonoBehaviour:
   hour: 0
   minite: 0
   second: 0
+--- !u!114 &5855374804919831948
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2546455515793489155}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4f12da4f08bef64196d7641d969c5bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  infectionDistance: 2
+  infectionProbability: 1
+  infected: 0
