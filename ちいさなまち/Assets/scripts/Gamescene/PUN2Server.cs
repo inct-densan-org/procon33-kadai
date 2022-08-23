@@ -6,7 +6,7 @@ using UnityEngine;
 public class PUN2Server : MonoBehaviourPunCallbacks
 {
 
-    public GameObject clone;
+    public static GameObject clone;
     
 
     private void Start()
