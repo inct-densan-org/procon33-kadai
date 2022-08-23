@@ -32,6 +32,19 @@ public class Infection : MonoBehaviour
                     DoInfection();
                 }
             }
+
+            GameObject[] players = GameObject.FindGameObjectsWithTag("NPC");
+
+            for (int i = 0; i < players.Length; i++)
+            {
+                GameObject playerObj = players[i];
+                Infection playerInfection = playerObj.GetComponent<Infection>();
+                float dist = Vector2.Distance(transform.position, playerObj.transform.position);
+                if (dist < infectionDistance && playerInfection.infected)
+                {
+                    DoInfection();
+                }
+            }
         }
     }
 
