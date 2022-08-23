@@ -21,6 +21,7 @@ public class TileController : MonoBehaviour
             for (int i = 0; i < 27; i++)
             {
                 int rnd = UnityEngine.Random.Range(0, 27);
+                // タイルの種類を表す配列を用意、一個づつについて座標を割り振る。
             }
         }
     }
