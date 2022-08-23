@@ -2,11 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
+using Cinemachine;  // Cinemachine‚ð’Ç‰Á‚Åusing
 
 public class camera : MonoBehaviourPunCallbacks
 {
     public Vector3 targetpo = move.popo;
     Vector3 offset;
+    private CinemachineVirtualCamera _virtualCamera;
     // Start is called before the first frame update
     void Start()
     {
