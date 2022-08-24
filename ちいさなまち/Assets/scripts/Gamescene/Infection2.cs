@@ -4,8 +4,8 @@ using UnityEngine;
 using Photon.Pun;
 public class Infection2 : MonoBehaviourPunCallbacks
 {
-    private bool cooltime, infected=false;
-
+    private bool cooltime;
+    public static bool infected = false;
     private int infectionProbability=1;
     // Start is called before the first frame update
     void Start()

@@ -5,13 +5,14 @@ using TMPro;
 // MonoBehaviourPunCallbacksを継承して、photonViewプロパティを使えるようにする
 public class move : MonoBehaviourPunCallbacks
 {
-    private bool ispush,ishor,isver;
+    private bool ispush,ishor,isver,infection;
     private int idX = Animator.StringToHash("x"), idY = Animator.StringToHash("y");
     private Animator animator = null;
     public static Vector3 popo;
     private Vector3 input;
     private new Rigidbody2D rigidbody;
     private float speed=5f;
+    private Infection2 Infection2;
     //private void Start()
     //{
     //    this.transform.position = new Vector3(20f, 20f, 0f);
@@ -23,6 +24,7 @@ public class move : MonoBehaviourPunCallbacks
        transform.parent = oya.transform;
         transform.localPosition = new Vector3(0,5.7f,-1);
         animator = GetComponent<Animator>();
+        
     }
     private void FixedUpdate()
     {
@@ -36,9 +38,17 @@ public class move : MonoBehaviourPunCallbacks
     }
     private void Update()
     {
-       var x = Input.GetAxisRaw("Horizontal");
+        infection = Infection2.infected;
+        var x = Input.GetAxisRaw("Horizontal");
       var  y = Input.GetAxisRaw("Vertical");
-
+        if (infection == true)
+        {
+            speed = 2f;
+        }
+        else
+        {
+            speed = 5f;
+        }
         // 自身が生成したオブジェクトだけに移動処理を行う
         if (photonView.IsMine)
         {
