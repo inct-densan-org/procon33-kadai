@@ -10,27 +10,41 @@ public class move : MonoBehaviourPunCallbacks
     private Animator animator = null;
     public static Vector3 popo;
     private Vector3 input;
+    private new Rigidbody2D rigidbody;
+    
     //private void Start()
     //{
     //    this.transform.position = new Vector3(20f, 20f, 0f);
     // }
     public void Start()
     {
-       GameObject oya = GameObject.Find("Canvas");
+        rigidbody = GetComponent<Rigidbody2D>();
+        GameObject oya = GameObject.Find("Canvas");
        transform.parent = oya.transform;
+        transform.localPosition = new Vector3(0,5.7f,-1);
         animator = GetComponent<Animator>();
+    }
+    private void FixedUpdate()
+    {
+        //if (photonView.IsMine)
+        //{
+        //    var x = Input.GetAxis("Horizontal");
+        //    var y = Input.GetAxis("Vertical");
+        //    rigidbody.velocity = new Vector3(x, y, 0) * 5;
+        //}
+           
     }
     private void Update()
     {
-
+       var x = Input.GetAxisRaw("Horizontal");
+      var  y = Input.GetAxisRaw("Vertical");
 
         // 自身が生成したオブジェクトだけに移動処理を行う
         if (photonView.IsMine)
         {
-            float x = Input.GetAxisRaw("Horizontal");
-            float y = Input.GetAxisRaw("Vertical");
-            if (Input.GetAxisRaw("Horizontal") != 0&&isver==false )
-            {
+            
+           if (Input.GetAxisRaw("Horizontal") != 0&&isver==false )
+           {
                 input = new Vector3(Input.GetAxisRaw("Horizontal"), 0, 0f);ishor = true;
             }
             else if(Input.GetAxisRaw("Vertical") != 0 && ishor == false)

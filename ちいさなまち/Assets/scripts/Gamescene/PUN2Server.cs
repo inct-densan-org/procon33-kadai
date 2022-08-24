@@ -28,7 +28,7 @@ public class PUN2Server : MonoBehaviourPunCallbacks
     {
         // ランダムな座標に自身のアバター（ネットワークオブジェクト）を生成する
         
-        clone = PhotonNetwork.Instantiate("Avator", new Vector3(20, 10,0), Quaternion.identity);
+        clone = PhotonNetwork.Instantiate("Avator", new Vector3(20, 15,-1), Quaternion.identity);
         
         //clone = null;
         //var cameraposion = new Vector3(0, 0, 0);

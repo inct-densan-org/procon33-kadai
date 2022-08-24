@@ -20,7 +20,8 @@ public class Infection2 : MonoBehaviourPunCallbacks
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.CompareTag ("Player") )// && cooltime == false)
+        Debug.Log("êGÇ¡ÇΩÇÀ");
+        if (collision.gameObject.CompareTag ("Player") )// && cooltime == false)
         {
             Debug.Log("êGÇ¡ÇΩÇÀ");
             cooltime = true;
