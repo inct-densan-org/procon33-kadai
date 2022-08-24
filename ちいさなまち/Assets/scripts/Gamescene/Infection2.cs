@@ -20,7 +20,7 @@ public class Infection2 : MonoBehaviourPunCallbacks
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("êGÇ¡ÇΩÇÀ");
+        
         if (collision.gameObject.CompareTag ("Player") )// && cooltime == false)
         {
             Debug.Log("êGÇ¡ÇΩÇÀ");
@@ -44,5 +44,14 @@ public class Infection2 : MonoBehaviourPunCallbacks
     void cooldowm()
     {
         cooltime = false;
+    }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("kansen"))
+        {
+            infected = true;
+            PhotonNetwork.LocalPlayer.SetInfection(infected);
+            Debug.Log("ä¥êıÇµÇøÇ·Ç¡ÇΩÇÀ");
+        }
     }
 }

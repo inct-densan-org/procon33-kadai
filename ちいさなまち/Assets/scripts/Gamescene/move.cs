@@ -11,7 +11,7 @@ public class move : MonoBehaviourPunCallbacks
     public static Vector3 popo;
     private Vector3 input;
     private new Rigidbody2D rigidbody;
-    
+    private float speed=5f;
     //private void Start()
     //{
     //    this.transform.position = new Vector3(20f, 20f, 0f);
@@ -55,7 +55,7 @@ public class move : MonoBehaviourPunCallbacks
             {
                 input = new Vector3(0, 0, 0f);
             }
-            transform.Translate(5f * Time.deltaTime * input.normalized);
+            transform.Translate(speed * Time.deltaTime * input.normalized);
             popo = transform.position;
             if (Input.GetKeyUp(KeyCode.D)|| Input.GetKeyUp(KeyCode.RightArrow)){ animator.SetFloat(idX, 0.5f); animator.SetFloat(idY, 0); ispush = false; ishor = false; }
             if (Input.GetKeyUp(KeyCode.A) || Input.GetKeyUp(KeyCode.LeftArrow)) { animator.SetFloat(idX, -0.5f); animator.SetFloat(idY, 0); ispush=false; ishor = false; }
