@@ -17,9 +17,10 @@ GameObject:
   - component: {fileID: 845646481}
   - component: {fileID: 845646482}
   - component: {fileID: 5855374804919831948}
+  - component: {fileID: 6929683624341474989}
   m_Layer: 0
   m_Name: Avator
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -77,8 +78,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1853801531
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: -1490071803, guid: f66a4175711e78140846b25f3864b472, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -132,7 +133,7 @@ MonoBehaviour:
   ObservedComponents:
   - {fileID: 845646480}
   - {fileID: 845646481}
-  sceneViewId: 0
+  sceneViewId: 1
   InstantiationId: 0
   isRuntimeInstantiated: 0
 --- !u!114 &-7316346429782214630
@@ -217,3 +218,15 @@ MonoBehaviour:
   infectionDistance: 2
   infectionProbability: 1
   infected: 0
+--- !u!114 &6929683624341474989
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2546455515793489155}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe78c2168e05d0640a02fce0e58c362e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
