@@ -202,7 +202,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 41655906}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 18.28818, y: 3.9796686, z: -62.855}
+  m_LocalPosition: {x: 15.767239, y: 3.9796667, z: -62.855}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -449,10 +449,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 558082331}
     m_Modifications:
-    - target: {fileID: 1764103865, guid: 6826b2489de5597428ec9e22d3bb8600, type: 3}
-      propertyPath: sceneViewId
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 2546455515793489155, guid: 6826b2489de5597428ec9e22d3bb8600, type: 3}
       propertyPath: m_Name
       value: Avator
@@ -758,7 +754,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -410, y: 203}
+  m_AnchoredPosition: {x: -410, y: 269}
   m_SizeDelta: {x: 1.84, y: 1.09}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!212 &742829102
@@ -1041,6 +1037,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1019324626}
   - component: {fileID: 1019324627}
+  - component: {fileID: 1019324628}
   m_Layer: 0
   m_Name: "\u69CB\u60F3\u56F3 "
   m_TagString: Untagged
@@ -1115,6 +1112,32 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!61 &1019324628
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1019324625}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.05532074, y: 0.11870718}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 70.869995, y: 70.869995}
+    newSize: {x: 70.869995, y: 70.869995}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 19.952274, y: 20.09724}
+  m_EdgeRadius: 0
 --- !u!1 &1395202592
 GameObject:
   m_ObjectHideFlags: 0
@@ -1163,7 +1186,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 2.2816753, y: 1}
+    m_SensorSize: {x: 1.7774869, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0

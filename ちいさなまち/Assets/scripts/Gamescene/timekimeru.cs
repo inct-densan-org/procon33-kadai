@@ -16,6 +16,7 @@ public class timekimeru : MonoBehaviourPunCallbacks
     {
         var player = PhotonNetwork.PlayerList;
         Array.Sort(player);
+        
         var p1 = player[0];
         roomHash = new ExitGames.Client.Photon.Hashtable();
         roomHash.Add("hour", hour);
