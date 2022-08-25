@@ -134,7 +134,6 @@ GameObject:
   - component: {fileID: 41655909}
   - component: {fileID: 41655908}
   - component: {fileID: 41655907}
-  - component: {fileID: 41655910}
   - component: {fileID: 41655911}
   m_Layer: 0
   m_Name: Main Camera
@@ -202,26 +201,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 41655906}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 13.280641, y: 3.9796634, z: -62.855}
+  m_LocalPosition: {x: 15.764418, y: 3.9796667, z: -62.855}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &41655910
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 41655906}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 33ea746b1939b454f9bc507117c0a9cb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  targetpo: {x: 16.562262, y: 1.405735, z: -1}
 --- !u!114 &41655911
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1960,7 +1946,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.0988142, y: 1}
+    m_SensorSize: {x: 1.7769231, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
