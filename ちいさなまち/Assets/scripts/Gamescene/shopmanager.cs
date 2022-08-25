@@ -30,7 +30,7 @@ public class shopmanager : MonoBehaviour
     }
     void hyouzi()
     {
-        while (haninai)
+        
         {
             Debug.Log("dekiteru");
             if (Input.GetKeyDown(KeyCode.Space))

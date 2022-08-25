@@ -5,15 +5,17 @@ using Photon.Pun;
 public class Infection2 : MonoBehaviourPunCallbacks
 {
     private bool cooltime;
-    public static bool infected = false;
+    public static bool infected, haninai;
     private int infectionProbability = 1;
     private CircleCollider2D collider2;
     public GameObject kansenhani;
+    public shopmanager shopmanager;
     // Start is called before the first frame update
     void Start()
     {
         //kansenhani = transform.Find("kansenhani").gameObject;
         collider2 = this.GetComponent<CircleCollider2D>();
+
     }
 
     // Update is called once per frame
@@ -30,25 +32,39 @@ public class Infection2 : MonoBehaviourPunCallbacks
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        
-        if (collision.gameObject.CompareTag ("Player") )// && cooltime == false)
+
+        if (collision.gameObject.CompareTag("Player"))// && cooltime == false)
         {
-            Debug.Log("�G������");
+
             cooltime = true;
             Invoke(nameof(cooldowm), 5f);
             infected = PhotonNetwork.LocalPlayer.GetInfection();
-            if ( infected == true)//infected�͓������Ȃ��Ƃ����Ȃ�
+            if (infected == true)//infected�͓������Ȃ��Ƃ����Ȃ�
             {
+
                 int rnd = Random.Range(0, 100);
                 if (rnd <= infectionProbability)
                 {
-                    Debug.Log("���������������");
+
                     infected = true;
                     PhotonNetwork.LocalPlayer.SetInfection(infected);
                 }
             }
         }
+
     }
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("shop"))
+        {
+            haninai = true;
+        }
+        else
+        {
+            haninai = false;
+        }
+    }
+
     void cooldowm()
     {
         cooltime = false;
@@ -59,7 +75,7 @@ public class Infection2 : MonoBehaviourPunCallbacks
         {
             infected = true;
             PhotonNetwork.LocalPlayer.SetInfection(infected);
-            Debug.Log("���������������");
+
         }
     }
 }
