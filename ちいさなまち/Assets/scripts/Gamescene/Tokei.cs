@@ -93,7 +93,7 @@ public  class Tokei : MonoBehaviourPunCallbacks
     // Update is called once per frame
     void Update()
     {
-        text.text = $"{hour}" + "��" + $"{minite}" + "��" + $"{second}" + "�b";
+        text.text = $"{hour}" + "時間" + $"{minite}" + "分" + $"{second}" + "秒";
     }
     
 }
