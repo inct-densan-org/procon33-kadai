@@ -10,8 +10,8 @@ using TMPro;
 
 public  class Tokei : MonoBehaviourPunCallbacks
 {
-    public int hour, minite, second;
-    private Text text;
+    private int hour, minite, second;
+    public TextMeshProUGUI text;
     //ExitGames.Client.Photon.Hashtable roomHash;
     //private itibyou byou;
     //private timekimeru timekimeru;
@@ -25,7 +25,7 @@ public  class Tokei : MonoBehaviourPunCallbacks
         // // p1 = player[0];
 
 
-        text = GetComponent<Text>();
+        //text = GetComponent<TextMeshPro>();
 
         // byou = gameObject.AddComponent<itibyou>();
 
