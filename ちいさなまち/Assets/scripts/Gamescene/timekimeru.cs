@@ -9,7 +9,7 @@ using System;
 
 public class timekimeru : MonoBehaviourPunCallbacks
 {
-   public static ExitGames.Client.Photon.Hashtable roomHash;
+    public static ExitGames.Client.Photon.Hashtable roomHash;
     public  int hour, minite, second;
     // Start is called before the first frame update
     void Start()
@@ -25,18 +25,14 @@ public class timekimeru : MonoBehaviourPunCallbacks
         PhotonNetwork.CurrentRoom.SetCustomProperties(roomHash);
         if (p1==PhotonNetwork.LocalPlayer)
         {
-           
-            
             //var hashtable = new ExitGames.Client.Photon.Hashtable();
             //hashtable["Score"] = 0;
-            //hashtable["Message"] = "‚±‚ñ‚É‚¿‚Í";
+            //hashtable["Message"] = "ï¿½ï¿½ï¿½ï¿½É‚ï¿½ï¿½ï¿½";
             //PhotonNetwork.LocalPlayer.SetCustomProperties(hashtable);
 
             var byou = gameObject.AddComponent<itibyou>();
             byou.Init(() =>
             {
-
-
                 second++;
 
                 if (second == 60) { second = 0; minite++; roomHash["minite"]=minite; }
@@ -46,10 +42,7 @@ public class timekimeru : MonoBehaviourPunCallbacks
                 PhotonNetwork.CurrentRoom.SetCustomProperties(roomHash);
             });
             byou.Play();
-
-
         }
-      
     }
 
     // Update is called once per frame
@@ -57,5 +50,4 @@ public class timekimeru : MonoBehaviourPunCallbacks
     {
         
     }
-
 }

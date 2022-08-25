@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
-using Cinemachine;  // Cinemachine‚ð’Ç‰Á‚Åusing
+using Cinemachine;  // Cinemachineï¿½ï¿½Ç‰ï¿½ï¿½ï¿½using
 
 public class camera : MonoBehaviourPunCallbacks
 {
@@ -22,7 +22,7 @@ public class camera : MonoBehaviourPunCallbacks
         //{
             targetpo = move.popo;
             
-            offset = new Vector3(0, 0,-10);
+            offset = new Vector3(0, 0, -10);
             transform.position = targetpo + offset;
         //}
     }

@@ -6,8 +6,10 @@ using UnityEngine.Tilemaps;
 using Photon.Pun;
 using System;
 
-public class TileController : MonoBehaviour
+public class TileController : MonoBehaviourPunCallbacks
 {
+    public GameObject hospitalPrefab;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -17,12 +19,20 @@ public class TileController : MonoBehaviour
         if (p1 == PhotonNetwork.LocalPlayer) 
         {
             var tilemap = GetComponent<Tilemap>();
-            var position = new Vector3Int(0, 0, 0);
-            for (int i = 0; i < 27; i++)
-            {
-                int rnd = UnityEngine.Random.Range(0, 27);
-                // タイルの種類を表す配列を用意、一個づつについて座標を割り振る。
-            }
+            var position = new Vector3(0, 0, 0);
+            // 病院の場所を決定
+            var rnd = UnityEngine.Random.Range(0, 8);
+            if (rnd == 0) position = new Vector3(-12, -12, 0);     // 左下
+            else if (rnd == 1) position = new Vector3(0, -12, 0);  // 下
+            else if (rnd == 2) position = new Vector3(12, -12, 0); // 右下
+            else if (rnd == 3) position = new Vector3(12, 0, 0);   // 右
+            else if (rnd == 4) position = new Vector3(12, 12, 0);  // 右上
+            else if (rnd == 5) position = new Vector3(0, 12, 0);   // 上
+            else if (rnd == 6) position = new Vector3(-12, 12, 0); // 左上
+            else if (rnd == 7) position = new Vector3(-12, 0, 0);  // 左
+
+            photonView.RPC(nameof(SetHospital), RpcTarget.AllBufferedViaServer, position);
+
         }
     }
 
@@ -30,5 +40,11 @@ public class TileController : MonoBehaviour
     void Update()
     {
         
+    }
+
+    [PunRPC]
+    void SetHospital(Vector3 position)
+    {
+        Instantiate(hospitalPrefab, position, Quaternion.identity);
     }
 }

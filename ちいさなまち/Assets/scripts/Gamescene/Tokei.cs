@@ -10,8 +10,8 @@ using TMPro;
 
 public  class Tokei : MonoBehaviourPunCallbacks
 {
-    public int hour, minite, second;
-    private Text text;
+    private int hour, minite, second;
+    public TextMeshProUGUI text;
     //ExitGames.Client.Photon.Hashtable roomHash;
     //private itibyou byou;
     //private timekimeru timekimeru;
@@ -25,7 +25,7 @@ public  class Tokei : MonoBehaviourPunCallbacks
         // // p1 = player[0];
 
 
-        text = GetComponent<Text>();
+        //text = GetComponent<TextMeshPro>();
 
         // byou = gameObject.AddComponent<itibyou>();
 
@@ -49,7 +49,7 @@ public  class Tokei : MonoBehaviourPunCallbacks
 
         //    //var hashtable = new ExitGames.Client.Photon.Hashtable();
         //    //hashtable["Score"] = 0;
-        //    //hashtable["Message"] = "‚±‚ñ‚É‚¿‚Í";
+        //    //hashtable["Message"] = "ï¿½ï¿½ï¿½ï¿½É‚ï¿½ï¿½ï¿½";
         //    //PhotonNetwork.LocalPlayer.SetCustomProperties(hashtable);
 
         //    var byou = gameObject.AddComponent<itibyou>();
@@ -63,7 +63,7 @@ public  class Tokei : MonoBehaviourPunCallbacks
         //        if (minite == 60) { minite = 0; hour++; PhotonNetwork.LocalPlayer.Addhour(hour); PhotonNetwork.LocalPlayer.Addminute(minite); }
         //        if (hour == 24) { hour = 0; PhotonNetwork.LocalPlayer.Addhour(hour); }
         //        PhotonNetwork.LocalPlayer.Addsecond(second);
-        //        text.text = $"{hour}" + "" + $"{minite}" + "•ª" + $"{second}" + "•b";
+        //        text.text = $"{hour}" + "ï¿½ï¿½" + $"{minite}" + "ï¿½ï¿½" + $"{second}" + "ï¿½b";
         //    });
         //    byou.Play();
         //}
@@ -71,7 +71,7 @@ public  class Tokei : MonoBehaviourPunCallbacks
     public override void OnRoomPropertiesUpdate(ExitGames.Client.Photon.Hashtable propertiesThatChanged)
     {
         object value = null;
-        //•ÏX‚Ì‚ ‚Á‚½ƒvƒƒpƒeƒB‚É"Time"‚ªŠÜ‚Ü‚ê‚Ä‚¢‚é‚È‚çtime‚ğXV
+        //ï¿½ÏXï¿½Ì‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½vï¿½ï¿½ï¿½pï¿½eï¿½Bï¿½ï¿½"Time"ï¿½ï¿½ï¿½Ü‚Ü‚ï¿½Ä‚ï¿½ï¿½ï¿½È‚ï¿½timeï¿½ï¿½ï¿½Xï¿½V
         if (propertiesThatChanged.TryGetValue("hour", out value))
         {
             hour = (int)value;
@@ -93,7 +93,7 @@ public  class Tokei : MonoBehaviourPunCallbacks
     // Update is called once per frame
     void Update()
     {
-        text.text = $"{hour}" + "" + $"{minite}" + "•ª" + $"{second}" + "•b";
+        text.text = $"{hour}" + "æ™‚é–“" + $"{minite}" + "åˆ†" + $"{second}" + "ç§’";
     }
     
 }

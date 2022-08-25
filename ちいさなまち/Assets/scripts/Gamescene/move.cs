@@ -2,46 +2,66 @@ using Photon.Pun;
 using UnityEngine;
 using TMPro;
 [RequireComponent(typeof(Animator))]
-// MonoBehaviourPunCallbacks‚ğŒp³‚µ‚ÄAphotonViewƒvƒƒpƒeƒB‚ğg‚¦‚é‚æ‚¤‚É‚·‚é
+// MonoBehaviourPunCallbacksï¿½ï¿½ï¿½pï¿½ï¿½ï¿½ï¿½ï¿½ÄAphotonViewï¿½vï¿½ï¿½ï¿½pï¿½eï¿½Bï¿½ï¿½ï¿½gï¿½ï¿½ï¿½ï¿½æ‚¤ï¿½É‚ï¿½ï¿½ï¿½
 public class move : MonoBehaviourPunCallbacks
 {
-    private bool ispush,ishor,isver;
+    private bool ispush,ishor,isver,infection;
     private int idX = Animator.StringToHash("x"), idY = Animator.StringToHash("y");
     private Animator animator = null;
     public static Vector3 popo;
     private Vector3 input;
-    //private void Start()
-    //{
-    //    this.transform.position = new Vector3(20f, 20f, 0f);
-    // }
+    private menumanager menumanager;
+
+    private float speed = 5f;
+   
+ 
     public void Start()
     {
-       GameObject oya = GameObject.Find("Canvas");
-       transform.parent = oya.transform;
+        GameObject oya = GameObject.Find("Canvas");
+        transform.parent = oya.transform;
+        transform.localPosition = new Vector3(0, 5.7f, -1);
         animator = GetComponent<Animator>();
+        
+    }
+    private void FixedUpdate()
+    {
+       
+           
     }
     private void Update()
     {
-
-
-        // ©g‚ª¶¬‚µ‚½ƒIƒuƒWƒFƒNƒg‚¾‚¯‚ÉˆÚ“®ˆ—‚ğs‚¤
+        var ismenu = menumanager.ismenu;
+        infection = Infection2.infected;
+        var x = Input.GetAxisRaw("Horizontal");
+        var  y = Input.GetAxisRaw("Vertical");
+        if (infection == true)
+        {
+            speed = 2f;
+        }
+        else
+        {
+            speed = 5f;
+        }
+        // ï¿½ï¿½ï¿½gï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Iï¿½uï¿½Wï¿½Fï¿½Nï¿½gï¿½ï¿½ï¿½ï¿½ï¿½ÉˆÚ“ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½sï¿½ï¿½
         if (photonView.IsMine)
         {
-            float x = Input.GetAxisRaw("Horizontal");
-            float y = Input.GetAxisRaw("Vertical");
-            if (Input.GetAxisRaw("Horizontal") != 0&&isver==false )
+            if (ismenu == false)
             {
-                input = new Vector3(Input.GetAxisRaw("Horizontal"), 0, 0f);ishor = true;
-            }
-            else if(Input.GetAxisRaw("Vertical") != 0 && ishor == false)
+                if (Input.GetAxisRaw("Horizontal") != 0 && isver == false)
                 {
-                input = new Vector3(0, Input.GetAxisRaw("Vertical"), 0f);isver = true;
-            }
-            else
-            {
-                input = new Vector3(0, 0, 0f);
-            }
-            transform.Translate(5f * Time.deltaTime * input.normalized);
+                    input = new Vector3(Input.GetAxisRaw("Horizontal"), 0, 0f); ishor = true;
+                }
+                else if (Input.GetAxisRaw("Vertical") != 0 && ishor == false)
+                {
+                    input = new Vector3(0, Input.GetAxisRaw("Vertical"), 0f); isver = true;
+                }
+                else
+                {
+                    input = new Vector3(0, 0, 0f);
+                }
+                transform.Translate(speed * Time.deltaTime * input.normalized);
+            } 
+           
             popo = transform.position;
             if (Input.GetKeyUp(KeyCode.D)|| Input.GetKeyUp(KeyCode.RightArrow)){ animator.SetFloat(idX, 0.5f); animator.SetFloat(idY, 0); ispush = false; ishor = false; }
             if (Input.GetKeyUp(KeyCode.A) || Input.GetKeyUp(KeyCode.LeftArrow)) { animator.SetFloat(idX, -0.5f); animator.SetFloat(idY, 0); ispush=false; ishor = false; }
