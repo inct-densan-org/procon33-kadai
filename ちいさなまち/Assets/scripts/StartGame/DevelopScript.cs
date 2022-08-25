@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
 using Photon.Realtime;
+using Hashtable = ExitGames.Client.Photon.Hashtable;
 
 public class DevelopScript : MonoBehaviourPunCallbacks
 {
@@ -57,8 +58,18 @@ public class DevelopScript : MonoBehaviourPunCallbacks
 
     public void RoomCreate(){
         if (PhotonNetwork.IsConnected){
-            //nullか""を渡すと自動でユニークなルーム名が生成されるそう
-            PhotonNetwork.CreateRoom(null);
+            //カスタムプロパティを設定 後でユーザーが入力できるように変更
+            var customProperties = new Hashtable();
+            customProperties["RoomName"] = "TEST(暫定)";
+            customProperties["Difficulty"] = "ノーマル";
+
+            //ルームの設定
+            var roomOptions = new RoomOptions();
+            roomOptions.MaxPlayers = 8;
+            roomOptions.CustomRoomProperties =customProperties;
+            roomOptions.CustomRoomPropertiesForLobby = new[] {"RoomName", "Difficulty"};
+            
+            PhotonNetwork.CreateRoom(null, roomOptions);
         }
         else{
             Debug.Log("マスターサーバーに接続されていません。");
