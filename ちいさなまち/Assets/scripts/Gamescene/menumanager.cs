@@ -20,14 +20,13 @@ public class menumanager : MonoBehaviour
             if (ismenu == false)
             {
                 
-                gezi.SetActive(false);
+                
                 menu.SetActive(true);
                 ismenu = true;
             }
             else
             {
                 
-                gezi.SetActive(true);
                 menu.SetActive(false);
                 ismenu = false;
             }
