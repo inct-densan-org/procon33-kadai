@@ -5,11 +5,10 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "ItemDataBase", menuName = "CreateItemDataBase")]
 public class ItemDataBase : ScriptableObject
 {
-
 	[SerializeField]
 	private List<Item> itemLists = new List<Item>();
 
-	//@ƒAƒCƒeƒ€ƒŠƒXƒg‚ğ•Ô‚·
+	//ï¿½@ï¿½Aï¿½Cï¿½eï¿½ï¿½ï¿½ï¿½ï¿½Xï¿½gï¿½ï¿½Ô‚ï¿½
 	public List<Item> GetItemLists()
 	{
 		return itemLists;

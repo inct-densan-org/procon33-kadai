@@ -19,14 +19,11 @@ public class menumanager : MonoBehaviour
         {
             if (ismenu == false)
             {
-                
-                
                 menu.SetActive(true);
                 ismenu = true;
             }
             else
             {
-                
                 menu.SetActive(false);
                 ismenu = false;
             }

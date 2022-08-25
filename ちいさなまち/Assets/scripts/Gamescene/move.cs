@@ -2,7 +2,7 @@ using Photon.Pun;
 using UnityEngine;
 using TMPro;
 [RequireComponent(typeof(Animator))]
-// MonoBehaviourPunCallbacks‚ğŒp³‚µ‚ÄAphotonViewƒvƒƒpƒeƒB‚ğg‚¦‚é‚æ‚¤‚É‚·‚é
+// MonoBehaviourPunCallbacksï¿½ï¿½ï¿½pï¿½ï¿½ï¿½ï¿½ï¿½ÄAphotonViewï¿½vï¿½ï¿½ï¿½pï¿½eï¿½Bï¿½ï¿½ï¿½gï¿½ï¿½ï¿½ï¿½æ‚¤ï¿½É‚ï¿½ï¿½ï¿½
 public class move : MonoBehaviourPunCallbacks
 {
     private bool ispush,ishor,isver,infection;
@@ -12,14 +12,14 @@ public class move : MonoBehaviourPunCallbacks
     private Vector3 input;
     private menumanager menumanager;
 
-    private float speed=5f;
+    private float speed = 5f;
    
  
     public void Start()
     {
         GameObject oya = GameObject.Find("Canvas");
-       transform.parent = oya.transform;
-        transform.localPosition = new Vector3(0,5.7f,-1);
+        transform.parent = oya.transform;
+        transform.localPosition = new Vector3(0, 5.7f, -1);
         animator = GetComponent<Animator>();
         
     }
@@ -33,7 +33,7 @@ public class move : MonoBehaviourPunCallbacks
         var ismenu = menumanager.ismenu;
         infection = Infection2.infected;
         var x = Input.GetAxisRaw("Horizontal");
-      var  y = Input.GetAxisRaw("Vertical");
+        var  y = Input.GetAxisRaw("Vertical");
         if (infection == true)
         {
             speed = 2f;
@@ -42,7 +42,7 @@ public class move : MonoBehaviourPunCallbacks
         {
             speed = 5f;
         }
-        // ©g‚ª¶¬‚µ‚½ƒIƒuƒWƒFƒNƒg‚¾‚¯‚ÉˆÚ“®ˆ—‚ğs‚¤
+        // ï¿½ï¿½ï¿½gï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Iï¿½uï¿½Wï¿½Fï¿½Nï¿½gï¿½ï¿½ï¿½ï¿½ï¿½ÉˆÚ“ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½sï¿½ï¿½
         if (photonView.IsMine)
         {
             if (ismenu == false)

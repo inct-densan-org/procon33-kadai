@@ -8,8 +8,8 @@ public class foodgaugemanager : MonoBehaviour
     public float time = 0;
     private itibyou byou;
     private Image Bar;
-    const float MIN = 0;     // Å¬’l
-    const float MAX = 100;   // Å‘å’l
+    const float MIN = 0;     // ï¿½Åï¿½ï¿½l
+    const float MAX = 100;   // ï¿½Å‘ï¿½l
     // Start is called before the first frame update
     void Start()
     {
@@ -18,7 +18,6 @@ public class foodgaugemanager : MonoBehaviour
         var byou = gameObject.AddComponent<itibyou>();
         byou.Init(() =>
         {
-
             time++;
            // Bar.fillAmount = 1 - (time / 100);
         });
@@ -28,18 +27,15 @@ public class foodgaugemanager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        time= Mathf.Clamp(time, MIN, MAX);
+        time = Mathf.Clamp(time, MIN, MAX);
         if (Input.GetKeyDown(KeyCode.Q))
         {
             time -= 10;
         }
         Bar.fillAmount = 1 - (time / 100);
-       // if (time >= 10 )
-       // {
-
+        // if (time >= 10 )
+        // {
             //    byou.Stop();
-
-
-            // }
+        // }
     }
 }

@@ -2,38 +2,33 @@ using Photon.Pun;
 using Photon.Realtime;
 using UnityEngine;
 
-// MonoBehaviourPunCallbacks‚ğŒp³‚µ‚ÄAPUN‚ÌƒR[ƒ‹ƒoƒbƒN‚ğó‚¯æ‚ê‚é‚æ‚¤‚É‚·‚é
+// MonoBehaviourPunCallbacksï¿½ï¿½ï¿½pï¿½ï¿½ï¿½ï¿½ï¿½ÄAPUNï¿½ÌƒRï¿½[ï¿½ï¿½ï¿½oï¿½bï¿½Nï¿½ï¿½ï¿½ó‚¯ï¿½ï¿½ï¿½æ‚¤ï¿½É‚ï¿½ï¿½ï¿½
 public class PUN2Server : MonoBehaviourPunCallbacks
 {
-
     public static GameObject clone;
-    
 
     private void Start()
     {
-        
-        // PhotonServerSettings‚Ìİ’è“à—e‚ğg‚Á‚Äƒ}ƒXƒ^[ƒT[ƒo[‚ÖÚ‘±‚·‚é
+        // PhotonServerSettingsï¿½Ìİ’ï¿½ï¿½ï¿½eï¿½ï¿½ï¿½gï¿½ï¿½ï¿½Äƒ}ï¿½Xï¿½^ï¿½[ï¿½Tï¿½[ï¿½oï¿½[ï¿½ÖÚ‘ï¿½ï¿½ï¿½ï¿½ï¿½
         PhotonNetwork.ConnectUsingSettings();
     }
 
-    // ƒ}ƒXƒ^[ƒT[ƒo[‚Ö‚ÌÚ‘±‚ª¬Œ÷‚µ‚½‚ÉŒÄ‚Î‚ê‚éƒR[ƒ‹ƒoƒbƒN
+    // ï¿½}ï¿½Xï¿½^ï¿½[ï¿½Tï¿½[ï¿½oï¿½[ï¿½Ö‚ÌÚ‘ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÉŒÄ‚Î‚ï¿½ï¿½Rï¿½[ï¿½ï¿½ï¿½oï¿½bï¿½N
     public override void OnConnectedToMaster()
     {
-        // "Room"‚Æ‚¢‚¤–¼‘O‚Ìƒ‹[ƒ€‚ÉQ‰Á‚·‚éiƒ‹[ƒ€‚ª‘¶İ‚µ‚È‚¯‚ê‚Îì¬‚µ‚ÄQ‰Á‚·‚éj
+        // "Room"ï¿½Æ‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Oï¿½Ìƒï¿½ï¿½[ï¿½ï¿½ï¿½ÉQï¿½ï¿½ï¿½ï¿½ï¿½ï¿½iï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½İ‚ï¿½ï¿½È‚ï¿½ï¿½ï¿½Îì¬ï¿½ï¿½ï¿½ÄQï¿½ï¿½ï¿½ï¿½ï¿½ï¿½j
         PhotonNetwork.JoinOrCreateRoom("Room", new RoomOptions(), TypedLobby.Default);
     }
 
-    // ƒQ[ƒ€ƒT[ƒo[‚Ö‚ÌÚ‘±‚ª¬Œ÷‚µ‚½‚ÉŒÄ‚Î‚ê‚éƒR[ƒ‹ƒoƒbƒN
+    // ï¿½Qï¿½[ï¿½ï¿½ï¿½Tï¿½[ï¿½oï¿½[ï¿½Ö‚ÌÚ‘ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÉŒÄ‚Î‚ï¿½ï¿½Rï¿½[ï¿½ï¿½ï¿½oï¿½bï¿½N
     public override void OnJoinedRoom()
     {
-        // ƒ‰ƒ“ƒ_ƒ€‚ÈÀ•W‚É©g‚ÌƒAƒoƒ^[iƒlƒbƒgƒ[ƒNƒIƒuƒWƒFƒNƒgj‚ğ¶¬‚·‚é
+        // ï¿½ï¿½ï¿½ï¿½ï¿½_ï¿½ï¿½ï¿½Èï¿½ï¿½Wï¿½Éï¿½ï¿½gï¿½ÌƒAï¿½oï¿½^ï¿½[ï¿½iï¿½lï¿½bï¿½gï¿½ï¿½ï¿½[ï¿½Nï¿½Iï¿½uï¿½Wï¿½Fï¿½Nï¿½gï¿½jï¿½ğ¶ï¿½ï¿½ï¿½ï¿½ï¿½
         
         clone = PhotonNetwork.Instantiate("Avator", new Vector3(20, 15,-1), Quaternion.identity);
         
         //clone = null;
         //var cameraposion = new Vector3(0, 0, 0);
         //PhotonNetwork.Instantiate("Main Camera", cameraposion, Quaternion.identity);
-
     }
-    
 }
