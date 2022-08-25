@@ -236,6 +236,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   kansenhani: {fileID: 0}
+  shopmanager: {fileID: 0}
 --- !u!50 &639113197991192582
 Rigidbody2D:
   serializedVersion: 4
@@ -312,6 +313,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   kansenhani: {fileID: 0}
+  shopmanager: {fileID: 0}
 --- !u!114 &5064663648964338806
 MonoBehaviour:
   m_ObjectHideFlags: 0

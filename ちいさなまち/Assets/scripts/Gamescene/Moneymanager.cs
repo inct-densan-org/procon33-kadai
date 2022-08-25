@@ -15,13 +15,13 @@ public class Moneymanager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        text.text = $"{Money}"+"�~";
+        text.text = $"{Money}"+"円";
         if (Input.GetKeyDown(KeyCode.M))
         {
-            Getmoney(100);
+            Setmoney(100);
         }
     }
-    public static void Getmoney(int money)
+    public static void Setmoney(int money)
     {
         Money += money;
     }

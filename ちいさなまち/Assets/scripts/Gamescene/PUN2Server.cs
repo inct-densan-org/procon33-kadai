@@ -26,12 +26,12 @@ public class PUN2Server : MonoBehaviourPunCallbacks
     // ゲームサーバーへの接続が成功した時に呼ばれるコールバック
     public override void OnJoinedRoom()
     {
-        man = true;
-        if (man == true)
+        int isman = Random.Range(0, 2);
+        if (isman == 0)
         {
             clone = PhotonNetwork.Instantiate("man", new Vector3(20, 15, -1), Quaternion.identity);
         }
-        if (woman == true)
+        if (isman == 1)
         {
             clone = PhotonNetwork.Instantiate("woman", new Vector3(20, 15, -1), Quaternion.identity);
         }

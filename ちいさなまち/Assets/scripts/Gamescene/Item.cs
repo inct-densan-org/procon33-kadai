@@ -16,7 +16,7 @@ public class Item : ScriptableObject
 		food,
 		medicine,
 		water
-
+        
 	}
 
 	//　アイテムの種類
@@ -31,6 +31,8 @@ public class Item : ScriptableObject
 	//　アイテムの情報
 	[SerializeField]
 	private string information;
+	[SerializeField]
+	private string money;
 
 	public KindOfItem GetKindOfItem()
 	{
@@ -50,5 +52,9 @@ public class Item : ScriptableObject
 	public string GetInformation()
 	{
 		return information;
+	}
+	public string Getmoney()
+	{
+		return money;
 	}
 }
