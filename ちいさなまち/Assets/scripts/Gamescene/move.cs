@@ -10,16 +10,13 @@ public class move : MonoBehaviourPunCallbacks
     private Animator animator = null;
     public static Vector3 popo;
     private Vector3 input;
-    private new Rigidbody2D rigidbody;
+    private menumanager menumanager;
+
     private float speed=5f;
-    private Infection2 Infection2;
-    //private void Start()
-    //{
-    //    this.transform.position = new Vector3(20f, 20f, 0f);
-    // }
+   
+ 
     public void Start()
     {
-        rigidbody = GetComponent<Rigidbody2D>();
         GameObject oya = GameObject.Find("Canvas");
        transform.parent = oya.transform;
         transform.localPosition = new Vector3(0,5.7f,-1);
@@ -28,16 +25,12 @@ public class move : MonoBehaviourPunCallbacks
     }
     private void FixedUpdate()
     {
-        //if (photonView.IsMine)
-        //{
-        //    var x = Input.GetAxis("Horizontal");
-        //    var y = Input.GetAxis("Vertical");
-        //    rigidbody.velocity = new Vector3(x, y, 0) * 5;
-        //}
+       
            
     }
     private void Update()
     {
+        var ismenu = menumanager.ismenu;
         infection = Infection2.infected;
         var x = Input.GetAxisRaw("Horizontal");
       var  y = Input.GetAxisRaw("Vertical");
@@ -52,20 +45,23 @@ public class move : MonoBehaviourPunCallbacks
         // 自身が生成したオブジェクトだけに移動処理を行う
         if (photonView.IsMine)
         {
-            
-           if (Input.GetAxisRaw("Horizontal") != 0&&isver==false )
-           {
-                input = new Vector3(Input.GetAxisRaw("Horizontal"), 0, 0f);ishor = true;
-            }
-            else if(Input.GetAxisRaw("Vertical") != 0 && ishor == false)
-                {
-                input = new Vector3(0, Input.GetAxisRaw("Vertical"), 0f);isver = true;
-            }
-            else
+            if (ismenu == false)
             {
-                input = new Vector3(0, 0, 0f);
-            }
-            transform.Translate(speed * Time.deltaTime * input.normalized);
+                if (Input.GetAxisRaw("Horizontal") != 0 && isver == false)
+                {
+                    input = new Vector3(Input.GetAxisRaw("Horizontal"), 0, 0f); ishor = true;
+                }
+                else if (Input.GetAxisRaw("Vertical") != 0 && ishor == false)
+                {
+                    input = new Vector3(0, Input.GetAxisRaw("Vertical"), 0f); isver = true;
+                }
+                else
+                {
+                    input = new Vector3(0, 0, 0f);
+                }
+                transform.Translate(speed * Time.deltaTime * input.normalized);
+            } 
+           
             popo = transform.position;
             if (Input.GetKeyUp(KeyCode.D)|| Input.GetKeyUp(KeyCode.RightArrow)){ animator.SetFloat(idX, 0.5f); animator.SetFloat(idY, 0); ispush = false; ishor = false; }
             if (Input.GetKeyUp(KeyCode.A) || Input.GetKeyUp(KeyCode.LeftArrow)) { animator.SetFloat(idX, -0.5f); animator.SetFloat(idY, 0); ispush=false; ishor = false; }
