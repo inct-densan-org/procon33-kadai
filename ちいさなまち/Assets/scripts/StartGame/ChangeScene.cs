@@ -9,7 +9,8 @@ public class ChangeScene : MonoBehaviour
 {
     public GameObject scenes;
     public GameObject titleScene;
-    public GameObject selectingDifficultyScene;
+    public GameObject settingPlayerDataScene;
+    public GameObject roomSelectorScene;
     public GameObject rulesScene;
     public GameObject settingsScene;
     public TextMeshProUGUI inputField;
@@ -28,12 +29,18 @@ public class ChangeScene : MonoBehaviour
         titleScene.SetActive(true);
     }
 
-    public void GotoSelectingDifficulty(){
+    public void GotoSettingPlayerData(){
+        DisableAllScene();
+        settingPlayerDataScene.SetActive(true);
+    }
+
+    public void GotoRoomSelector(){
         DisableAllScene();
 
         //InputFieldに何も入れないと"ゼロ幅スペース"なるものが代入されている
         //ゼロ幅スペースは \u200b (char型だと8203)
         string playerName = inputField.text.Replace("\u200b", "");
+
         if (System.String.IsNullOrWhiteSpace(playerName)){
             playerName = "Player";
         }
@@ -41,10 +48,10 @@ public class ChangeScene : MonoBehaviour
             playerName = inputField.text.Replace(" ", "_");
             playerName =playerName.Replace("　", "_");
         }
-
+        
         PhotonNetwork.NickName = playerName;
         playerNameOutput.text = $"プレイヤー名 : {PhotonNetwork.NickName}";
-        selectingDifficultyScene.SetActive(true);
+        roomSelectorScene.SetActive(true);
     }
 
     public void GotoRules(){
