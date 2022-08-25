@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 726125375}
   - component: {fileID: 585359865}
   - component: {fileID: 585359864}
+  - component: {fileID: -3560136392759916722}
   m_Layer: 0
   m_Name: Avator
   m_TagString: Player
@@ -311,3 +312,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   kansenhani: {fileID: 0}
+--- !u!114 &-3560136392759916722
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2546455515793489155}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c7c8a80b95bdbd4591608303d96103b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hospitalPrefab: {fileID: 0}
