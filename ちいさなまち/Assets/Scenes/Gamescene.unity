@@ -5662,7 +5662,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shopmenu: {fileID: 1333576253}
-  Infection2: {fileID: 0}
+  icon1: {fileID: 1773998175}
+  icon2: {fileID: 45744935}
+  icon3: {fileID: 1298242638}
+  icon4: {fileID: 1839681935}
+  en1: {fileID: 136103241}
+  en2: {fileID: 1882896132}
+  en3: {fileID: 643311006}
+  en4: {fileID: 1474415286}
+  info1: {fileID: 2046917759}
+  info2: {fileID: 541968151}
+  info3: {fileID: 376357421}
+  info4: {fileID: 588120895}
+  kosuu1: {fileID: 1449236991}
+  kosuu2: {fileID: 581643299}
+  kosuu3: {fileID: 288680469}
+  kosuu4: {fileID: 969770520}
+  total: {fileID: 257480637}
+  moneytext: {fileID: 859347275}
+  mesege: {fileID: 1359519179}
+  itemDataBase: {fileID: 11400000, guid: 95fa6098fd019724ab6a92cf42ab58f9, type: 2}
 --- !u!1 &1298242636
 GameObject:
   m_ObjectHideFlags: 0
