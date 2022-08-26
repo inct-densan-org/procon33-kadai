@@ -47,17 +47,7 @@ public class Infection2 : MonoBehaviourPunCallbacks
             }
         }
     }
-    private void OnTriggerStay2D(Collider2D collision)
-    {
-        if (collision.gameObject.CompareTag("shop"))
-        {
-            haninai = true;
-        }
-        else
-        {
-            haninai = false;
-        }
-    }
+  
 
     void cooldowm()
     {
