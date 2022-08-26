@@ -31,7 +31,7 @@ public class Item : ScriptableObject
 	[SerializeField]
 	private string information;
 	[SerializeField]
-	private string money;
+	private int money;
 
 	public KindOfItem GetKindOfItem()
 	{
@@ -52,7 +52,7 @@ public class Item : ScriptableObject
 	{
 		return information;
 	}
-	public string Getmoney()
+	public int Getmoney()
 	{
 		return money;
 	}
