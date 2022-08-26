@@ -17,25 +17,7 @@ public class shopmanager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        haninai = Infection2.haninai;
-        if (haninai&&a==false)
-        {
-            hyouzi();a = true;
-        }
-        if(haninai==false)
-        {
-            a = false;
-        }
+      
     }
-    void hyouzi()
-    {
-        {
-            Debug.Log("dekiteru");
-            if (Input.GetKeyDown(KeyCode.Space))
-            {
-                shopmenu.SetActive(true);
-                isshop = true;
-            }
-        }
-    }
+   
 }
