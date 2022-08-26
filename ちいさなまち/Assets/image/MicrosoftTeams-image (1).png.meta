@@ -83,13 +83,13 @@ TextureImporter:
       name: MicrosoftTeams-image (1)_0
       rect:
         serializedVersion: 2
-        x: 302
-        y: 735
-        width: 225
+        x: 126
+        y: 740
+        width: 401
         height: 505
-      alignment: 9
-      pivot: {x: 0.49999985, y: 0.50367844}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 177, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -108,8 +108,8 @@ TextureImporter:
         y: 747
         width: 207
         height: 488
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -127,10 +127,10 @@ TextureImporter:
         serializedVersion: 2
         x: 915
         y: 747
-        width: 219
+        width: 218
         height: 498
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -147,11 +147,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 280
-        y: 222
-        width: 252
-        height: 474
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        y: 175
+        width: 246
+        height: 519
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -171,8 +171,8 @@ TextureImporter:
         y: 218
         width: 206
         height: 484
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -188,13 +188,13 @@ TextureImporter:
       name: MicrosoftTeams-image (1)_5
       rect:
         serializedVersion: 2
-        x: 913
-        y: 222
-        width: 230
-        height: 482
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
+        x: 918
+        y: 175
+        width: 278
+        height: 533
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 48, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0

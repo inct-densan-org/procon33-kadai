@@ -253,7 +253,7 @@ GameObject:
   - component: {fileID: 273825319}
   - component: {fileID: 273825320}
   m_Layer: 0
-  m_Name: waku (3)
+  m_Name: RightWall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1354,7 +1354,7 @@ GameObject:
   - component: {fileID: 795040010}
   - component: {fileID: 795040011}
   m_Layer: 0
-  m_Name: waku (2)
+  m_Name: DownWall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1724,7 +1724,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.05532074, y: 0.88674974}
+  m_Offset: {x: 0.05532074, y: -0.0024814606}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -1735,7 +1735,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 19.952274, y: 19.896885}
+  m_Size: {x: 19.952274, y: 20.110306}
   m_EdgeRadius: 0
 --- !u!50 &1019324629
 Rigidbody2D:
@@ -1769,7 +1769,7 @@ GameObject:
   - component: {fileID: 1130195969}
   - component: {fileID: 1130195970}
   m_Layer: 0
-  m_Name: waku (1)
+  m_Name: UpWall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2613,7 +2613,7 @@ GameObject:
   - component: {fileID: 1779085398}
   - component: {fileID: 1779085399}
   m_Layer: 0
-  m_Name: waku
+  m_Name: LefWall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

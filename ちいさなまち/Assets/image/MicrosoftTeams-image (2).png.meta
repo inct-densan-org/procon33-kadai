@@ -83,13 +83,13 @@ TextureImporter:
       name: MicrosoftTeams-image (2)_0
       rect:
         serializedVersion: 2
-        x: 302
-        y: 525
-        width: 210
-        height: 551
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
+        x: 177
+        y: 495
+        width: 339
+        height: 583
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 126, y: 40, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -108,8 +108,8 @@ TextureImporter:
         y: 539
         width: 204
         height: 534
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -126,12 +126,12 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 932
-        y: 535
-        width: 211
-        height: 543
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
+        y: 495
+        width: 303
+        height: 583
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 47, z: 99, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
