@@ -20,9 +20,10 @@ public class TileController : MonoBehaviourPunCallbacks
         var p1 = player[0];
         if (p1 == PhotonNetwork.LocalPlayer) 
         {
-            for (int i=0;i <28; i++) used[i] == false;
-            
-            var position = new Vector3(0, 0, 0);
+            for (int i = 0; i < 28; i++) 
+            {
+                used[i] = false;
+            }
 
             // 病院の場所を決定
             //LargeBuildingDecider(hospitalPrefab);
@@ -38,6 +39,8 @@ public class TileController : MonoBehaviourPunCallbacks
 
     private void LargeBuildingDecider(GameObject prefab)
     {
+        var position = new Vector3(0, 0, 0);
+
         var rnd = UnityEngine.Random.Range(0, 8);
         if (rnd == 0 && !used[0])
         {
@@ -102,11 +105,11 @@ public class TileController : MonoBehaviourPunCallbacks
     void SetSmallBuildingWithJob(Vector3 position, GameObject prefab)
     {
         // １マスの機能付き建物のプレハブを設置する
-        Instantiate(prefab, position, Quarternion.identity);
+        Instantiate(prefab, position, Quaternion.identity);
     }
 
     [PunRPC]
-    void SetSmallBuilding(Vector3 position, TileBase tileBase)
+    void SetSmallBuilding(Vector3Int position, TileBase tileBase)
     {
         tilemap.SetTile(position, tileBase);
     }
