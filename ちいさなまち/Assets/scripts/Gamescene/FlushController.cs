@@ -27,5 +27,7 @@ public class FlushController : MonoBehaviourPunCallbacks
 
         if (trigger) pos.z = 0.0f;
         else pos.z = -50.0f;
+
+        this.transform.position = pos;
     }
 }

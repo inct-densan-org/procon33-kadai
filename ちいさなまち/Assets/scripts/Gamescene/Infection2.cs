@@ -47,7 +47,6 @@ public class Infection2 : MonoBehaviourPunCallbacks
             }
         }
     }
-  
 
     void cooldowm()
     {
