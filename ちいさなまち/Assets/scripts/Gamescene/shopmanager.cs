@@ -20,15 +20,18 @@ public class shopmanager : MonoBehaviour
     void Start()
     {
         //time = Mathf.Clamp(time, MIN, MAX);
-
         for (int i = 0; i < itemDataBase.GetItemLists().Count; i++)
         {
-            //?@?A?C?e??????K??????
-            numOfItem.Add(itemDataBase.GetItemLists()[i], 0);
-            //?@?m?F???f?[?^?o??
-
-            Debug.Log(itemDataBase.GetItemLists()[i].GetItemName() + ": " + itemDataBase.GetItemLists()[i].GetInformation() + "??");
+            itemDataBase.GetItemLists()[i].syokika();
         }
+        //for (int i = 0; i < itemDataBase.GetItemLists().Count; i++)
+        //{
+        //    //?@?A?C?e??????K??????
+        //    numOfItem.Add(itemDataBase.GetItemLists()[i], 0);
+        //    //?@?m?F???f?[?^?o??
+
+        //    Debug.Log(itemDataBase.GetItemLists()[i].GetItemName() + ": " + itemDataBase.GetItemLists()[i].GetInformation() + "??");
+        //}
     }
     // Update is called once per frame
     void Update()
@@ -83,7 +86,19 @@ public class shopmanager : MonoBehaviour
     public void Onpushsita2() { ko2--; }
     public void Onpushsita3() { ko3--; }
     public void Onpushsita4() { ko4--; }
-    public void Onpushbuy() { if (money < totalmoney) { mesege.text = "èäéùã‡Ç™ë´ÇËÇ‹ÇπÇÒ"; Invoke(nameof(mesagedele), 3f); } else { mesege.text = "çwì¸ÇµÇ‹ÇµÇΩ";Invoke(nameof(mesagedele), 3f);Moneymanager.Setmoney(totalmoney); } }
+    public void Onpushbuy() 
+    { if (money < totalmoney) { mesege.text = "èäéùã‡Ç™ë´ÇËÇ‹ÇπÇÒ"; Invoke(nameof(mesagedele), 3f); }
+        if (totalmoney == 0) { mesege.text = "ÉAÉCÉeÉÄÇëIÇÒÇ≈Ç≠ÇæÇ≥Ç¢"; Invoke(nameof(mesagedele), 3f); }
+        if(money >= totalmoney&&totalmoney!=0)  {
+            mesege.text = "çwì¸ÇµÇ‹ÇµÇΩ";
+            Invoke(nameof(mesagedele), 3f);
+            Moneymanager.Setmoney(-(totalmoney));
+            itemDataBase.GetItemLists()[0].Setkosuu(ko1);
+            itemDataBase.GetItemLists()[1].Setkosuu(ko2);
+            itemDataBase.GetItemLists()[2].Setkosuu(ko3);
+            itemDataBase.GetItemLists()[3].Setkosuu(ko4);
+        } 
+    }
     void mesagedele()
     {
         mesege.text = null;

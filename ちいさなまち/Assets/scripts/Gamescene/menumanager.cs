@@ -15,7 +15,8 @@ public class menumanager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        var isshop = shopmanager.isshop;
+        if (Input.GetKeyDown(KeyCode.Escape)&&isshop==false)
         {
             if (ismenu == false)
             {

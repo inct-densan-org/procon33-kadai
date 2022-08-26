@@ -6,7 +6,7 @@ using UnityEngine;
 public class PUN2Server : MonoBehaviourPunCallbacks
 {
     public static GameObject clone;
-
+    private ItemDataBase itemDataBase;
     private bool man, woman;
     private void Start()
     {
@@ -24,6 +24,7 @@ public class PUN2Server : MonoBehaviourPunCallbacks
     // ゲームサーバーへの接続が成功した時に呼ばれるコールバック
     public override void OnJoinedRoom()
     {
+        
         int isman = Random.Range(0, 2);
         if (isman == 1)
         {

@@ -32,6 +32,8 @@ public class Item : ScriptableObject
 	private string information;
 	[SerializeField]
 	private int money;
+	[SerializeField]
+	private int kosuu;
 
 	public KindOfItem GetKindOfItem()
 	{
@@ -56,4 +58,16 @@ public class Item : ScriptableObject
 	{
 		return money;
 	}
+	public int Getkosuu()
+	{
+		return kosuu;
+	}
+	public void Setkosuu(int itemkazu)
+    {
+		kosuu = itemkazu + kosuu;
+    }
+	public void syokika()
+    {
+		kosuu = 0;
+    }
 }
