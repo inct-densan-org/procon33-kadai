@@ -5,13 +5,11 @@ using UnityEngine;
 // MonoBehaviourPunCallbacksを継承して、PUNのコールバックを受け取れるようにする
 public class PUN2Server : MonoBehaviourPunCallbacks
 {
-
     public static GameObject clone;
 
     private bool man, woman;
     private void Start()
     {
-
         // PhotonServerSettingsの設定内容を使ってマスターサーバーへ接続する
         PhotonNetwork.ConnectUsingSettings();
     }
@@ -27,17 +25,13 @@ public class PUN2Server : MonoBehaviourPunCallbacks
     public override void OnJoinedRoom()
     {
         int isman = Random.Range(0, 2);
-        if (isman == 0)
+        if (isman == 1)
         {
             clone = PhotonNetwork.Instantiate("man", new Vector3(20, 15, -1), Quaternion.identity);
         }
-        if (isman == 1)
+        else
         {
             clone = PhotonNetwork.Instantiate("woman", new Vector3(20, 15, -1), Quaternion.identity);
         }
-
-
-
     }
-
 }

@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class ItemKeeper : MonoBehaviour
 {
-    public int hasDrinks = 0; // 所持している飲料の数
-    public int hasFoods = 0;  // 所持している食料の数
+    public int hasWater = 0;      // 所持している飲料の数
+    public int hasFoods = 0;      // 所持している食料の数
+    public int hasMasks = 0;      // 所持しているマスクの数
+    public int hasmedicines = 0;  // 所持している薬の数
 
     // Start is called before the first frame update
     void Start()

@@ -19,7 +19,7 @@ public class foodgaugemanager : MonoBehaviour
         byou.Init(() =>
         {
             time++;
-           // Bar.fillAmount = 1 - (time / 100);
+            // Bar.fillAmount = 1 - (time / 100);
         });
         byou.Play();
     }

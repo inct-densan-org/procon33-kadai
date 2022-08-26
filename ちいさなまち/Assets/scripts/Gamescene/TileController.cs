@@ -32,7 +32,6 @@ public class TileController : MonoBehaviourPunCallbacks
             else if (rnd == 7) position = new Vector3(-12, 0, 0);  // 左
 
             photonView.RPC(nameof(SetHospital), RpcTarget.AllBufferedViaServer, position);
-
         }
     }
 

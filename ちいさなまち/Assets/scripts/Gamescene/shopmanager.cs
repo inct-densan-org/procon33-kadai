@@ -11,7 +11,6 @@ public class shopmanager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
         
     }
 
@@ -30,7 +29,6 @@ public class shopmanager : MonoBehaviour
     }
     void hyouzi()
     {
-        
         {
             Debug.Log("dekiteru");
             if (Input.GetKeyDown(KeyCode.Space))
@@ -40,5 +38,4 @@ public class shopmanager : MonoBehaviour
             }
         }
     }
-  
 }

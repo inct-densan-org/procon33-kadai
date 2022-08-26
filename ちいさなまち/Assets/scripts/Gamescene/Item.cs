@@ -15,20 +15,19 @@ public class Item : ScriptableObject
 		Mask,
 		food,
 		medicine,
-		water
-        
+		water,        
 	}
 
-	//@ƒAƒCƒeƒ€‚Ìí—Ş
+	//ï¿½@ï¿½Aï¿½Cï¿½eï¿½ï¿½ï¿½Ìï¿½ï¿½
 	[SerializeField]
 	private KindOfItem kindOfItem;
-	//@ƒAƒCƒeƒ€‚ÌƒAƒCƒRƒ“
+	//ï¿½@ï¿½Aï¿½Cï¿½eï¿½ï¿½ï¿½ÌƒAï¿½Cï¿½Rï¿½ï¿½
 	[SerializeField]
 	private Sprite icon;
-	//@ƒAƒCƒeƒ€‚Ì–¼‘O
+	//ï¿½@ï¿½Aï¿½Cï¿½eï¿½ï¿½ï¿½Ì–ï¿½ï¿½O
 	[SerializeField]
 	private string itemName;
-	//@ƒAƒCƒeƒ€‚Ìî•ñ
+	//ï¿½@ï¿½Aï¿½Cï¿½eï¿½ï¿½ï¿½Ìï¿½ï¿½
 	[SerializeField]
 	private string information;
 	[SerializeField]

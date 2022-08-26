@@ -13,8 +13,7 @@ public class move : MonoBehaviourPunCallbacks
     private menumanager menumanager;
 
     private float speed = 5f;
-   
- 
+
     public void Start()
     {
         GameObject oya = GameObject.Find("Canvas");
@@ -23,11 +22,7 @@ public class move : MonoBehaviourPunCallbacks
         animator = GetComponent<Animator>();
         
     }
-    private void FixedUpdate()
-    {
-       
-           
-    }
+
     private void Update()
     {
         var ismenu = menumanager.ismenu;
@@ -61,7 +56,7 @@ public class move : MonoBehaviourPunCallbacks
                 }
                 transform.Translate(speed * Time.deltaTime * input.normalized);
             } 
-           
+            
             popo = transform.position;
             if (Input.GetKeyUp(KeyCode.D)|| Input.GetKeyUp(KeyCode.RightArrow)){ animator.SetFloat(idX, 0.5f); animator.SetFloat(idY, 0); ispush = false; ishor = false; }
             if (Input.GetKeyUp(KeyCode.A) || Input.GetKeyUp(KeyCode.LeftArrow)) { animator.SetFloat(idX, -0.5f); animator.SetFloat(idY, 0); ispush=false; ishor = false; }
@@ -73,6 +68,5 @@ public class move : MonoBehaviourPunCallbacks
             if (y < -0.1 && ispush == false) { animator.SetFloat(idY, -1); ispush = true; }
         }
     }
-   
 }
 

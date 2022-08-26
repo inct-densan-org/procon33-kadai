@@ -1,23 +1,21 @@
 using ExitGames.Client.Photon;
 using Photon.Realtime;
 
-public static class customproperties//ƒvƒŒƒCƒ„[‚É‚æ‚Á‚Äˆá‚¤•Ï”‚ğ’è‹`‚·‚éŠ
+public static class customproperties//ï¿½vï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½[ï¿½É‚ï¿½ï¿½ï¿½Äˆá‚¤ï¿½Ïï¿½ï¿½ï¿½ï¿½`ï¿½ï¿½ï¿½éŠ
 {
     private const string InfectionKey = "Infection";
     
-
     private static readonly Hashtable propsToSet = new Hashtable();
 
-    // ƒvƒŒƒCƒ„[‚ÌƒXƒRƒA‚ğæ“¾‚·‚é
+    // ï¿½vï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½[ï¿½ÌƒXï¿½Rï¿½Aï¿½ï¿½ï¿½æ“¾ï¿½ï¿½ï¿½ï¿½
     public static bool GetInfection(this Player player)
     {
         return (player.CustomProperties[InfectionKey] is bool isinfection) ? isinfection : false;
     }
 
-    // ƒvƒŒƒCƒ„[‚ÌƒƒbƒZ[ƒW‚ğæ“¾‚·‚é
-   
-
-    // ƒvƒŒƒCƒ„[‚ÌƒXƒRƒA‚ğİ’è‚·‚é
+    // ï¿½vï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½[ï¿½Ìƒï¿½ï¿½bï¿½Zï¿½[ï¿½Wï¿½ï¿½ï¿½æ“¾ï¿½ï¿½ï¿½ï¿½
+    
+    // ï¿½vï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½[ï¿½ÌƒXï¿½Rï¿½Aï¿½ï¿½İ’è‚·ï¿½ï¿½
     public static void SetInfection(this Player player, bool isinfection)
     {
         propsToSet[InfectionKey] = isinfection;
@@ -25,6 +23,5 @@ public static class customproperties//ƒvƒŒƒCƒ„[‚É‚æ‚Á‚Äˆá‚¤•Ï”‚ğ’è‹`‚·‚éŠ
         propsToSet.Clear();
     }
 
-    // ƒvƒŒƒCƒ„[‚ÌƒƒbƒZ[ƒW‚ğİ’è‚·‚é
-    
+    // ï¿½vï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½[ï¿½Ìƒï¿½ï¿½bï¿½Zï¿½[ï¿½Wï¿½ï¿½İ’è‚·ï¿½ï¿½
 }

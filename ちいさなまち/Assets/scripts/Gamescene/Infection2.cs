@@ -15,7 +15,6 @@ public class Infection2 : MonoBehaviourPunCallbacks
     {
         //kansenhani = transform.Find("kansenhani").gameObject;
         collider2 = this.GetComponent<CircleCollider2D>();
-
     }
 
     // Update is called once per frame
@@ -32,26 +31,21 @@ public class Infection2 : MonoBehaviourPunCallbacks
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-
         if (collision.gameObject.CompareTag("Player"))// && cooltime == false)
         {
-
             cooltime = true;
             Invoke(nameof(cooldowm), 5f);
             infected = PhotonNetwork.LocalPlayer.GetInfection();
             if (infected == true)//infected�͓������Ȃ��Ƃ����Ȃ�
             {
-
                 int rnd = Random.Range(0, 100);
                 if (rnd <= infectionProbability)
                 {
-
                     infected = true;
                     PhotonNetwork.LocalPlayer.SetInfection(infected);
                 }
             }
         }
-
     }
     private void OnTriggerStay2D(Collider2D collision)
     {
@@ -75,7 +69,6 @@ public class Infection2 : MonoBehaviourPunCallbacks
         {
             infected = true;
             PhotonNetwork.LocalPlayer.SetInfection(infected);
-
         }
     }
 }

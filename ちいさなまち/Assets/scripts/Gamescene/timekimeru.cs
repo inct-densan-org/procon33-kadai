@@ -23,7 +23,7 @@ public class timekimeru : MonoBehaviourPunCallbacks
         roomHash.Add("minite", minite);
         roomHash.Add("second", second);
         PhotonNetwork.CurrentRoom.SetCustomProperties(roomHash);
-        if (p1==PhotonNetwork.LocalPlayer)
+        if (p1 == PhotonNetwork.LocalPlayer)
         {
             //var hashtable = new ExitGames.Client.Photon.Hashtable();
             //hashtable["Score"] = 0;
@@ -35,8 +35,8 @@ public class timekimeru : MonoBehaviourPunCallbacks
             {
                 second++;
 
-                if (second == 60) { second = 0; minite++; roomHash["minite"]=minite; }
-                if (minite == 60) { minite = 0; hour++; roomHash["hour"]=hour; roomHash["minite"] = minite; }
+                if (second == 60) { second = 0; minite++; roomHash["minite"] = minite; }
+                if (minite == 60) { minite = 0; hour++; roomHash["hour"] = hour; roomHash["minite"] = minite; }
                 if (hour == 24) { hour = 0; roomHash["hour"] = hour; }
                 roomHash["second"] = second;
                 PhotonNetwork.CurrentRoom.SetCustomProperties(roomHash);

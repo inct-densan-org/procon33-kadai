@@ -28,7 +28,6 @@ public class itibyou : MonoBehaviourPunCallbacks
             {
                 back = elapsedTime;
                 executeAction();
-
             }
             if(elapsedTime < back)
             {
@@ -41,7 +40,6 @@ public class itibyou : MonoBehaviourPunCallbacks
     {
         this.executeAction = action;
         this.intervalTime = intervalTime;
-        
     }
 
     public void Play()
@@ -54,7 +52,7 @@ public class itibyou : MonoBehaviourPunCallbacks
         executeFlag = false;
     }
 }
-//ˆê•b‚²‚Æ‚É‰½‚©‚µ‚½‚¢‚Æ‚«‚Í‘¼‚ÌƒXƒNƒŠƒvƒg‚ÅˆÈ‰º‚Ì‚æ‚¤‚É‚·‚éB‚±‚ê‚Í—á‚Å‚ ‚éBˆê•b‚²‚Æ‚ÉƒfƒoƒbƒOƒƒO‚É•b”‚ð‘‚­‚æ‚¤‚É‚µ‚Ä‚¢‚é
+//ï¿½ï¿½bï¿½ï¿½ï¿½Æ‚É‰ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ‚ï¿½ï¿½Í‘ï¿½ï¿½ÌƒXï¿½Nï¿½ï¿½ï¿½vï¿½gï¿½ÅˆÈ‰ï¿½ï¿½Ì‚æ‚¤ï¿½É‚ï¿½ï¿½ï¿½Bï¿½ï¿½ï¿½ï¿½Í—ï¿½Å‚ï¿½ï¿½ï¿½Bï¿½ï¿½bï¿½ï¿½ï¿½Æ‚Éƒfï¿½oï¿½bï¿½Oï¿½ï¿½ï¿½Oï¿½É•bï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½æ‚¤ï¿½É‚ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½
 //private float time = 0;
 //private itibyou byou;
 // 
@@ -70,5 +68,5 @@ public class itibyou : MonoBehaviourPunCallbacks
 //    });
 //    byou.Play();
 //}
-//Playij‚ÅƒXƒ^[ƒg@Stopij‚ÅŽ~‚ß‚é
+//Playï¿½iï¿½jï¿½ÅƒXï¿½^ï¿½[ï¿½gï¿½@Stopï¿½iï¿½jï¿½ÅŽ~ï¿½ß‚ï¿½
 
