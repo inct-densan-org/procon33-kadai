@@ -10,6 +10,7 @@ public class PUN2Server : MonoBehaviourPunCallbacks
     private bool man, woman;
     private void Start()
     {
+        PhotonNetwork.NickName="Player";
         // PhotonServerSettingsの設定内容を使ってマスターサーバーへ接続する
         PhotonNetwork.ConnectUsingSettings();
     }
