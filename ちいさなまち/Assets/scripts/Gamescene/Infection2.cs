@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using UnityEngine;
 using Photon.Pun;
 public class Infection2 : MonoBehaviourPunCallbacks
@@ -29,7 +30,7 @@ public class Infection2 : MonoBehaviourPunCallbacks
             collider2.radius = 0.5f;
         }
     }
-    private void OnTriggerEnter2D(Collider2D collision)
+    private async void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))// && cooltime == false)
         {
@@ -41,6 +42,7 @@ public class Infection2 : MonoBehaviourPunCallbacks
                 int rnd = Random.Range(0, 100);
                 if (rnd <= infectionProbability)
                 {
+                    await Task.Delay(20000);
                     infected = true;
                     PhotonNetwork.LocalPlayer.SetInfection(infected);
                 }
@@ -52,10 +54,11 @@ public class Infection2 : MonoBehaviourPunCallbacks
     {
         cooltime = false;
     }
-    private void OnCollisionEnter2D(Collision2D collision)
+    private async void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("kansen"))
         {
+            await Task.Delay(20000);
             infected = true;
             PhotonNetwork.LocalPlayer.SetInfection(infected);
         }
