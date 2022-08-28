@@ -9,16 +9,20 @@ public class shopmanager : MonoBehaviour
     public Image icon1, icon2, icon3, icon4;
     // private Sprite sp1, sp2, sp3, sp4;
     public TextMeshProUGUI en1, en2, en3, en4, info1, info2, info3, info4, kosuu1, kosuu2, kosuu3, kosuu4,total,moneytext,mesege;
-    public static bool isshop;
+    //public static bool isshop;
+    private menumanager menumanager;
     private bool haninai, a;
     [SerializeField]
     private ItemDataBase itemDataBase;
     private Dictionary<Item, int> numOfItem = new Dictionary<Item, int>();
     private int ko1, ko2, ko3, ko4,money,totalmoney;
     private Moneymanager Moneymanager;
+    private string menuKey;
+   
     // Start is called before the first frame update
     void Start()
     {
+        
         //time = Mathf.Clamp(time, MIN, MAX);
         for (int i = 0; i < itemDataBase.GetItemLists().Count; i++)
         {
@@ -36,22 +40,24 @@ public class shopmanager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        menuKey = menumanager.menuKey;
+        
         ko1 = Mathf.Clamp(ko1, 0, 9);
         ko2 = Mathf.Clamp(ko2, 0, 9);
         ko3 = Mathf.Clamp(ko3, 0, 9);
         ko4 = Mathf.Clamp(ko4, 0, 9);
-        if (isshop == true)
+        if (menuKey=="shop")
         {
             money = Moneymanager.Money;
-            moneytext.text = $"{money}" + "â~";
+            moneytext.text = $"{money}" + "ÂÜÜ";
             icon1.sprite = itemDataBase.GetItemLists()[0].GetIcon();
             icon2.sprite = itemDataBase.GetItemLists()[1].GetIcon();
             icon3.sprite = itemDataBase.GetItemLists()[2].GetIcon();
             icon4.sprite = itemDataBase.GetItemLists()[3].GetIcon();
-            en1.text = itemDataBase.GetItemLists()[0].Getmoney() + "â~";
-            en2.text = itemDataBase.GetItemLists()[1].Getmoney() + "â~";
-            en3.text = itemDataBase.GetItemLists()[2].Getmoney() + "â~";
-            en4.text = itemDataBase.GetItemLists()[3].Getmoney() + "â~";
+            en1.text = itemDataBase.GetItemLists()[0].Getmoney() + "ÂÜÜ";
+            en2.text = itemDataBase.GetItemLists()[1].Getmoney() + "ÂÜÜ";
+            en3.text = itemDataBase.GetItemLists()[2].Getmoney() + "ÂÜÜ";
+            en4.text = itemDataBase.GetItemLists()[3].Getmoney() + "ÂÜÜ";
             info1.text = $"{itemDataBase.GetItemLists()[0].GetItemName()}" + "\n" + $"{itemDataBase.GetItemLists()[0].GetInformation()}";
             info2.text = $"{itemDataBase.GetItemLists()[1].GetItemName()}" + "\n" + $"{itemDataBase.GetItemLists()[1].GetInformation()}";
             info3.text = $"{itemDataBase.GetItemLists()[2].GetItemName()}" + "\n" + $"{itemDataBase.GetItemLists()[2].GetInformation()}";
@@ -61,7 +67,7 @@ public class shopmanager : MonoBehaviour
             kosuu3.text = $"{ko3}";
             kosuu4.text = $"{ko4}";
             totalmoney = (itemDataBase.GetItemLists()[0].Getmoney() * ko1) + (itemDataBase.GetItemLists()[1].Getmoney() * ko2) + (itemDataBase.GetItemLists()[2].Getmoney() * ko3) + (itemDataBase.GetItemLists()[3].Getmoney() * ko4);
-            total.text = $"{totalmoney}"+"â~";
+            total.text = $"{totalmoney}"+"ÂÜÜ";
         }
     }
     private void OnTriggerStay2D(Collider2D collision)
@@ -72,7 +78,8 @@ public class shopmanager : MonoBehaviour
             if (Input.GetKey(KeyCode.Space))
             {
 
-                isshop = true;
+              
+                menumanager.menuKey = "shop";
                 shopmenu.SetActive(true);
             }
         }
@@ -87,10 +94,10 @@ public class shopmanager : MonoBehaviour
     public void Onpushsita3() { ko3--; }
     public void Onpushsita4() { ko4--; }
     public void Onpushbuy() 
-    { if (money < totalmoney) { mesege.text = "èäéùã‡Ç™ë´ÇËÇ‹ÇπÇÒ"; Invoke(nameof(mesagedele), 3f); }
-        if (totalmoney == 0) { mesege.text = "ÉAÉCÉeÉÄÇëIÇÒÇ≈Ç≠ÇæÇ≥Ç¢"; Invoke(nameof(mesagedele), 3f); }
+    { if (money < totalmoney) { mesege.text = "ÊâÄÊåÅÈáë„ÅåË∂≥„Çä„Åæ„Åõ„Çì"; Invoke(nameof(mesagedele), 3f); }
+        if (totalmoney == 0) { mesege.text = "„Ç¢„Ç§„ÉÜ„É†„ÇíÈÅ∏„Çì„Åß„Åè„Å†„Åï„ÅÑ"; Invoke(nameof(mesagedele), 3f); }
         if(money >= totalmoney&&totalmoney!=0)  {
-            mesege.text = "çwì¸ÇµÇ‹ÇµÇΩ";
+            mesege.text = "Ë≥ºÂÖ•„Åó„Åæ„Åó„Åü";
             Invoke(nameof(mesagedele), 3f);
             Moneymanager.Setmoney(-(totalmoney));
             itemDataBase.GetItemLists()[0].Setkosuu(ko1);
@@ -103,6 +110,6 @@ public class shopmanager : MonoBehaviour
     {
         mesege.text = null;
     }
-    public void Onpushback() { isshop =false;shopmenu.SetActive(false); }
+    public void Onpushback() { menumanager.menuKey=null;shopmenu.SetActive(false); }
 
 }

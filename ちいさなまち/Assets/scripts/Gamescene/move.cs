@@ -25,8 +25,8 @@ public class move : MonoBehaviourPunCallbacks
 
     private void Update()
     {
-        var isshop = shopmanager.isshop;
-        var ismenu = menumanager.ismenu;
+        //var isshop = shopmanager.isshop;
+        var menuKey = menumanager.menuKey;
         infection = Infection2.infected;
         var x = Input.GetAxisRaw("Horizontal");
         var  y = Input.GetAxisRaw("Vertical");
@@ -41,7 +41,7 @@ public class move : MonoBehaviourPunCallbacks
         // ���g�����������I�u�W�F�N�g�����Ɉړ��������s��
         if (photonView.IsMine)
         {
-            if (ismenu == false&&isshop==false)
+            if (menuKey == null)
             {
                 if (Input.GetAxisRaw("Horizontal") != 0 && isver == false)
                 {

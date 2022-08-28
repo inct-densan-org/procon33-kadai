@@ -5,12 +5,13 @@ using Photon.Pun;
 using System.Threading.Tasks;
 public class Infection2 : MonoBehaviourPunCallbacks
 {
-    private bool cooltime;
+    private bool cooltime ,iti;
     public static bool infected, haninai;
-    private int infectionProbability = 1;
+    public int infectionProbability = 1;
     private CircleCollider2D collider2;
     public GameObject kansenhani;
     public shopmanager shopmanager;
+    public static bool ismask;
     // Start is called before the first frame update
     void Start()
     {
@@ -22,6 +23,7 @@ public class Infection2 : MonoBehaviourPunCallbacks
     // Update is called once per frame
     void Update()
     {
+       
         if (infected == true)
         {
             collider2.radius = 1f;
@@ -30,6 +32,21 @@ public class Infection2 : MonoBehaviourPunCallbacks
         {
             collider2.radius = 0.5f;
         }
+        if (ismask == true&&iti==false)
+        {
+            
+            iti = true;
+            infectionProbability = 1;
+            Invoke(nameof(Effecttime), 10);
+        }
+        if (ismask == false)
+        {
+            infectionProbability = 5;
+        }
+    }
+    void Effecttime()
+    {
+        iti = false; ismask = false;
     }
     private async void OnTriggerEnter2D(Collider2D collision)
     {
@@ -38,7 +55,7 @@ public class Infection2 : MonoBehaviourPunCallbacks
         {
 
             cooltime = true;
-            Invoke(nameof(cooldowm), 5f);
+            Invoke(nameof(Cooldowm), 5f);
             infected = PhotonNetwork.LocalPlayer.GetInfection();
             if (infected == true)//infected�͓������Ȃ��Ƃ����Ȃ�
             {
@@ -56,7 +73,7 @@ public class Infection2 : MonoBehaviourPunCallbacks
     }
  
 
-    void cooldowm()
+    void Cooldowm()
     {
         cooltime = false;
     }
