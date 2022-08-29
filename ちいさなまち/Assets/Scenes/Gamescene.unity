@@ -2088,10 +2088,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41319d1536628a64487df2725adf28e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  time: 0
-  byou: {fileID: 0}
-  Bar: {fileID: 0}
-  K: 0
 --- !u!114 &362313951
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8168,8 +8164,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1395202594}
   - component: {fileID: 1395202593}
-  - component: {fileID: 1395202595}
   - component: {fileID: 1395202596}
+  - component: {fileID: 1395202597}
   m_Layer: 0
   m_Name: CM vcam1
   m_TagString: Untagged
@@ -8231,19 +8227,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1395202595
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1395202592}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 33ea746b1939b454f9bc507117c0a9cb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  targetpo: {x: 0, y: 0, z: 0}
 --- !u!114 &1395202596
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8261,6 +8244,19 @@ MonoBehaviour:
   m_BoundingShape2D: {fileID: 949367784}
   m_ConfineScreenEdges: 1
   m_Damping: 0
+--- !u!114 &1395202597
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1395202592}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33ea746b1939b454f9bc507117c0a9cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetpo: {x: -3.9473073, y: 4.61173, z: -1}
 --- !u!1 &1422640055
 GameObject:
   m_ObjectHideFlags: 0
@@ -10243,7 +10239,6 @@ GameObject:
   - component: {fileID: 1807039322}
   - component: {fileID: 1807039325}
   - component: {fileID: 1807039324}
-  - component: {fileID: 1807039323}
   - component: {fileID: 1807039326}
   m_Layer: 5
   m_Name: watergauge
@@ -10272,22 +10267,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 1, y: 1}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1807039323
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1807039321}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 41319d1536628a64487df2725adf28e6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  time: 0
-  byou: {fileID: 0}
-  Bar: {fileID: 0}
-  K: 0
 --- !u!114 &1807039324
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10338,10 +10317,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0da55a3164f8c1489d16794b9d2acde, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  time: 0
-  byou: {fileID: 0}
-  Bar: {fileID: 0}
-  K: 0
 --- !u!1 &1808497886
 GameObject:
   m_ObjectHideFlags: 0
