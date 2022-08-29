@@ -235,6 +235,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe78c2168e05d0640a02fce0e58c362e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  infectionProbability: 1
   kansenhani: {fileID: 0}
   shopmanager: {fileID: 0}
 --- !u!50 &639113197991192582
@@ -271,10 +272,10 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.03091693, y: 5.2872043}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0.5, y: 0}
     oldSize: {x: 3.8310661, y: 10.83}
     newSize: {x: 0.25, y: 0.46}
     adaptiveTilingThreshold: 0.5
@@ -282,7 +283,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.25, y: 0.46}
+  m_Size: {x: 3.8984847, y: 11.034408}
   m_EdgeRadius: 0
 --- !u!58 &639113198102069953
 CircleCollider2D:
@@ -312,6 +313,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe78c2168e05d0640a02fce0e58c362e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  infectionProbability: 1
   kansenhani: {fileID: 0}
   shopmanager: {fileID: 0}
 --- !u!114 &5064663648964338806
@@ -326,4 +328,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c7c8a80b95bdbd4591608303d96103b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hospitalPrefab: {fileID: 0}
+  tilemap: {fileID: 0}
