@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class foodgaugemanager : MonoBehaviour
+public class Foodgaugemanager : MonoBehaviour
 {
-    public float time = 0;
+    public static float time = 0;
     private itibyou byou;
     private Image Bar;
     const float MIN = 0;     // �ŏ��l
@@ -37,5 +37,9 @@ public class foodgaugemanager : MonoBehaviour
         // {
             //    byou.Stop();
         // }
+    }
+    public static void Setfood(int value)
+    {
+        time -= value;
     }
 }

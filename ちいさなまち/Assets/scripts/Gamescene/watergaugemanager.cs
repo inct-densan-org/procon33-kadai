@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class watergaugemanager : MonoBehaviour
+public class Watergaugemanager : MonoBehaviour
 {
-    public float time = 0;
+    public static float watertime = 0;
     private itibyou byou;
     private Image Bar;
     const float MIN = 0;     // �ŏ��l
@@ -18,7 +18,7 @@ public class watergaugemanager : MonoBehaviour
         var byou = gameObject.AddComponent<itibyou>();
         byou.Init(() =>
         {
-            time++;
+            watertime++;
             // Bar.fillAmount = 1 - (time / 100);
         });
         byou.Play();
@@ -27,16 +27,20 @@ public class watergaugemanager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        time = Mathf.Clamp(time, MIN, MAX);
+        watertime = Mathf.Clamp(watertime, MIN, MAX);
         if (Input.GetKeyDown(KeyCode.Q))
         {
-            time -= 10;
+            watertime -= 10;
         }
-        Bar.fillAmount = 1 - (time / 100);
+        Bar.fillAmount = 1 - (watertime / 100);
         // if (time >= 10 )
         // {
         //    byou.Stop();
         // }
+    }
+    public  static void Setwater(int value)
+    {
+        watertime -= value;
     }
 }
 

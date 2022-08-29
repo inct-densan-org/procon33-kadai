@@ -3,15 +3,15 @@ using UnityEngine;
 using TMPro;
 [RequireComponent(typeof(Animator))]
 // MonoBehaviourPunCallbacks���p�����āAphotonView�v���p�e�B���g����悤�ɂ���
-public class move : MonoBehaviourPunCallbacks
+public class Move : MonoBehaviourPunCallbacks
 {
     private bool ispush,ishor,isver,infection;
     private int idX = Animator.StringToHash("x"), idY = Animator.StringToHash("y");
     private Animator animator = null;
     public static Vector3 popo;
     private Vector3 input;
-    private menumanager menumanager;
-
+    private Menumanager menumanager;
+    public static bool isdurk;
     private float speed = 5f;
 
     public void Start()
@@ -26,15 +26,19 @@ public class move : MonoBehaviourPunCallbacks
     private void Update()
     {
         //var isshop = shopmanager.isshop;
-        var menuKey = menumanager.menuKey;
+        var menuKey = Menumanager.menuKey;
         infection = Infection2.infected;
         var x = Input.GetAxisRaw("Horizontal");
         var  y = Input.GetAxisRaw("Vertical");
-        if (infection == true)
+        if (infection == true&&isdurk==false)
         {
-            speed = 2f;
+            speed = 1f;
         }
-        else
+        if (infection == true && isdurk == true)
+        {
+            speed = 3f;
+        }
+        if(infection==false)
         {
             speed = 5f;
         }
@@ -68,6 +72,11 @@ public class move : MonoBehaviourPunCallbacks
             if (y > 0.1 && ispush == false) { animator.SetFloat(idY, 1); ispush = true; }
             if (y < -0.1 && ispush == false) { animator.SetFloat(idY, -1); ispush = true; }
         }
+    }
+    public static void Effecttime()
+    {
+
+        isdurk = false;
     }
 }
 

@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
-public class menumanager : MonoBehaviour
+using System.Threading.Tasks;
+
+public class Menumanager : MonoBehaviour
 {
     public GameObject menu ,messegedis;
      public static string menuKey;
@@ -12,7 +14,10 @@ public class menumanager : MonoBehaviour
     [SerializeField] private ItemDataBase itemDataBase;
     public string menuKeysee;
     private string ItemName;
-    private Infection2 Infection2;
+    private Infection2 infection2;
+    private Watergaugemanager watergaugemanager;
+    private Foodgaugemanager foodgaugemanager;
+    private Move move;
     // Start is called before the first frame update
     void Start()
     {
@@ -56,23 +61,62 @@ public class menumanager : MonoBehaviour
     public void Onpushmask()
     {
         messegedis.SetActive(true);
-        mesasege.text = itemDataBase.GetItemLists()[0].GetItemName() + "\n" + itemDataBase.GetItemLists()[0].GetInformation() +"\n"+"‚ðŽg—p‚µ‚Ü‚·‚©H";
-        ItemName = "ƒ}ƒXƒN";
-    }
-    public@void Onno(){messegedis.SetActive(false);}
-    public void Onyes() 
-    { 
+        ItemName = "ãƒžã‚¹ã‚¯";
+        mesasege.text = itemDataBase.GetItemLists()[0].GetItemName() + "\n" + itemDataBase.GetItemLists()[0].GetInformation() +"\n"+"ã‚’ä½¿ç”¨ã—ã¾ã™ã‹ï¼Ÿ";
         
-        if (ItemName == "ƒ}ƒXƒN" && GetItem(ItemName).Getkosuu()>0)
+    }
+    public void Onpushfood(){
+        messegedis.SetActive(true);
+        ItemName="é£Ÿã¹ç‰©";
+        mesasege.text=GetItem(ItemName).GetItemName()+ "\n" + GetItem(ItemName).GetInformation() +"\n"+"ã‚’ä½¿ç”¨ã—ã¾ã™ã‹ï¼Ÿ";
+    }
+    public void Onpushwater()
+    {
+        messegedis.SetActive(true);
+        ItemName = "æ°´";
+        mesasege.text = GetItem(ItemName).GetItemName() + "\n" + GetItem(ItemName).GetInformation() + "\n" + "ã‚’ä½¿ç”¨ã—ã¾ã™ã‹ï¼Ÿ";
+    }
+    public void Onpushdurk()
+    {
+        messegedis.SetActive(true);
+        ItemName = "è–¬";
+        mesasege.text = GetItem(ItemName).GetItemName() + "\n" + GetItem(ItemName).GetInformation() + "\n" + "ã‚’ä½¿ç”¨ã—ã¾ã™ã‹ï¼Ÿ";
+    }
+    public void Onno(){messegedis.SetActive(false);}
+    public async void Onyes() 
+    {
+      
+        if (ItemName == "ãƒžã‚¹ã‚¯" && GetItem(ItemName).Getkosuu()>0)
         {
             itemDataBase.GetItemLists()[0].Setkosuu(-1);
             Infection2.ismask = true;
             messegedis.SetActive(false);
         }
-        if (ItemName == "ƒ}ƒXƒN" && GetItem(ItemName).Getkosuu() == 0)
+        if ( GetItem(ItemName).Getkosuu() == 0)
         {
-            warning.text = "ƒAƒCƒeƒ€ŒÂ”‚ª‚ ‚è‚Ü‚¹‚ñ";
+            warning.text = "ã‚¢ã‚¤ãƒ†ãƒ ãŒã‚ã‚Šã¾ã›ã‚“";
             Invoke(nameof(Delwarning), 3);
+        }
+        if (ItemName == "é£Ÿã¹ç‰©" && GetItem(ItemName).Getkosuu() > 0)
+        {
+            Foodgaugemanager.Setfood(20);
+            itemDataBase.GetItemLists()[3].Setkosuu(-1);
+            messegedis.SetActive(false);
+        }
+        if (ItemName == "æ°´" && GetItem(ItemName).Getkosuu() > 0)
+        {
+            Watergaugemanager.Setwater(20);
+            itemDataBase.GetItemLists()[2].Setkosuu(-1);
+            messegedis.SetActive(false);
+        }
+        if (ItemName == "è–¬" && GetItem(ItemName).Getkosuu() > 0)
+        {
+            Move.isdurk = true;
+
+            itemDataBase.GetItemLists()[1].Setkosuu(-1);
+            messegedis.SetActive(false);
+            await Task.Delay(10000);
+            Move.Effecttime();
         }
 
     }

@@ -10,7 +10,7 @@ public class Infection2 : MonoBehaviourPunCallbacks
     public int infectionProbability = 1;
     private CircleCollider2D collider2;
     public GameObject kansenhani;
-    public shopmanager shopmanager;
+    public Shopmanager shopmanager;
     public static bool ismask;
     // Start is called before the first frame update
     void Start()

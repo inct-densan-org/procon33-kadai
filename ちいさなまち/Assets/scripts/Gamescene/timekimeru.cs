@@ -7,7 +7,7 @@ using Photon.Realtime;
 using ExitGames.Client.Photon;
 using System;
 
-public class timekimeru : MonoBehaviourPunCallbacks
+public class Timekimeru : MonoBehaviourPunCallbacks
 {
     public static ExitGames.Client.Photon.Hashtable roomHash;
     public  int hour, minite, second;

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
 using TMPro;
-public class namemanager : MonoBehaviourPunCallbacks
+public class Namemanager : MonoBehaviourPunCallbacks
 {
     public TextMeshProUGUI namedis;
     private string username;

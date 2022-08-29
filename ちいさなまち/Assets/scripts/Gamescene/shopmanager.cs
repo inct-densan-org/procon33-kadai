@@ -3,14 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
-public class shopmanager : MonoBehaviour
+public class Shopmanager : MonoBehaviour
 {
     public GameObject shopmenu;
     public Image icon1, icon2, icon3, icon4;
     // private Sprite sp1, sp2, sp3, sp4;
     public TextMeshProUGUI en1, en2, en3, en4, info1, info2, info3, info4, kosuu1, kosuu2, kosuu3, kosuu4,total,moneytext,mesege;
     //public static bool isshop;
-    private menumanager menumanager;
+    private Menumanager menumanager;
     private bool haninai, a;
     [SerializeField]
     private ItemDataBase itemDataBase;
@@ -40,7 +40,7 @@ public class shopmanager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        menuKey = menumanager.menuKey;
+        menuKey = Menumanager.menuKey;
         
         ko1 = Mathf.Clamp(ko1, 0, 9);
         ko2 = Mathf.Clamp(ko2, 0, 9);
@@ -79,7 +79,7 @@ public class shopmanager : MonoBehaviour
             {
 
               
-                menumanager.menuKey = "shop";
+                Menumanager.menuKey = "shop";
                 shopmenu.SetActive(true);
             }
         }
@@ -110,6 +110,6 @@ public class shopmanager : MonoBehaviour
     {
         mesege.text = null;
     }
-    public void Onpushback() { menumanager.menuKey=null;shopmenu.SetActive(false); }
+    public void Onpushback() { Menumanager.menuKey=null;shopmenu.SetActive(false); }
 
 }
