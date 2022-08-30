@@ -29,7 +29,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &2856476229436042694
 Transform:
   m_ObjectHideFlags: 0
@@ -238,6 +238,7 @@ MonoBehaviour:
   infectionProbability: 1
   kansenhani: {fileID: 0}
   shopmanager: {fileID: 0}
+  infecsee: 0
 --- !u!50 &356609227496774654
 Rigidbody2D:
   serializedVersion: 4
@@ -298,9 +299,9 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.098368526, y: 2.4016309}
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 3.5
 --- !u!114 &356609227373310264
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -316,6 +317,7 @@ MonoBehaviour:
   infectionProbability: 1
   kansenhani: {fileID: 0}
   shopmanager: {fileID: 0}
+  infecsee: 0
 --- !u!114 &5360749085283276686
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -8,6 +8,7 @@ public class PUN2Server : MonoBehaviourPunCallbacks
     public static GameObject clone;
     private ItemDataBase itemDataBase;
     private bool man, woman;
+    public static int isman;
     private void Start()
     {
         PhotonNetwork.NickName="Player";
@@ -26,7 +27,7 @@ public class PUN2Server : MonoBehaviourPunCallbacks
     public override void OnJoinedRoom()
     {
         
-        int isman = Random.Range(0, 2);
+         isman = Random.Range(0, 2);
         if (isman == 1)
         {
             clone = PhotonNetwork.Instantiate("man", new Vector3(20, 15, -1), Quaternion.identity);

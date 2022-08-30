@@ -12,6 +12,9 @@ public class Infection2 : MonoBehaviourPunCallbacks
     public GameObject kansenhani;
     public Shopmanager shopmanager;
     public static bool ismask;
+    private NPCShop NPCShop;
+    private PUN2Server PUN2Server;
+    public int infecsee;
     // Start is called before the first frame update
     void Start()
     {
@@ -24,13 +27,17 @@ public class Infection2 : MonoBehaviourPunCallbacks
     void Update()
     {
        
+        var isman = PUN2Server.isman;
+        infecsee = isman;
         if (infected == true)
         {
-            collider2.radius = 1f;
+            if (isman == 1) { collider2.radius = 9f; }
+            if (isman == 0) { collider2.radius = 5f; }
         }
         else
         {
-            collider2.radius = 0.5f;
+            if (isman == 1) { collider2.radius = 6f; }
+            if (isman == 0) { collider2.radius = 3.5f; }
         }
         if (ismask == true&&iti==false)
         {
@@ -69,9 +76,20 @@ public class Infection2 : MonoBehaviourPunCallbacks
                 }
             }
         }
+        if (collision.gameObject.CompareTag("NPC"))
+        {
+            Debug.Log("deloo");
+            NPCShop.localPalyer(PhotonNetwork.LocalPlayer);
+        }
 
     }
- 
+    //private void OnTriggerExit2D(Collider2D collision)
+    //{
+    //    if (collision.gameObject.CompareTag("NPC"))
+    //    {
+    //        NPCShop.localPalyer(null);
+    //    }
+    //}
 
     void Cooldowm()
     {

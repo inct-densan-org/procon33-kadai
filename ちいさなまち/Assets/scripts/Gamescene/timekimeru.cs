@@ -16,12 +16,16 @@ public class Timekimeru : MonoBehaviourPunCallbacks
     {
         var player = PhotonNetwork.PlayerList;
         Array.Sort(player);
-        
+        var a = false;
         var p1 = player[0];
         roomHash = new ExitGames.Client.Photon.Hashtable();
         roomHash.Add("hour", hour);
         roomHash.Add("minite", minite);
         roomHash.Add("second", second);
+        roomHash.Add("NPC1", a);
+        roomHash.Add("NPC2", a);
+        roomHash.Add("NPC3", a);
+        roomHash.Add("NPC4", a);
         PhotonNetwork.CurrentRoom.SetCustomProperties(roomHash);
         if (p1 == PhotonNetwork.LocalPlayer)
         {
