@@ -53,6 +53,7 @@ public class DevelopScript : MonoBehaviourPunCallbacks
     }
     public override void OnLeftLobby(){
         Debug.Log("ロビーから退出しました。");
+        PhotonNetwork.JoinLobby();
     }
 
 
