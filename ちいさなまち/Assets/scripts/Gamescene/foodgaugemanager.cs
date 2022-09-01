@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class Foodgaugemanager : MonoBehaviour
 {
+    
     public static float time = 0;
     private itibyou byou;
     private Image Bar;

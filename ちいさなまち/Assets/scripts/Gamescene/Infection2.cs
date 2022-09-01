@@ -3,24 +3,41 @@ using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
 using System.Threading.Tasks;
+using Photon.Realtime;
+
 public class Infection2 : MonoBehaviourPunCallbacks
 {
     private bool cooltime ,iti;
-    public static bool infected, haninai;
-    public int infectionProbability = 1;
+    public static bool infected;
+    public bool NPCinf;
+    public int infectionProbability = 1000;
     private CircleCollider2D collider2;
     public GameObject kansenhani;
     public Shopmanager shopmanager;
     public static bool ismask;
     private NPCShop NPCShop;
     private PUN2Server PUN2Server;
-    public int infecsee;
+    public bool infecsee;
+    
     // Start is called before the first frame update
     void Start()
     {
         //kansenhani = transform.Find("kansenhani").gameObject;
         collider2 = this.GetComponent<CircleCollider2D>();
 
+        var byou = gameObject.AddComponent<itibyou>();
+        byou.Init(() =>
+        {
+            
+            //var a = PhotonNetwork.PlayerList;
+            //var b = a[0];
+            //var c = a[1];
+            //if (b != null && c != null)
+            //{
+            //    if (b.GetInfection() != c.GetInfection()) Debug.Log("dayone");
+            //}
+        });
+        byou.Play();
     }
 
     // Update is called once per frame
@@ -28,7 +45,7 @@ public class Infection2 : MonoBehaviourPunCallbacks
     {
        
         var isman = PUN2Server.isman;
-        infecsee = isman;
+        infecsee = infected;
         if (infected == true)
         {
             if (isman == 1) { collider2.radius = 9f; }
@@ -70,16 +87,29 @@ public class Infection2 : MonoBehaviourPunCallbacks
                 int rnd = Random.Range(0, 100);
                 if (rnd <= infectionProbability)
                 {
-                    await Task.Delay(20000);
+                   // await Task.Delay(20000);
                     infected = true;
-                    PhotonNetwork.LocalPlayer.SetInfection(infected);
+                    PhotonNetwork.LocalPlayer.SetInfection( infected);
+                   
                 }
             }
         }
         if (collision.gameObject.CompareTag("NPC"))
         {
-            Debug.Log("deloo");
+            var NPCname = collision.gameObject.name;
             NPCShop.localPalyer(PhotonNetwork.LocalPlayer);
+            NPCinf =  (PhotonNetwork.CurrentRoom.CustomProperties[$"{NPCname}"] is bool value) ? value : false;
+            if (NPCinf == true)//infected�͓������Ȃ��Ƃ����Ȃ�
+            {
+
+                int rnd = Random.Range(0, 100);
+                if (rnd <= infectionProbability)
+                {
+                   // await Task.Delay(20000);
+                    NPCinf = true;
+                    PhotonNetwork.LocalPlayer.SetInfection(NPCinf);
+                }
+            }
         }
 
     }
@@ -99,7 +129,7 @@ public class Infection2 : MonoBehaviourPunCallbacks
     {
         if (collision.gameObject.CompareTag("kansen"))
         {
-            await Task.Delay(20000);
+           // await Task.Delay(20000);
             infected = true;
             PhotonNetwork.LocalPlayer.SetInfection(infected);
 

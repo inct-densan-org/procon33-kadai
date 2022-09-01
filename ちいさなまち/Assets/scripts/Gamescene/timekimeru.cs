@@ -22,7 +22,7 @@ public class Timekimeru : MonoBehaviourPunCallbacks
         roomHash.Add("hour", hour);
         roomHash.Add("minite", minite);
         roomHash.Add("second", second);
-        roomHash.Add("NPC1", a);
+        roomHash.Add("shopNPC", a);
         roomHash.Add("NPC2", a);
         roomHash.Add("NPC3", a);
         roomHash.Add("NPC4", a);

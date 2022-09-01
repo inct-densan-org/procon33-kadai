@@ -11,7 +11,8 @@ public class PUN2Server : MonoBehaviourPunCallbacks
     public static int isman;
     private void Start()
     {
-        PhotonNetwork.NickName="Player";
+        var a = Random.Range(0, 1000);
+        PhotonNetwork.NickName="Player"+a;
         // PhotonServerSettingsの設定内容を使ってマスターサーバーへ接続する
         PhotonNetwork.ConnectUsingSettings();
     }

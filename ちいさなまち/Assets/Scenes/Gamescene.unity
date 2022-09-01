@@ -11487,6 +11487,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: shopNPC
       objectReference: {fileID: 0}
+    - target: {fileID: 7952139589708836373, guid: 6910986cd7416e54cb620f58b9735bbf, type: 3}
+      propertyPath: sceneViewId
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6910986cd7416e54cb620f58b9735bbf, type: 3}
 --- !u!1001 &8598307664227750987

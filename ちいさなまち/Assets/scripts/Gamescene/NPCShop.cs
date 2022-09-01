@@ -11,10 +11,10 @@ public class NPCShop : MonoBehaviourPunCallbacks
 {
     public static ExitGames.Client.Photon.Hashtable roomHash;
     private bool NPCinf, cooltime, infected;
-    public string Objname;
-    private int infectionProbability;
-    public Player player;
-    public string a;
+    public string Objname,asee;
+    private int infectionProbability=100;
+    public static Player player;
+    public static string a;
     // Start is called before the first frame update
     void Start()
     {
@@ -28,7 +28,7 @@ public class NPCShop : MonoBehaviourPunCallbacks
     // Update is called once per frame
     void Update()
     {
-        
+        asee = a;
     }
     public void OnTriggerStay2D(Collider2D collision)
     {
@@ -47,9 +47,10 @@ public class NPCShop : MonoBehaviourPunCallbacks
                         int rnd = Random.Range(0, 100);
                         if (rnd <= infectionProbability)
                         {
+                            Debug.Log("dedede00");
                             Invoke(nameof(EffictTime), 180);
                             NPCinf = true;
-                            roomHash["NPC1"] = NPCinf;
+                            roomHash["shopNPC"] = NPCinf;
                             PhotonNetwork.CurrentRoom.SetCustomProperties(roomHash);
                         }
                         break;
@@ -92,8 +93,9 @@ public class NPCShop : MonoBehaviourPunCallbacks
     {
         cooltime = false;
     }
-    public void localPalyer(Player localplayer)
+    public static void localPalyer(Player localplayer)
     {
+      
         player = localplayer;
         a = $"{player}";
     }
