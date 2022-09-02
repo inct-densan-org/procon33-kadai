@@ -1,6 +1,8 @@
 using Photon.Pun;
 using UnityEngine;
 using TMPro;
+using Photon.Realtime;
+
 [RequireComponent(typeof(Animator))]
 // MonoBehaviourPunCallbacks���p�����āAphotonView�v���p�e�B���g����悤�ɂ���
 public class Move : MonoBehaviourPunCallbacks
@@ -13,21 +15,31 @@ public class Move : MonoBehaviourPunCallbacks
     private Menumanager menumanager;
     public static bool isdurk;
     private float speed = 5f;
-
+    public static ExitGames.Client.Photon.Hashtable roomHash;
+    public static string myplayername;
+    private Player player;
     public void Start()
     {
+        player = PhotonNetwork.LocalPlayer;
+         myplayername = this.gameObject.name;
         GameObject oya = GameObject.Find("Canvas");
         transform.parent = oya.transform;
         transform.localPosition = new Vector3(0, 5.7f, -1);
         animator = GetComponent<Animator>();
-        
+        var byou = gameObject.AddComponent<itibyou>();
+        byou.Init(() =>
+        {
+         
+            infection = Customproperties.Getplayerinf(player.ActorNumber);
+        });
+        byou.Play();
     }
 
     private void Update()
     {
         //var isshop = shopmanager.isshop;
         var menuKey = Menumanager.menuKey;
-        infection = Infection2.infected;
+        
         var x = Input.GetAxisRaw("Horizontal");
         var  y = Input.GetAxisRaw("Vertical");
         if (infection == true&&isdurk==false)

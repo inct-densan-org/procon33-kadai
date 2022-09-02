@@ -12,6 +12,7 @@ public class NPCShop : MonoBehaviourPunCallbacks
     public static ExitGames.Client.Photon.Hashtable roomHash;
     private bool NPCinf, cooltime, infected;
     public string Objname,asee;
+
     private int infectionProbability=100;
     public static Player player;
     public static string a;
@@ -35,57 +36,23 @@ public class NPCShop : MonoBehaviourPunCallbacks
         if (collision.gameObject.CompareTag("Player"))
         {
             cooltime = true;
-            
-            
+
+            var player = collision.gameObject.GetPhotonView();
+            var playernum = player.OwnerActorNr;
             Invoke(nameof(Cooldowm), 5f);
-            infected = player.GetInfection();
+            infected = Customproperties.Getplayerinf(playernum);
             if (infected == true)
             {
-                switch (Objname)
+                int rnd = Random.Range(0, 100);
+                if (rnd <= infectionProbability)
                 {
-                    case "shopNPC":
-                        int rnd = Random.Range(0, 100);
-                        if (rnd <= infectionProbability)
-                        {
-                            Debug.Log("dedede00");
-                            Invoke(nameof(EffictTime), 180);
-                            NPCinf = true;
-                            roomHash["shopNPC"] = NPCinf;
-                            PhotonNetwork.CurrentRoom.SetCustomProperties(roomHash);
-                        }
-                        break;
-                    case "shopNPC2":
-                         rnd = Random.Range(0, 100);
-                        if (rnd <= infectionProbability)
-                        {
-                            Invoke(nameof(EffictTime), 180);
-                            NPCinf = true;
-                            roomHash["NPC2"] = NPCinf;
-                            PhotonNetwork.CurrentRoom.SetCustomProperties(roomHash);
-                        }
-                        break;
-                    case "shopNPC3":
-                         rnd = Random.Range(0, 100);
-                        if (rnd <= infectionProbability)
-                        {
-                            Invoke(nameof(EffictTime), 180);
-                            NPCinf = true;
-                            roomHash["NPC3"] = NPCinf;
-                            PhotonNetwork.CurrentRoom.SetCustomProperties(roomHash);
-                        }
-                        break;
-                    case "shopNPC4":
-                         rnd = Random.Range(0, 100);
-                        if (rnd <= infectionProbability)
-                        {
-                            Invoke(nameof(EffictTime), 180);
-                            NPCinf = true;
-                            roomHash["NPC4"] = NPCinf;
-                            PhotonNetwork.CurrentRoom.SetCustomProperties(roomHash);
-                        }
-                        break;
+                    
+                    Invoke(nameof(EffictTime), 180);
+                    NPCinf = true;
+                    Customproperties.SetNPCinf(Objname, NPCinf);
+                    
                 }
-               
+
             }
         }
     }
@@ -93,36 +60,10 @@ public class NPCShop : MonoBehaviourPunCallbacks
     {
         cooltime = false;
     }
-    public static void localPalyer(Player localplayer)
-    {
-      
-        player = localplayer;
-        a = $"{player}";
-    }
+
     void EffictTime()
     {
-        switch (Objname)
-        {
-            case "shopNPC":
-                NPCinf = false;
-                roomHash["NPC1"] = NPCinf;
-                PhotonNetwork.CurrentRoom.SetCustomProperties(roomHash);
-                break;
-            case "shopNPC2":
-                NPCinf = false;
-                roomHash["NPC2"] = NPCinf;
-                PhotonNetwork.CurrentRoom.SetCustomProperties(roomHash);
-                break;
-            case "shopNPC3":
-                NPCinf = false;
-                roomHash["NPC3"] = NPCinf;
-                PhotonNetwork.CurrentRoom.SetCustomProperties(roomHash);
-                break;
-            case "shopNPC4":
-                NPCinf = false;
-                roomHash["NPC4"] = NPCinf;
-                PhotonNetwork.CurrentRoom.SetCustomProperties(roomHash);
-                break;
-        }
+        NPCinf = false;
+        Customproperties.SetNPCinf(Objname, NPCinf);
     }
 }

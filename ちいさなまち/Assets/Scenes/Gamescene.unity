@@ -3251,6 +3251,7 @@ GameObject:
   - component: {fileID: 504948808}
   - component: {fileID: 504948807}
   - component: {fileID: 504948809}
+  - component: {fileID: 504948810}
   m_Layer: 0
   m_Name: PUN2Sever
   m_TagString: Untagged
@@ -3311,6 +3312,28 @@ MonoBehaviour:
   icon4: {fileID: 1683626852}
   itemDataBase: {fileID: 11400000, guid: 95fa6098fd019724ab6a92cf42ab58f9, type: 2}
   menuKeysee: 
+--- !u!114 &504948810
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 504948806}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents: []
+  sceneViewId: 4
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!1 &513619665
 GameObject:
   m_ObjectHideFlags: 0
@@ -8131,7 +8154,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.778626, y: 1}
+    m_SensorSize: {x: 2.3137887, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -11346,6 +11369,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5064663648964338806, guid: fa1ba4dbc0a66fb4280ea5360766bf54, type: 3}
+      propertyPath: tilemap
+      value: 
+      objectReference: {fileID: 413143166}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fa1ba4dbc0a66fb4280ea5360766bf54, type: 3}
 --- !u!1001 &800970455879541707
@@ -11415,7 +11442,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 5360749085283276686, guid: 154256adac542644db9502c34b598091, type: 3}
+      propertyPath: tilemap
+      value: 
+      objectReference: {fileID: 413143166}
+    m_RemovedComponents:
+    - {fileID: 6174600494654250316, guid: 154256adac542644db9502c34b598091, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 154256adac542644db9502c34b598091, type: 3}
 --- !u!4 &2546455516169442302 stripped
 Transform:
@@ -11491,7 +11523,8 @@ PrefabInstance:
       propertyPath: sceneViewId
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2546455516169442303, guid: 6910986cd7416e54cb620f58b9735bbf, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 6910986cd7416e54cb620f58b9735bbf, type: 3}
 --- !u!1001 &8598307664227750987
 PrefabInstance:
@@ -11500,6 +11533,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 558082331}
     m_Modifications:
+    - target: {fileID: 1646286907215411618, guid: 54ea9076881e7ab40801269ae1dd8aac, type: 3}
+      propertyPath: sceneViewId
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 8598307663963747252, guid: 54ea9076881e7ab40801269ae1dd8aac, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -11587,6 +11624,10 @@ PrefabInstance:
     - target: {fileID: 8598307663963747253, guid: 54ea9076881e7ab40801269ae1dd8aac, type: 3}
       propertyPath: m_Name
       value: Image
+      objectReference: {fileID: 0}
+    - target: {fileID: 8598307663963749451, guid: 54ea9076881e7ab40801269ae1dd8aac, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 54ea9076881e7ab40801269ae1dd8aac, type: 3}

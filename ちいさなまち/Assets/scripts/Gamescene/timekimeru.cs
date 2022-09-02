@@ -16,33 +16,26 @@ public class Timekimeru : MonoBehaviourPunCallbacks
     {
         var player = PhotonNetwork.PlayerList;
         Array.Sort(player);
-        var a = false;
+        
         var p1 = player[0];
-        roomHash = new ExitGames.Client.Photon.Hashtable();
-        roomHash.Add("hour", hour);
-        roomHash.Add("minite", minite);
-        roomHash.Add("second", second);
-        roomHash.Add("shopNPC", a);
-        roomHash.Add("NPC2", a);
-        roomHash.Add("NPC3", a);
-        roomHash.Add("NPC4", a);
-        PhotonNetwork.CurrentRoom.SetCustomProperties(roomHash);
+
+       
         if (p1 == PhotonNetwork.LocalPlayer)
         {
             //var hashtable = new ExitGames.Client.Photon.Hashtable();
             //hashtable["Score"] = 0;
             //hashtable["Message"] = "����ɂ���";
             //PhotonNetwork.LocalPlayer.SetCustomProperties(hashtable);
-
+            
             var byou = gameObject.AddComponent<itibyou>();
             byou.Init(() =>
             {
                 second++;
 
-                if (second == 60) { second = 0; minite++; roomHash["minite"] = minite; }
-                if (minite == 60) { minite = 0; hour++; roomHash["hour"] = hour; roomHash["minite"] = minite; }
-                if (hour == 24) { hour = 0; roomHash["hour"] = hour; }
-                roomHash["second"] = second;
+                if (second == 60) { second = 0; minite++; Customproperties.Setsecond(minite); }
+                if (minite == 60) { minite = 0; hour++; Customproperties.Setsecond(hour) ; Customproperties.Setsecond(minite); ; }
+                if (hour == 24) { hour = 0; Customproperties.Setsecond(hour); }
+                Customproperties.Setsecond(second);
                 PhotonNetwork.CurrentRoom.SetCustomProperties(roomHash);
             });
             byou.Play();

@@ -3,30 +3,94 @@ using Photon.Realtime;
 using Unity;
 using UnityEngine;
 using Photon.Pun;
-public static class customproperties//ï¿½vï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½[ï¿½É‚ï¿½ï¿½ï¿½Äˆá‚¤ï¿½Ïï¿½ï¿½ï¿½ï¿½`ï¿½ï¿½ï¿½éŠ
+using System;
+using ExitGames.Client.Photon;
+public  static class Customproperties 
 {
-    private const string InfectionKey = "Infection";
-    
-    private static readonly Hashtable propsToSet = new Hashtable();
+    public static int hour, minite, second;
+    public static ExitGames.Client.Photon.Hashtable roomHash;
 
-    // ï¿½vï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½[ï¿½ÌƒXï¿½Rï¿½Aï¿½ï¿½ï¿½æ“¾ï¿½ï¿½ï¿½ï¿½
-    public static bool GetInfection( this Player player)
+    public static void custam()
+    {
+        var g = PhotonNetwork.LocalPlayer;
+        int b = 1;
+        var a = false;
+        roomHash = new ExitGames.Client.Photon.Hashtable
+        {
+            { "hour", hour },
+            { "minite", minite },
+            { "second", second },
+            { "shopNPC", a },
+            { "NPC2", a },//NPC‚Ì–¼‘O‚Æ“¯‚¶‚É‚·‚é‚±‚Æ
+
+            { "NPC3", a },//NPC‚Ì–¼‘O‚Æ“¯‚¶‚É‚·‚é‚±‚Æ
+            { "NPC4", a },//NPC‚Ì–¼‘O‚Æ“¯‚¶‚É‚·‚é‚±‚Æ
+            
+            
+        };
+        PhotonNetwork.CurrentRoom.SetCustomProperties(roomHash);
+    }
+    public static void mycustom(int player)
     {
        
-        return (player.CustomProperties[InfectionKey] is bool isinfection) ? isinfection : false;
+        roomHash.Add($"{player}", false);
+        PhotonNetwork.CurrentRoom.SetCustomProperties(roomHash);
+
+    }
+    public static int Getsecond()
+    {
+        return (PhotonNetwork.CurrentRoom.CustomProperties["second"] is int second) ? second : 0;
+    }
+    public static int Getminute()
+    {
+        return (PhotonNetwork.CurrentRoom.CustomProperties["minite"] is int time) ? time : 0;
+    }
+    public static int Gethour()
+    {
+        return (PhotonNetwork.CurrentRoom.CustomProperties["hour"] is int inf) ? inf : 0;
+    }
+    public static bool Getplayerinf(int player)
+    {
+        return (PhotonNetwork.CurrentRoom.CustomProperties[$"{player}"] is bool inf) ? inf : false;
+    }
+    public static bool GetNPCinf(string name)
+    {
+        return (PhotonNetwork.CurrentRoom.CustomProperties[$"{name}"] is bool inf) ? inf : false;
     }
 
-    // ï¿½vï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½[ï¿½Ìƒï¿½ï¿½bï¿½Zï¿½[ï¿½Wï¿½ï¿½ï¿½æ“¾ï¿½ï¿½ï¿½ï¿½
-    
-    // ï¿½vï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½[ï¿½ÌƒXï¿½Rï¿½Aï¿½ï¿½İ’è‚·ï¿½ï¿½
-    public static void SetInfection(this Player player, bool isinfection)
+    public static void Setplayerinf( bool inf, int player)
     {
-        Debug.Log("1");
-        var a = PhotonNetwork.LocalPlayer;
-        propsToSet[InfectionKey] = isinfection;
-        a.SetCustomProperties(propsToSet);
-        propsToSet.Clear();
+        PhotonNetwork.CurrentRoom.CustomProperties[$"{player}"] = inf;
+        PhotonNetwork.CurrentRoom.SetCustomProperties(roomHash);
+        Debug.Log(player);
+        Debug.Log(inf);
+        roomHash.Clear();
     }
-     
-    // ï¿½vï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½[ï¿½Ìƒï¿½ï¿½bï¿½Zï¿½[ï¿½Wï¿½ï¿½İ’è‚·ï¿½ï¿½
+    public static void Setsecond(int time)
+    {
+        PhotonNetwork.CurrentRoom.CustomProperties["second"] = time;
+        PhotonNetwork.CurrentRoom.SetCustomProperties(roomHash);
+        roomHash.Clear();
+    }
+    public static void Sethour(int time)
+    {
+        PhotonNetwork.CurrentRoom.CustomProperties["hour"] = time;
+        PhotonNetwork.CurrentRoom.SetCustomProperties(roomHash);
+        roomHash.Clear();
+    }
+    public static void Setminute(int time)
+    {
+        PhotonNetwork.CurrentRoom.CustomProperties["minite"] = time;
+        PhotonNetwork.CurrentRoom.SetCustomProperties(roomHash);
+        roomHash.Clear();
+    }
+    public static void SetNPCinf(string name,bool inf)
+    {
+        PhotonNetwork.CurrentRoom.CustomProperties[$"{name}"] = inf;
+        PhotonNetwork.CurrentRoom.SetCustomProperties(roomHash);
+        roomHash.Clear();
+    }
+
 }
+   
+

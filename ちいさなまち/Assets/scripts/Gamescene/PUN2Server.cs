@@ -1,6 +1,8 @@
 using Photon.Pun;
 using Photon.Realtime;
+using System;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 // MonoBehaviourPunCallbacksを継承して、PUNのコールバックを受け取れるようにする
 public class PUN2Server : MonoBehaviourPunCallbacks
@@ -9,10 +11,14 @@ public class PUN2Server : MonoBehaviourPunCallbacks
     private ItemDataBase itemDataBase;
     private bool man, woman;
     public static int isman;
+    public static ExitGames.Client.Photon.Hashtable roomHash;
+    public static Player localplayer;
+    private FlushController flushController;
+    public static bool ii;
     private void Start()
     {
-        var a = Random.Range(0, 1000);
-        PhotonNetwork.NickName="Player"+a;
+        
+        PhotonNetwork.NickName="Player";
         // PhotonServerSettingsの設定内容を使ってマスターサーバーへ接続する
         PhotonNetwork.ConnectUsingSettings();
     }
@@ -27,8 +33,16 @@ public class PUN2Server : MonoBehaviourPunCallbacks
     // ゲームサーバーへの接続が成功した時に呼ばれるコールバック
     public override void OnJoinedRoom()
     {
-        
-         isman = Random.Range(0, 2);
+        localplayer = PhotonNetwork.LocalPlayer;
+        var localplayernum = localplayer.ActorNumber;
+       
+        var player = PhotonNetwork.PlayerList;
+
+        ii = true;
+        var p1 = player[0];
+
+
+        isman = Random.Range(0, 2);
         if (isman == 1)
         {
             clone = PhotonNetwork.Instantiate("man", new Vector3(20, 15, -1), Quaternion.identity);
@@ -37,5 +51,11 @@ public class PUN2Server : MonoBehaviourPunCallbacks
         {
             clone = PhotonNetwork.Instantiate("woman", new Vector3(20, 15, -1), Quaternion.identity);
         }
+        if (p1 == PhotonNetwork.LocalPlayer)
+        {
+            Customproperties.custam();
+        }
+        Customproperties.mycustom(localplayernum);
+        
     }
 }
