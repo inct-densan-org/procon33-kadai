@@ -7,12 +7,12 @@ using Photon.Realtime;
 using ExitGames.Client.Photon;
 
 
-public class NPCShop : MonoBehaviourPunCallbacks
+public class NPCBase : MonoBehaviourPunCallbacks
 {
     public static ExitGames.Client.Photon.Hashtable roomHash;
     private bool NPCinf, cooltime, infected;
     public string Objname,asee;
-
+    public bool NPCinfsee;
     private int infectionProbability=100;
     public static Player player;
     public static string a;
@@ -22,8 +22,14 @@ public class NPCShop : MonoBehaviourPunCallbacks
         NPCinf=false;
         Objname = this.gameObject.name;
         roomHash = new ExitGames.Client.Photon.Hashtable();
-        
-       
+        var byou = gameObject.AddComponent<itibyou>();
+        byou.Init(() =>
+        {
+            NPCinfsee = Customproperties.GetNPCinf(Objname);
+           
+        });
+        byou.Play();
+
     }
 
     // Update is called once per frame
@@ -33,10 +39,10 @@ public class NPCShop : MonoBehaviourPunCallbacks
     }
     public void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Player"))
+        if (collision.gameObject.CompareTag("Player")&&cooltime==false)
         {
             cooltime = true;
-
+           
             var player = collision.gameObject.GetPhotonView();
             var playernum = player.OwnerActorNr;
             Invoke(nameof(Cooldowm), 5f);
@@ -46,7 +52,7 @@ public class NPCShop : MonoBehaviourPunCallbacks
                 int rnd = Random.Range(0, 100);
                 if (rnd <= infectionProbability)
                 {
-                    
+                  
                     Invoke(nameof(EffictTime), 180);
                     NPCinf = true;
                     Customproperties.SetNPCinf(Objname, NPCinf);

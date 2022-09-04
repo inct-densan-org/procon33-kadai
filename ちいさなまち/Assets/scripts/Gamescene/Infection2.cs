@@ -15,7 +15,7 @@ public class Infection2 : MonoBehaviourPunCallbacks
     public GameObject kansenhani;
     public Shopmanager shopmanager;
     public static bool ismask;
-    private NPCShop NPCShop;
+    private NPCBase NPCShop;
     private PUN2Server PUN2Server;
     public bool infecsee;
     private int Player;

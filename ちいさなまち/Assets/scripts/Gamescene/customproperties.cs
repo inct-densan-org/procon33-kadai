@@ -13,7 +13,7 @@ public  static class Customproperties
     public static void custam()
     {
         var g = PhotonNetwork.LocalPlayer;
-        int b = 1;
+       
         var a = false;
         roomHash = new ExitGames.Client.Photon.Hashtable
         {
@@ -62,8 +62,7 @@ public  static class Customproperties
     {
         PhotonNetwork.CurrentRoom.CustomProperties[$"{player}"] = inf;
         PhotonNetwork.CurrentRoom.SetCustomProperties(roomHash);
-        Debug.Log(player);
-        Debug.Log(inf);
+        
         roomHash.Clear();
     }
     public static void Setsecond(int time)
