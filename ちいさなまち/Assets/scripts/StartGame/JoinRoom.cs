@@ -14,6 +14,7 @@ public class JoinRoom : MonoBehaviourPunCallbacks
     
     void Update(){
         //Debug.Log(roomList.selectedButtonNum);
+        //Debug.Log(roomList.transform.childCount);
         if (roomList.selectedButtonNum > -1){
             GetComponent<Button>().interactable = true;
             transform.GetChild(0).GetComponent<TextMeshProUGUI>().color = new Color(0f, 0f, 0f, 1f);
@@ -23,12 +24,12 @@ public class JoinRoom : MonoBehaviourPunCallbacks
         }
     }
 
-    void RoomJoin(){
+    public void RoomJoin(){
         string roomName = roomList.rooms.Rows[roomList.selectedButtonNum][0].ToString();
         PhotonNetwork.JoinRoom(roomName);
     }
 
-    public void OnJoinedRoom(){
-        SceneManager.LoadScene("GameScene");
+    public override void OnJoinedRoom(){
+        SceneManager.LoadScene("GameScene", LoadSceneMode.Single);
     }
 }

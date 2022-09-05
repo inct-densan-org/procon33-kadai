@@ -23,6 +23,22 @@ public class RoomList : MonoBehaviourPunCallbacks
         rooms.Columns.Add("Difficulty");
     }
 
+    void Update(){
+        if (gameObject.transform.childCount > 0){
+            foreach (Transform child in gameObject.transform){
+                if (child.GetComponent<Toggle>().isOn == true){
+                    selectedButtonNum = child.GetSiblingIndex();
+                }
+            }
+        }else{
+            selectedButtonNum = -1;
+        }
+    }
+
+    public override void OnJoinedLobby(){
+        ListErase();
+    }
+
     void ListErase(){
         for (int i = rooms.Rows.Count; i > 0; i--){
             rooms.Rows.RemoveAt(0);
@@ -36,17 +52,10 @@ public class RoomList : MonoBehaviourPunCallbacks
         }
     }
 
-    public override void OnJoinedLobby(){
-        ListErase();
-    }
-
     public override void OnRoomListUpdate(List<RoomInfo> roomList){
         foreach (var room in roomList){
             if (room.RemovedFromList){
                 DataRow[] removedRoom = rooms.Select($"RoomName = '{room.Name}'");
-                if (rooms.Rows.IndexOf(removedRoom[0]) == selectedButtonNum){
-                    selectedButtonNum = -1;
-                }
                 rooms.Rows.Remove(removedRoom[0]);
             }
             else{

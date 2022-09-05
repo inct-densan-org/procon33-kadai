@@ -17,6 +17,6 @@ public class RoomButton : MonoBehaviour
             imageComponent.color = new Color(1f, 1f, 1f, 1f);
         }
 
-        transform.parent.GetComponent<RoomList>().selectedButtonNum = transform.GetSiblingIndex();
+        //transform.parent.GetComponent<RoomList>().selectedButtonNum = transform.GetSiblingIndex();
     }
 }
