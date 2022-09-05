@@ -23,6 +23,7 @@ public class NPCBase : MonoBehaviourPunCallbacks
         Objname = this.gameObject.name;
         roomHash = new ExitGames.Client.Photon.Hashtable();
         var byou = gameObject.AddComponent<itibyou>();
+        Customproperties.NPCcustom(Objname);
         byou.Init(() =>
         {
             NPCinfsee = Customproperties.GetNPCinf(Objname);

@@ -20,11 +20,7 @@ public  static class Customproperties
             { "hour", hour },
             { "minite", minite },
             { "second", second },
-            { "shopNPC", a },
-            { "NPC2", a },//NPC‚Ì–¼‘O‚Æ“¯‚¶‚É‚·‚é‚±‚Æ
-
-            { "NPC3", a },//NPC‚Ì–¼‘O‚Æ“¯‚¶‚É‚·‚é‚±‚Æ
-            { "NPC4", a },//NPC‚Ì–¼‘O‚Æ“¯‚¶‚É‚·‚é‚±‚Æ
+           
             
             
         };
@@ -34,6 +30,13 @@ public  static class Customproperties
     {
        
         roomHash.Add($"{player}", false);
+        PhotonNetwork.CurrentRoom.SetCustomProperties(roomHash);
+
+    }
+    public static void NPCcustom(string NPC)
+    {
+
+        roomHash.Add($"{NPC}", false);
         PhotonNetwork.CurrentRoom.SetCustomProperties(roomHash);
 
     }
