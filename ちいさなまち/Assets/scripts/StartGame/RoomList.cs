@@ -10,7 +10,11 @@ using TMPro;
 public class RoomList : MonoBehaviourPunCallbacks
 {
     public GameObject listButtonPrefab;
+
     public DataTable rooms = new DataTable();
+
+    [System.NonSerialized]
+    public int selectedButtonNum = -1;
 
     void Start(){
         rooms.Columns.Add("RoomName");
@@ -40,6 +44,9 @@ public class RoomList : MonoBehaviourPunCallbacks
         foreach (var room in roomList){
             if (room.RemovedFromList){
                 DataRow[] removedRoom = rooms.Select($"RoomName = '{room.Name}'");
+                if (rooms.Rows.IndexOf(removedRoom[0]) == selectedButtonNum){
+                    selectedButtonNum = -1;
+                }
                 rooms.Rows.Remove(removedRoom[0]);
             }
             else{
@@ -57,8 +64,8 @@ public class RoomList : MonoBehaviourPunCallbacks
             button.transform.GetComponent<Toggle>().group = transform.GetComponent<ToggleGroup>();
 
             //ボタンの表示内容を設定
-            //このfor文の1回目はルーム名、2回目は参加人数,3回目は難易度
-            //なおデータテーブルの列は1列目から ルーム名 ルームの表示名 ルームの人数/最大人数 難易度 の4つ
+            //このfor文の1回目はルームの表示名、2回目は参加人数,3回目は難易度
+            //なおデータテーブルの列は1列目から ルーム名 ルームの表示名 ルームの人数/最大人数(8) 難易度 の4つ
             for (int j = 0; j < 3; j++){
                 var buttonsRoomName = button.transform.GetChild(j).GetComponent<TextMeshProUGUI>();
                 buttonsRoomName.text = rooms.Rows[i][j+1].ToString();

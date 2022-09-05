@@ -16,12 +16,7 @@ public class NoticeText : MonoBehaviourPunCallbacks
 
     void Update(){
         if (!PhotonNetwork.InLobby){
-            if (PhotonNetwork.IsConnected){
-            displayText.text = "ロビーに参加しています...";
-            }
-            else{
-                displayText.text = "オンラインに参加しています...";
-            }
+            displayText.text = "オンラインに参加しています...";
         }
     }
 

@@ -9,6 +9,14 @@ public class RoomButton : MonoBehaviour
         transform.GetComponent<Toggle>().onValueChanged.AddListener(OnClick);
     }
     void OnClick(bool isOn){
-        Debug.Log(isOn);
+        Image imageComponent = transform.GetComponent<Image>();
+
+        if (isOn){
+            imageComponent.color = new Color(0.8f, 0.8f, 0.8f, 1f);
+        }else{
+            imageComponent.color = new Color(1f, 1f, 1f, 1f);
+        }
+
+        transform.parent.GetComponent<RoomList>().selectedButtonNum = transform.GetSiblingIndex();
     }
 }
