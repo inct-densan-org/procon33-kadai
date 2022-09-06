@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class RoomButton : MonoBehaviour
+public class ToggleButtonColor : MonoBehaviour
 {
     void Start(){
         transform.GetComponent<Toggle>().onValueChanged.AddListener(OnClick);
