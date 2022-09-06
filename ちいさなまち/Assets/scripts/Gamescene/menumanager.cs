@@ -7,6 +7,8 @@ using System.Threading.Tasks;
 
 public class Menumanager : MonoBehaviour
 {
+    [SerializeField]
+    private QuestDataBase QuestDataBase;
     public GameObject menu ,messegedis;
      public static string menuKey;
     public TextMeshProUGUI k1,k2,k3,k4,mesasege,warning;
@@ -18,6 +20,8 @@ public class Menumanager : MonoBehaviour
     private Watergaugemanager watergaugemanager;
     private Foodgaugemanager foodgaugemanager;
     private Move move;
+    private TasManager tasManager;
+    private int questnum;
     // Start is called before the first frame update
     void Start()
     {
@@ -27,6 +31,7 @@ public class Menumanager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        questnum = TasManager.Questnum;
         menuKeysee = menuKey;
         if (menuKey=="menu")
         {
@@ -85,39 +90,53 @@ public class Menumanager : MonoBehaviour
     public void Onno(){messegedis.SetActive(false);}
     public async void Onyes() 
     {
-      
-        if (ItemName == "マスク" && GetItem(ItemName).Getkosuu()>0)
+        if (menuKey == "menu")
         {
-            itemDataBase.GetItemLists()[0].Setkosuu(-1);
-            Infection2.ismask = true;
-            messegedis.SetActive(false);
-        }
-        if ( GetItem(ItemName).Getkosuu() == 0)
-        {
-            warning.text = "アイテムがありません";
-            Invoke(nameof(Delwarning), 3);
-        }
-        if (ItemName == "食べ物" && GetItem(ItemName).Getkosuu() > 0)
-        {
-            Foodgaugemanager.Setfood(20);
-            itemDataBase.GetItemLists()[3].Setkosuu(-1);
-            messegedis.SetActive(false);
-        }
-        if (ItemName == "水" && GetItem(ItemName).Getkosuu() > 0)
-        {
-            Watergaugemanager.Setwater(20);
-            itemDataBase.GetItemLists()[2].Setkosuu(-1);
-            messegedis.SetActive(false);
-        }
-        if (ItemName == "薬" && GetItem(ItemName).Getkosuu() > 0)
-        {
-            Move.isdurk = true;
+            if (ItemName == "マスク" && GetItem(ItemName).Getkosuu() > 0)
+            {
+                itemDataBase.GetItemLists()[0].Setkosuu(-1);
+                Infection2.ismask = true;
+                messegedis.SetActive(false);
+            }
+            if (GetItem(ItemName).Getkosuu() == 0)
+            {
+                warning.text = "アイテムがありません";
+                Invoke(nameof(Delwarning), 3);
+            }
+            if (ItemName == "食べ物" && GetItem(ItemName).Getkosuu() > 0)
+            {
+                Foodgaugemanager.Setfood(20);
+                itemDataBase.GetItemLists()[3].Setkosuu(-1);
+                messegedis.SetActive(false);
+            }
+            if (ItemName == "水" && GetItem(ItemName).Getkosuu() > 0)
+            {
+                Watergaugemanager.Setwater(20);
+                itemDataBase.GetItemLists()[2].Setkosuu(-1);
+                messegedis.SetActive(false);
+            }
+            if (ItemName == "薬" && GetItem(ItemName).Getkosuu() > 0)
+            {
+                Move.isdurk = true;
 
-            itemDataBase.GetItemLists()[1].Setkosuu(-1);
-            messegedis.SetActive(false);
-            await Task.Delay(10000);
-            Move.Effecttime();
+                itemDataBase.GetItemLists()[1].Setkosuu(-1);
+                messegedis.SetActive(false);
+                await Task.Delay(10000);
+                Move.Effecttime();
+            }
         }
+       
+        if (menuKey == "quest")
+        {
+            for (int i=0; i < QuestDataBase.GetQusetLists().Count; i++)
+            {
+                if (QuestDataBase.GetQusetLists()[i].GetNumber() == questnum)
+                {
+                    QuestDataBase.GetQusetLists()[i].SetIsQuest(true);
+                }
+            }
+            messegedis.SetActive(false);
+        }//yesおしたらそのクエストのisQuestをオンにしたい
 
     }
     void Delwarning() { warning.text = null; }

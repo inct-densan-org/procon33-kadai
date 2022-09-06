@@ -20,6 +20,7 @@ public class Quest : ScriptableObject
 	private int QuestNumber;
 	[SerializeField]
 	private bool IsQuest;
+	
 	public string GetQuestinf()
 	{
 		return QuestInf;
