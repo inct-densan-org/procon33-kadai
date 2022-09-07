@@ -32,9 +32,9 @@ public class Timekimeru : MonoBehaviourPunCallbacks
             {
                 second++;
 
-                if (second == 60) { second = 0; minite++; Customproperties.Setsecond(minite); }
-                if (minite == 60) { minite = 0; hour++; Customproperties.Setsecond(hour) ; Customproperties.Setsecond(minite); ; }
-                if (hour == 24) { hour = 0; Customproperties.Setsecond(hour); }
+                if (second == 60) { second = 0; minite++; Customproperties.Setminute(minite); }
+                if (minite == 60) { minite = 0; hour++; Customproperties.Sethour(hour) ; Customproperties.Setminute(minite); ; }
+                if (hour == 24) { hour = 0; Customproperties.Sethour(hour); }
                 Customproperties.Setsecond(second);
                 PhotonNetwork.CurrentRoom.SetCustomProperties(roomHash);
             });
