@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -20,21 +21,18 @@ public class Route : MonoBehaviour
         points = GetComponentsInChildren<Transform>().Where(t => t != transform).ToList();
         nextPos = points[pointIdx].position;
         animator = moveObj.  GetComponent<Animator>();
-        var byou = gameObject.AddComponent<Reitenitibyou>();
-         byou.Init(() =>
-        {
-            maePos = moveObj.transform.position;
-           
-        });
-        byou.Play();
-        }
-
-    
+        moveObj.transform.position = points[0].position;
+       
+    }
 
 
-void Update()
+
+
+    void Update()
     {
-
+        nowPos = moveObj.transform.position;
+        var a = moveObj.transform.position;
+        maepos(a);
         if ((nextPos - moveObj.position).sqrMagnitude > Mathf.Epsilon)
         {
             moveObj.position = Vector3.MoveTowards(moveObj.position, nextPos, speed * Time.deltaTime);
@@ -49,15 +47,21 @@ void Update()
             }
 
         }
-        if (nowPos.x > maePos.x) { animator.SetFloat(idX, 1f); animator.SetFloat(idY, 0); }
-        if (nowPos.x < maePos.x) { animator.SetFloat(idX, -1f); animator.SetFloat(idY, 0); }
-        if (nowPos.y < maePos.x) { animator.SetFloat(idY, -1f); animator.SetFloat(idX, 0); }
-        if (nowPos.y < maePos.x) { animator.SetFloat(idY, 1f); animator.SetFloat(idX, 0); }
+        if (nowPos.x > maePos.x) { animator.SetFloat(idX, 1f); }
+        if (nowPos.x == maePos.x) { animator.SetFloat(idX, 0); }
+        if (nowPos.x < maePos.x) { animator.SetFloat(idX, -1f); }
+        if (nowPos.y < maePos.y) { animator.SetFloat(idY, -1f);  }
+        if (nowPos.y == maePos.y) { animator.SetFloat(idY, 0);  }
+        if (nowPos.y > maePos.y) { animator.SetFloat(idY, 1f);  }
     }
     private void FixedUpdate()
     {
-        nowPos =moveObj. transform.position;
+        
 
     }
-
+    private async void maepos(Vector3 vector3)
+    {
+        await Task.Delay(100);
+        maePos = vector3;
+    } 
 }
