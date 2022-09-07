@@ -15,7 +15,7 @@ public class Timekimeru : MonoBehaviourPunCallbacks
     void Start()
     {
         var player = PhotonNetwork.PlayerList;
-        Array.Sort(player);
+        
         
         var p1 = player[0];
 

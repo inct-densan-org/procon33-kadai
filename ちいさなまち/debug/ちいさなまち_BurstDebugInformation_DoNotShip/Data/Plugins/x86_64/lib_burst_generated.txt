@@ -162,6 +162,7 @@ Library: lib_burst_generated
 --root-assembly=C:\Users\rrrr2\OneDrive\ドキュメント\GitHub\procon33-kadai\ちいさなまち\Temp\StagingArea\Data\Managed\Unity.Timeline.dll
 --root-assembly=C:\Users\rrrr2\OneDrive\ドキュメント\GitHub\procon33-kadai\ちいさなまち\Temp\StagingArea\Data\Managed\Unity.Services.Core.dll
 --root-assembly=C:\Users\rrrr2\OneDrive\ドキュメント\GitHub\procon33-kadai\ちいさなまち\Temp\StagingArea\Data\Managed\Autodesk.Fbx.dll
+--root-assembly=C:\Users\rrrr2\OneDrive\ドキュメント\GitHub\procon33-kadai\ちいさなまち\Temp\StagingArea\Data\Managed\NavMeshComponents.dll
 --root-assembly=C:\Users\rrrr2\OneDrive\ドキュメント\GitHub\procon33-kadai\ちいさなまち\Temp\StagingArea\Data\Managed\PhotonRealtime.dll
 --root-assembly=C:\Users\rrrr2\OneDrive\ドキュメント\GitHub\procon33-kadai\ちいさなまち\Temp\StagingArea\Data\Managed\Unity.Services.Core.Environments.dll
 --root-assembly=C:\Users\rrrr2\OneDrive\ドキュメント\GitHub\procon33-kadai\ちいさなまち\Temp\StagingArea\Data\Managed\Unity.Services.Core.Internal.dll
@@ -358,6 +359,7 @@ Library: lib_burst_generated
 --root-assembly=C:\Users\rrrr2\OneDrive\ドキュメント\GitHub\procon33-kadai\ちいさなまち\Temp\StagingArea\Data\Managed\Unity.Timeline.dll
 --root-assembly=C:\Users\rrrr2\OneDrive\ドキュメント\GitHub\procon33-kadai\ちいさなまち\Temp\StagingArea\Data\Managed\Unity.Services.Core.dll
 --root-assembly=C:\Users\rrrr2\OneDrive\ドキュメント\GitHub\procon33-kadai\ちいさなまち\Temp\StagingArea\Data\Managed\Autodesk.Fbx.dll
+--root-assembly=C:\Users\rrrr2\OneDrive\ドキュメント\GitHub\procon33-kadai\ちいさなまち\Temp\StagingArea\Data\Managed\NavMeshComponents.dll
 --root-assembly=C:\Users\rrrr2\OneDrive\ドキュメント\GitHub\procon33-kadai\ちいさなまち\Temp\StagingArea\Data\Managed\PhotonRealtime.dll
 --root-assembly=C:\Users\rrrr2\OneDrive\ドキュメント\GitHub\procon33-kadai\ちいさなまち\Temp\StagingArea\Data\Managed\Unity.Services.Core.Environments.dll
 --root-assembly=C:\Users\rrrr2\OneDrive\ドキュメント\GitHub\procon33-kadai\ちいさなまち\Temp\StagingArea\Data\Managed\Unity.Services.Core.Internal.dll

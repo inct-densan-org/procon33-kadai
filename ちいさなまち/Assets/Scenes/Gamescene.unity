@@ -9827,7 +9827,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveObj: {fileID: 1173899118}
-  speed: 4
+  speed: 1
+  nowPos: {x: 0, y: 0, z: 0}
+  maePos: {x: 0, y: 0, z: 0}
 --- !u!4 &1396292071
 Transform:
   m_ObjectHideFlags: 0
