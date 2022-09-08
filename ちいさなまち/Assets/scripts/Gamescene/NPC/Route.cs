@@ -15,6 +15,7 @@ public class Route : MonoBehaviour
     public Vector3 nowPos, maePos;
     private int idX = Animator.StringToHash("x"), idY = Animator.StringToHash("y");
     private Animator animator = null;
+    public string e;
     void Start()
     {
         points = new List<Transform>();
@@ -30,6 +31,7 @@ public class Route : MonoBehaviour
 
     void Update()
     {
+      
         nowPos = moveObj.transform.position;
         var a = moveObj.transform.position;
         maepos(a);
@@ -47,12 +49,32 @@ public class Route : MonoBehaviour
             }
 
         }
-        if (nowPos.x > maePos.x) { animator.SetFloat(idX, 1f); }
-        if (nowPos.x == maePos.x) { animator.SetFloat(idX, 0); }
-        if (nowPos.x < maePos.x) { animator.SetFloat(idX, -1f); }
-        if (nowPos.y < maePos.y) { animator.SetFloat(idY, -1f);  }
-        if (nowPos.y == maePos.y) { animator.SetFloat(idY, 0);  }
-        if (nowPos.y > maePos.y) { animator.SetFloat(idY, 1f);  }
+        if (nowPos.x > maePos.x) { animator.SetFloat(idX, 1f); e = "right"; }
+        if (nowPos.x == maePos.x) { switch(e)
+            {
+                case "right":
+                    animator.SetFloat(idX, 0.5f);break;
+                case "left":
+                    animator.SetFloat(idX, -0.5f); break;
+                default:
+                    animator.SetFloat(idX, 0); break;
+            }
+                                         }
+        if (nowPos.x < maePos.x) { animator.SetFloat(idX, -1f); e = "left"; }
+        if (nowPos.y < maePos.y) { animator.SetFloat(idY, -1f); e = "front"; }
+        if (nowPos.y == maePos.y)
+        {
+            switch (e)
+            {
+                case "front":
+                    animator.SetFloat(idY, -0.5f); break;
+                case "back":
+                    animator.SetFloat(idY, 0.5f); break;
+                default:
+                    animator.SetFloat(idY, 0); break;
+            }
+        }
+        if (nowPos.y > maePos.y) { animator.SetFloat(idY, 1f); e = "back"; }
     }
     private void FixedUpdate()
     {

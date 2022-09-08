@@ -37,6 +37,7 @@ public  static class Customproperties
     {
 
         roomHash.Add($"{NPC}", false);
+        
         PhotonNetwork.CurrentRoom.SetCustomProperties(roomHash);
 
     }
@@ -88,6 +89,7 @@ public  static class Customproperties
     }
     public static void SetNPCinf(string name,bool inf)
     {
+       
         PhotonNetwork.CurrentRoom.CustomProperties[$"{name}"] = inf;
         PhotonNetwork.CurrentRoom.SetCustomProperties(roomHash);
         roomHash.Clear();

@@ -95,12 +95,11 @@ GameObject:
   - component: {fileID: 5552233689808111018}
   - component: {fileID: 5513578668084596155}
   - component: {fileID: 5552233689808111017}
-  - component: {fileID: 5552233689808111016}
   - component: {fileID: 7952139589708836373}
   - component: {fileID: 7952139590426161724}
   - component: {fileID: 7952139590426161725}
-  - component: {fileID: 2546455516169442303}
   - component: {fileID: 5383155569170452320}
+  - component: {fileID: 2546455516169442309}
   m_Layer: 0
   m_Name: shopNPC
   m_TagString: NPC
@@ -138,6 +137,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Objname: 
   asee: 
+  NPCinfsee: 0
+  a: 0
 --- !u!212 &5552233689808111017
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -190,26 +191,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!95 &5552233689808111016
-Animator:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5552233689808111023}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: b822745bab2e0074a8e5e4267c722792, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &7952139589708836373
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -274,20 +255,6 @@ MonoBehaviour:
   m_SynchronizeLayers:
   - SynchronizeType: 1
     LayerIndex: 0
---- !u!114 &2546455516169442303
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5552233689808111023}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8c280a838a5be6f489e4d5131c26fbd9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Objname: 
-  asee: 
 --- !u!61 &5383155569170452320
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -314,3 +281,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.25, y: 0.46}
   m_EdgeRadius: 0
+--- !u!58 &2546455516169442309
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5552233689808111023}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.0039943457, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.5215789

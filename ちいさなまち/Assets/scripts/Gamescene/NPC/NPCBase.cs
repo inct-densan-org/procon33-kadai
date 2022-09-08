@@ -15,7 +15,7 @@ public class NPCBase : MonoBehaviourPunCallbacks
     public bool NPCinfsee;
     private int infectionProbability=100;
     public static Player player;
-    public static string a;
+    public int a;
     // Start is called before the first frame update
     void Start()
     {
@@ -27,7 +27,7 @@ public class NPCBase : MonoBehaviourPunCallbacks
         byou.Init(() =>
         {
             NPCinfsee = Customproperties.GetNPCinf(Objname);
-           
+            Debug.Log(Customproperties.GetNPCinf(Objname));
         });
         byou.Play();
 
@@ -36,24 +36,26 @@ public class NPCBase : MonoBehaviourPunCallbacks
     // Update is called once per frame
     void Update()
     {
-        asee = a;
+        
     }
     public void OnTriggerStay2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Player")&&cooltime==false)
         {
             cooltime = true;
-           
+            Debug.Log(Customproperties.GetNPCinf(Objname));
             var player = collision.gameObject.GetPhotonView();
             var playernum = player.OwnerActorNr;
+            a = playernum;
             Invoke(nameof(Cooldowm), 5f);
             infected = Customproperties.Getplayerinf(playernum);
             if (infected == true)
             {
+                
                 int rnd = Random.Range(0, 100);
                 if (rnd <= infectionProbability)
                 {
-                  
+                   
                     Invoke(nameof(EffictTime), 180);
                     NPCinf = true;
                     Customproperties.SetNPCinf(Objname, NPCinf);

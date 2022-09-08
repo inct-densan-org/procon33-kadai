@@ -23,9 +23,18 @@ public class Move : MonoBehaviourPunCallbacks
         player = PhotonNetwork.LocalPlayer;
          myplayername = this.gameObject.name;
         GameObject oya = GameObject.Find("Canvas");
-        transform.parent = oya.transform;
-        transform.localPosition = new Vector3(0, 5.7f, -1);
+        var player1 = PhotonNetwork.PlayerList;
         animator = GetComponent<Animator>();
+        transform.parent = oya.transform;
+        if (player1[0] == PhotonNetwork.LocalPlayer){ transform.localPosition = new Vector3(0, 5.7f, -1);}
+        if (player1[1] == PhotonNetwork.LocalPlayer) { transform.localPosition = new Vector3(2, 5.7f, -1); }
+        if (player1[2] == PhotonNetwork.LocalPlayer) { transform.localPosition = new Vector3(4, 5.7f, -1); }
+        if (player1[3] == PhotonNetwork.LocalPlayer) { transform.localPosition = new Vector3(6, 5.7f, -1); }
+        if (player1[4] == PhotonNetwork.LocalPlayer) { transform.localPosition = new Vector3(8, 5.7f, -1); }
+        if (player1[5] == PhotonNetwork.LocalPlayer) { transform.localPosition = new Vector3(10, 5.7f, -1); }
+        if (player1[6] == PhotonNetwork.LocalPlayer) { transform.localPosition = new Vector3(6, 5.7f, -1); }
+        if (player1[7] == PhotonNetwork.LocalPlayer) { transform.localPosition = new Vector3(7, 5.7f, -1); }
+
         var byou = gameObject.AddComponent<itibyou>();
         byou.Init(() =>
         {
@@ -33,6 +42,7 @@ public class Move : MonoBehaviourPunCallbacks
             infection = Customproperties.Getplayerinf(player.ActorNumber);
         });
         byou.Play();
+
     }
 
     private void Update()
@@ -42,18 +52,18 @@ public class Move : MonoBehaviourPunCallbacks
         
         var x = Input.GetAxisRaw("Horizontal");
         var  y = Input.GetAxisRaw("Vertical");
-        if (infection == true&&isdurk==false)
-        {
-            speed = 1f;
-        }
-        if (infection == true && isdurk == true)
-        {
-            speed = 3f;
-        }
-        if(infection==false)
-        {
-            speed = 5f;
-        }
+        //if (infection == true&&isdurk==false)
+        //{
+        //    speed = 1f;
+        //}
+        //if (infection == true && isdurk == true)
+        //{
+        //    speed = 3f;
+        //}
+        //if(infection==false)
+        //{
+        //    speed = 5f;
+        //}デバッグのために外します
         // ���g�����������I�u�W�F�N�g�����Ɉړ��������s��
         if (photonView.IsMine)
         {

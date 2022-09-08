@@ -15,11 +15,7 @@ public class Timekimeru : MonoBehaviourPunCallbacks
     void Start()
     {
         var player = PhotonNetwork.PlayerList;
-        
-        
         var p1 = player[0];
-
-       
         if (p1 == PhotonNetwork.LocalPlayer)
         {
             //var hashtable = new ExitGames.Client.Photon.Hashtable();
