@@ -39,28 +39,20 @@ public class PUN2Server : MonoBehaviourPunCallbacks
     // ゲームサーバーへの接続が成功した時に呼ばれるコールバック
     public override void OnJoinedRoom()
     {
-        
         b = true;
         localplayer = PhotonNetwork.LocalPlayer;
         var localplayernum = localplayer.ActorNumber;
-
         var player = PhotonNetwork.PlayerList;
-        
-        
         var p1 = player[0];
-       // photonView.RPC(nameof(PlayerNum), RpcTarget.AllBuffered);
 
         isman = Random.Range(0, 2);
         if (isman == 1)
         {
-            clone = PhotonNetwork.Instantiate("man", new Vector3(20, 15, -1), Quaternion.identity);
-            
+            clone = PhotonNetwork.Instantiate("man", new Vector3(20, 15, -1), Quaternion.identity); 
         }
         else
         {
             clone = PhotonNetwork.Instantiate("woman", new Vector3(20, 15, -1), Quaternion.identity);
-            
-
         }  
         if (p1 == PhotonNetwork.LocalPlayer)
         {
@@ -69,11 +61,7 @@ public class PUN2Server : MonoBehaviourPunCallbacks
         Customproperties.mycustom(localplayernum);
         
     }
-    public override void OnPlayerLeftRoom(Player otherPlayer)
-    {
-        // photonView.RPC(nameof(PlayerNum2), RpcTarget.AllBuffered);
-        
-    }
+   
     public void OnPhotonPlayerConnected()
     {
         
@@ -89,7 +77,7 @@ public class PUN2Server : MonoBehaviourPunCallbacks
            
 
 
-            joinnum.text = "参加人数　" + $"{playernum}" + "/8　　" +$"{ isman}";
+            joinnum.text = "参加人数　" + $"{playernum}" + "/8　　";
             
         }
         if (Input.GetKey(KeyCode.Space) && isStart == false)
@@ -109,29 +97,11 @@ public class PUN2Server : MonoBehaviourPunCallbacks
           
         }
     }
-    //public void Playerrr()
-    //{
-    //    f = 0;
-    //    foreach (var p in PhotonNetwork.PlayerList)
-    //    {
-    //        f++;
-    //    }
-    //    playernum = f;
-    //}
+    
     [PunRPC]
     public void IsStart()
     {
         isStart = true;
     }
-    //[PunRPC]
-    //public void PlayerNum()
-    //{
-    //    playernum++;
-    //}
-    //[PunRPC]
-    //public void PlayerNum2()
-    //{
-    //    playernum--;
-    //}
-
+   
 }
