@@ -46,7 +46,7 @@ public class PUN2Server : MonoBehaviourPunCallbacks
 
         var player = PhotonNetwork.PlayerList;
         
-        ii = true;
+        
         var p1 = player[0];
        // photonView.RPC(nameof(PlayerNum), RpcTarget.AllBuffered);
 
