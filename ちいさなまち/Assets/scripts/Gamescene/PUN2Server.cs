@@ -1,24 +1,30 @@
+using ExitGames.Client.Photon;
 using Photon.Pun;
 using Photon.Realtime;
 using System;
 using UnityEngine;
+using UnityEngine.UI;
 using Random = UnityEngine.Random;
-
+using TMPro;
+using System.Collections.Generic;
 // MonoBehaviourPunCallbacksを継承して、PUNのコールバックを受け取れるようにする
 public class PUN2Server : MonoBehaviourPunCallbacks
 {
+    public static bool isStart,ii;
     public static GameObject clone;
-    private ItemDataBase itemDataBase;
-    private bool man, woman;
+    public GameObject gamestart, wait;
+    public TextMeshProUGUI joinnum;
     public static int isman;
     public static ExitGames.Client.Photon.Hashtable roomHash;
     public static Player localplayer;
-    private FlushController flushController;
-    public static bool ii;
+    public  bool issee;
+    private bool a,b;
+    private int playernum,f;
+   private GameObject[] tagObjects;
     private void Start()
     {
-        
-        PhotonNetwork.NickName="Player";
+
+        PhotonNetwork.NickName = "Player";
         // PhotonServerSettingsの設定内容を使ってマスターサーバーへ接続する
         PhotonNetwork.ConnectUsingSettings();
     }
@@ -33,24 +39,29 @@ public class PUN2Server : MonoBehaviourPunCallbacks
     // ゲームサーバーへの接続が成功した時に呼ばれるコールバック
     public override void OnJoinedRoom()
     {
+        
+        b = true;
         localplayer = PhotonNetwork.LocalPlayer;
         var localplayernum = localplayer.ActorNumber;
-       
-        var player = PhotonNetwork.PlayerList;
 
+        var player = PhotonNetwork.PlayerList;
+        
         ii = true;
         var p1 = player[0];
-
+       // photonView.RPC(nameof(PlayerNum), RpcTarget.AllBuffered);
 
         isman = Random.Range(0, 2);
         if (isman == 1)
         {
             clone = PhotonNetwork.Instantiate("man", new Vector3(20, 15, -1), Quaternion.identity);
+            
         }
         else
         {
             clone = PhotonNetwork.Instantiate("woman", new Vector3(20, 15, -1), Quaternion.identity);
-        }
+            
+
+        }  
         if (p1 == PhotonNetwork.LocalPlayer)
         {
             Customproperties.custam();
@@ -58,4 +69,69 @@ public class PUN2Server : MonoBehaviourPunCallbacks
         Customproperties.mycustom(localplayernum);
         
     }
+    public override void OnPlayerLeftRoom(Player otherPlayer)
+    {
+        // photonView.RPC(nameof(PlayerNum2), RpcTarget.AllBuffered);
+        
+    }
+    public void OnPhotonPlayerConnected()
+    {
+        
+    }
+    public void Update()
+    {
+        issee = isStart;
+        tagObjects = GameObject.FindGameObjectsWithTag("Player");
+        playernum = tagObjects.Length;
+        if (isStart == false&&b==true) 
+        {
+
+           
+
+
+            joinnum.text = "参加人数　" + $"{playernum}" + "/8　　" +$"{ isman}";
+            
+        }
+        if (Input.GetKey(KeyCode.Space) && isStart == false)
+        {
+           
+            photonView.RPC(nameof(IsStart), RpcTarget.All);
+          
+            PhotonNetwork.CurrentRoom.IsOpen = false;
+        }
+        if (isStart == true&&a==false)
+        {
+            
+            gamestart.SetActive(true);
+            wait.SetActive(false);
+            a = true;
+            clone.SetActive(true);
+          
+        }
+    }
+    //public void Playerrr()
+    //{
+    //    f = 0;
+    //    foreach (var p in PhotonNetwork.PlayerList)
+    //    {
+    //        f++;
+    //    }
+    //    playernum = f;
+    //}
+    [PunRPC]
+    public void IsStart()
+    {
+        isStart = true;
+    }
+    //[PunRPC]
+    //public void PlayerNum()
+    //{
+    //    playernum++;
+    //}
+    //[PunRPC]
+    //public void PlayerNum2()
+    //{
+    //    playernum--;
+    //}
+
 }

@@ -27,7 +27,7 @@ public class NPCBase : MonoBehaviourPunCallbacks
         byou.Init(() =>
         {
             NPCinfsee = Customproperties.GetNPCinf(Objname);
-            Debug.Log(Customproperties.GetNPCinf(Objname));
+            
         });
         byou.Play();
 

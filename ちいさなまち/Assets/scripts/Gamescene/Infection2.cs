@@ -88,7 +88,7 @@ public class Infection2 : MonoBehaviourPunCallbacks
             var e = a.OwnerActorNr;
            
             infected = Customproperties.Getplayerinf(e);
-            Debug.Log(infected);
+            
             if (infected == true )//infected�͓������Ȃ��Ƃ����Ȃ�
             {
 

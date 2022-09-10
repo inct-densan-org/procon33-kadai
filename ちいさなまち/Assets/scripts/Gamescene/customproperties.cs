@@ -12,8 +12,8 @@ public  static class Customproperties
 
     public static void custam()
     {
-        var g = PhotonNetwork.LocalPlayer;
-       
+
+        
         var a = false;
         roomHash = new ExitGames.Client.Photon.Hashtable
         {
@@ -21,11 +21,12 @@ public  static class Customproperties
             { "minite", minite },
             { "second", second },
            
-            
-            
+
+
         };
         PhotonNetwork.CurrentRoom.SetCustomProperties(roomHash);
     }
+    
     public static void mycustom(int player)
     {
        
@@ -41,6 +42,7 @@ public  static class Customproperties
         PhotonNetwork.CurrentRoom.SetCustomProperties(roomHash);
 
     }
+   
     public static int Getsecond()
     {
         return (PhotonNetwork.CurrentRoom.CustomProperties["second"] is int second) ? second : 0;
@@ -94,7 +96,7 @@ public  static class Customproperties
         PhotonNetwork.CurrentRoom.SetCustomProperties(roomHash);
         roomHash.Clear();
     }
-
+  
 }
    
 

@@ -3,11 +3,13 @@ using UnityEngine;
 using TMPro;
 using Photon.Realtime;
 
+using System.Collections.Generic;
+
 [RequireComponent(typeof(Animator))]
 // MonoBehaviourPunCallbacks���p�����āAphotonView�v���p�e�B���g����悤�ɂ���
 public class Move : MonoBehaviourPunCallbacks
 {
-    private bool ispush,ishor,isver,infection;
+    private bool ispush,ishor,isver,infection,isStart;
     private int idX = Animator.StringToHash("x"), idY = Animator.StringToHash("y");
     private Animator animator = null;
     public static Vector3 popo;
@@ -18,16 +20,18 @@ public class Move : MonoBehaviourPunCallbacks
     public static ExitGames.Client.Photon.Hashtable roomHash;
     public static string myplayername;
     private Player player;
+    private PUN2Server server;
     public void Start()
     {
         player = PhotonNetwork.LocalPlayer;
          myplayername = this.gameObject.name;
         GameObject oya = GameObject.Find("Canvas");
         var player1 = PhotonNetwork.PlayerList;
+        
         animator = GetComponent<Animator>();
         transform.parent = oya.transform;
         if (player1[0] == PhotonNetwork.LocalPlayer){ transform.localPosition = new Vector3(0, 5.7f, -1);}
-        if (player1[1] == PhotonNetwork.LocalPlayer) { transform.localPosition = new Vector3(2, 5.7f, -1); }
+        if (player1[1] == PhotonNetwork.LocalPlayer) { transform.localPosition = new Vector3(2, 5.7f, -1); } 
         if (player1[2] == PhotonNetwork.LocalPlayer) { transform.localPosition = new Vector3(4, 5.7f, -1); }
         if (player1[3] == PhotonNetwork.LocalPlayer) { transform.localPosition = new Vector3(6, 5.7f, -1); }
         if (player1[4] == PhotonNetwork.LocalPlayer) { transform.localPosition = new Vector3(8, 5.7f, -1); }
@@ -47,6 +51,7 @@ public class Move : MonoBehaviourPunCallbacks
 
     private void Update()
     {
+        
         //var isshop = shopmanager.isshop;
         var menuKey = Menumanager.menuKey;
         
