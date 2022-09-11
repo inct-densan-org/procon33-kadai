@@ -54,17 +54,20 @@ public class RoomList : MonoBehaviourPunCallbacks
 
     public override void OnRoomListUpdate(List<RoomInfo> roomList){
         foreach (var room in roomList){
+            DataRow[] inListRoom = rooms.Select($"RoomName = '{room.Name}'");
             if (room.RemovedFromList){
-                DataRow[] removedRoom = rooms.Select($"RoomName = '{room.Name}'");
-                rooms.Rows.Remove(removedRoom[0]);
+                rooms.Rows.Remove(inListRoom[0]);
             }
             else{
+                if(inListRoom.Length > 0){
+                    rooms.Rows.Remove(inListRoom[0]);
+                }
                 rooms.Rows.Add(room.Name,(room.CustomProperties.ContainsKey("RoomName")) ? room.CustomProperties["RoomName"] : "名称不明" , $"{room.PlayerCount.ToString()}/{room.MaxPlayers.ToString()}", (room.CustomProperties.ContainsKey("Difficulty")) ? room.CustomProperties["Difficulty"] : "難易度不明");
             }
         }
 
         DestroyChild();
-        
+
         for (int i = 0; i < rooms.Rows.Count; i++){
 
             //ボタンを生成してcanvasの子にする
@@ -81,7 +84,7 @@ public class RoomList : MonoBehaviourPunCallbacks
             }
         }
     }
-    
+
     public override void OnLeftLobby(){
         ListErase();
     }
