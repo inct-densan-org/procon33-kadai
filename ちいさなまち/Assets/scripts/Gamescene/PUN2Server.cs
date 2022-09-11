@@ -19,7 +19,8 @@ public class PUN2Server : MonoBehaviourPunCallbacks
     public static Player localplayer;
     public  bool issee;
     private bool a,b;
-    private int playernum,f;
+    public static int playernum;
+    private int f;
    private GameObject[] tagObjects;
     private void Start()
     {
@@ -35,7 +36,17 @@ public class PUN2Server : MonoBehaviourPunCallbacks
         // "Room"という名前のルームに参加する（ルームが存在しなければ作成して参加する）
         PhotonNetwork.JoinOrCreateRoom("Room", new RoomOptions(), TypedLobby.Default);
     }
-
+    public override void OnJoinRoomFailed(short returnCode, string message)
+    {
+        Debug.Log($"ルームへの参加に失敗しました: {message}");
+        
+        PhotonNetwork.JoinRandomRoom();
+    }
+    public override void OnJoinRandomFailed(short returnCode, string message)
+    {
+        Debug.Log($"ランダムルームへの参加に失敗しました: {message}");
+        PhotonNetwork.CreateRoom(null);
+    }
     // ゲームサーバーへの接続が成功した時に呼ばれるコールバック
     public override void OnJoinedRoom()
     {

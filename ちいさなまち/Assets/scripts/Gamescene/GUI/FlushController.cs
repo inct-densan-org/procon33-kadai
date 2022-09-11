@@ -39,7 +39,7 @@ public class FlushController : MonoBehaviourPunCallbacks
        
         Vector3 pos = this.transform.localPosition;
 
-            if (trigger) pos.z = 0.0f;
+            if (trigger) pos.z = -5.0f;
             else pos.z = -50.0f;
 
             this.transform.localPosition = pos;

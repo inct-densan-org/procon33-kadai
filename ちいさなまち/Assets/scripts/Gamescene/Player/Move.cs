@@ -23,6 +23,7 @@ public class Move : MonoBehaviourPunCallbacks
     private PUN2Server server;
     public void Start()
     {
+      var  playernum = PUN2Server.playernum;
         player = PhotonNetwork.LocalPlayer;
          myplayername = this.gameObject.name;
         GameObject oya = GameObject.Find("Canvas");
@@ -31,13 +32,13 @@ public class Move : MonoBehaviourPunCallbacks
         animator = GetComponent<Animator>();
         transform.parent = oya.transform;
         if (player1[0] == PhotonNetwork.LocalPlayer){ transform.localPosition = new Vector3(0, 5.7f, -1);}
-        if (player1[1] == PhotonNetwork.LocalPlayer) { transform.localPosition = new Vector3(2, 5.7f, -1); } 
-        if (player1[2] == PhotonNetwork.LocalPlayer) { transform.localPosition = new Vector3(4, 5.7f, -1); }
-        if (player1[3] == PhotonNetwork.LocalPlayer) { transform.localPosition = new Vector3(6, 5.7f, -1); }
-        if (player1[4] == PhotonNetwork.LocalPlayer) { transform.localPosition = new Vector3(8, 5.7f, -1); }
-        if (player1[5] == PhotonNetwork.LocalPlayer) { transform.localPosition = new Vector3(10, 5.7f, -1); }
-        if (player1[6] == PhotonNetwork.LocalPlayer) { transform.localPosition = new Vector3(6, 5.7f, -1); }
-        if (player1[7] == PhotonNetwork.LocalPlayer) { transform.localPosition = new Vector3(7, 5.7f, -1); }
+        if(playernum>=2)  if (player1[1] == PhotonNetwork.LocalPlayer) { transform.localPosition = new Vector3(2, 5.7f, -1); }
+        if (playernum >= 3) if (player1[2] == PhotonNetwork.LocalPlayer) { transform.localPosition = new Vector3(4, 5.7f, -1); }
+        if (playernum >= 4) if (player1[3] == PhotonNetwork.LocalPlayer) { transform.localPosition = new Vector3(6, 5.7f, -1); }
+        if (playernum >= 5) if (player1[4] == PhotonNetwork.LocalPlayer) { transform.localPosition = new Vector3(8, 5.7f, -1); }
+        if (playernum >= 6) if (player1[5] == PhotonNetwork.LocalPlayer) { transform.localPosition = new Vector3(10, 5.7f, -1); }
+        if(playernum>=7)   if (player1[6] == PhotonNetwork.LocalPlayer) { transform.localPosition = new Vector3(6, 5.7f, -1); }
+        if (playernum >= 8) if (player1[7] == PhotonNetwork.LocalPlayer) { transform.localPosition = new Vector3(7, 5.7f, -1); }
 
         var byou = gameObject.AddComponent<itibyou>();
         byou.Init(() =>
