@@ -3189,6 +3189,8 @@ GameObject:
   m_Component:
   - component: {fileID: 428023885}
   - component: {fileID: 428023886}
+  - component: {fileID: 428023888}
+  - component: {fileID: 428023887}
   m_Layer: 0
   m_Name: menumaneger
   m_TagString: Untagged
@@ -3238,6 +3240,41 @@ MonoBehaviour:
   icon4: {fileID: 1683626852}
   itemDataBase: {fileID: 11400000, guid: 95fa6098fd019724ab6a92cf42ab58f9, type: 2}
   menuKeysee: 
+--- !u!114 &428023887
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 428023884}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents: []
+  sceneViewId: 5
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
+--- !u!114 &428023888
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 428023884}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 511848cf91a5ac641b23520415b3f81d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GameObject: {fileID: 555045503}
 --- !u!1 &446975689
 GameObject:
   m_ObjectHideFlags: 0
@@ -4465,6 +4502,11 @@ CanvasRenderer:
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4032137023545071843, guid: c0263383bd637974f9828cbe674786f6, type: 3}
   m_PrefabInstance: {fileID: 1173899117}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &555045503 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8598307663963747253, guid: 54ea9076881e7ab40801269ae1dd8aac, type: 3}
+  m_PrefabInstance: {fileID: 8598307664227750987}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &556359524
 GameObject:
@@ -9176,7 +9218,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 545273075}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -11220,6 +11262,7 @@ GameObject:
   - component: {fileID: 1545299128}
   - component: {fileID: 1545299127}
   - component: {fileID: 1545299126}
+  - component: {fileID: 1545299129}
   m_Layer: 5
   m_Name: tokei
   m_TagString: Untagged
@@ -11259,6 +11302,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 206b4b93766d7b9408c7da20dea1160b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hour: 0
+  minite: 0
+  second: 0
   text: {fileID: 1545299127}
 --- !u!114 &1545299127
 MonoBehaviour:
@@ -11357,6 +11403,28 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1545299124}
   m_CullTransparentMesh: 1
+--- !u!114 &1545299129
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1545299124}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents: []
+  sceneViewId: 7
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!1 &1561112357
 GameObject:
   m_ObjectHideFlags: 0
@@ -14566,10 +14634,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 558082331}
     m_Modifications:
-    - target: {fileID: 1646286907215411618, guid: 54ea9076881e7ab40801269ae1dd8aac, type: 3}
-      propertyPath: sceneViewId
-      value: 5
-      objectReference: {fileID: 0}
     - target: {fileID: 8598307663963747252, guid: 54ea9076881e7ab40801269ae1dd8aac, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -14657,14 +14721,6 @@ PrefabInstance:
     - target: {fileID: 8598307663963747253, guid: 54ea9076881e7ab40801269ae1dd8aac, type: 3}
       propertyPath: m_Name
       value: Image
-      objectReference: {fileID: 0}
-    - target: {fileID: 8598307663963749450, guid: 54ea9076881e7ab40801269ae1dd8aac, type: 3}
-      propertyPath: m_RaycastTarget
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8598307663963749451, guid: 54ea9076881e7ab40801269ae1dd8aac, type: 3}
-      propertyPath: m_Enabled
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 54ea9076881e7ab40801269ae1dd8aac, type: 3}

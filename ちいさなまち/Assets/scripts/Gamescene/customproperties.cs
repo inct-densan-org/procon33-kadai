@@ -17,9 +17,9 @@ public  static class Customproperties
         var a = false;
         roomHash = new ExitGames.Client.Photon.Hashtable
         {
-            { "hour", hour },
-            { "minite", minite },
-            { "second", second },
+            //{ "hour", hour },
+            //{ "minite", minite },
+            { "Time", second },
            
 
 
@@ -43,18 +43,11 @@ public  static class Customproperties
 
     }
    
-    public static int Getsecond()
+    public static int GetTime()
     {
-        return (PhotonNetwork.CurrentRoom.CustomProperties["second"] is int second) ? second : 0;
+        return (PhotonNetwork.CurrentRoom.CustomProperties["Time"] is int second) ? second : 0;
     }
-    public static int Getminute()
-    {
-        return (PhotonNetwork.CurrentRoom.CustomProperties["minite"] is int time) ? time : 0;
-    }
-    public static int Gethour()
-    {
-        return (PhotonNetwork.CurrentRoom.CustomProperties["hour"] is int inf) ? inf : 0;
-    }
+   
     public static bool Getplayerinf(int player)
     {
         return (PhotonNetwork.CurrentRoom.CustomProperties[$"{player}"] is bool inf) ? inf : false;
@@ -68,30 +61,12 @@ public  static class Customproperties
     {
         PhotonNetwork.CurrentRoom.CustomProperties[$"{player}"] = inf;
         PhotonNetwork.CurrentRoom.SetCustomProperties(roomHash);
-        
         roomHash.Clear();
     }
-    public static void Setsecond(int time)
-    {
-        PhotonNetwork.CurrentRoom.CustomProperties["second"] = time;
-        PhotonNetwork.CurrentRoom.SetCustomProperties(roomHash);
-        roomHash.Clear();
-    }
-    public static void Sethour(int time)
-    {
-        PhotonNetwork.CurrentRoom.CustomProperties["hour"] = time;
-        PhotonNetwork.CurrentRoom.SetCustomProperties(roomHash);
-        roomHash.Clear();
-    }
-    public static void Setminute(int time)
-    {
-        PhotonNetwork.CurrentRoom.CustomProperties["minite"] = time;
-        PhotonNetwork.CurrentRoom.SetCustomProperties(roomHash);
-        roomHash.Clear();
-    }
+   
+    
     public static void SetNPCinf(string name,bool inf)
     {
-       
         PhotonNetwork.CurrentRoom.CustomProperties[$"{name}"] = inf;
         PhotonNetwork.CurrentRoom.SetCustomProperties(roomHash);
         roomHash.Clear();

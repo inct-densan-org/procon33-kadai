@@ -10,7 +10,8 @@ using System;
 public class Timekimeru : MonoBehaviourPunCallbacks
 {
     public static ExitGames.Client.Photon.Hashtable roomHash;
-    public  int hour, minite, second;
+    public  int hour, minite, second,time1;
+    public static int time;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,26 +19,27 @@ public class Timekimeru : MonoBehaviourPunCallbacks
         var p1 = player[0];
         if (p1 == PhotonNetwork.LocalPlayer)
         {
-            //var hashtable = new ExitGames.Client.Photon.Hashtable();
-            //hashtable["Score"] = 0;
-            //hashtable["Message"] = "����ɂ���";
-            //PhotonNetwork.LocalPlayer.SetCustomProperties(hashtable);
             
-            var byou = gameObject.AddComponent<itibyou>();
+            var byou = GetComponent<itibyou>();
+
+            if (byou == null)
+            {
+              byou=  gameObject.AddComponent<itibyou>();
+            }
             byou.Init(() =>
             {
-                second++;
+                time1++;
 
-                if (second == 60) { second = 0; minite++; Customproperties.Setminute(minite); }
-                if (minite == 60) { minite = 0; hour++; Customproperties.Sethour(hour) ; Customproperties.Setminute(minite); ; }
-                if (hour == 24) { hour = 0; Customproperties.Sethour(hour); }
-                Customproperties.Setsecond(second);
-                PhotonNetwork.CurrentRoom.SetCustomProperties(roomHash);
+                photonView.RPC(nameof(SetTime), RpcTarget.All, time1);
             });
             byou.Play();
         }
     }
-
+    [PunRPC]
+    public void SetTime(int second)
+    {
+        time = second;
+    }
     // Update is called once per frame
     void Update()
     {

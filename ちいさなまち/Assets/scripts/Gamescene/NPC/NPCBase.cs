@@ -22,12 +22,18 @@ public class NPCBase : MonoBehaviourPunCallbacks
         NPCinf=false;
         Objname = this.gameObject.name;
         roomHash = new ExitGames.Client.Photon.Hashtable();
-        var byou = gameObject.AddComponent<itibyou>();
+        var byou = GetComponent<itibyou>();
+
+        if (byou == null)
+        {
+           byou=  gameObject.AddComponent<itibyou>();
+        }
         Customproperties.NPCcustom(Objname);
         byou.Init(() =>
         {
             NPCinfsee = Customproperties.GetNPCinf(Objname);
             
+
         });
         byou.Play();
 
@@ -42,6 +48,7 @@ public class NPCBase : MonoBehaviourPunCallbacks
     {
         if (collision.gameObject.CompareTag("Player")&&cooltime==false)
         {
+           
             cooltime = true;
             Debug.Log(Customproperties.GetNPCinf(Objname));
             var player = collision.gameObject.GetPhotonView();

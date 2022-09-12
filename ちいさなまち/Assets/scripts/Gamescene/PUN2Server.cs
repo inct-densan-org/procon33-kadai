@@ -91,7 +91,7 @@ public class PUN2Server : MonoBehaviourPunCallbacks
             joinnum.text = "参加人数　" + $"{playernum}" + "/8　　";
             
         }
-        if (Input.GetKey(KeyCode.Space) && isStart == false)
+        if (Input.GetKey(KeyCode.Space) && isStart == false && b == true)
         {
            
             photonView.RPC(nameof(IsStart), RpcTarget.All);

@@ -40,7 +40,17 @@ public class Move : MonoBehaviourPunCallbacks
         if(playernum>=7)   if (player1[6] == PhotonNetwork.LocalPlayer) { transform.localPosition = new Vector3(6, 5.7f, -1); }
         if (playernum >= 8) if (player1[7] == PhotonNetwork.LocalPlayer) { transform.localPosition = new Vector3(7, 5.7f, -1); }
 
-        var byou = gameObject.AddComponent<itibyou>();
+        var byou = GetComponent<itibyou>();
+
+        if (byou == null)
+        {
+            byou = gameObject.AddComponent<itibyou>();
+        }
+
+        if (byou == null)
+        {
+            gameObject.AddComponent<itibyou>();
+        }
         byou.Init(() =>
         {
          

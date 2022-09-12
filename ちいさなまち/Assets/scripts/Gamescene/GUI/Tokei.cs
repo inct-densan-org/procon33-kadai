@@ -10,7 +10,7 @@ using TMPro;
 
 public  class Tokei : MonoBehaviourPunCallbacks
 {
-    private int hour, minite, second;
+    public int hour, minite, second,time;
     public TextMeshProUGUI text;
     private ExitGames.Client.Photon.Hashtable roomHash;
     //private itibyou byou;
@@ -18,12 +18,20 @@ public  class Tokei : MonoBehaviourPunCallbacks
     // Start is called before the first frame update
     void Start()
     {
-        var byou = gameObject.AddComponent<itibyou>();
+        var byou = GetComponent<itibyou>();
+
+        if (byou == null)
+        {
+           byou=  gameObject.AddComponent<itibyou>();
+        }
         byou.Init(() =>
         {
-            hour = Customproperties.Gethour();
-            second = Customproperties.Getsecond();
-            minite = Customproperties.Getminute();
+            time = Timekimeru.time;
+            second = time % 60;
+            minite = time / 60;
+            if (minite == 60) minite = 0;
+            hour = time / 3600;if (hour == 24) hour = 0;
+            Debug.Log(time);
         });
         byou.Play();
     }

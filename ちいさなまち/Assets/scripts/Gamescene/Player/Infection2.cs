@@ -4,11 +4,12 @@ using UnityEngine;
 using Photon.Pun;
 using System.Threading.Tasks;
 using Photon.Realtime;
+[RequireComponent(typeof(itibyou))]
 
 public class Infection2 : MonoBehaviourPunCallbacks
 {
     private bool cooltime ,iti;
-    public static bool infected;
+    public  bool infected;
     public bool NPCinf;
     public int infectionProbability = 1000;
     private CircleCollider2D collider2;
@@ -17,30 +18,29 @@ public class Infection2 : MonoBehaviourPunCallbacks
     public static bool ismask;
     private NPCBase NPCShop;
     private PUN2Server PUN2Server;
-    public bool infecsee;
-    private int Player;
+    public  bool infecsee;
+    public static int Player;
     public static ExitGames.Client.Photon.Hashtable roomHash;
     // Start is called before the first frame update
     void Start()
     {
         var a = this.gameObject.GetPhotonView();
         Player = a.OwnerActorNr;
-        //kansenhani = transform.Find("kansenhani").gameObject;
+        Debug.Log(Player);
         collider2 = this.GetComponent<CircleCollider2D>();
+        var byou = GetComponent<itibyou>();
 
-        //var byou = gameObject.AddComponent<itibyou>();
-        //byou.Init(() =>
-        //{
-            
-        //    //var a = PhotonNetwork.PlayerList;
-        //    //var b = a[0];
-        //    //var c = a[1];
-        //    //if (b != null && c != null)
-        //    //{
-        //    //    if (b.GetInfection() != c.GetInfection()) Debug.Log("dayone");
-        //    //}
-        //});
-        //byou.Play();
+        if (byou == null)
+        {
+            byou = gameObject.AddComponent<itibyou>();
+        }
+        byou.Init(() =>
+        {
+            infecsee = Customproperties.Getplayerinf(Player);
+
+        });
+        byou.Play();
+
     }
 
     // Update is called once per frame
@@ -48,7 +48,7 @@ public class Infection2 : MonoBehaviourPunCallbacks
     {
        
         var isman = PUN2Server.isman;
-        infecsee = Customproperties.Getplayerinf(Player);
+        
         if (infected == true)
         {
             if (isman == 1) { collider2.radius = 9f; }
@@ -68,7 +68,7 @@ public class Infection2 : MonoBehaviourPunCallbacks
         }
         if (ismask == false)
         {
-            infectionProbability = 5;
+            infectionProbability = 100;
         }
     }
     void Effecttime()
@@ -89,7 +89,7 @@ public class Infection2 : MonoBehaviourPunCallbacks
            
             infected = Customproperties.Getplayerinf(e);
             
-            if (infected == true )//infected�͓������Ȃ��Ƃ����Ȃ�
+            if (infected == true )
             {
 
                 int rnd = Random.Range(0, 100);
@@ -107,7 +107,7 @@ public class Infection2 : MonoBehaviourPunCallbacks
             var NPCname = collision.gameObject.name;
             
             NPCinf = Customproperties.GetNPCinf(NPCname);
-            if (NPCinf == true)//infected�͓������Ȃ��Ƃ����Ȃ�
+            if (NPCinf == true)
             {
 
                 int rnd = Random.Range(0, 100);
@@ -122,13 +122,6 @@ public class Infection2 : MonoBehaviourPunCallbacks
         }
 
     }
-    //private void OnTriggerExit2D(Collider2D collision)
-    //{
-    //    if (collision.gameObject.CompareTag("NPC"))
-    //    {
-    //        NPCShop.localPalyer(null);
-    //    }
-    //}
 
     void Cooldowm()
     {

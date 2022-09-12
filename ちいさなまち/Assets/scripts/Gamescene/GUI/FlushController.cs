@@ -13,39 +13,54 @@ public class FlushController : MonoBehaviourPunCallbacks
     private PUN2Server pUN2Server;
     private static Player player;
     private  Image image;
-    private int Player;
+    public int Player;
+    public GameObject GameObject;
+    private Infection2Å@infection ;
+    public bool trigger;
     // Start is called before the first frame update
     void Start()
     {
-        var a = this.gameObject.GetPhotonView();
-        Player = a.OwnerActorNr;
-
-        image = GetComponent<Image>();
+       var tagObjects = GameObject.FindGameObjectsWithTag("Player");
+        var playernum = tagObjects.Length;
+        var playerlist = PhotonNetwork.PlayerList;
+        for(int i = 0; i < playernum; i++)
+        {
+            if (playerlist[i]==PhotonNetwork.LocalPlayer)Player=i+1;
+        }
+        image =GameObject. GetComponent<Image>();
         image.color = Color.clear;
-        
+        var byou = GetComponent<itibyou>();
+      //var  tagObjects = GameObject.FindGameObjectsWithTag("Player");
+      //  foreach(var q in tagObjects)
+      //  {
+      //    var r=  q.GetPhotonView();
+
+      //  }
+        if (byou == null)
+        {
+            byou = gameObject.AddComponent<itibyou>();
+        }
+        byou.Init(() =>
+        {
+            trigger = Customproperties.Getplayerinf(Player);
+           
+        });
+        byou.Play();
     }
 
     // Update is called once per frame
     void Update()
     {
-     
-        
-        
-           
-            Image image = GetComponent<Image>();
-            image.color = Color.Lerp(Color.clear, target, Mathf.PingPong(Time.time, 1));
 
-            bool trigger = Customproperties.Getplayerinf(Player);
-       
-        Vector3 pos = this.transform.localPosition;
+        
 
+
+        Image image = GameObject.GetComponent<Image>();
+        image.color = Color.Lerp(Color.clear, target, Mathf.PingPong(Time.time, 1));
+        Vector3 pos = GameObject.transform.localPosition;
             if (trigger) pos.z = -5.0f;
             else pos.z = -50.0f;
-
-            this.transform.localPosition = pos;
-        
-       
-       
+        GameObject.transform.localPosition = pos;
     }
    
 }
