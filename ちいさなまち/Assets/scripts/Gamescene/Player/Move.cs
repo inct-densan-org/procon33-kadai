@@ -83,7 +83,7 @@ public class Move : MonoBehaviourPunCallbacks
         //{
         //    speed = 5f;
         //}デバッグのために外します
-        // ���g�����������I�u�W�F�N�g�����Ɉړ��������s��
+        
         if (photonView.IsMine)
         {
             if (menuKey == null)
@@ -118,6 +118,22 @@ public class Move : MonoBehaviourPunCallbacks
     {
 
         isdurk = false;
+    }
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("shop") && photonView.IsMine)
+        {
+            
+            if (Input.GetKey(KeyCode.Space))
+            {
+
+
+                Menumanager.menuKey = "shop";
+                
+                
+            }
+        }
+
     }
 }
 

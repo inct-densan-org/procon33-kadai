@@ -120,7 +120,17 @@ public class Infection2 : MonoBehaviourPunCallbacks
                 }
             }
         }
-       
+        if (collision.gameObject.CompareTag("quest")&&photonView.IsMine)
+        {
+
+            if (Input.GetKey(KeyCode.Space) || Input.GetKey(KeyCode.KeypadEnter))
+            {
+
+
+                Menumanager.menuKey = "quest";
+                
+            }
+        }
 
     }
 

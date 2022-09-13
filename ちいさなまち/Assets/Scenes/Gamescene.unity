@@ -3274,7 +3274,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 511848cf91a5ac641b23520415b3f81d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Player: 0
   GameObject: {fileID: 555045503}
+  trigger: 0
 --- !u!1 &446975689
 GameObject:
   m_ObjectHideFlags: 0
@@ -3470,7 +3472,7 @@ GameObject:
   - component: {fileID: 462693992}
   m_Layer: 5
   m_Name: Task(Debug)
-  m_TagString: Untagged
+  m_TagString: quest
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9252,7 +9254,7 @@ GameObject:
   - component: {fileID: 1184559390}
   m_Layer: 5
   m_Name: shop(debug)
-  m_TagString: Untagged
+  m_TagString: shop
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11305,6 +11307,7 @@ MonoBehaviour:
   hour: 0
   minite: 0
   second: 0
+  time: 0
   text: {fileID: 1545299127}
 --- !u!114 &1545299127
 MonoBehaviour:

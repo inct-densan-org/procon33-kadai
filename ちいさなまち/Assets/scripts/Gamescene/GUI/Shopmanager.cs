@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
-public class Shopmanager : MonoBehaviour
+using Photon.Pun;
+public class Shopmanager : MonoBehaviourPunCallbacks
 {
     public GameObject shopmenu;
     public Image icon1, icon2, icon3, icon4;
@@ -48,6 +49,7 @@ public class Shopmanager : MonoBehaviour
         ko4 = Mathf.Clamp(ko4, 0, 9);
         if (menuKey=="shop")
         {
+            shopmenu.SetActive(true);
             money = Moneymanager.Money;
             moneytext.text = $"{money}" + "円";
             icon1.sprite = itemDataBase.GetItemLists()[0].GetIcon();
@@ -70,20 +72,9 @@ public class Shopmanager : MonoBehaviour
             total.text = $"{totalmoney}"+"円";
         }
     }
-    private void OnTriggerStay2D(Collider2D collision)
+    public static  void Setshopmenu()
     {
-        if (collision.gameObject.CompareTag("Player"))
-        {
-            
-            if (Input.GetKey(KeyCode.Space))
-            {
-
-              
-                Menumanager.menuKey = "shop";
-                shopmenu.SetActive(true);
-            }
-        }
-
+       
     }
     public void Onpushue1() { ko1++; }
     public void Onpushue2() { ko2++; }

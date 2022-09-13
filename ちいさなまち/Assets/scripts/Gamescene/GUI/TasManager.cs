@@ -54,7 +54,8 @@ public class TasManager : MonoBehaviourPunCallbacks
         }
         menuKey = Menumanager.menuKey;
         if (menuKey=="quest")
-        {@
+        {
+            Questmenu.SetActive(true);
             inf1.text = "E" + $"{QuestDataBase.GetQusetLists()[list[0]].GetQuestinf()}" + "\n" + " ’B¬•ñV@" + $"{QuestDataBase.GetQusetLists()[list[0]].Getreward()}" + "‰~";
             inf2.text = "E" + $"{QuestDataBase.GetQusetLists()[list[1]].GetQuestinf()}" + "\n" + " ’B¬•ñV@" + $"{QuestDataBase.GetQusetLists()[list[1]].Getreward()}" + "‰~";
             inf3.text = "E" + $"{QuestDataBase.GetQusetLists()[list[2]].GetQuestinf()}" + "\n" + " ’B¬•ñV@" + $"{QuestDataBase.GetQusetLists()[list[2]].Getreward()}" + "‰~";
@@ -62,21 +63,8 @@ public class TasManager : MonoBehaviourPunCallbacks
 
     }
     
-    private void OnTriggerStay2D(Collider2D collision)
-    {
-        if (collision.gameObject.CompareTag("Player"))
-        {
-           
-            if (Input.GetKey(KeyCode.Space) || Input.GetKey(KeyCode.KeypadEnter))
-            {
-               
-
-                Menumanager.menuKey = "quest";
-                Questmenu.SetActive(true);
-            }
-        }
-
-    }
+    
+    
     public void OnPushBack()
     {
         Menumanager.menuKey = null;
