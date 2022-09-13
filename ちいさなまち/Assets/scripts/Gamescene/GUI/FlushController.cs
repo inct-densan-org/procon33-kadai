@@ -20,13 +20,14 @@ public class FlushController : MonoBehaviourPunCallbacks
     // Start is called before the first frame update
     void Start()
     {
-       var tagObjects = GameObject.FindGameObjectsWithTag("Player");
-        var playernum = tagObjects.Length;
-        var playerlist = PhotonNetwork.PlayerList;
-        for(int i = 0; i < playernum; i++)
-        {
-            if (playerlist[i]==PhotonNetwork.LocalPlayer)Player=i+1;
-        }
+        //var tagObjects = GameObject.FindGameObjectsWithTag("Player");
+        // var playernum = tagObjects.Length;
+        // var playerlist = PhotonNetwork.PlayerList;
+        // for(int i = 0; i < playernum; i++)
+        // {
+        //     if (playerlist[i]==PhotonNetwork.LocalPlayer)Player=i+1;
+        // }
+        Player = PhotonNetwork.LocalPlayer.ActorNumber;
         image =GameObject. GetComponent<Image>();
         image.color = Color.clear;
         var byou = GetComponent<itibyou>();
@@ -42,8 +43,8 @@ public class FlushController : MonoBehaviourPunCallbacks
         }
         byou.Init(() =>
         {
-            trigger = Customproperties.Getplayerinf(Player);
-           
+           // trigger = Customproperties.Getplayerinf(Player);
+           //
         });
         byou.Play();
     }
@@ -52,7 +53,7 @@ public class FlushController : MonoBehaviourPunCallbacks
     void Update()
     {
 
-        
+        trigger = Infection2.GetPlayerinf(Player);
 
 
         Image image = GameObject.GetComponent<Image>();
@@ -62,5 +63,6 @@ public class FlushController : MonoBehaviourPunCallbacks
             else pos.z = -50.0f;
         GameObject.transform.localPosition = pos;
     }
+
    
 }

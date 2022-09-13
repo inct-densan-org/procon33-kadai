@@ -8,8 +8,8 @@ using Photon.Realtime;
 
 public class Infection2 : MonoBehaviourPunCallbacks
 {
-    private bool cooltime ,iti;
-    public  bool infected;
+    private bool cooltime ,iti, infected;
+    
     public bool NPCinf;
     public int infectionProbability = 1000;
     private CircleCollider2D collider2;
@@ -18,25 +18,25 @@ public class Infection2 : MonoBehaviourPunCallbacks
     public static bool ismask;
     private NPCBase NPCShop;
     private PUN2Server PUN2Server;
-    public  bool infecsee;
-    public static int Player;
+    public  bool infecsee,myinfsee;
+    public  int Player;
     public static ExitGames.Client.Photon.Hashtable roomHash;
+    public static bool p1inf, p2inf, p3inf, p4inf, p5inf, p6inf, p7inf, p8inf,myinf;
     // Start is called before the first frame update
     void Start()
     {
-        var a = this.gameObject.GetPhotonView();
-        Player = a.OwnerActorNr;
+        Player = PhotonNetwork.LocalPlayer.ActorNumber;
         Debug.Log(Player);
         collider2 = this.GetComponent<CircleCollider2D>();
         var byou = GetComponent<itibyou>();
-
+       // Customproperties.Setplayerinf(false, Player);
         if (byou == null)
         {
             byou = gameObject.AddComponent<itibyou>();
         }
         byou.Init(() =>
         {
-            infecsee = Customproperties.Getplayerinf(Player);
+           // infecsee = Customproperties.Getplayerinf(Player);
 
         });
         byou.Play();
@@ -46,7 +46,7 @@ public class Infection2 : MonoBehaviourPunCallbacks
     // Update is called once per frame
     void Update()
     {
-       
+        myinfsee = GetPlayerinf(Player);
         var isman = PUN2Server.isman;
         
         if (infected == true)
@@ -78,7 +78,7 @@ public class Infection2 : MonoBehaviourPunCallbacks
     private async void OnTriggerEnter2D(Collider2D collision)
     {
 
-        if (collision.gameObject.CompareTag("Player") )// && cooltime == false)
+        if (collision.gameObject.CompareTag("Player") && photonView.IsMine)// && cooltime == false)
         {
             var playername = collision.gameObject.name;
             cooltime = true;
@@ -86,9 +86,9 @@ public class Infection2 : MonoBehaviourPunCallbacks
             var a = collision.gameObject.GetPhotonView();
             
             var e = a.OwnerActorNr;
-           
-            infected = Customproperties.Getplayerinf(e);
-            
+
+            //infected = Customproperties.Getplayerinf(e);
+            infected = GetPlayerinf(e);
             if (infected == true )
             {
 
@@ -96,9 +96,9 @@ public class Infection2 : MonoBehaviourPunCallbacks
                 if (rnd <= infectionProbability)
                 {
                    // await Task.Delay(20000);
-                  var myinfected = true;
-                    Customproperties.Setplayerinf(myinfected, Player);
-                   
+                  
+                    photonView.RPC(nameof(Setplayerinf), RpcTarget.All, Player, true);
+
                 }
             }
         }
@@ -114,12 +114,13 @@ public class Infection2 : MonoBehaviourPunCallbacks
                 if (rnd <= infectionProbability)
                 {
                    // await Task.Delay(20000);
-                    var myinf = true;
-                    Customproperties.Setplayerinf(myinf, Player);
+                    
+                    photonView.RPC(nameof(Setplayerinf), RpcTarget.All, Player, true);
                     PhotonNetwork.CurrentRoom.SetCustomProperties(roomHash);
                 }
             }
         }
+       
 
     }
 
@@ -129,18 +130,45 @@ public class Infection2 : MonoBehaviourPunCallbacks
     }
     private async void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("kansen"))
+        if (collision.gameObject.CompareTag("kansen")&&photonView.IsMine)
         {
-            var myplayername =this.gameObject.name;
-           // await Task.Delay(20000);
-            infected = true;
-            Customproperties.Setplayerinf(infected, Player);
-           // photonView.RPC(nameof(dede), RpcTarget.All);
+            Debug.Log("hureta");
+
+            // await Task.Delay(20000);
+
+           // Customproperties.Setplayerinf(true, Player);
+             photonView.RPC(nameof(Setplayerinf), RpcTarget.All,Player,true);
         }
     }
     [PunRPC]
-    void dede()
+    void Setplayerinf(int number,bool inf)
     {
-        Debug.Log(Player);
+        switch (number)
+        {
+            case 1: p1inf = inf; break;
+            case 2: p2inf = inf; break;
+            case 3: p3inf = inf; break;
+            case 4: p4inf = inf; break;
+            case 5:p5inf = inf;break;
+            case 6:p6inf = inf;break;
+            case 7:p7inf = inf;break;
+            case 8:p8inf = inf; break;
+        }
+    }
+    public static  bool GetPlayerinf(int number)
+    {
+         
+        switch (number)
+        {
+            case 1:myinf=  p1inf ; break;
+            case 2: myinf = p2inf; break;
+            case 3: myinf = p3inf; break;
+            case 4: myinf = p4inf ; break;
+            case 5: myinf = p5inf; break;
+            case 6: myinf = p6inf; break;
+            case 7: myinf = p7inf; break;
+            case 8: myinf = p8inf; break;
+        }
+        return (myinf);
     }
 }

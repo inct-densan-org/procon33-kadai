@@ -20,7 +20,7 @@ public class PUN2Server : MonoBehaviourPunCallbacks
     public  bool issee;
     private bool a,b;
     public static int playernum;
-    private int f;
+    private int f,localplayernum;
    private GameObject[] tagObjects;
     private void Start()
     {
@@ -52,7 +52,7 @@ public class PUN2Server : MonoBehaviourPunCallbacks
     {
         b = true;
         localplayer = PhotonNetwork.LocalPlayer;
-        var localplayernum = localplayer.ActorNumber;
+         localplayernum = localplayer.ActorNumber;
         var player = PhotonNetwork.PlayerList;
         var p1 = player[0];
 
@@ -79,6 +79,7 @@ public class PUN2Server : MonoBehaviourPunCallbacks
     }
     public void Update()
     {
+
         issee = isStart;
         tagObjects = GameObject.FindGameObjectsWithTag("Player");
         playernum = tagObjects.Length;
@@ -107,9 +108,24 @@ public class PUN2Server : MonoBehaviourPunCallbacks
             clone.SetActive(true);
           
         }
+        if (Input.GetKeyDown(KeyCode.H))
+        {
+
+            var tagObjects = GameObject.FindGameObjectsWithTag("Player").Length;
+            // for (int i = 0; i < tagObjects; i++) Debug.Log($"{i + 1}" + ";" + Customproperties.Getplayerinf(i + 1));
+            for (int i = 0; i < tagObjects; i++) Debug.Log($"{i + 1}" + ";" + Infection2.GetPlayerinf(i+1));
+            var npcobj = GameObject.FindGameObjectsWithTag("NPC");
+            var npcobjnum = GameObject.FindGameObjectsWithTag("NPC").Length;
+            foreach (GameObject item in npcobj)
+            {
+                var j = item.name;
+                Debug.Log($"{j}" + ";" + Customproperties.GetNPCinf(j));
+            }
+
+        }
     }
     
-    [PunRPC]
+        [PunRPC]
     public void IsStart()
     {
         isStart = true;

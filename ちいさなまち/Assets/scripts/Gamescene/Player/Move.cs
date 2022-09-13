@@ -10,7 +10,7 @@ using System.Collections.Generic;
 public class Move : MonoBehaviourPunCallbacks
 {
     private bool ispush,ishor,isver,infection,isStart;
-    private int idX = Animator.StringToHash("x"), idY = Animator.StringToHash("y");
+    private int idX = Animator.StringToHash("x"), idY = Animator.StringToHash("y"),myplayernum;
     private Animator animator = null;
     public static Vector3 popo;
     private Vector3 input;
@@ -23,9 +23,12 @@ public class Move : MonoBehaviourPunCallbacks
     private PUN2Server server;
     public void Start()
     {
+        
       var  playernum = PUN2Server.playernum;
+       
         player = PhotonNetwork.LocalPlayer;
-         myplayername = this.gameObject.name;
+        myplayernum = player.ActorNumber;
+        myplayername = this.gameObject.name;
         GameObject oya = GameObject.Find("Canvas");
         var player1 = PhotonNetwork.PlayerList;
         
@@ -54,7 +57,7 @@ public class Move : MonoBehaviourPunCallbacks
         byou.Init(() =>
         {
          
-            infection = Customproperties.Getplayerinf(player.ActorNumber);
+           // infection = Customproperties.Getplayerinf(player.ActorNumber);
         });
         byou.Play();
 
@@ -62,7 +65,7 @@ public class Move : MonoBehaviourPunCallbacks
 
     private void Update()
     {
-        
+        infection = Infection2.GetPlayerinf(myplayernum);
         //var isshop = shopmanager.isshop;
         var menuKey = Menumanager.menuKey;
         

@@ -19,7 +19,7 @@ public  static class Customproperties
         {
             //{ "hour", hour },
             //{ "minite", minite },
-            { "Time", second },
+            
            
 
 
@@ -43,35 +43,40 @@ public  static class Customproperties
 
     }
    
-    public static int GetTime()
-    {
-        return (PhotonNetwork.CurrentRoom.CustomProperties["Time"] is int second) ? second : 0;
-    }
    
-    public static bool Getplayerinf(int player)
-    {
-        return (PhotonNetwork.CurrentRoom.CustomProperties[$"{player}"] is bool inf) ? inf : false;
-    }
+   
+    //public static bool Getplayerinf(int player)
+    //{
+    //    return (PhotonNetwork.CurrentRoom.CustomProperties[$"{player}"] is bool inf) ? inf : false;
+    //}
     public static bool GetNPCinf(string name)
     {
         return (PhotonNetwork.CurrentRoom.CustomProperties[$"{name}"] is bool inf) ? inf : false;
     }
 
-    public static void Setplayerinf( bool inf, int player)
-    {
-        PhotonNetwork.CurrentRoom.CustomProperties[$"{player}"] = inf;
-        PhotonNetwork.CurrentRoom.SetCustomProperties(roomHash);
-        roomHash.Clear();
-    }
+    //public static void Setplayerinf( bool inf, int player)
+    //{
+    //    Debug.Log($"{inf}" + "  " + $"{player}");
+    //    PhotonNetwork.CurrentRoom.CustomProperties[$"{player}"] = inf;
+        
+    //    PhotonNetwork.CurrentRoom.SetCustomProperties(roomHash);
+    //   roomHash.Clear();
+    //}
    
     
     public static void SetNPCinf(string name,bool inf)
     {
         PhotonNetwork.CurrentRoom.CustomProperties[$"{name}"] = inf;
         PhotonNetwork.CurrentRoom.SetCustomProperties(roomHash);
-        roomHash.Clear();
+       roomHash.Clear();
     }
-  
+  public static void Show()
+    {
+        foreach (var prop in roomHash)
+        {
+            Debug.Log($"{prop.Key}: {prop.Value}");
+        }
+    }
 }
    
 

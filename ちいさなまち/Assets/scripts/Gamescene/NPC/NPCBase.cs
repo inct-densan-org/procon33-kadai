@@ -50,12 +50,13 @@ public class NPCBase : MonoBehaviourPunCallbacks
         {
            
             cooltime = true;
-            Debug.Log(Customproperties.GetNPCinf(Objname));
+           
             var player = collision.gameObject.GetPhotonView();
             var playernum = player.OwnerActorNr;
             a = playernum;
             Invoke(nameof(Cooldowm), 5f);
-            infected = Customproperties.Getplayerinf(playernum);
+            // infected = Customproperties.Getplayerinf(playernum);
+            infected = Infection2.GetPlayerinf(playernum);
             if (infected == true)
             {
                 
