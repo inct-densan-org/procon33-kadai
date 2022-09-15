@@ -142,8 +142,7 @@ public class Infection2 : MonoBehaviourPunCallbacks
     {
         if (collision.gameObject.CompareTag("kansen")&&photonView.IsMine)
         {
-            Debug.Log("hureta");
-
+         
             // await Task.Delay(20000);
 
            // Customproperties.Setplayerinf(true, Player);

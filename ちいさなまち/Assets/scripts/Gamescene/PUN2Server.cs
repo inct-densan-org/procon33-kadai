@@ -24,7 +24,8 @@ public class PUN2Server : MonoBehaviourPunCallbacks
    private GameObject[] tagObjects;
     private void Start()
     {
-
+        gamestart.SetActive(false);
+        wait.SetActive(true);
         PhotonNetwork.NickName = "Player";
         // PhotonServerSettingsの設定内容を使ってマスターサーバーへ接続する
         PhotonNetwork.ConnectUsingSettings();
