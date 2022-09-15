@@ -84,7 +84,7 @@ public class Infection2 : MonoBehaviourPunCallbacks
             cooltime = true;
             Invoke(nameof(Cooldowm), 5f);
             var a = collision.gameObject.GetPhotonView();
-            
+            Debug.Log("hureta");
             var e = a.OwnerActorNr;
 
             //infected = Customproperties.Getplayerinf(e);
@@ -120,17 +120,7 @@ public class Infection2 : MonoBehaviourPunCallbacks
                 }
             }
         }
-        if (collision.gameObject.CompareTag("quest")&&photonView.IsMine)
-        {
-
-            if (Input.GetKey(KeyCode.Space) || Input.GetKey(KeyCode.KeypadEnter))
-            {
-
-
-                Menumanager.menuKey = "quest";
-                
-            }
-        }
+        
 
     }
 
