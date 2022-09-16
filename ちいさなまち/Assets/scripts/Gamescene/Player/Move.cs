@@ -126,10 +126,14 @@ public class Move : MonoBehaviourPunCallbacks
             
             if (Input.GetKey(KeyCode.Space))
             {
-
-
-                Menumanager.menuKey = "shop";
-                
+                if (Restranquest.questquria == false)
+                {
+                    Menumanager.menuKey = "shop";
+                }
+                if(Restranquest.questquria == true)
+                {
+                    Menumanager.menuKey = "talk";
+                }
                 
             }
         }

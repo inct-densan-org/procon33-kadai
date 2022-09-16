@@ -1,0 +1,32 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class Gomimanager : MonoBehaviour
+{
+    public GameObject GameObject;
+    // Start is called before the first frame update
+    void Start()
+    {
+        GameObject = this.gameObject;
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        
+    }
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            
+            if (Input.GetKey(KeyCode.Space))
+            {
+                Debug.Log("aaa");
+                GameObject.SetActive(false);
+                Restranquest.gominum++;
+            }
+        }
+    }
+}

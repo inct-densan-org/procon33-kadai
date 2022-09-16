@@ -20,7 +20,9 @@ public class Quest : ScriptableObject
 	private int QuestNumber;
 	[SerializeField]
 	private bool IsQuest;
-	
+	[SerializeField]
+	private bool IsQuria;
+
 	public string GetQuestinf()
 	{
 		return QuestInf;
@@ -37,8 +39,16 @@ public class Quest : ScriptableObject
 	{
 		return IsQuest;
 	}
+	public bool GetIsQuria()
+	{
+		return IsQuria;
+	}
 	public void SetIsQuest(bool isquest)
     {
 		IsQuest = isquest;
     }
+	public void SetIsQuria(bool isquest)
+	{
+		IsQuria = isquest;
+	}
 }

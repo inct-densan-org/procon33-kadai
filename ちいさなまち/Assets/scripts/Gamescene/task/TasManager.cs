@@ -19,13 +19,14 @@ public class TasManager : MonoBehaviourPunCallbacks
     private Menumanager menumanager;
     public@ List<int> list =new List<int>();
     public static int Questnum;
-    
+    public GameObject t1,t2,t3;
     // Start is called before the first frame update
     void Start()
     {
         for (int i = 0; i < QuestDataBase.GetQusetLists().Count; i++)
         {
             QuestDataBase.GetQusetLists()[i].SetIsQuest(false);
+            QuestDataBase.GetQusetLists()[i].SetIsQuria(false);
         }
         int choiceNum;
         List<int> ramdumlist = new List<int>(); ;
@@ -48,21 +49,30 @@ public class TasManager : MonoBehaviourPunCallbacks
     // Update is called once per frame
     void Update()
     {
-        if (QuestDataBase.GetQusetLists()[0].GetIsQuest() == true)
-        {
-            questNPC.SetActive(true);
-        }
+       
         menuKey = Menumanager.menuKey;
         if (menuKey=="quest")
         {
+            if (QuestDataBase.GetQusetLists()[list[0]].GetIsQuest()) t1.SetActive(true); else t1.SetActive(false);
+            if (QuestDataBase.GetQusetLists()[list[1]].GetIsQuest()) t2.SetActive(true); else t2.SetActive(false);
+            if (QuestDataBase.GetQusetLists()[list[2]].GetIsQuest()) t3.SetActive(true); else t3.SetActive(false);
             Questmenu.SetActive(true);
-            inf1.text = "E" + $"{QuestDataBase.GetQusetLists()[list[0]].GetQuestinf()}" + "\n" + " ’B¬•ñV@" + $"{QuestDataBase.GetQusetLists()[list[0]].Getreward()}" + "‰~";
-            inf2.text = "E" + $"{QuestDataBase.GetQusetLists()[list[1]].GetQuestinf()}" + "\n" + " ’B¬•ñV@" + $"{QuestDataBase.GetQusetLists()[list[1]].Getreward()}" + "‰~";
-            inf3.text = "E" + $"{QuestDataBase.GetQusetLists()[list[2]].GetQuestinf()}" + "\n" + " ’B¬•ñV@" + $"{QuestDataBase.GetQusetLists()[list[2]].Getreward()}" + "‰~";
+            inf1.text =  $"{QuestDataBase.GetQusetLists()[list[0]].GetQuestinf()}" + "\n" + " ’B¬•ñV@" + $"{QuestDataBase.GetQusetLists()[list[0]].Getreward()}" + "‰~";
+            inf2.text =  $"{QuestDataBase.GetQusetLists()[list[1]].GetQuestinf()}" + "\n" + " ’B¬•ñV@" + $"{QuestDataBase.GetQusetLists()[list[1]].Getreward()}" + "‰~";
+            inf3.text =   $"{QuestDataBase.GetQusetLists()[list[2]].GetQuestinf()}" + "\n" + " ’B¬•ñV@" + $"{QuestDataBase.GetQusetLists()[list[2]].Getreward()}" + "‰~";
+        }
+        for (int i = 0; i < QuestDataBase.GetQusetLists().Count; i++)
+        {
+            if (QuestDataBase.GetQusetLists()[i].GetIsQuria()) taskquria(i);
         }
 
     }
-    
+    public void taskquria(int i)
+    {
+        Debug.Log(i);
+        list.Remove(i);
+        QuestDataBase.GetQusetLists()[i].SetIsQuria(false);
+    }
     
     
     public void OnPushBack()

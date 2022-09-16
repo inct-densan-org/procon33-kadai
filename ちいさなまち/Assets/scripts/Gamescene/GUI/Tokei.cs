@@ -31,7 +31,7 @@ public  class Tokei : MonoBehaviourPunCallbacks
             minite = time / 60;
             if (minite == 60) minite = 0;
             hour = time / 3600;if (hour == 24) hour = 0;
-            Debug.Log(time);
+           
         });
         byou.Play();
     }
