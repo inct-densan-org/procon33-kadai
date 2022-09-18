@@ -38,16 +38,12 @@ public class RoomList : MonoBehaviourPunCallbacks
         //なにか部屋が選択されているか
         if (gameObject.transform.childCount > 0){
             foreach (Transform child in gameObject.transform){
-                if (child.GetComponent<Toggle>().isOn == true){
+                if (child.GetComponent<Toggle>().isOn){
                     selectedButtonNum = child.GetSiblingIndex();
                 }
             }
         }else{
             selectedButtonNum = -1;
-        }
-
-        for (int i = 0; i < 3; i++){
-            listOption[i] = !optionButtons.transform.GetChild(i).GetComponent<Toggle>().isOn;
         }
 
     }
@@ -67,9 +63,10 @@ public class RoomList : MonoBehaviourPunCallbacks
         for (int i = roomList.Rows.Count; i > 0; i--){
             roomList.Rows.RemoveAt(0);
         }
+        //roomDataから条件に合う部屋をroomListへ抽出
         for(int i = 0; i < 3; i++){
             if (listOption[i]){
-                DataRow[] rooms = roomData.Select($"Difficulty = {listOption[i]}");
+                DataRow[] rooms = roomData.Select($"Difficulty = {i}");
                 foreach(var room in rooms){
                     roomList.ImportRow(room);
                 }
@@ -79,10 +76,13 @@ public class RoomList : MonoBehaviourPunCallbacks
         DestroyChild();
     }
 
-    //dataListから条件に合う部屋をroomListに抽出
+
     public void UpdateRoomList(bool isOn){
         //isONはaddListenerから受け取るために置かれる、使用されはしない(うまい書き方を知らない)
-        DestroyChild();
+        for (int i = 0; i < 3; i++){
+            listOption[i] = optionButtons.transform.GetChild(i).GetComponent<Toggle>().isOn;
+        }
+        ListInit();
 
         for (int i = 0; i < roomList.Rows.Count; i++){
 
@@ -113,15 +113,39 @@ public class RoomList : MonoBehaviourPunCallbacks
     public override void OnRoomListUpdate(List<RoomInfo> list){
         foreach (var room in list){
             DataRow[] inListRoom = roomData.Select($"RoomName = '{room.Name}'");
+            //削除された部屋の情報か
             if (room.RemovedFromList){
                 roomData.Rows.Remove(inListRoom[0]);
             }
             else{
+                //既存の部屋の情報の場合は以前の情報を削除
                 if(inListRoom.Length > 0){
                     roomData.Rows.Remove(inListRoom[0]);
                 }
+                //部屋に参加可能であるか
                 if (room.IsOpen){
-                    roomData.Rows.Add(room.Name,(room.CustomProperties.ContainsKey("RoomName")) ? room.CustomProperties["RoomName"] : "名称不明" , $"{room.PlayerCount.ToString()}/{room.MaxPlayers.ToString()}", (room.CustomProperties.ContainsKey("Difficulty")) ? room.CustomProperties["Difficulty"] : "難易度不明");
+                    string difficulty;
+                    //難易度情報があるか
+                    if (room.CustomProperties.ContainsKey("Difficulty")){
+                        switch (room.CustomProperties["Difficulty"].ToString()){
+                            case "E" :
+                                difficulty = "イージー";
+                                break;
+                            case "N" :
+                                difficulty = "ノーマル";
+                                break;
+                            case "H" :
+                                difficulty = "ハード";
+                                break;
+                            default:
+                                difficulty = room.CustomProperties["Difficulty"].ToString();
+                                break;
+                        }
+                    }else{
+                        difficulty = room.CustomProperties["Difficulty"].ToString();
+                    }
+
+                    roomData.Rows.Add(room.Name,(room.CustomProperties.ContainsKey("RoomName")) ? room.CustomProperties["RoomName"] : "名称不明" , $"{room.PlayerCount.ToString()}/{room.MaxPlayers.ToString()}", difficulty);
                 }
             }
         }

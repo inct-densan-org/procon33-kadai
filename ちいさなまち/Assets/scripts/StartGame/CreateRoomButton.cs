@@ -33,11 +33,11 @@ public class CreateRoomButton : MonoBehaviourPunCallbacks
 
         string difficulty;
         if (difficultyButtons.transform.GetChild(0).GetComponent<Toggle>().isOn == true){
-            difficulty = "0";
+            difficulty = "E";
         }else if(difficultyButtons.transform.GetChild(1).GetComponent<Toggle>().isOn == true){
-            difficulty = "1";
+            difficulty = "N";
         }else{
-            difficulty = "2";
+            difficulty = "H";
         }
 
             //カスタムプロパティを設定 後でユーザーが入力できるように変更

@@ -5,29 +5,31 @@ using UnityEngine;
 public class ChangeScale : MonoBehaviour
 {
     public float movingTime = 0.05f;
-    public Vector2 targetWhenOn;
-    public Vector2 targetWhenOff;
-    private Vector2 target;
+    public float[] widthTargets = new float[4];
+    private float widthTarget;
+    private RectTransform rectTransform;
+    private float scaleYTarget;
     private Vector2 velocity = Vector2.zero;
 
-    void Awake()
-    {
-        target = targetWhenOn;
+    void Start() {
+        rectTransform = gameObject.GetComponent<RectTransform>();
+
     }
 
-    public void Move(bool isOn)
+    public void Move(int status)
     {
-        if (isOn){
-            target = targetWhenOn;
+        //非表示0, サーバーセレクター1, ルール2, 設定3
+        widthTarget = widthTargets[status];
+        if (status > 0){
+            rectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, widthTarget);
+            scaleYTarget = 1f;
         }else{
-            target = targetWhenOff;
+            scaleYTarget = 0f;
         }
-
     }
     void Update()
     {
-        float scaleX = Mathf.SmoothDamp(transform.localScale.x, target.x, ref velocity.x, movingTime);
-        float scaleY = Mathf.SmoothDamp(transform.localScale.y, target.y, ref velocity.y, movingTime);
-        transform.localScale = new Vector2(scaleX, scaleY);
+        float scaleY = Mathf.SmoothDamp(transform.localScale.y, scaleYTarget, ref velocity.y, movingTime);
+        transform.localScale = new Vector2(1f, scaleY);
     }
 }

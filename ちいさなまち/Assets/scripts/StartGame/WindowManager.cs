@@ -24,7 +24,6 @@ public class WindowManager : MonoBehaviour
     }
 
     void DisableAllWindow(){
-        windows.GetComponent<ChangeScale>().Move(false);
         roomSelector.SetActive(false);
         rules.SetActive(false);
         settings.SetActive(false);
@@ -35,35 +34,37 @@ public class WindowManager : MonoBehaviour
         title.GetComponent<MoveAnimation>().Move(isOn);
     }
 
-    void Windows(bool isOn){
-        windows.SetActive(isOn);
-        windows.GetComponent<ChangeScale>().Move(isOn);
+    void Windows(int status){
+        windows.SetActive(true);
+        windows.GetComponent<ChangeScale>().Move(status);
+
     }
 
     //以下画面遷移
     public void Title(){
         MenuButton(true);
         DisableAllWindow();
+        Windows(0);
     }
 
     public void RoomSelector(){
         MenuButton(false);
         DisableAllWindow();
         roomSelector.SetActive(true);
-        Windows(true);
+        Windows(1);
     }
 
     public void Rules(){
         MenuButton(false);
         DisableAllWindow();
         rules.SetActive(true);
-        Windows(true);
+        Windows(2);
     }
 
     public void Settings(){
         MenuButton(false);
         DisableAllWindow();
         settings.SetActive(true);
-        Windows(true);
+        Windows(3);
     }
 }
