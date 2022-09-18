@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Photon.Pun;
 using Cinemachine;  // Cinemachine��ǉ���using
 
 public class CameraManager : MonoBehaviourPunCallbacks
