@@ -10,20 +10,32 @@ using TMPro;
 public class RoomList : MonoBehaviourPunCallbacks
 {
     public GameObject listButtonPrefab;
+    public GameObject optionButtons;
 
-    public DataTable rooms = new DataTable();
+    public DataTable roomData = new DataTable();
+    public DataTable roomList;
 
     [System.NonSerialized]
     public int selectedButtonNum = -1;
 
+    bool[] listOption = new bool[3]; //絞り込みオプション、0から イージー ノーマル ハード
+
+    //初期化
     void Start(){
-        rooms.Columns.Add("RoomName");
-        rooms.Columns.Add("DisplayRoomName");
-        rooms.Columns.Add("NumPeople");
-        rooms.Columns.Add("Difficulty");
+        roomData.Columns.Add("RoomName");
+        roomData.Columns.Add("DisplayRoomName");
+        roomData.Columns.Add("NumPeople");
+        roomData.Columns.Add("Difficulty");
+
+        roomList = roomData.Clone();
+
+        for (int i = 0; i < 3; i++){
+            optionButtons.transform.GetChild(i).GetComponent<Toggle>().onValueChanged.AddListener(UpdateRoomList);
+        }
     }
 
     void Update(){
+        //なにか部屋が選択されているか
         if (gameObject.transform.childCount > 0){
             foreach (Transform child in gameObject.transform){
                 if (child.GetComponent<Toggle>().isOn == true){
@@ -33,42 +45,46 @@ public class RoomList : MonoBehaviourPunCallbacks
         }else{
             selectedButtonNum = -1;
         }
+
+        for (int i = 0; i < 3; i++){
+            listOption[i] = !optionButtons.transform.GetChild(i).GetComponent<Toggle>().isOn;
+        }
+
     }
 
+    //ロビー参加時にボタンを全削除
     public override void OnJoinedLobby(){
-        ListErase();
+        ListInit();
     }
 
-    void ListErase(){
-        for (int i = rooms.Rows.Count; i > 0; i--){
-            rooms.Rows.RemoveAt(0);
+    //ロビー退出時にボタンを全削除
+    public override void OnLeftLobby(){
+        ListInit();
+    }
+
+    void ListInit(){
+        //roomListを初期化
+        for (int i = roomList.Rows.Count; i > 0; i--){
+            roomList.Rows.RemoveAt(0);
         }
-        DestroyChild();
-    }
-
-    void DestroyChild(){
-        foreach (Transform child in gameObject.transform){
-            Destroy(child.gameObject);
-        }
-    }
-
-    public override void OnRoomListUpdate(List<RoomInfo> roomList){
-        foreach (var room in roomList){
-            DataRow[] inListRoom = rooms.Select($"RoomName = '{room.Name}'");
-            if (room.RemovedFromList){
-                rooms.Rows.Remove(inListRoom[0]);
-            }
-            else{
-                if(inListRoom.Length > 0){
-                    rooms.Rows.Remove(inListRoom[0]);
+        for(int i = 0; i < 3; i++){
+            if (listOption[i]){
+                DataRow[] rooms = roomData.Select($"Difficulty = {listOption[i]}");
+                foreach(var room in rooms){
+                    roomList.ImportRow(room);
                 }
-                rooms.Rows.Add(room.Name,(room.CustomProperties.ContainsKey("RoomName")) ? room.CustomProperties["RoomName"] : "名称不明" , $"{room.PlayerCount.ToString()}/{room.MaxPlayers.ToString()}", (room.CustomProperties.ContainsKey("Difficulty")) ? room.CustomProperties["Difficulty"] : "難易度不明");
             }
         }
+        //表示リストを全削除
+        DestroyChild();
+    }
 
+    //dataListから条件に合う部屋をroomListに抽出
+    public void UpdateRoomList(bool isOn){
+        //isONはaddListenerから受け取るために置かれる、使用されはしない(うまい書き方を知らない)
         DestroyChild();
 
-        for (int i = 0; i < rooms.Rows.Count; i++){
+        for (int i = 0; i < roomList.Rows.Count; i++){
 
             //ボタンを生成してcanvasの子にする
             GameObject button = Instantiate(listButtonPrefab, this.transform.position, Quaternion.identity);
@@ -79,13 +95,38 @@ public class RoomList : MonoBehaviourPunCallbacks
             //このfor文の1回目はルームの表示名、2回目は参加人数,3回目は難易度
             //なおデータテーブルの列は1列目から ルーム名 ルームの表示名 ルームの人数/最大人数(8) 難易度 の4つ
             for (int j = 0; j < 3; j++){
-                var buttonsRoomName = button.transform.GetChild(j).GetComponent<TextMeshProUGUI>();
-                buttonsRoomName.text = rooms.Rows[i][j+1].ToString();
+                var buttonsTMP = button.transform.GetChild(j).GetComponent<TextMeshProUGUI>();
+                buttonsTMP.text = roomList.Rows[i][j+1].ToString();
             }
         }
     }
 
-    public override void OnLeftLobby(){
-        ListErase();
+    //ボタンを全削除
+    void DestroyChild(){
+        foreach (Transform child in gameObject.transform){
+            Destroy(child.gameObject);
+        }
+    }
+
+
+    //ルームの情報が更新されたときの処理
+    public override void OnRoomListUpdate(List<RoomInfo> list){
+        foreach (var room in list){
+            DataRow[] inListRoom = roomData.Select($"RoomName = '{room.Name}'");
+            if (room.RemovedFromList){
+                roomData.Rows.Remove(inListRoom[0]);
+            }
+            else{
+                if(inListRoom.Length > 0){
+                    roomData.Rows.Remove(inListRoom[0]);
+                }
+                if (room.IsOpen){
+                    roomData.Rows.Add(room.Name,(room.CustomProperties.ContainsKey("RoomName")) ? room.CustomProperties["RoomName"] : "名称不明" , $"{room.PlayerCount.ToString()}/{room.MaxPlayers.ToString()}", (room.CustomProperties.ContainsKey("Difficulty")) ? room.CustomProperties["Difficulty"] : "難易度不明");
+                }
+            }
+        }
+
+        UpdateRoomList(false);
+
     }
 }

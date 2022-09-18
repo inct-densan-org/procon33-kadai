@@ -33,11 +33,11 @@ public class CreateRoomButton : MonoBehaviourPunCallbacks
 
         string difficulty;
         if (difficultyButtons.transform.GetChild(0).GetComponent<Toggle>().isOn == true){
-            difficulty = "イージー";
+            difficulty = "0";
         }else if(difficultyButtons.transform.GetChild(1).GetComponent<Toggle>().isOn == true){
-            difficulty = "ノーマル";
+            difficulty = "1";
         }else{
-            difficulty = "ハード";
+            difficulty = "2";
         }
 
             //カスタムプロパティを設定 後でユーザーが入力できるように変更
@@ -50,7 +50,7 @@ public class CreateRoomButton : MonoBehaviourPunCallbacks
             roomOptions.MaxPlayers = 8;
             roomOptions.CustomRoomProperties =customProperties;
             roomOptions.CustomRoomPropertiesForLobby = new[] {"RoomName", "Difficulty"};
-            
+
             PhotonNetwork.CreateRoom(null, roomOptions);
     }
 }
