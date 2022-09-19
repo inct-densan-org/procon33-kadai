@@ -11,7 +11,7 @@ using TMPro;
 public class JoinRoom : MonoBehaviourPunCallbacks
 {
     public RoomList roomList;
-    
+
     void Update(){
         //Debug.Log(roomList.selectedButtonNum);
         //Debug.Log(roomList.transform.childCount);
@@ -25,7 +25,7 @@ public class JoinRoom : MonoBehaviourPunCallbacks
     }
 
     public void RoomJoin(){
-        string roomName = roomList.rooms.Rows[roomList.selectedButtonNum][0].ToString();
+        string roomName = roomList.roomData.Rows[roomList.selectedButtonNum][0].ToString();
         PhotonNetwork.JoinRoom(roomName);
     }
 

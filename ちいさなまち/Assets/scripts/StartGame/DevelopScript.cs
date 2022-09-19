@@ -16,11 +16,11 @@ public class DevelopScript : MonoBehaviourPunCallbacks
             PhotonNetwork.ConnectUsingSettings();
         }
     }
-    public override void OnConnectedToMaster(){
+    public void OnConnectedToMaster(){
         Debug.Log("マスターサーバーに接続しました。");
         LobbyJoin();
     }
-    public override void OnDisconnected(DisconnectCause cause){
+    public void OnDisconnected(DisconnectCause cause){
         Debug.Log($"接続に失敗したか切断されました。 {cause.ToString()}");
     }
 
@@ -31,10 +31,10 @@ public class DevelopScript : MonoBehaviourPunCallbacks
         PhotonNetwork.JoinLobby();
     }
 
-    public override void OnJoinedLobby(){
+    public void OnJoinedLobby(){
         Debug.Log("ロビーに参加しました。");
     }
-    public override void OnRoomListUpdate(List<RoomInfo> roomList){
+    public void OnRoomListUpdate(List<RoomInfo> roomList){
         Debug.Log($"ルームのリストが更新されました。");
         foreach (var room in roomList){
             Debug.Log($"削除済み = {room.RemovedFromList} , {room.ToString()}");
@@ -51,7 +51,7 @@ public class DevelopScript : MonoBehaviourPunCallbacks
             Debug.Log("既にロビーにはいません。");
         }
     }
-    public override void OnLeftLobby(){
+    public void OnLeftLobby(){
         Debug.Log("ロビーから退出しました。");
         PhotonNetwork.JoinLobby();
     }
@@ -76,15 +76,15 @@ public class DevelopScript : MonoBehaviourPunCallbacks
             Debug.Log("マスターサーバーに接続されていません。");
         }
     }
-    public override void OnCreatedRoom(){
+    public void OnCreatedRoom(){
         Debug.Log("ルームの作成に成功しました。");
     }
-    public override void OnJoinedRoom(){
+    public void OnJoinedRoom(){
         Debug.Log("ルームに参加しました。");
         Room currentRoom = PhotonNetwork.CurrentRoom;
         Debug.Log($"ルーム情報:{currentRoom.ToString()}");
     }
-    public override void OnCreateRoomFailed(short returnCode, string message){
+    public void OnCreateRoomFailed(short returnCode, string message){
         
         if (returnCode == 32766){
             Debug.Log($"ルームの作成に失敗しました。 同じ名前のルームが既に存在します。");
@@ -98,7 +98,7 @@ public class DevelopScript : MonoBehaviourPunCallbacks
     public void RoomLeave(){
         PhotonNetwork.LeaveRoom();
     }
-    public override void OnLeftRoom(){
+    public void OnLeftRoom(){
         Debug.Log("ルームから退出しました。");
     }
 

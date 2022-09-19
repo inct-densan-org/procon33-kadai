@@ -1,9 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Photon.Pun;
 using Cinemachine;  // Cinemachine��ǉ���using
-
+using Photon.Pun;
 public class CameraManager : MonoBehaviourPunCallbacks
 {
     public Vector3 targetpo = Move.popo;

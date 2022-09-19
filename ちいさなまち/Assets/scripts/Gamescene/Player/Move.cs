@@ -126,14 +126,28 @@ public class Move : MonoBehaviourPunCallbacks
             
             if (Input.GetKey(KeyCode.Space))
             {
-
-
-                Menumanager.menuKey = "shop";
-                
+                if (Restranquest.questquria == false)
+                {
+                    Menumanager.menuKey = "shop";
+                }
+                if(Restranquest.questquria == true)
+                {
+                    Menumanager.menuKey = "talk";
+                }
                 
             }
         }
+        if (collision.gameObject.CompareTag("quest") && photonView.IsMine)
+        {
+           
+            if (Input.GetKey(KeyCode.Space) || Input.GetKey(KeyCode.KeypadEnter))
+            {
 
+
+                Menumanager.menuKey = "quest";
+
+            }
+        }
     }
 }
 
