@@ -23,7 +23,7 @@ public class Gomimanager : MonoBehaviour
             
             if (Input.GetKey(KeyCode.Space))
             {
-                Debug.Log("aaa");
+              
                 GameObject.SetActive(false);
                 Restranquest.gominum++;
             }

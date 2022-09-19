@@ -9,7 +9,7 @@ public class Restranquest : MonoBehaviour
     public GameObject gomi1, gomi2, gomi3;
     public static int gominum;
     public static bool questquria;
-    private bool a;
+    private bool a,b;
     // Start is called before the first frame update
     void Start()
     {
@@ -24,10 +24,15 @@ public class Restranquest : MonoBehaviour
             a = true;
             gomi1.SetActive(true); gomi2.SetActive(true); gomi3.SetActive(true);
         }
-        if (gominum == 3)
+        if (gominum == 3&&b==false)
         {
             questquria = true;
+            b = true;
         }
         
+    }
+    public void ABReset()
+    {
+        a = false;b = false;
     }
 }

@@ -69,9 +69,9 @@ public class TasManager : MonoBehaviourPunCallbacks
     }
     public void taskquria(int i)
     {
-        Debug.Log(i);
+      
         list.Remove(i);
-        
+        QuestDataBase.GetQusetLists()[i].SetIsQuria(false);
     }
     
     

@@ -34,14 +34,14 @@ public class Move : MonoBehaviourPunCallbacks
         
         animator = GetComponent<Animator>();
         transform.parent = oya.transform;
-        if (player1[0] == PhotonNetwork.LocalPlayer){ transform.localPosition = new Vector3(0, 5.7f, -1);}
-        if(playernum>=2)  if (player1[1] == PhotonNetwork.LocalPlayer) { transform.localPosition = new Vector3(2, 5.7f, -1); }
-        if (playernum >= 3) if (player1[2] == PhotonNetwork.LocalPlayer) { transform.localPosition = new Vector3(4, 5.7f, -1); }
-        if (playernum >= 4) if (player1[3] == PhotonNetwork.LocalPlayer) { transform.localPosition = new Vector3(6, 5.7f, -1); }
-        if (playernum >= 5) if (player1[4] == PhotonNetwork.LocalPlayer) { transform.localPosition = new Vector3(8, 5.7f, -1); }
-        if (playernum >= 6) if (player1[5] == PhotonNetwork.LocalPlayer) { transform.localPosition = new Vector3(10, 5.7f, -1); }
-        if(playernum>=7)   if (player1[6] == PhotonNetwork.LocalPlayer) { transform.localPosition = new Vector3(6, 5.7f, -1); }
-        if (playernum >= 8) if (player1[7] == PhotonNetwork.LocalPlayer) { transform.localPosition = new Vector3(7, 5.7f, -1); }
+        if (player1[0] == PhotonNetwork.LocalPlayer){ transform.localPosition = new Vector3(-3.6f, 10.6f, -1);}
+        if(playernum>=2)  if (player1[1] == PhotonNetwork.LocalPlayer) { transform.localPosition = new Vector3(-1.1f, 10.6f, -1); }
+        if (playernum >= 3) if (player1[2] == PhotonNetwork.LocalPlayer) { transform.localPosition = new Vector3(-16f, 10.6f, -1); }
+        if (playernum >= 4) if (player1[3] == PhotonNetwork.LocalPlayer) { transform.localPosition = new Vector3(-13.5f, 5.7f, -1); }
+        if (playernum >= 5) if (player1[4] == PhotonNetwork.LocalPlayer) { transform.localPosition = new Vector3(-16f, 5.7f, -1); }
+        if (playernum >= 6) if (player1[5] == PhotonNetwork.LocalPlayer) { transform.localPosition = new Vector3(-13.5f, -1.9f, -1); }
+        if(playernum>=7)   if (player1[6] == PhotonNetwork.LocalPlayer) { transform.localPosition = new Vector3(16.4f, -1.9f,-1); }
+        if (playernum >= 8) if (player1[7] == PhotonNetwork.LocalPlayer) { transform.localPosition = new Vector3(14f, -1.9f, -1); }
 
         var byou = GetComponent<itibyou>();
 
@@ -66,7 +66,7 @@ public class Move : MonoBehaviourPunCallbacks
     private void Update()
     {
         infection = Infection2.GetPlayerinf(myplayernum);
-        //var isshop = shopmanager.isshop;
+       
         var menuKey = Menumanager.menuKey;
         
         var x = Input.GetAxisRaw("Horizontal");
@@ -101,17 +101,18 @@ public class Move : MonoBehaviourPunCallbacks
                     input = new Vector3(0, 0, 0f);
                 }
                 transform.Translate(speed * Time.deltaTime * input.normalized);
+                if (Input.GetKeyUp(KeyCode.D) || Input.GetKeyUp(KeyCode.RightArrow)) { animator.SetFloat(idX, 0.5f); animator.SetFloat(idY, 0); ispush = false; ishor = false; }
+                if (Input.GetKeyUp(KeyCode.A) || Input.GetKeyUp(KeyCode.LeftArrow)) { animator.SetFloat(idX, -0.5f); animator.SetFloat(idY, 0); ispush = false; ishor = false; }
+                if (x > 0.1 && ispush == false) { animator.SetFloat(idX, 1); ispush = true; }
+                if (x < -0.1 && ispush == false) { animator.SetFloat(idX, -1); ispush = true; }
+                if (Input.GetKeyUp(KeyCode.W) || Input.GetKeyUp(KeyCode.UpArrow)) { animator.SetFloat(idY, 0.5f); animator.SetFloat(idX, 0); ispush = false; isver = false; }
+                if (Input.GetKeyUp(KeyCode.S) || Input.GetKeyUp(KeyCode.DownArrow)) { animator.SetFloat(idY, -0.5f); animator.SetFloat(idX, 0); ispush = false; isver = false; }
+                if (y > 0.1 && ispush == false) { animator.SetFloat(idY, 1); ispush = true; }
+                if (y < -0.1 && ispush == false) { animator.SetFloat(idY, -1); ispush = true; }
             } 
             
             popo = transform.position;
-            if (Input.GetKeyUp(KeyCode.D)|| Input.GetKeyUp(KeyCode.RightArrow)){ animator.SetFloat(idX, 0.5f); animator.SetFloat(idY, 0); ispush = false; ishor = false; }
-            if (Input.GetKeyUp(KeyCode.A) || Input.GetKeyUp(KeyCode.LeftArrow)) { animator.SetFloat(idX, -0.5f); animator.SetFloat(idY, 0); ispush=false; ishor = false; }
-            if (x > 0.1 && ispush == false) { animator.SetFloat(idX, 1); ispush = true; }
-            if (x <-0.1 && ispush == false) { animator.SetFloat(idX, -1); ispush = true; }
-            if (Input.GetKeyUp(KeyCode.W) || Input.GetKeyUp(KeyCode.UpArrow)) { animator.SetFloat(idY, 0.5f); animator.SetFloat(idX, 0); ispush = false; isver = false;  }
-            if (Input.GetKeyUp(KeyCode.S) || Input.GetKeyUp(KeyCode.DownArrow)) { animator.SetFloat(idY, -0.5f); animator.SetFloat(idX, 0); ispush = false;isver = false; }
-            if (y > 0.1 && ispush == false) { animator.SetFloat(idY, 1); ispush = true; }
-            if (y < -0.1 && ispush == false) { animator.SetFloat(idY, -1); ispush = true; }
+            
         }
     }
     public static void Effecttime()
