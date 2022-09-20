@@ -90,11 +90,18 @@ public class Move : MonoBehaviourPunCallbacks
         {
             if (menuKey == null)
             {
-                if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow)) { input = new Vector3(0, 1, 0f); }
-               else if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow)) { input = new Vector3(0, -1, 0f); }
-               else if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow)) { input = new Vector3(-1, 0, 0f); }
-               else if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow)) { input = new Vector3(1, 0, 0f); }
-               else { input = new Vector3(0, 0, 0f); }
+                if (Input.GetAxisRaw("Horizontal") != 0 && isver == false)
+                {
+                    input = new Vector3(Input.GetAxisRaw("Horizontal"), 0, 0f); ishor = true;
+                }
+                else if (Input.GetAxisRaw("Vertical") != 0 && ishor == false)
+                {
+                    input = new Vector3(0, Input.GetAxisRaw("Vertical"), 0f); isver = true;
+                }
+                else
+                {
+                    input = new Vector3(0, 0, 0f);
+                }
                 transform.Translate(speed * Time.deltaTime * input.normalized);
                
                 if (Input.GetKeyUp(KeyCode.D) || Input.GetKeyUp(KeyCode.RightArrow)) { animator.SetFloat(idX, 0.5f); animator.SetFloat(idY, 0); ispush = false; ishor = false; }

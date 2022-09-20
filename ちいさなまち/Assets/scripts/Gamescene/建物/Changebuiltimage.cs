@@ -41,8 +41,8 @@ public class Changebuiltimage : MonoBehaviourPunCallbacks
     }
     public void OnTriggerStay2D(Collider2D collision)
     {
-        var a = collision.gameObject.GetPhotonView().OwnerActorNr;
-        if (collision.gameObject.CompareTag("Player") && a == PhotonNetwork.LocalPlayer.ActorNumber)
+       
+        if (collision.gameObject.CompareTag("Player") && collision.gameObject.GetPhotonView().OwnerActorNr == PhotonNetwork.LocalPlayer.ActorNumber)
         {
             gaisou.SetActive(false);
         }

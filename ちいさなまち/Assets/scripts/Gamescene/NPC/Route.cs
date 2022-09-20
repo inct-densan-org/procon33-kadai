@@ -7,24 +7,24 @@ using UnityEngine;
 using Photon.Pun;
 public class Route : MonoBehaviourPunCallbacks
 {
-    [SerializeField] Transform moveObj;
-    [SerializeField] float speed;
-    List<Transform> points;
-    int pointIdx = 0;
+    [SerializeField] GameObject moveObj;
+    [SerializeField] float speed=1;
+   public List<Transform> points;
+   public int pointIdx = 0;
     Vector3 nextPos;
     public Vector3 nowPos, maePos;
     private int idX = Animator.StringToHash("x"), idY = Animator.StringToHash("y");
     private Animator animator = null;
     public string e;
+    private bool b;
     void Start()
     {
         points = new List<Transform>();
         points = GetComponentsInChildren<Transform>().Where(t => t != transform).ToList();
         nextPos = points[pointIdx].position;
         animator = moveObj.  GetComponent<Animator>();
-        var player = PhotonNetwork.PlayerList;
-        var p1 = player[0];
-        if (p1 == PhotonNetwork.LocalPlayer) moveObj.transform.position = points[0].position;
+       
+        
 
 
     }
@@ -38,12 +38,13 @@ public class Route : MonoBehaviourPunCallbacks
         var p1 = player[0];
         if (p1 == PhotonNetwork.LocalPlayer)
         {
+           if(b==false) moveObj.transform.position = points[0].position;b = true;
             nowPos = moveObj.transform.position;
             var a = moveObj.transform.position;
             maepos(a);
-            if ((nextPos - moveObj.position).sqrMagnitude > Mathf.Epsilon)
+            if ((nextPos - moveObj.transform.position).sqrMagnitude > Mathf.Epsilon)
             {
-                moveObj.position = Vector3.MoveTowards(moveObj.position, nextPos, speed * Time.deltaTime);
+                moveObj.transform.position = Vector3.MoveTowards(moveObj.transform.position, nextPos, speed * Time.deltaTime);
             }
             else
             {
@@ -51,8 +52,10 @@ public class Route : MonoBehaviourPunCallbacks
 
                 if (pointIdx < points.Count)
                 {
-                    nextPos = points[pointIdx].position;
+                                  nextPos = points[pointIdx].position;
                 }
+                if (pointIdx == points.Count) { moveObj.SetActive(false); 
+                    Invoke(nameof(NPCReset), 3f); }
 
             }
             if (nowPos.x > maePos.x) { animator.SetFloat(idX, 1f); e = "right"; }
@@ -85,6 +88,18 @@ public class Route : MonoBehaviourPunCallbacks
             if (nowPos.y > maePos.y) { animator.SetFloat(idY, 1f); e = "back"; }
         }
          
+    }
+    void NPCReset()
+    {
+        
+        moveObj.SetActive(true);
+        
+        moveObj.transform.position = points[0].position;
+        points = new List<Transform>();
+        points = GetComponentsInChildren<Transform>().Where(t => t != transform).ToList();
+        pointIdx = 1;
+        nextPos = points[pointIdx].position;
+        
     }
     private void FixedUpdate()
     {
