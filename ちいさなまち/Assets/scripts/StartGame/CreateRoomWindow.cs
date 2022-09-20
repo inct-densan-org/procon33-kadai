@@ -4,16 +4,6 @@ using UnityEngine;
 
 public class CreateRoomWindow : MonoBehaviour
 {
-    void Start()
-    {
-        
-    }
-
-    void Update()
-    {
-        
-    }
-
     public void OpenWindow(){
         gameObject.SetActive(true);
     }

@@ -6,19 +6,19 @@ using Photon.Realtime;
 
 public class CallBack : MonoBehaviourPunCallbacks
 {
-    public void OnConnectedToMaster(){
+    public override void OnConnectedToMaster(){
         Debug.Log("マスターサーバーに接続しました。");
         PhotonNetwork.JoinLobby();
     }
-    public void OnDisconnected(DisconnectCause cause){
+    public override void OnDisconnected(DisconnectCause cause){
         Debug.Log($"接続に失敗したか切断されました。 {cause.ToString()}");
     }
 
 
-    public void OnJoinedLobby(){
+    public override void OnJoinedLobby(){
         Debug.Log("ロビーに参加しました。");
     }
-    public void OnLeftLobby(){
+    public override void OnLeftLobby(){
         Debug.Log("ロビーから退出しました。");
     }
 }

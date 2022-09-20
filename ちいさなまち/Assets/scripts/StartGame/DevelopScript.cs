@@ -7,7 +7,7 @@ using Hashtable = ExitGames.Client.Photon.Hashtable;
 
 public class DevelopScript : MonoBehaviourPunCallbacks
 {
-
+/*
 
     public void ConnectMaster(){
         if (PhotonNetwork.IsConnected){
@@ -102,5 +102,5 @@ public class DevelopScript : MonoBehaviourPunCallbacks
         Debug.Log("ルームから退出しました。");
     }
 
-
+*/
 }

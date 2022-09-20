@@ -66,25 +66,9 @@ public class RoomList : MonoBehaviourPunCallbacks
         //roomDataから条件に合う部屋をroomListへ抽出
         for(int i = 0; i < 3; i++){
             if (listOption[i]){
-                string sortDifficulty = "N";
-                switch(i){
-                    case 0:
-                        sortDifficulty = "E";
-                        break;
-                    case 1:
-                        sortDifficulty = "N";
-                        break;
-                    case 2:
-                        sortDifficulty = "H";
-                        break;
-                }
-                //DataRow[] rooms = roomData.Select($"Difficulty = '{sortDifficulty}'");
-                DataRow[] rooms = roomData.Select($"Difficulty = 'N'");
-                Debug.Log(rooms.Length);
+                DataRow[] rooms = roomData.Select($"Difficulty = '{i}'");
                 foreach(var room in rooms){
                     roomList.ImportRow(room);
-                    Debug.Log("AA");
-                    Debug.Log(room.ToString());
                 }
             }
         }
@@ -112,7 +96,18 @@ public class RoomList : MonoBehaviourPunCallbacks
             //なおデータテーブルの列は1列目から ルーム名 ルームの表示名 ルームの人数/最大人数(8) 難易度 の4つ
             for (int j = 0; j < 3; j++){
                 var buttonsTMP = button.transform.GetChild(j).GetComponent<TextMeshProUGUI>();
-                buttonsTMP.text = roomList.Rows[i][j+1].ToString();
+                string text = roomList.Rows[i][j+1].ToString();
+                Debug.Log(text);
+                if (j == 2){
+                    if (text == "0"){
+                        text = "イージー";
+                    }else if (text == "1"){
+                        text = "ノーマル";
+                    }else if (text == "2"){
+                        text = "ハード";
+                    }
+                }
+                buttonsTMP.text = text;
             }
         }
     }
@@ -127,7 +122,9 @@ public class RoomList : MonoBehaviourPunCallbacks
 
     //ルームの情報が更新されたときの処理
     public override void OnRoomListUpdate(List<RoomInfo> list){
+        Debug.Log("更新されました。");
         foreach (var room in list){
+            //この場合ルーム名は表示名ではなく固有のもの
             DataRow[] inListRoom = roomData.Select($"RoomName = '{room.Name}'");
             //削除された部屋の情報か
             if (room.RemovedFromList){
@@ -141,23 +138,6 @@ public class RoomList : MonoBehaviourPunCallbacks
                 //部屋に参加可能であるか
                 if (room.IsOpen){
                     string difficulty = room.CustomProperties["Difficulty"].ToString();
-                    //難易度情報があるか
-                    if (room.CustomProperties.ContainsKey("Difficulty")){
-                        switch (difficulty){
-                            case "E" :
-                                difficulty = "イージー";
-                                break;
-                            case "N" :
-                                difficulty = "ノーマル";
-                                break;
-                            case "H" :
-                                difficulty = "ハード";
-                                break;
-                            default:
-                                difficulty = room.CustomProperties["Difficulty"].ToString();
-                                break;
-                        }
-                    }
                     roomData.Rows.Add(room.Name,(room.CustomProperties.ContainsKey("RoomName")) ? room.CustomProperties["RoomName"] : "名称不明" , $"{room.PlayerCount.ToString()}/{room.MaxPlayers.ToString()}", difficulty);
                 }
             }
