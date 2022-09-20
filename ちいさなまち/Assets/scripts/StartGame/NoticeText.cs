@@ -9,11 +9,10 @@ public class NoticeText : MonoBehaviourPunCallbacks
 {
 
     TextMeshProUGUI displayText;
-    
+
 
     void Start(){
         displayText = this.GetComponent<TextMeshProUGUI>();
-
         if (!PhotonNetwork.InLobby){
             displayText.text = "オンラインに参加しています...";
         }

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class SelectButtonScript : MonoBehaviour
 {
+    [System.NonSerialized]
     public GameObject changeTarget;
 
     public void OnClick()

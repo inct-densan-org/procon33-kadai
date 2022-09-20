@@ -39,7 +39,7 @@ public class DevelopScript : MonoBehaviourPunCallbacks
         foreach (var room in roomList){
             Debug.Log($"削除済み = {room.RemovedFromList} , {room.ToString()}");
         }
-        
+
     }
 
 
@@ -69,7 +69,7 @@ public class DevelopScript : MonoBehaviourPunCallbacks
             roomOptions.MaxPlayers = 8;
             roomOptions.CustomRoomProperties =customProperties;
             roomOptions.CustomRoomPropertiesForLobby = new[] {"RoomName", "Difficulty"};
-            
+
             PhotonNetwork.CreateRoom(null, roomOptions);
         }
         else{
@@ -85,7 +85,7 @@ public class DevelopScript : MonoBehaviourPunCallbacks
         Debug.Log($"ルーム情報:{currentRoom.ToString()}");
     }
     public void OnCreateRoomFailed(short returnCode, string message){
-        
+
         if (returnCode == 32766){
             Debug.Log($"ルームの作成に失敗しました。 同じ名前のルームが既に存在します。");
         }
@@ -101,5 +101,6 @@ public class DevelopScript : MonoBehaviourPunCallbacks
     public void OnLeftRoom(){
         Debug.Log("ルームから退出しました。");
     }
+
 
 }

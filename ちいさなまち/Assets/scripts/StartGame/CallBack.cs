@@ -4,7 +4,7 @@ using UnityEngine;
 using Photon.Pun;
 using Photon.Realtime;
 
-public class PhotonCallBack : MonoBehaviourPunCallbacks
+public class CallBack : MonoBehaviourPunCallbacks
 {
     public void OnConnectedToMaster(){
         Debug.Log("マスターサーバーに接続しました。");

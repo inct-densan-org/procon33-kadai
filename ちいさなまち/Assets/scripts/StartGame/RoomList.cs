@@ -66,9 +66,25 @@ public class RoomList : MonoBehaviourPunCallbacks
         //roomDataから条件に合う部屋をroomListへ抽出
         for(int i = 0; i < 3; i++){
             if (listOption[i]){
-                DataRow[] rooms = roomData.Select($"Difficulty = {i}");
+                string sortDifficulty = "N";
+                switch(i){
+                    case 0:
+                        sortDifficulty = "E";
+                        break;
+                    case 1:
+                        sortDifficulty = "N";
+                        break;
+                    case 2:
+                        sortDifficulty = "H";
+                        break;
+                }
+                //DataRow[] rooms = roomData.Select($"Difficulty = '{sortDifficulty}'");
+                DataRow[] rooms = roomData.Select($"Difficulty = 'N'");
+                Debug.Log(rooms.Length);
                 foreach(var room in rooms){
                     roomList.ImportRow(room);
+                    Debug.Log("AA");
+                    Debug.Log(room.ToString());
                 }
             }
         }
@@ -124,10 +140,10 @@ public class RoomList : MonoBehaviourPunCallbacks
                 }
                 //部屋に参加可能であるか
                 if (room.IsOpen){
-                    string difficulty;
+                    string difficulty = room.CustomProperties["Difficulty"].ToString();
                     //難易度情報があるか
                     if (room.CustomProperties.ContainsKey("Difficulty")){
-                        switch (room.CustomProperties["Difficulty"].ToString()){
+                        switch (difficulty){
                             case "E" :
                                 difficulty = "イージー";
                                 break;
@@ -141,10 +157,7 @@ public class RoomList : MonoBehaviourPunCallbacks
                                 difficulty = room.CustomProperties["Difficulty"].ToString();
                                 break;
                         }
-                    }else{
-                        difficulty = room.CustomProperties["Difficulty"].ToString();
                     }
-
                     roomData.Rows.Add(room.Name,(room.CustomProperties.ContainsKey("RoomName")) ? room.CustomProperties["RoomName"] : "名称不明" , $"{room.PlayerCount.ToString()}/{room.MaxPlayers.ToString()}", difficulty);
                 }
             }

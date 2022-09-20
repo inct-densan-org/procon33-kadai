@@ -1,13 +1,12 @@
 using UnityEngine;
+using Photon.Realtime;
 using Photon.Pun;
 
-public class PhotonLogin : MonoBehaviour
+public class PhotonLogin : MonoBehaviourPunCallbacks
 {
 
-    void OnEnable(){
-        if (!PhotonNetwork.IsConnected){
-            PhotonNetwork.ConnectUsingSettings();
-        }
+    private void Start(){
+        PhotonNetwork.ConnectUsingSettings();
     }
 
 }
