@@ -28,8 +28,12 @@ public class CreateRoomButton : MonoBehaviourPunCallbacks
 
 
     public void OnClick(){
-        roomName = roomName.Replace(" ", "_");
-        roomName = roomName.Replace("　", "_");
+        if (System.String.IsNullOrWhiteSpace(roomName)){
+            roomName = "ルーム";
+        }else{
+            roomName = roomName.Replace(" ", "_");
+            roomName = roomName.Replace("　", "_");
+        }
 
         string difficulty;
         if (difficultyButtons.transform.GetChild(0).GetComponent<Toggle>().isOn == true){
