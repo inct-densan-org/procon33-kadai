@@ -46,7 +46,28 @@ public class NPCBase : MonoBehaviourPunCallbacks
     }
     public void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Player")&&cooltime==false)
+        if (collision.gameObject.CompareTag("NPC") && cooltime == false)
+        {
+            cooltime = true;
+            Invoke(nameof(Cooldowm), 5f);
+
+            infected = Customproperties.GetNPCinf(collision.gameObject.name);
+            if (infected == true)
+            {
+
+                int rnd = Random.Range(0, 100);
+                if (rnd <= infectionProbability)
+                {
+
+                    Invoke(nameof(EffictTime), 180);
+                    NPCinf = true;
+                    Customproperties.SetNPCinf(Objname, NPCinf);
+
+                }
+
+            }
+        }
+            if (collision.gameObject.CompareTag("Player")&&cooltime==false)
         {
            
             cooltime = true;

@@ -17,7 +17,8 @@ public class Route1 : MonoBehaviourPunCallbacks
     private int idX = Animator.StringToHash("x"), idY = Animator.StringToHash("y");
     private Animator animator = null;
     public string e;
-    private bool b,c;
+    private bool b;
+    public bool c;
     void Start()
     {
         points = new List<Transform>();
@@ -43,28 +44,35 @@ public class Route1 : MonoBehaviourPunCallbacks
             nowPos = moveObj.transform.position;
             var a = moveObj.transform.position;
             maepos(a);
-            if ((nextPos - moveObj.transform.position).sqrMagnitude > Mathf.Epsilon)
+            if (c == false)
             {
-                moveObj.transform.position = Vector3.MoveTowards(moveObj.transform.position, nextPos, speed * Time.deltaTime);
-            }
-            else
-            {
-                pointIdx++;
-
-               
-                if (pointIdx == orikaesi) { moveObj.SetActive(false); 
-                    Invoke(nameof(NPCorikaesi), 3f); }
-                if (pointIdx < points.Count&&c==false)
+                if ((nextPos - moveObj.transform.position).sqrMagnitude > Mathf.Epsilon)
                 {
-                    nextPos = points[pointIdx].position;
+                    moveObj.transform.position = Vector3.MoveTowards(moveObj.transform.position, nextPos, speed * Time.deltaTime);
                 }
-                if (pointIdx == points.Count)
+                else
                 {
-                    moveObj.SetActive(false);c = true;
-                    Invoke(nameof(NPCReset), 3f);
-                }
+                    pointIdx++;
 
+
+                    if (pointIdx == orikaesi)
+                    {
+                        moveObj.SetActive(false); c = true;
+                        Invoke(nameof(NPCorikaesi), 3f);
+                    }
+                    if (pointIdx < points.Count)
+                    {
+                        nextPos = points[pointIdx].position;
+                    }
+                    if (pointIdx == points.Count)
+                    {
+                        moveObj.SetActive(false); 
+                        Invoke(nameof(NPCReset), 3f);
+                    }
+
+                }
             }
+            
             if (nowPos.x > maePos.x) { animator.SetFloat(idX, 1f); e = "right"; }
             if (nowPos.x == maePos.x)
             {

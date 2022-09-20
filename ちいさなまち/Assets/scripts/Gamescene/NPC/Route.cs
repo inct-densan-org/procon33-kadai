@@ -23,8 +23,8 @@ public class Route : MonoBehaviourPunCallbacks
         points = GetComponentsInChildren<Transform>().Where(t => t != transform).ToList();
         nextPos = points[pointIdx].position;
         animator = moveObj.  GetComponent<Animator>();
-       
-        
+
+        moveObj.SetActive(true);
 
 
     }
