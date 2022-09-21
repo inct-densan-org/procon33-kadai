@@ -22,7 +22,7 @@ public  class Tokei : MonoBehaviourPunCallbacks
 
         if (byou == null)
         {
-           byou=  gameObject.AddComponent<itibyou>();
+            byou=  gameObject.AddComponent<itibyou>();
         }
         byou.Init(() =>
         {
@@ -31,15 +31,11 @@ public  class Tokei : MonoBehaviourPunCallbacks
             minite = time / 60;
             if (minite == 60) minite = 0;
             hour = time / 3600;if (hour == 24) hour = 0;
-           
         });
         byou.Play();
     }
-  
-  
     void Update()
     {
         text.text = $"{hour}" + "時間" + $"{minite}" + "分" + $"{second}" + "秒";
     }
-    
 }

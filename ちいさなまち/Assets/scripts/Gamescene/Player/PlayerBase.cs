@@ -10,18 +10,12 @@ public class PlayerBase : MonoBehaviour
     //TimeKimeru
     //Infection2
     //Tile Controller
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
     // Update is called once per frame
     void Update()
     {
-
-       isStart =PUN2Server.isStart;
-        if (isStart == true&&a==false)
+        isStart =PUN2Server.isStart;
+        if (isStart == true && a == false)
         {
             a = true;
             gameObject.AddComponent<Move>();

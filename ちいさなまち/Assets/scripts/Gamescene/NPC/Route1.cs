@@ -10,8 +10,8 @@ public class Route1 : MonoBehaviourPunCallbacks
     [SerializeField] GameObject moveObj;
     [SerializeField] float speed=1;
     public int orikaesi;
-   public List<Transform> points;
-   public int pointIdx = 0;
+    public List<Transform> points;
+    public int pointIdx = 0;
     Vector3 nextPos;
     public Vector3 nowPos, maePos;
     private int idX = Animator.StringToHash("x"), idY = Animator.StringToHash("y");
@@ -26,21 +26,14 @@ public class Route1 : MonoBehaviourPunCallbacks
         nextPos = points[pointIdx].position;
         animator = moveObj.  GetComponent<Animator>();
         moveObj.SetActive(true);
-        
-
-
     }
-
-
-
-
     void Update()
     {
         var player = PhotonNetwork.PlayerList;
         var p1 = player[0];
         if (p1 == PhotonNetwork.LocalPlayer)
         {
-           if(b==false) moveObj.transform.position = points[0].position;b = true;
+            if(b == false) moveObj.transform.position = points[0].position;b = true;
             nowPos = moveObj.transform.position;
             var a = moveObj.transform.position;
             maepos(a);
@@ -53,7 +46,6 @@ public class Route1 : MonoBehaviourPunCallbacks
                 else
                 {
                     pointIdx++;
-
 
                     if (pointIdx == orikaesi)
                     {
@@ -69,7 +61,6 @@ public class Route1 : MonoBehaviourPunCallbacks
                         moveObj.SetActive(false); 
                         Invoke(nameof(NPCReset), 3f);
                     }
-
                 }
             }
             
@@ -102,11 +93,9 @@ public class Route1 : MonoBehaviourPunCallbacks
             }
             if (nowPos.y > maePos.y) { animator.SetFloat(idY, 1f); e = "back"; }
         }
-         
     }
     void NPCReset()
     {
-
         moveObj.SetActive(true);
 
         moveObj.transform.position = points[0].position;
@@ -114,7 +103,6 @@ public class Route1 : MonoBehaviourPunCallbacks
         points = GetComponentsInChildren<Transform>().Where(t => t != transform).ToList();
         pointIdx = 1;
         nextPos = points[pointIdx].position;
-
     }
     void NPCorikaesi() {
         moveObj.SetActive(true);
@@ -125,11 +113,6 @@ public class Route1 : MonoBehaviourPunCallbacks
         //pointIdx =orikaesi+ 1;
         //nextPos = points[pointIdx].position;
         c = false;
-    }
-    private void FixedUpdate()
-    {
-        
-
     }
     private async void maepos(Vector3 vector3)
     {

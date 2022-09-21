@@ -7,7 +7,7 @@ using Photon.Realtime;
 
 public class FlushController : MonoBehaviourPunCallbacks
 {
-   private static Color target = new Color(0.5f, 0f, 0f, 0.5f);
+    private static Color target = new Color(0.5f, 0f, 0f, 0.5f);
     private Move move;
     public static ExitGames.Client.Photon.Hashtable roomHash;
     private PUN2Server pUN2Server;
@@ -15,7 +15,7 @@ public class FlushController : MonoBehaviourPunCallbacks
     private  Image image;
     public int Player;
     public GameObject GameObject;
-    private Infection2Å@infection ;
+    private Infection2@infection ;
     public bool trigger;
     // Start is called before the first frame update
     void Start()
@@ -52,17 +52,13 @@ public class FlushController : MonoBehaviourPunCallbacks
     // Update is called once per frame
     void Update()
     {
-
         trigger = Infection2.GetPlayerinf(Player);
-
 
         Image image = GameObject.GetComponent<Image>();
         image.color = Color.Lerp(Color.clear, target, Mathf.PingPong(Time.time, 1));
         Vector3 pos = GameObject.transform.localPosition;
-            if (trigger) pos.z = -5.0f;
-            else pos.z = -50.0f;
+        if (trigger) pos.z = -5.0f;
+        else pos.z = -50.0f;
         GameObject.transform.localPosition = pos;
     }
-
-   
 }

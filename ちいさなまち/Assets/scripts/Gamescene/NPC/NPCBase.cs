@@ -6,7 +6,6 @@ using Unity.VisualScripting;
 using Photon.Realtime;
 using ExitGames.Client.Photon;
 
-
 public class NPCBase : MonoBehaviourPunCallbacks
 {
     public static ExitGames.Client.Photon.Hashtable roomHash;
@@ -19,31 +18,23 @@ public class NPCBase : MonoBehaviourPunCallbacks
     // Start is called before the first frame update
     void Start()
     {
-        NPCinf=false;
+        NPCinf = false;
         Objname = this.gameObject.name;
         roomHash = new ExitGames.Client.Photon.Hashtable();
         var byou = GetComponent<itibyou>();
 
         if (byou == null)
         {
-           byou=  gameObject.AddComponent<itibyou>();
+            byou = gameObject.AddComponent<itibyou>();
         }
         Customproperties.NPCcustom(Objname);
         byou.Init(() =>
         {
             NPCinfsee = Customproperties.GetNPCinf(Objname);
-            
-
         });
         byou.Play();
-
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
     public void OnTriggerStay2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("NPC") && cooltime == false)
@@ -54,24 +45,19 @@ public class NPCBase : MonoBehaviourPunCallbacks
             infected = Customproperties.GetNPCinf(collision.gameObject.name);
             if (infected == true)
             {
-
                 int rnd = Random.Range(0, 100);
                 if (rnd <= infectionProbability)
                 {
-
                     Invoke(nameof(EffictTime), 180);
                     NPCinf = true;
                     Customproperties.SetNPCinf(Objname, NPCinf);
-
                 }
-
             }
         }
-            if (collision.gameObject.CompareTag("Player")&&cooltime==false)
+        if (collision.gameObject.CompareTag("Player") && cooltime == false)
         {
-           
             cooltime = true;
-           
+            
             var player = collision.gameObject.GetPhotonView();
             var playernum = player.OwnerActorNr;
             a = playernum;
@@ -80,17 +66,13 @@ public class NPCBase : MonoBehaviourPunCallbacks
             infected = Infection2.GetPlayerinf(playernum);
             if (infected == true)
             {
-                
                 int rnd = Random.Range(0, 100);
                 if (rnd <= infectionProbability)
                 {
-                   
                     Invoke(nameof(EffictTime), 180);
                     NPCinf = true;
                     Customproperties.SetNPCinf(Objname, NPCinf);
-                    
                 }
-
             }
         }
     }

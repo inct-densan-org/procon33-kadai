@@ -15,18 +15,18 @@ public class Move : MonoBehaviourPunCallbacks
     public static Vector3 popo;
     private Vector3 input;
     private Menumanager menumanager;
+    private QuestDataBase QuestDataBase;
     public static bool isdurk;
     private float speed = 5f;
     public static ExitGames.Client.Photon.Hashtable roomHash;
     public static string myplayername;
     private Player player;
     private PUN2Server server;
-  
     public void Start()
     {
         
-      var  playernum = PUN2Server.playernum;
-       
+        var  playernum = PUN2Server.playernum;
+        
         player = PhotonNetwork.LocalPlayer;
         myplayernum = player.ActorNumber;
         myplayername = this.gameObject.name;
@@ -55,11 +55,10 @@ public class Move : MonoBehaviourPunCallbacks
         {
             gameObject.AddComponent<itibyou>();
         }
-      
+        
         byou.Init(() =>
         {
-         
-           // infection = Customproperties.Getplayerinf(player.ActorNumber);
+            // infection = Customproperties.Getplayerinf(player.ActorNumber);
         });
         byou.Play();
 
@@ -68,7 +67,7 @@ public class Move : MonoBehaviourPunCallbacks
     private void Update()
     {
         infection = Infection2.GetPlayerinf(myplayernum);
-       
+        
         var menuKey = Menumanager.menuKey;
         
         var x = Input.GetAxisRaw("Horizontal");
@@ -103,7 +102,7 @@ public class Move : MonoBehaviourPunCallbacks
                     input = new Vector3(0, 0, 0f);
                 }
                 transform.Translate(speed * Time.deltaTime * input.normalized);
-               
+                
                 if (Input.GetKeyUp(KeyCode.D) || Input.GetKeyUp(KeyCode.RightArrow)) { animator.SetFloat(idX, 0.5f); animator.SetFloat(idY, 0); ispush = false; ishor = false; }
                 if (Input.GetKeyUp(KeyCode.A) || Input.GetKeyUp(KeyCode.LeftArrow)) { animator.SetFloat(idX, -0.5f); animator.SetFloat(idY, 0); ispush = false; ishor = false; }
                 if (x > 0.1 && ispush == false) { animator.SetFloat(idX, 1); ispush = true; }
@@ -115,52 +114,45 @@ public class Move : MonoBehaviourPunCallbacks
             } 
             
             popo = transform.position;
-            
         }
     }
     public static void Effecttime()
     {
-
         isdurk = false;
     }
     private void OnTriggerStay2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("shop") && photonView.IsMine)
         {
-            
             if (Input.GetKey(KeyCode.Space))
             {
-                if (Restranquest.questquria == false)
-                {
-                    Menumanager.menuKey = "shop";
-                }
-                if(Restranquest.questquria == true)
+                Menumanager.menuKey = "talk";
+                if(Restranquest.questclear == true)
                 {
                     Menumanager.menuKey = "talk";
                 }
-                
+                else if (Hospitalquest.questclear == true || QuestDataBase.GetQusetLists()[1].GetIsQuest() == true)
+                {
+                    Menumanager.menuKey = "talk";
+                }
+                else
+                {
+                    Menumanager.menuKey = "shop";
+                }
             }
         }
         if (collision.gameObject.CompareTag("quest") && photonView.IsMine)
         {
-           
             if (Input.GetKey(KeyCode.Space) || Input.GetKey(KeyCode.KeypadEnter))
             {
-
-
                 Menumanager.menuKey = "quest";
-
             }
         }
         if (collision.gameObject.CompareTag("rule") && photonView.IsMine)
         {
-            
             if (Input.GetKeyDown(KeyCode.Space) || Input.GetKey(KeyCode.KeypadEnter))
             {
-
-                
                 Menumanager.menuKey = "rule";
-
             }
         }
     }

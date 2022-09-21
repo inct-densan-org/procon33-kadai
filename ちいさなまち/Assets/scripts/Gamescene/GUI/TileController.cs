@@ -16,7 +16,7 @@ public class TileController : MonoBehaviourPunCallbacks
     void Start()
     {
         var player = PhotonNetwork.PlayerList;
-       
+        
         var p1 = player[0];
         if (p1 == PhotonNetwork.LocalPlayer) 
         {
@@ -30,13 +30,6 @@ public class TileController : MonoBehaviourPunCallbacks
             // 〇〇の場所を決定
         }
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     private void LargeBuildingDecider(GameObject prefab)
     {
         var position = new Vector3(0, 0, 0);
@@ -88,11 +81,6 @@ public class TileController : MonoBehaviourPunCallbacks
             return;
         }
         photonView.RPC(nameof(SetLargeBuilding), RpcTarget.AllBufferedViaServer, position, prefab);
-    }
-
-    void SetSmallBuilding(GameObject prefab)
-    {
-
     }
 
     [PunRPC]

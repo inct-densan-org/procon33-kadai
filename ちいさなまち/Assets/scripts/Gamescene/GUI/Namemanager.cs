@@ -7,12 +7,6 @@ public class Namemanager : MonoBehaviourPunCallbacks
 {
     public TextMeshProUGUI namedis;
     private string username;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
     // Update is called once per frame
     void Update()
     {

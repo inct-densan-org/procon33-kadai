@@ -24,7 +24,7 @@ public class Timekimeru : MonoBehaviourPunCallbacks
 
             if (byou == null)
             {
-              byou=  gameObject.AddComponent<itibyou>();
+                byou = gameObject.AddComponent<itibyou>();
             }
             byou.Init(() =>
             {
@@ -39,10 +39,5 @@ public class Timekimeru : MonoBehaviourPunCallbacks
     public void SetTime(int second)
     {
         time = second;
-    }
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

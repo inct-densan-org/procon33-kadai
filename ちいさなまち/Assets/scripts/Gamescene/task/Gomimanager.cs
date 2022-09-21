@@ -11,12 +11,6 @@ public class Gomimanager : MonoBehaviour
         GameObject = this.gameObject;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     private void OnCollisionStay2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))

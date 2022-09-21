@@ -8,12 +8,6 @@ public class CameraManager : MonoBehaviourPunCallbacks
     public Vector3 targetpo = Move.popo;
     Vector3 offset;
     private CinemachineVirtualCamera _virtualCamera;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
     // Update is called once per frame
     void Update()
     {

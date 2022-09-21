@@ -19,11 +19,9 @@ public class Shopmanager : MonoBehaviourPunCallbacks
     private int ko1, ko2, ko3, ko4,money,totalmoney;
     private Moneymanager Moneymanager;
     private string menuKey;
-   
     // Start is called before the first frame update
     void Start()
     {
-        
         //time = Mathf.Clamp(time, MIN, MAX);
         for (int i = 0; i < itemDataBase.GetItemLists().Count; i++)
         {
@@ -72,10 +70,6 @@ public class Shopmanager : MonoBehaviourPunCallbacks
             total.text = $"{totalmoney}"+"円";
         }
     }
-    public static  void Setshopmenu()
-    {
-       
-    }
     public void Onpushue1() { ko1++; }
     public void Onpushue2() { ko2++; }
     public void Onpushue3() { ko3++; }
@@ -102,5 +96,4 @@ public class Shopmanager : MonoBehaviourPunCallbacks
         mesege.text = null;
     }
     public void Onpushback() { Menumanager.menuKey=null;shopmenu.SetActive(false); }
-
 }

@@ -8,14 +8,13 @@ using UnityEngine.UI;
 public class Changebuiltimage : MonoBehaviourPunCallbacks
 {
     private Image image;
-  //  public Sprite naisou, gaisou;
+    // public Sprite naisou, gaisou;
     private bool a;
     public GameObject naisou, gaisou;
     // Start is called before the first frame update
     void Start()
     {
         image = GetComponent<Image>();
-       
     }
     //private void OnCollisionEnter2D(Collision2D collision)
     //{
@@ -33,7 +32,7 @@ public class Changebuiltimage : MonoBehaviourPunCallbacks
     //}
     private void OnTriggerExit2D(Collider2D collision)
     {
-       var a= collision.gameObject.GetPhotonView().OwnerActorNr;
+        var a= collision.gameObject.GetPhotonView().OwnerActorNr;
         if (collision.gameObject.CompareTag("Player") && a==PhotonNetwork.LocalPlayer.ActorNumber)
         {
             gaisou.SetActive(true);
@@ -41,18 +40,9 @@ public class Changebuiltimage : MonoBehaviourPunCallbacks
     }
     public void OnTriggerStay2D(Collider2D collision)
     {
-       
         if (collision.gameObject.CompareTag("Player") && collision.gameObject.GetPhotonView().OwnerActorNr == PhotonNetwork.LocalPlayer.ActorNumber)
         {
             gaisou.SetActive(false);
         }
-        
-    }
-    
-    // Update is called once per frame
-    void Update()
-    {
-        
-        
     }
 }

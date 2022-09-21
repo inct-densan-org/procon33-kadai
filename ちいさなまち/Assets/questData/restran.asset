@@ -1,3 +1,19 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:20663d19529e6048d8da016548ac67415b884f8d63b1333c2d9e2562a6b0ac43
-size 533
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4b51947a79d8c54d88ddf9819b9a1d8, type: 3}
+  m_Name: restran
+  m_EditorClassIdentifier: 
+  QuestInf: "\u30EC\u30B9\u30C8\u30E9\u30F3\u306E\u6383\u9664\u3092\u3057\u3088\u3046"
+  reward_money: 600
+  QuestNumber: 3
+  IsQuest: 1
+  IsQuria: 0

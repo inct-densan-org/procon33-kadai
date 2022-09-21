@@ -7,7 +7,6 @@ public class Reitenitibyou : MonoBehaviourPunCallbacks
 {
     private Action executeAction;
     private bool executeFlag = false;
-
     public int elapsedTime = 0;
     private float intervalTime = 0;
 

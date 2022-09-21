@@ -1,3 +1,19 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:467c8d0d78a463f95207c5f8da8670bb2e77adaedbbcb1399bd2f6fcce6b81ba
-size 522
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4b51947a79d8c54d88ddf9819b9a1d8, type: 3}
+  m_Name: hospital
+  m_EditorClassIdentifier: 
+  QuestInf: "\u75C5\u9662\u306B\u85AC\u54C1\u3092\u5C4A\u3051\u3088\u3046"
+  reward_money: 300
+  QuestNumber: 1
+  IsQuest: 1
+  IsQuria: 0

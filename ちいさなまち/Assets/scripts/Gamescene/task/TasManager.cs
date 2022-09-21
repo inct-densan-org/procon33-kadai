@@ -10,16 +10,16 @@ using Hashtable = ExitGames.Client.Photon.Hashtable;
 
 public class TasManager : MonoBehaviourPunCallbacks
 {
-    public GameObject Questmenu,messegedis,questNPC;
-    public TextMeshProUGUI inf1, inf2, inf3,mesege;
+    public GameObject Questmenu, messegedis, questNPC;
+    public TextMeshProUGUI inf1, inf2, inf3, messege;
     [SerializeField]
     private QuestDataBase QuestDataBase;
     private Moneymanager Moneymanager;
     private string menuKey;
     private Menumanager menumanager;
-    public List<int> list =new List<int>();
+    public List<int> list = new List<int>();
     public static int Questnum;
-    public GameObject t1,t2,t3;
+    public GameObject t1, t2, t3;
     // Start is called before the first frame update
     void Start()
     {
@@ -54,9 +54,9 @@ public class TasManager : MonoBehaviourPunCallbacks
             if (QuestDataBase.GetQusetLists()[list[1]].GetIsQuest()) t2.SetActive(true); else t2.SetActive(false);
             if (QuestDataBase.GetQusetLists()[list[2]].GetIsQuest()) t3.SetActive(true); else t3.SetActive(false);
             Questmenu.SetActive(true);
-            inf1.text =  $"{QuestDataBase.GetQusetLists()[list[0]].GetQuestinf()}" + "\n" + " �B����V�@" + $"{QuestDataBase.GetQusetLists()[list[0]].Getreward()}" + "�~";
-            inf2.text =  $"{QuestDataBase.GetQusetLists()[list[1]].GetQuestinf()}" + "\n" + " �B����V�@" + $"{QuestDataBase.GetQusetLists()[list[1]].Getreward()}" + "�~";
-            inf3.text =   $"{QuestDataBase.GetQusetLists()[list[2]].GetQuestinf()}" + "\n" + " �B����V�@" + $"{QuestDataBase.GetQusetLists()[list[2]].Getreward()}" + "�~";
+            inf1.text =  $"{QuestDataBase.GetQusetLists()[list[0]].GetQuestinf()}" + "\n" + " クリアほうしゅう" + $"{QuestDataBase.GetQusetLists()[list[0]].Getreward()}" + "円";
+            inf2.text =  $"{QuestDataBase.GetQusetLists()[list[1]].GetQuestinf()}" + "\n" + " クリアほうしゅう" + $"{QuestDataBase.GetQusetLists()[list[1]].Getreward()}" + "円";
+            inf3.text =   $"{QuestDataBase.GetQusetLists()[list[2]].GetQuestinf()}" + "\n" + " クリアほうしゅう" + $"{QuestDataBase.GetQusetLists()[list[2]].Getreward()}" + "円";
         }
         for (int i = 0; i < QuestDataBase.GetQusetLists().Count; i++)
         {
@@ -69,8 +69,6 @@ public class TasManager : MonoBehaviourPunCallbacks
         list.Remove(i);
         QuestDataBase.GetQusetLists()[i].SetIsQuria(false);
     }
-    
-    
     public void OnPushBack()
     {
         Menumanager.menuKey = null;
@@ -80,18 +78,18 @@ public class TasManager : MonoBehaviourPunCallbacks
     {
         Questnum = QuestDataBase.GetQusetLists()[list[0]].GetNumber();
         messegedis.SetActive(true);
-        mesege.text = $"{QuestDataBase.GetQusetLists()[list[0]].GetQuestinf()}" + "\n" + $"{QuestDataBase.GetQusetLists()[list[0]].Getreward()}" + "円" + "\n" + "���󂯂܂����H";
+        messege.text = $"{QuestDataBase.GetQusetLists()[list[0]].GetQuestinf()}" + "\n" + $"{QuestDataBase.GetQusetLists()[list[0]].Getreward()}" + "円" + "\n" + "���󂯂܂����H";
     }
     public void OnPushInf2()
     {
         Questnum = QuestDataBase.GetQusetLists()[list[1]].GetNumber();
         messegedis.SetActive(true);
-        mesege.text = $"{QuestDataBase.GetQusetLists()[list[1]].GetQuestinf()}" + "\n" + $"{QuestDataBase.GetQusetLists()[list[1]].Getreward()}" + "円" + "\n" + "���󂯂܂����H";
+        messege.text = $"{QuestDataBase.GetQusetLists()[list[1]].GetQuestinf()}" + "\n" + $"{QuestDataBase.GetQusetLists()[list[1]].Getreward()}" + "円" + "\n" + "���󂯂܂����H";
     }
     public void OnPushInf3()
     {
         Questnum = QuestDataBase.GetQusetLists()[list[2]].GetNumber();
         messegedis.SetActive(true);
-        mesege.text = $"{QuestDataBase.GetQusetLists()[list[2]].GetQuestinf()}" + "\n" + $"{QuestDataBase.GetQusetLists()[list[2]].Getreward()}" + "円" + "\n" + "���󂯂܂����H";
+        messege.text = $"{QuestDataBase.GetQusetLists()[list[2]].GetQuestinf()}" + "\n" + $"{QuestDataBase.GetQusetLists()[list[2]].Getreward()}" + "円" + "\n" + "���󂯂܂����H";
     }
 }

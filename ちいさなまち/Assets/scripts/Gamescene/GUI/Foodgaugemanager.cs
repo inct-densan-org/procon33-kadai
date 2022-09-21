@@ -36,7 +36,7 @@ public class Foodgaugemanager : MonoBehaviour
         Bar.fillAmount = 1 - (time / 100);
         // if (time >= 10 )
         // {
-            //    byou.Stop();
+        //      byou.Stop();
         // }
     }
     public static void Setfood(int value)

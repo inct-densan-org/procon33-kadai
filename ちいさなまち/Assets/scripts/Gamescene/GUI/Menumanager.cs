@@ -10,7 +10,7 @@ public class Menumanager : MonoBehaviour
     [SerializeField]
     private QuestDataBase QuestDataBase;
     public GameObject menu ,messegedis;
-     public static string menuKey;
+    public static string menuKey;
     public TextMeshProUGUI k1,k2,k3,k4,mesasege,warning;
     public Image icon1,icon2,icon3,icon4;
     [SerializeField] private ItemDataBase itemDataBase;
@@ -22,18 +22,12 @@ public class Menumanager : MonoBehaviour
     private Move move;
     private TasManager tasManager;
     private int questnum;
-    // Start is called before the first frame update
-    void Start()
-    {
-       
-    }
-
     // Update is called once per frame
     void Update()
     {
         questnum = TasManager.Questnum;
         menuKeysee = menuKey;
-        if (menuKey=="menu")
+        if (menuKey == "menu")
         {
             icon1.sprite = itemDataBase.GetItemLists()[0].GetIcon();
             icon2.sprite = itemDataBase.GetItemLists()[1].GetIcon();
@@ -142,7 +136,6 @@ public class Menumanager : MonoBehaviour
             }
             messegedis.SetActive(false);
         }//yesおしたらそのクエストのisQuestをオンにしたい
-    
     }
     void Delwarning() { warning.text = null; }
     public Item GetItem(string searchName)

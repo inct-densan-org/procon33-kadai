@@ -8,31 +8,26 @@ public class Restranquest : MonoBehaviour
     private QuestDataBase QuestDataBase;
     public GameObject gomi1, gomi2, gomi3;
     public static int gominum;
-    public static bool questquria;
-    private bool a,b;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
+    public static bool questclear;
+    private bool a, b;
     // Update is called once per frame
     void Update()
     {
-        if (QuestDataBase.GetQusetLists()[3].GetIsQuest()&&a==false)
+        if (QuestDataBase.GetQusetLists()[3].GetIsQuest() && a == false)
         {
             a = true;
             gomi1.SetActive(true); gomi2.SetActive(true); gomi3.SetActive(true);
         }
-        if (gominum == 3&&b==false)
+        if (gominum == 3 && b == false)
         {
-            questquria = true;
+            questclear = true;
             b = true;
         }
     }
 
     public void ABReset()
     {
-        a = false;b = false;
+        a = false;
+        b = false;
     }
 }

@@ -4,17 +4,13 @@ using UnityEngine;
 
 public class situation : MonoBehaviour
 { 
- public GameObject text;
-  
+    public GameObject text;
 
     void Update()
     {
-
         if (Input.GetKeyDown(KeyCode.Q))
         {
-
             text.SetActive(true);
         }
     }
-
 }

@@ -12,24 +12,17 @@ public  static class Customproperties
 
     public static void custam()
     {
-
-        
         var a = false;
         roomHash = new ExitGames.Client.Photon.Hashtable
         {
             //{ "hour", hour },
             //{ "minite", minite },
-            
-           
-
-
         };
         PhotonNetwork.CurrentRoom.SetCustomProperties(roomHash);
     }
     
     public static void mycustom(int player)
     {
-       
         roomHash.Add($"{player}", false);
         PhotonNetwork.CurrentRoom.SetCustomProperties(roomHash);
 
@@ -42,9 +35,6 @@ public  static class Customproperties
         PhotonNetwork.CurrentRoom.SetCustomProperties(roomHash);
 
     }
-   
-   
-   
     //public static bool Getplayerinf(int player)
     //{
     //    return (PhotonNetwork.CurrentRoom.CustomProperties[$"{player}"] is bool inf) ? inf : false;
@@ -62,15 +52,14 @@ public  static class Customproperties
     //    PhotonNetwork.CurrentRoom.SetCustomProperties(roomHash);
     //   roomHash.Clear();
     //}
-   
     
     public static void SetNPCinf(string name,bool inf)
     {
         PhotonNetwork.CurrentRoom.CustomProperties[$"{name}"] = inf;
         PhotonNetwork.CurrentRoom.SetCustomProperties(roomHash);
-       roomHash.Clear();
+        roomHash.Clear();
     }
-  public static void Show()
+    public static void Show()
     {
         foreach (var prop in roomHash)
         {
@@ -78,5 +67,3 @@ public  static class Customproperties
         }
     }
 }
-   
-

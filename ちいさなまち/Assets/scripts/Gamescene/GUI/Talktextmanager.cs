@@ -9,11 +9,6 @@ public class Talktextmanager : MonoBehaviour
     public GameObject talk;
     [SerializeField]
     private QuestDataBase QuestDataBase;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
     // Update is called once per frame
     void Update()
@@ -21,16 +16,29 @@ public class Talktextmanager : MonoBehaviour
         if (Menumanager.menuKey == "talk")
         {
             talk.SetActive(true);
-            if (Restranquest.questquria == true)
+            if (Restranquest.questclear == true)
             {
-                talktext.text = "“Xˆõ\n u‘|œ‚ğ‚µ‚Ä‚­‚ê‚½‚Ì‚Å‚·‚ËB‚ ‚è‚ª‚Æ‚¤‚²‚´‚¢‚Ü‚·B‚±‚ê•ñV‹à‚Å‚·Bv";
+                talktext.text = "åº—å“¡\n ã€Œæƒé™¤ã‚’ã—ã¦ãã‚ŒãŸã®ã§ã™ã­ã€‚ã‚ã‚ŠãŒã¨ã†ã”ã–ã„ã¾ã™ã€‚ã“ã‚Œå ±é…¬é‡‘ã§ã™ã€‚ã€";
                 if (Input.GetMouseButton(0))
                 {
                     talk.SetActive(false);
                     Menumanager.menuKey = null;
-                    Restranquest.questquria = false;
+                    Restranquest.questclear = false;
                     Moneymanager.Setmoney(QuestDataBase.GetQusetLists()[3].Getreward());
                     QuestDataBase.GetQusetLists()[3].SetIsQuria(true);
+                }
+            }
+
+            else if (Hospitalquest.questclear == true || QuestDataBase.GetQusetLists()[1].GetIsQuest() == true)
+            {
+                talktext.text = "å—ä»˜\nã€Œã“ã¡ã‚‰å ±é…¬ã«ãªã‚Šã¾ã™ã€‚ã€";
+                if (Input.GetMouseButton(0))
+                {
+                    talk.SetActive(false);
+                    Menumanager.menuKey = null;
+                    Moneymanager.Setmoney(QuestDataBase.GetQusetLists()[1].Getreward());
+                    QuestDataBase.GetQusetLists()[1].SetIsQuria(true);
+                    Hospitalquest.questclear = false;
                 }
             }
         }
