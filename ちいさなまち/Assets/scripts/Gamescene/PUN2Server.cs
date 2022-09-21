@@ -109,8 +109,8 @@ public class PUN2Server : MonoBehaviourPunCallbacks
     [PunRPC]
     public void playermake()
     {
-        isman = Random.Range(0, 2);
-        if (isman == 1)
+        isman = ClientData.currentCharacter;
+        if (isman == 0)
         {
             clone = PhotonNetwork.Instantiate("man", new Vector3(20, 15, -1), Quaternion.identity);
         }
