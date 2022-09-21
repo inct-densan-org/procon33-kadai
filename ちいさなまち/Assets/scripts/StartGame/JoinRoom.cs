@@ -3,12 +3,11 @@ using System.Collections.Generic;
 using System.Data;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.SceneManagement;
 using Photon.Pun;
 using Photon.Realtime;
 using TMPro;
 
-public class JoinRoom : MonoBehaviourPunCallbacks
+public class JoinRoom : MonoBehaviour
 {
     public RoomList roomList;
 
@@ -29,7 +28,4 @@ public class JoinRoom : MonoBehaviourPunCallbacks
         PhotonNetwork.JoinRoom(roomName);
     }
 
-    public override void OnJoinedRoom(){
-        SceneManager.LoadScene("GameScene", LoadSceneMode.Single);
-    }
 }

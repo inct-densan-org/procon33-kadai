@@ -7,18 +7,22 @@ using Photon.Pun;
 using Photon.Realtime;
 using TMPro;
 
-public class RoomList : MonoBehaviourPunCallbacks
+public class RoomList : MonoBehaviour
 {
     public GameObject listButtonPrefab;
     public GameObject optionButtons;
-
     public DataTable roomData = new DataTable();
     public DataTable roomList;
-
-    [System.NonSerialized]
-    public int selectedButtonNum = -1;
-
     bool[] listOption = new bool[3]; //絞り込みオプション、0から イージー ノーマル ハード
+    [System.NonSerialized] public int selectedButtonNum = -1;
+    public static RoomList instance;
+
+    //ほかから参照できるようにする?
+    void Awake(){
+        if(instance is null){
+            instance = this;
+        }
+    }
 
     //初期化
     void Start(){
@@ -48,17 +52,9 @@ public class RoomList : MonoBehaviourPunCallbacks
 
     }
 
-    //ロビー参加時にボタンを全削除
-    public override void OnJoinedLobby(){
-        ListInit();
-    }
-
-    //ロビー退出時にボタンを全削除
-    public override void OnLeftLobby(){
-        ListInit();
-    }
-
-    void ListInit(){
+    //ロビー参加時、ロビー退出時にCallBack.csから呼び出される
+    public void ListInit(){
+        Debug.Log("ListInit");
         //roomListを初期化
         for (int i = roomList.Rows.Count; i > 0; i--){
             roomList.Rows.RemoveAt(0);
@@ -87,6 +83,7 @@ public class RoomList : MonoBehaviourPunCallbacks
         for (int i = 0; i < roomList.Rows.Count; i++){
 
             //ボタンを生成してcanvasの子にする
+            Debug.Log("生成します");
             GameObject button = Instantiate(listButtonPrefab, this.transform.position, Quaternion.identity);
             button.transform.SetParent(this.transform, false);
             button.transform.GetComponent<Toggle>().group = transform.GetComponent<ToggleGroup>();
@@ -121,8 +118,7 @@ public class RoomList : MonoBehaviourPunCallbacks
 
 
     //ルームの情報が更新されたときの処理
-    public override void OnRoomListUpdate(List<RoomInfo> list){
-        Debug.Log("更新されました。");
+    public void OnRoomListUpdate(List<RoomInfo> list){
         foreach (var room in list){
             //この場合ルーム名は表示名ではなく固有のもの
             DataRow[] inListRoom = roomData.Select($"RoomName = '{room.Name}'");

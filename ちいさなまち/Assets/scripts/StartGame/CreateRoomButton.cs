@@ -8,7 +8,7 @@ using Photon.Pun;
 using Photon.Realtime;
 using Hashtable = ExitGames.Client.Photon.Hashtable;
 
-public class CreateRoomButton : MonoBehaviourPunCallbacks
+public class CreateRoomButton : MonoBehaviour
 {
     public GameObject difficultyButtons;
     public TextMeshProUGUI inputField;
