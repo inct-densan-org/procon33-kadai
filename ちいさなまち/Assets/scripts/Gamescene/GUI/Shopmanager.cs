@@ -70,11 +70,11 @@ public class Shopmanager : MonoBehaviourPunCallbacks
             total.text = $"{totalmoney}"+"円";
         }
     }
-    public void Onpushue1() { ko1++; }
+    public void Onpushue1() { ko1++; Debug.Log(ko1); }
     public void Onpushue2() { ko2++; }
     public void Onpushue3() { ko3++; }
     public void Onpushue4() { ko4++; }
-    public void Onpushsita1() { ko1--; }
+    public void Onpushsita1() { ko1--; Debug.Log(ko1); }
     public void Onpushsita2() { ko2--; }
     public void Onpushsita3() { ko3--; }
     public void Onpushsita4() { ko4--; }

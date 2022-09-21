@@ -12,10 +12,10 @@ public class Item : ScriptableObject
 
 	public enum KindOfItem
 	{
-		Mask,
-		food,
-		medicine,
-		water,        
+		drugstore,
+		foodstore,
+		restaurant,
+		hospital,        
 	}
 
 	//�@�A�C�e���̎��
@@ -34,7 +34,7 @@ public class Item : ScriptableObject
 	private int money;
 	[SerializeField]
 	private int kosuu;
-
+	public GameObject game;
 	public KindOfItem GetKindOfItem()
 	{
 		return kindOfItem;
@@ -64,7 +64,20 @@ public class Item : ScriptableObject
 	}
 	public void Setkosuu(int itemkazu)
     {
+		game = GameObject.Find("menumaneger");
+
+		var mae = kosuu;
 		kosuu = itemkazu + kosuu;
+		var ato = kosuu;
+		
+		if (mae == 0 && ato > 0)
+        {
+			game.GetComponent<Menumanager>().makeicon(itemName);
+        }
+        if (mae != 0 && ato == 0)
+        {
+			game.GetComponent<Menumanager>().destroyicon(itemName);
+        }
     }
 	public void syokika()
     {

@@ -4,15 +4,16 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using System.Threading.Tasks;
+using UnityEngine.EventSystems;
 
 public class Menumanager : MonoBehaviour
 {
     [SerializeField]
     private QuestDataBase QuestDataBase;
-    public GameObject menu ,messegedis;
+    public GameObject menu, messegedis;
     public static string menuKey;
-    public TextMeshProUGUI k1,k2,k3,k4,mesasege,warning;
-    public Image icon1,icon2,icon3,icon4;
+    public TextMeshProUGUI mesasege, warning;
+
     [SerializeField] private ItemDataBase itemDataBase;
     public string menuKeysee;
     private string ItemName;
@@ -22,23 +23,57 @@ public class Menumanager : MonoBehaviour
     private Move move;
     private TasManager tasManager;
     private int questnum;
+    [SerializeField]
+    GameObject iconPrefab = null;
+    [SerializeField]
+    Transform iconParent = null;
+    private GameObject button_ob;
+    bool[] itemFlags;
+    [SerializeField] private EventSystem eventSystem;
+    Dictionary<int, GameObject> icons = new Dictionary<int, GameObject>();
+    // Start is called before the first frame update
+    void Start()
+    {
+        itemFlags = new bool[itemDataBase.GetItemLists().Count];
+    }
+    int Index(string itemName)
+    {
+        for (int i = 0; i < itemDataBase.GetItemLists().Count; i++)
+        {
+            if (itemName == itemDataBase.GetItemLists()[i].GetItemName())
+            {
+                return i;
+            }
+        }
+        return 0;
+    }
+    public void makeicon(string itemName)
+    {
+        int index = Index(itemName);
+        GameObject icon = Instantiate(iconPrefab, iconParent);
+        icon.GetComponent<Image>().sprite = GetItem(itemName).GetIcon();
+        icon.GetComponent<Button>().onClick.AddListener(onPush);
+
+        icon.name = itemName;
+        icons.Add(index, icon);
+    }
+    public void destroyicon(string itemName)
+    {
+        var i = Index(itemName);
+        GameObject icon = icons[i];
+        // アイテムのアイコンを削除
+        Destroy(icon);
+        // アイコンのディクショナリから対象のアイテムを削除
+        icons.Remove(i);
+    }
+
     // Update is called once per frame
     void Update()
     {
         questnum = TasManager.Questnum;
         menuKeysee = menuKey;
-        if (menuKey == "menu")
-        {
-            icon1.sprite = itemDataBase.GetItemLists()[0].GetIcon();
-            icon2.sprite = itemDataBase.GetItemLists()[1].GetIcon();
-            icon3.sprite = itemDataBase.GetItemLists()[2].GetIcon();
-            icon4.sprite = itemDataBase.GetItemLists()[3].GetIcon();
-            k1.text = $"{itemDataBase.GetItemLists()[0].Getkosuu()}";
-            k2.text = $"{itemDataBase.GetItemLists()[1].Getkosuu()}";
-            k3.text = $"{itemDataBase.GetItemLists()[2].Getkosuu()}";
-            k4.text = $"{itemDataBase.GetItemLists()[3].Getkosuu()}";
-        }
-        
+
+
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             switch (menuKey)
@@ -56,41 +91,24 @@ public class Menumanager : MonoBehaviour
 
         }
     }
-
-    public void Onpushmask()
+    public void onPush()
     {
         messegedis.SetActive(true);
-        ItemName = "マスク";
-        mesasege.text = itemDataBase.GetItemLists()[0].GetItemName() + "\n" + itemDataBase.GetItemLists()[0].GetInformation() +"\n"+"を使用しますか？";
-        
-    }
+        button_ob = eventSystem.currentSelectedGameObject;
 
-    public void Onpushfood(){
-        messegedis.SetActive(true);
-        ItemName="食べ物";
-        mesasege.text=GetItem(ItemName).GetItemName()+ "\n" + GetItem(ItemName).GetInformation() +"\n"+"を使用しますか？";
-    }
-
-    public void Onpushwater()
-    {
-        messegedis.SetActive(true);
-        ItemName = "水";
+        ItemName = button_ob.name;
+        Debug.Log(ItemName);
         mesasege.text = GetItem(ItemName).GetItemName() + "\n" + GetItem(ItemName).GetInformation() + "\n" + "を使用しますか？";
     }
 
-    public void Onpushdurk()
-    {
-        messegedis.SetActive(true);
-        ItemName = "薬";
-        mesasege.text = GetItem(ItemName).GetItemName() + "\n" + GetItem(ItemName).GetInformation() + "\n" + "を使用しますか？";
-    }
 
-    public void Onno(){messegedis.SetActive(false);}
+    public void Onno() { messegedis.SetActive(false); }
 
-    public async void Onyes() 
+    public async void Onyes()
     {
         if (menuKey == "menu")
         {
+
             if (ItemName == "マスク" && GetItem(ItemName).Getkosuu() > 0)
             {
                 itemDataBase.GetItemLists()[0].Setkosuu(-1);
@@ -102,19 +120,19 @@ public class Menumanager : MonoBehaviour
                 warning.text = "アイテムがありません";
                 Invoke(nameof(Delwarning), 3);
             }
-            if (ItemName == "食べ物" && GetItem(ItemName).Getkosuu() > 0)
+            if (ItemName == "おにぎり" && GetItem(ItemName).Getkosuu() > 0)
             {
                 Foodgaugemanager.Setfood(20);
                 itemDataBase.GetItemLists()[3].Setkosuu(-1);
                 messegedis.SetActive(false);
             }
-            if (ItemName == "水" && GetItem(ItemName).Getkosuu() > 0)
+            if (ItemName == "お茶" && GetItem(ItemName).Getkosuu() > 0)
             {
                 Watergaugemanager.Setwater(20);
                 itemDataBase.GetItemLists()[2].Setkosuu(-1);
                 messegedis.SetActive(false);
             }
-            if (ItemName == "薬" && GetItem(ItemName).Getkosuu() > 0)
+            if (ItemName == "普通の薬" && GetItem(ItemName).Getkosuu() > 0)
             {
                 Move.isdurk = true;
 
@@ -124,10 +142,10 @@ public class Menumanager : MonoBehaviour
                 Move.Effecttime();
             }
         }
-        
+
         if (menuKey == "quest")
         {
-            for (int i=0; i < QuestDataBase.GetQusetLists().Count; i++)
+            for (int i = 0; i < QuestDataBase.GetQusetLists().Count; i++)
             {
                 if (QuestDataBase.GetQusetLists()[i].GetNumber() == questnum)
                 {
@@ -136,6 +154,7 @@ public class Menumanager : MonoBehaviour
             }
             messegedis.SetActive(false);
         }//yesおしたらそのクエストのisQuestをオンにしたい
+
     }
     void Delwarning() { warning.text = null; }
     public Item GetItem(string searchName)

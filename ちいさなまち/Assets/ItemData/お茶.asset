@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0edc6a2b9a2b1694bb0a50be5648c706, type: 3}
-  m_Name: medicine
+  m_Name: "\u304A\u8336"
   m_EditorClassIdentifier: 
-  kindOfItem: 0
-  icon: {fileID: 21300000, guid: 54e8be4d3bb6d6842b8b037b67fa6273, type: 3}
-  itemName: "\u666E\u901A\u306E\u85AC"
-  information: "\u611F\u67D3\u306B\u3088\u308B\u72B6\u614B\u7570\u5E38\u3092\u5C11\u3057\u7DE9\u548C\u3055\u305B\u308B\u3002"
-  money: 30
+  kindOfItem: 1
+  icon: {fileID: 21300000, guid: a727a0f08e8661c4d9feb8c86f08e026, type: 3}
+  itemName: "\u304A\u8336"
+  information: "\u6C34\u30B2\u30FC\u30B8\u3092\u56DE\u5FA9\u3055\u305B\u308B\u3002"
+  money: 50
   kosuu: 0
