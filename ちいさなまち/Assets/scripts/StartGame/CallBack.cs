@@ -6,28 +6,26 @@ using Photon.Realtime;
 using UnityEngine.SceneManagement;
 public class CallBack : MonoBehaviourPunCallbacks
 {
+    public RoomList roomList;
+    public NoticeText noticeText;
+
     public override void OnConnectedToMaster(){
-        Debug.Log("マスターサーバーに接続しました。");
         PhotonNetwork.JoinLobby();
     }
     public override void OnDisconnected(DisconnectCause cause){
-        Debug.Log($"接続に失敗したか切断されました。 {cause.ToString()}");
     }
 
 
     public override void OnJoinedLobby(){
-        Debug.Log("ロビーに参加しました。");
-        RoomList.instance.ListInit();
+        roomList.ListInit();
     }
     public override void OnLeftLobby(){
-        Debug.Log("ロビーから退出しました。");
-        RoomList.instance.ListInit();
+        roomList.ListInit();
     }
 
     public override void OnRoomListUpdate(List<RoomInfo> list){
-        Debug.Log("ルームの情報が更新されました。");
-        NoticeText.instance.OnRoomListUpdate(list);
-        RoomList.instance.OnRoomListUpdate(list);
+        roomList.OnRoomListUpdate(list);
+        noticeText.CheckRoomList();
     }
 
     //ルーム参加時にシーン移行

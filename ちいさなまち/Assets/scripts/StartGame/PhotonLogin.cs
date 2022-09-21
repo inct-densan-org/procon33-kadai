@@ -5,8 +5,10 @@ using Photon.Pun;
 public class PhotonLogin : MonoBehaviour
 {
 
-    private void Start(){
-        PhotonNetwork.ConnectUsingSettings();
+    public  void Start(){
+        if(!PhotonNetwork.IsConnected){
+            PhotonNetwork.ConnectUsingSettings();
+        }
     }
 
 }

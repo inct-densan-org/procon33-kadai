@@ -11,18 +11,11 @@ public class RoomList : MonoBehaviour
 {
     public GameObject listButtonPrefab;
     public GameObject optionButtons;
+    public GameObject selector;
     public DataTable roomData = new DataTable();
     public DataTable roomList;
     bool[] listOption = new bool[3]; //絞り込みオプション、0から イージー ノーマル ハード
     [System.NonSerialized] public int selectedButtonNum = -1;
-    public static RoomList instance;
-
-    //ほかから参照できるようにする?
-    void Awake(){
-        if(instance is null){
-            instance = this;
-        }
-    }
 
     //初期化
     void Start(){
@@ -40,8 +33,8 @@ public class RoomList : MonoBehaviour
 
     void Update(){
         //なにか部屋が選択されているか
-        if (gameObject.transform.childCount > 0){
-            foreach (Transform child in gameObject.transform){
+        if (selector.transform.childCount > 0){
+            foreach (Transform child in selector.transform){
                 if (child.GetComponent<Toggle>().isOn){
                     selectedButtonNum = child.GetSiblingIndex();
                 }
@@ -54,7 +47,6 @@ public class RoomList : MonoBehaviour
 
     //ロビー参加時、ロビー退出時にCallBack.csから呼び出される
     public void ListInit(){
-        Debug.Log("ListInit");
         //roomListを初期化
         for (int i = roomList.Rows.Count; i > 0; i--){
             roomList.Rows.RemoveAt(0);
@@ -70,6 +62,7 @@ public class RoomList : MonoBehaviour
         }
         //表示リストを全削除
         DestroyChild();
+
     }
 
 
@@ -83,9 +76,8 @@ public class RoomList : MonoBehaviour
         for (int i = 0; i < roomList.Rows.Count; i++){
 
             //ボタンを生成してcanvasの子にする
-            Debug.Log("生成します");
             GameObject button = Instantiate(listButtonPrefab, this.transform.position, Quaternion.identity);
-            button.transform.SetParent(this.transform, false);
+            button.transform.SetParent(selector.transform, false);
             button.transform.GetComponent<Toggle>().group = transform.GetComponent<ToggleGroup>();
 
             //ボタンの表示内容を設定
@@ -94,7 +86,6 @@ public class RoomList : MonoBehaviour
             for (int j = 0; j < 3; j++){
                 var buttonsTMP = button.transform.GetChild(j).GetComponent<TextMeshProUGUI>();
                 string text = roomList.Rows[i][j+1].ToString();
-                Debug.Log(text);
                 if (j == 2){
                     if (text == "0"){
                         text = "イージー";
@@ -111,7 +102,7 @@ public class RoomList : MonoBehaviour
 
     //ボタンを全削除
     void DestroyChild(){
-        foreach (Transform child in gameObject.transform){
+        foreach (Transform child in selector.transform){
             Destroy(child.gameObject);
         }
     }
@@ -124,7 +115,9 @@ public class RoomList : MonoBehaviour
             DataRow[] inListRoom = roomData.Select($"RoomName = '{room.Name}'");
             //削除された部屋の情報か
             if (room.RemovedFromList){
-                roomData.Rows.Remove(inListRoom[0]);
+                if (inListRoom.Length > 0){
+                    roomData.Rows.Remove(inListRoom[0]);
+                }
             }
             else{
                 //既存の部屋の情報の場合は以前の情報を削除

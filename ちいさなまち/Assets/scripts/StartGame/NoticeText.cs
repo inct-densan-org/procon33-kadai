@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Data;
 using UnityEngine;
 using Photon.Pun;
 using Photon.Realtime;
@@ -9,30 +10,28 @@ public class NoticeText : MonoBehaviour
 {
 
     TextMeshProUGUI displayText;
-    public static NoticeText instance;
+    public RoomList roomList;
 
-    void Awake(){
-        if(instance is null){
-            instance = this;
-        }
-
-    }
-    void Start(){
+    void OnEnable(){
         displayText = GetComponent<TextMeshProUGUI>();
         if (!PhotonNetwork.InLobby){
             displayText.text = "オンラインに参加しています...";
-            PhotonNetwork.ConnectUsingSettings();
+            if(!PhotonNetwork.IsConnected){
+                PhotonNetwork.ConnectUsingSettings();
+            }
             PhotonNetwork.JoinLobby();
         }
+        CheckRoomList();
     }
 
     //CallBack.csから呼び出される
-    public void OnRoomListUpdate(List<RoomInfo> roomList){
-        if (roomList.Count == 0){
-            displayText.text = "参加できるルームがありません。";
-        }else{
-            Debug.Log("ルームあり");
-            displayText.text = "";
+    public void CheckRoomList(){
+        if (gameObject.activeInHierarchy){
+            if (roomList.roomList.Rows.Count > 0){
+                displayText.text = "";
+            }else{
+                displayText.text = "参加できるルームがありません。";
+            }
         }
     }
 

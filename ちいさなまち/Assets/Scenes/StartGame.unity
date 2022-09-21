@@ -1337,7 +1337,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u3000\u30EB\u30FC\u30E0\u306B\u53C2\u52A0\u3059\u308B\u5834\u5408\u306F\u3001\u8868\u793A\u3055\u308C\u3066\u3044\u308B\u30EA\u30B9\u30C8\u306E\u30EB\u30FC\u30E0\u304B\u3089\u53C2\u52A0\u3059\u308B\u3082\u306E\u3092\u9078\u3093\u3067\u53F3\u4E0B\u306E\u30B2\u30FC\u30E0\u30B9\u30BF\u30FC\u30C8\u30DC\u30BF\u30F3\u3092\u62BC\u3057\u3066\u304F\u3060\u3055\u3044\u3002\u81EA\u52D5\u3067\u63A5\u7D9A\u3092\u884C\u3044\u307E\u3059\u3002\n\u3000\u30EB\u30FC\u30E0\u3092\u4F5C\u6210\u3059\u308B\u5834\u5408\u306F\u3001\u4E0B\u306E\u30EB\u30FC\u30E0\u4F5C\u6210\u30DC\u30BF\u30F3\u3092\u62BC\u3057\u3066\u4F5C\u6210\u3059\u308B\u30EB\u30FC\u30E0\u306E\u540D\u524D\u3068\u96E3\u6613\u5EA6\u3092\u6307\u5B9A\u3057\u3066\u304F\u3060\u3055\u3044\u3002\u540D\u524D\u306F16\u6587\u5B57\u307E\u3067\u3067\u3059\u3002\u6307\u5B9A\u3057\u305F\u5F8C\u306B\u53F3\u4E0B\u306E\u30EB\u30FC\u30E0\u4F5C\u6210\u30DC\u30BF\u30F3\u3092\u62BC\u3059\u3068\u4F5C\u6210\u3057\u3066\u305D\u306E\u30EB\u30FC\u30E0\u306B\u53C2\u52A0\u3057\u307E\u3059\u3002\n\n"
+  m_text: "\u3000\u30EB\u30FC\u30E0\u306B\u53C2\u52A0\u3059\u308B\u5834\u5408\u306F\u3001\u8868\u793A\u3055\u308C\u3066\u3044\u308B\u30EA\u30B9\u30C8\u306E\u30EB\u30FC\u30E0\u304B\u3089\u53C2\u52A0\u3059\u308B\u3082\u306E\u3092\u9078\u3093\u3067\u53F3\u4E0B\u306E\u30B2\u30FC\u30E0\u30B9\u30BF\u30FC\u30C8\u30DC\u30BF\u30F3\u3092\u62BC\u3057\u3066\u304F\u3060\u3055\u3044\u3002\u30EA\u30B9\u30C8\u306E\u5185\u5BB9\u306F\u81EA\u52D5\u3067\u66F4\u65B0\u3055\u308C\u307E\u3059\u3002\n\u3000\u30EB\u30FC\u30E0\u3092\u4F5C\u6210\u3059\u308B\u5834\u5408\u306F\u3001\u4E0B\u306E\u30EB\u30FC\u30E0\u4F5C\u6210\u30DC\u30BF\u30F3\u3092\u62BC\u3057\u3066\u4F5C\u6210\u3059\u308B\u30EB\u30FC\u30E0\u306E\u540D\u524D\u3068\u96E3\u6613\u5EA6\u3092\u6307\u5B9A\u3057\u3066\u304F\u3060\u3055\u3044\u3002\u540D\u524D\u306F16\u6587\u5B57\u307E\u3067\u3067\u3059\u3002\u6307\u5B9A\u3057\u305F\u5F8C\u306B\u53F3\u4E0B\u306E\u30EB\u30FC\u30E0\u4F5C\u6210\u30DC\u30BF\u30F3\u3092\u62BC\u3059\u3068\u4F5C\u6210\u3057\u3066\u305D\u306E\u30EB\u30FC\u30E0\u306B\u53C2\u52A0\u3057\u307E\u3059\u3002\n\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e1de8b657c721b94489882522f187a99, type: 2}
   m_sharedMaterial: {fileID: 566186933589780251, guid: e1de8b657c721b94489882522f187a99, type: 2}
@@ -2263,7 +2263,7 @@ MonoBehaviour:
   m_HorizontalScrollbar: {fileID: 906550647}
   m_VerticalScrollbar: {fileID: 1538126200}
   m_HorizontalScrollbarVisibility: 2
-  m_VerticalScrollbarVisibility: 2
+  m_VerticalScrollbarVisibility: 0
   m_HorizontalScrollbarSpacing: -3
   m_VerticalScrollbarSpacing: -3
   m_OnValueChanged:
@@ -4881,6 +4881,7 @@ GameObject:
   - component: {fileID: 471880755}
   - component: {fileID: 471880757}
   - component: {fileID: 471880758}
+  - component: {fileID: 471880759}
   m_Layer: 5
   m_Name: Photon
   m_TagString: Untagged
@@ -4901,7 +4902,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1866116547}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -4920,6 +4921,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c79ae16954e4ec348b4699a8581960b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  roomList: {fileID: 471880759}
+  noticeText: {fileID: 1344405215}
 --- !u!114 &471880756
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4959,6 +4962,21 @@ MonoBehaviour:
   characterButton:
   - {fileID: 1276447286}
   - {fileID: 2126427432}
+--- !u!114 &471880759
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 471880753}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6a7b24255cc9b542bb66c7f17b72903, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  listButtonPrefab: {fileID: 5522672505398849517, guid: 921144cf43b30414db4d6e193dfce91e, type: 3}
+  optionButtons: {fileID: 271266105}
+  selector: {fileID: 599551113}
 --- !u!1 &475241277
 GameObject:
   m_ObjectHideFlags: 0
@@ -6362,7 +6380,6 @@ GameObject:
   - component: {fileID: 599551114}
   - component: {fileID: 599551116}
   - component: {fileID: 599551115}
-  - component: {fileID: 599551117}
   - component: {fileID: 599551118}
   m_Layer: 5
   m_Name: Content
@@ -6431,20 +6448,6 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
---- !u!114 &599551117
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 599551113}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d6a7b24255cc9b542bb66c7f17b72903, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  listButtonPrefab: {fileID: 5522672505398849517, guid: 921144cf43b30414db4d6e193dfce91e, type: 3}
-  optionButtons: {fileID: 271266105}
 --- !u!114 &599551118
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7176,9 +7179,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 471880757}
-        m_TargetAssemblyTypeName: DevelopScript, Assembly-CSharp
-        m_MethodName: LobbyJoin
+      - m_Target: {fileID: 471880756}
+        m_TargetAssemblyTypeName: PhotonLogin, Assembly-CSharp
+        m_MethodName: 
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -8849,7 +8852,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b6b749cbcb62e346b6d7cf7589a296e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  roomList: {fileID: 599551117}
+  roomList: {fileID: 471880759}
 --- !u!1 &813204703
 GameObject:
   m_ObjectHideFlags: 0
@@ -9533,7 +9536,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 16732708}
   m_Direction: 0
   m_Value: 0
-  m_Size: 1
+  m_Size: 0.99999994
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -10340,7 +10343,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1020723411
 RectTransform:
   m_ObjectHideFlags: 0
@@ -11271,7 +11274,7 @@ RectTransform:
   m_Children:
   - {fileID: 2010790783}
   m_Father: {fileID: 1866116547}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -13093,6 +13096,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e0618a0b11baf74cb7a4294636dc805, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  roomList: {fileID: 471880759}
 --- !u!1 &1364885820
 GameObject:
   m_ObjectHideFlags: 0
@@ -16068,7 +16072,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 653539479}
   m_HandleRect: {fileID: 653539478}
   m_Direction: 0
-  m_Value: 1
+  m_Value: 0
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -17266,8 +17270,8 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2096732157}
-  - {fileID: 1155061200}
   - {fileID: 471880754}
+  - {fileID: 1155061200}
   - {fileID: 125678155}
   m_Father: {fileID: 0}
   m_RootOrder: 1
@@ -19153,7 +19157,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: -17, y: -17}
+  m_SizeDelta: {x: 0, y: -17}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &2022607035
 MonoBehaviour:
@@ -19807,7 +19811,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.6, g: 0.3, b: 0, a: 0.2}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.8}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
