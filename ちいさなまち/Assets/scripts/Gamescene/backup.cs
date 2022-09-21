@@ -1,3 +1,4 @@
+using System.Collections;
 using ExitGames.Client.Photon;
 using Photon.Pun;
 using Photon.Realtime;
@@ -7,25 +8,50 @@ using UnityEngine.UI;
 using Random = UnityEngine.Random;
 using TMPro;
 using System.Collections.Generic;
-// MonoBehaviourPunCallbacksã‚’ç¶™æ‰¿ã—ã¦ã€PUNã®ã‚³ãƒ¼ãƒ«ãƒãƒƒã‚¯ã‚’å—ã‘å–ã‚Œã‚‹ã‚ˆã†ã«ã™ã‚‹
-public class PUN2Server : MonoBehaviourPunCallbacks
+// MonoBehaviourPunCallbacks‚ğŒp³‚µ‚ÄAPUN‚ÌƒR[ƒ‹ƒoƒbƒN‚ğó‚¯æ‚ê‚é‚æ‚¤‚É‚·‚é
+public class backup : MonoBehaviourPunCallbacks
 {
-    public static bool isStart,ii;
+    public static bool isStart, ii;
     public static GameObject clone;
     public GameObject gamestart, wait;
     public TextMeshProUGUI joinnum;
     public static int isman;
     public static ExitGames.Client.Photon.Hashtable roomHash;
     public static Player localplayer;
-    public  bool issee;
-    private bool a,b;
+    public bool issee;
+    private bool a, b;
     public static int playernum;
-    private int f,localplayernum;
-   private GameObject[] tagObjects;
+    private int f, localplayernum;
+    private GameObject[] tagObjects;
     private void Start()
     {
         gamestart.SetActive(false);
         wait.SetActive(true);
+        PhotonNetwork.NickName = "Player";
+        // PhotonServerSettings‚Ìİ’è“à—e‚ğg‚Á‚Äƒ}ƒXƒ^[ƒT[ƒo[‚ÖÚ‘±‚·‚é
+        PhotonNetwork.ConnectUsingSettings();
+    }
+
+    // ƒ}ƒXƒ^[ƒT[ƒo[‚Ö‚ÌÚ‘±‚ª¬Œ÷‚µ‚½‚ÉŒÄ‚Î‚ê‚éƒR[ƒ‹ƒoƒbƒN
+    public override void OnConnectedToMaster()
+    {
+        // "Room"‚Æ‚¢‚¤–¼‘O‚Ìƒ‹[ƒ€‚ÉQ‰Á‚·‚éiƒ‹[ƒ€‚ª‘¶İ‚µ‚È‚¯‚ê‚Îì¬‚µ‚ÄQ‰Á‚·‚éj
+        PhotonNetwork.JoinOrCreateRoom("Room", new RoomOptions(), TypedLobby.Default);
+    }
+    public override void OnJoinRoomFailed(short returnCode, string message)
+    {
+        Debug.Log($"ƒ‹[ƒ€‚Ö‚ÌQ‰Á‚É¸”s‚µ‚Ü‚µ‚½: {message}");
+
+        PhotonNetwork.JoinRandomRoom();
+    }
+    public override void OnJoinRandomFailed(short returnCode, string message)
+    {
+        Debug.Log($"ƒ‰ƒ“ƒ_ƒ€ƒ‹[ƒ€‚Ö‚ÌQ‰Á‚É¸”s‚µ‚Ü‚µ‚½: {message}");
+        PhotonNetwork.CreateRoom(null);
+    }
+    // ƒQ[ƒ€ƒT[ƒo[‚Ö‚ÌÚ‘±‚ª¬Œ÷‚µ‚½‚ÉŒÄ‚Î‚ê‚éƒR[ƒ‹ƒoƒbƒN
+    public override void OnJoinedRoom()
+    {
         b = true;
         localplayer = PhotonNetwork.LocalPlayer;
         localplayernum = localplayer.ActorNumber;
@@ -46,49 +72,50 @@ public class PUN2Server : MonoBehaviourPunCallbacks
             Customproperties.custam();
         }
         Customproperties.mycustom(localplayernum);
+
     }
 
-    // ãƒã‚¹ã‚¿ãƒ¼ã‚µãƒ¼ãƒãƒ¼ã¸ã®æ¥ç¶šãŒæˆåŠŸã—ãŸæ™‚ã«å‘¼ã°ã‚Œã‚‹ã‚³ãƒ¼ãƒ«ãƒãƒƒã‚¯
-    
-    // ã‚²ãƒ¼ãƒ ã‚µãƒ¼ãƒãƒ¼ã¸ã®æ¥ç¶šãŒæˆåŠŸã—ãŸæ™‚ã«å‘¼ã°ã‚Œã‚‹ã‚³ãƒ¼ãƒ«ãƒãƒƒã‚¯
-   
+    public void OnPhotonPlayerConnected()
+    {
+
+    }
     public void Update()
     {
 
         issee = isStart;
         tagObjects = GameObject.FindGameObjectsWithTag("Player");
         playernum = tagObjects.Length;
-        if (isStart == false&&b==true) 
+        if (isStart == false && b == true)
         {
 
-           
 
 
-            joinnum.text = "å‚åŠ äººæ•°ã€€" + $"{playernum}" + "/8ã€€ã€€";
-            
+
+            joinnum.text = "Q‰Ál”@" + $"{playernum}" + "/8@@";
+
         }
         if (Input.GetKey(KeyCode.Space) && isStart == false && b == true)
         {
-           
+
             photonView.RPC(nameof(IsStart), RpcTarget.All);
-          
+
             PhotonNetwork.CurrentRoom.IsOpen = false;
         }
-        if (isStart == true&&a==false)
+        if (isStart == true && a == false)
         {
-            
+
             gamestart.SetActive(true);
             wait.SetActive(false);
             a = true;
             clone.SetActive(true);
-          
+
         }
         if (Input.GetKeyDown(KeyCode.H))
         {
 
             var tagObjects = GameObject.FindGameObjectsWithTag("Player").Length;
             // for (int i = 0; i < tagObjects; i++) Debug.Log($"{i + 1}" + ";" + Customproperties.Getplayerinf(i + 1));
-            for (int i = 0; i < tagObjects; i++) Debug.Log($"{i + 1}" + ";" + Infection2.GetPlayerinf(i+1));
+            for (int i = 0; i < tagObjects; i++) Debug.Log($"{i + 1}" + ";" + Infection2.GetPlayerinf(i + 1));
             var npcobj = GameObject.FindGameObjectsWithTag("NPC");
             var npcobjnum = GameObject.FindGameObjectsWithTag("NPC").Length;
             foreach (GameObject item in npcobj)
@@ -99,11 +126,11 @@ public class PUN2Server : MonoBehaviourPunCallbacks
 
         }
     }
-    
-        [PunRPC]
+
+    [PunRPC]
     public void IsStart()
     {
         isStart = true;
     }
-   
+
 }
