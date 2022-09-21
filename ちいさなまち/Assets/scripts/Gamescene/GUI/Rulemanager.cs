@@ -19,4 +19,9 @@ public class Rulemanager : MonoBehaviour
             Ruledis.SetActive(true);
         }
     }
+    public void OnPushback()
+    {
+        Ruledis.SetActive(false);
+        Menumanager.menuKey = null;
+    }
 }
