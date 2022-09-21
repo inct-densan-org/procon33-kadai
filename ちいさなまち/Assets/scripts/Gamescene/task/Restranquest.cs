@@ -24,7 +24,6 @@ public class Restranquest : MonoBehaviour
             b = true;
         }
     }
-
     public void ABReset()
     {
         a = false;

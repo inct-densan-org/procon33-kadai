@@ -126,7 +126,6 @@ public class Move : MonoBehaviourPunCallbacks
         {
             if (Input.GetKey(KeyCode.Space))
             {
-                Menumanager.menuKey = "talk";
                 if(Restranquest.questclear == true)
                 {
                     Menumanager.menuKey = "talk";
