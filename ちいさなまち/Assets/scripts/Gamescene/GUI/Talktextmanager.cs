@@ -29,7 +29,7 @@ public class Talktextmanager : MonoBehaviour
                 }
             }
 
-            else if (Hospitalquest.questclear == true || QuestDataBase.GetQusetLists()[1].GetIsQuest() == true)
+            else if (Hospitalquest.questclear == true)
             {
                 talktext.text = "受付\n「こちら報酬になります。」";
                 if (Input.GetMouseButton(0))
@@ -38,6 +38,7 @@ public class Talktextmanager : MonoBehaviour
                     Menumanager.menuKey = null;
                     Moneymanager.Setmoney(QuestDataBase.GetQusetLists()[1].Getreward());
                     QuestDataBase.GetQusetLists()[1].SetIsQuria(true);
+                    QuestDataBase.GetQusetLists()[1].SetIsQuest(false);
                     Hospitalquest.questclear = false;
                 }
             }

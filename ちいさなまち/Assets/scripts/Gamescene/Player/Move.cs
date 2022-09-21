@@ -130,7 +130,7 @@ public class Move : MonoBehaviourPunCallbacks
                 {
                     Menumanager.menuKey = "talk";
                 }
-                else if (Hospitalquest.questclear == true || QuestDataBase.GetQusetLists()[1].GetIsQuest() == true)
+                else if (Hospitalquest.questclear == true)
                 {
                     Menumanager.menuKey = "talk";
                 }
