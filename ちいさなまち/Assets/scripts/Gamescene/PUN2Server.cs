@@ -21,7 +21,7 @@ public class PUN2Server : MonoBehaviourPunCallbacks
     private bool a,b;
     public static int playernum;
     private int f,localplayernum;
-   private GameObject[] tagObjects;
+    private GameObject[] tagObjects;
     private void Start()
     {
         gamestart.SetActive(false);
@@ -51,41 +51,32 @@ public class PUN2Server : MonoBehaviourPunCallbacks
     // マスターサーバーへの接続が成功した時に呼ばれるコールバック
     
     // ゲームサーバーへの接続が成功した時に呼ばれるコールバック
-   
+    
     public void Update()
     {
-
         issee = isStart;
         tagObjects = GameObject.FindGameObjectsWithTag("Player");
         playernum = tagObjects.Length;
         if (isStart == false&&b==true) 
         {
-
-           
-
-
             joinnum.text = "参加人数　" + $"{playernum}" + "/8　　";
-            
         }
         if (Input.GetKey(KeyCode.Space) && isStart == false && b == true)
         {
-           
             photonView.RPC(nameof(IsStart), RpcTarget.All);
-          
+        
             PhotonNetwork.CurrentRoom.IsOpen = false;
         }
-        if (isStart == true&&a==false)
+        if (isStart == true && a == false)
         {
-            
             gamestart.SetActive(true);
             wait.SetActive(false);
             a = true;
             clone.SetActive(true);
-          
+        
         }
         if (Input.GetKeyDown(KeyCode.H))
         {
-
             var tagObjects = GameObject.FindGameObjectsWithTag("Player").Length;
             // for (int i = 0; i < tagObjects; i++) Debug.Log($"{i + 1}" + ";" + Customproperties.Getplayerinf(i + 1));
             for (int i = 0; i < tagObjects; i++) Debug.Log($"{i + 1}" + ";" + Infection2.GetPlayerinf(i+1));
@@ -96,14 +87,12 @@ public class PUN2Server : MonoBehaviourPunCallbacks
                 var j = item.name;
                 Debug.Log($"{j}" + ";" + Customproperties.GetNPCinf(j));
             }
-
         }
     }
     
-        [PunRPC]
+    [PunRPC]
     public void IsStart()
     {
         isStart = true;
     }
-   
 }

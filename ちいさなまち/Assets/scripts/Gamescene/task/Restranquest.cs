@@ -29,8 +29,8 @@ public class Restranquest : MonoBehaviour
             questquria = true;
             b = true;
         }
-        
     }
+
     public void ABReset()
     {
         a = false;b = false;

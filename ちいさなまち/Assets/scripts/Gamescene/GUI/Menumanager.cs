@@ -47,14 +47,13 @@ public class Menumanager : MonoBehaviour
         
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            
-           
             switch (menuKey)
             {
                 case "menu":
                     menu.SetActive(false);
-                       menuKey = null;
+                    menuKey = null;
                     break;
+
                 case null:
                     menu.SetActive(true);
                     menuKey = "menu";
@@ -63,6 +62,7 @@ public class Menumanager : MonoBehaviour
 
         }
     }
+
     public void Onpushmask()
     {
         messegedis.SetActive(true);
@@ -70,24 +70,29 @@ public class Menumanager : MonoBehaviour
         mesasege.text = itemDataBase.GetItemLists()[0].GetItemName() + "\n" + itemDataBase.GetItemLists()[0].GetInformation() +"\n"+"を使用しますか？";
         
     }
+
     public void Onpushfood(){
         messegedis.SetActive(true);
         ItemName="食べ物";
         mesasege.text=GetItem(ItemName).GetItemName()+ "\n" + GetItem(ItemName).GetInformation() +"\n"+"を使用しますか？";
     }
+
     public void Onpushwater()
     {
         messegedis.SetActive(true);
         ItemName = "水";
         mesasege.text = GetItem(ItemName).GetItemName() + "\n" + GetItem(ItemName).GetInformation() + "\n" + "を使用しますか？";
     }
+
     public void Onpushdurk()
     {
         messegedis.SetActive(true);
         ItemName = "薬";
         mesasege.text = GetItem(ItemName).GetItemName() + "\n" + GetItem(ItemName).GetInformation() + "\n" + "を使用しますか？";
     }
+
     public void Onno(){messegedis.SetActive(false);}
+
     public async void Onyes() 
     {
         if (menuKey == "menu")
@@ -125,7 +130,7 @@ public class Menumanager : MonoBehaviour
                 Move.Effecttime();
             }
         }
-       
+        
         if (menuKey == "quest")
         {
             for (int i=0; i < QuestDataBase.GetQusetLists().Count; i++)
@@ -137,7 +142,7 @@ public class Menumanager : MonoBehaviour
             }
             messegedis.SetActive(false);
         }//yesおしたらそのクエストのisQuestをオンにしたい
-
+    
     }
     void Delwarning() { warning.text = null; }
     public Item GetItem(string searchName)

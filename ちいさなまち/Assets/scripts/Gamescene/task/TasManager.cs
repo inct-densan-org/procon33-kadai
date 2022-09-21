@@ -17,7 +17,7 @@ public class TasManager : MonoBehaviourPunCallbacks
     private Moneymanager Moneymanager;
     private string menuKey;
     private Menumanager menumanager;
-    public@ List<int> list =new List<int>();
+    public List<int> list =new List<int>();
     public static int Questnum;
     public GameObject t1,t2,t3;
     // Start is called before the first frame update
@@ -41,15 +41,12 @@ public class TasManager : MonoBehaviourPunCallbacks
             list.Add(ramdam);
             choiceNum = ramdumlist.IndexOf(ramdam);
             ramdumlist.RemoveAt(choiceNum);
-          
         }
-       
     }
 
     // Update is called once per frame
     void Update()
     {
-       
         menuKey = Menumanager.menuKey;
         if (menuKey=="quest")
         {
@@ -57,9 +54,9 @@ public class TasManager : MonoBehaviourPunCallbacks
             if (QuestDataBase.GetQusetLists()[list[1]].GetIsQuest()) t2.SetActive(true); else t2.SetActive(false);
             if (QuestDataBase.GetQusetLists()[list[2]].GetIsQuest()) t3.SetActive(true); else t3.SetActive(false);
             Questmenu.SetActive(true);
-            inf1.text =  $"{QuestDataBase.GetQusetLists()[list[0]].GetQuestinf()}" + "\n" + " ’B¬•ñV@" + $"{QuestDataBase.GetQusetLists()[list[0]].Getreward()}" + "‰~";
-            inf2.text =  $"{QuestDataBase.GetQusetLists()[list[1]].GetQuestinf()}" + "\n" + " ’B¬•ñV@" + $"{QuestDataBase.GetQusetLists()[list[1]].Getreward()}" + "‰~";
-            inf3.text =   $"{QuestDataBase.GetQusetLists()[list[2]].GetQuestinf()}" + "\n" + " ’B¬•ñV@" + $"{QuestDataBase.GetQusetLists()[list[2]].Getreward()}" + "‰~";
+            inf1.text =  $"{QuestDataBase.GetQusetLists()[list[0]].GetQuestinf()}" + "\n" + " ï¿½Bï¿½ï¿½ï¿½ï¿½Vï¿½@" + $"{QuestDataBase.GetQusetLists()[list[0]].Getreward()}" + "ï¿½~";
+            inf2.text =  $"{QuestDataBase.GetQusetLists()[list[1]].GetQuestinf()}" + "\n" + " ï¿½Bï¿½ï¿½ï¿½ï¿½Vï¿½@" + $"{QuestDataBase.GetQusetLists()[list[1]].Getreward()}" + "ï¿½~";
+            inf3.text =   $"{QuestDataBase.GetQusetLists()[list[2]].GetQuestinf()}" + "\n" + " ï¿½Bï¿½ï¿½ï¿½ï¿½Vï¿½@" + $"{QuestDataBase.GetQusetLists()[list[2]].Getreward()}" + "ï¿½~";
         }
         for (int i = 0; i < QuestDataBase.GetQusetLists().Count; i++)
         {
@@ -69,7 +66,6 @@ public class TasManager : MonoBehaviourPunCallbacks
     }
     public void taskquria(int i)
     {
-      
         list.Remove(i);
         QuestDataBase.GetQusetLists()[i].SetIsQuria(false);
     }
@@ -84,18 +80,18 @@ public class TasManager : MonoBehaviourPunCallbacks
     {
         Questnum = QuestDataBase.GetQusetLists()[list[0]].GetNumber();
         messegedis.SetActive(true);
-        mesege.text = $"{QuestDataBase.GetQusetLists()[list[0]].GetQuestinf()}" + "\n" + "’B¬•ñV@" + $"{QuestDataBase.GetQusetLists()[list[0]].Getreward()}" + "‰~" + "\n" + "‚ğó‚¯‚Ü‚·‚©H";
+        mesege.text = $"{QuestDataBase.GetQusetLists()[list[0]].GetQuestinf()}" + "\n" + $"{QuestDataBase.GetQusetLists()[list[0]].Getreward()}" + "å††" + "\n" + "ï¿½ï¿½ï¿½ó‚¯‚Ü‚ï¿½ï¿½ï¿½ï¿½H";
     }
     public void OnPushInf2()
     {
         Questnum = QuestDataBase.GetQusetLists()[list[1]].GetNumber();
         messegedis.SetActive(true);
-        mesege.text = $"{QuestDataBase.GetQusetLists()[list[1]].GetQuestinf()}" + "\n" + "’B¬•ñV@" + $"{QuestDataBase.GetQusetLists()[list[1]].Getreward()}" + "‰~" + "\n" + "‚ğó‚¯‚Ü‚·‚©H";
+        mesege.text = $"{QuestDataBase.GetQusetLists()[list[1]].GetQuestinf()}" + "\n" + $"{QuestDataBase.GetQusetLists()[list[1]].Getreward()}" + "å††" + "\n" + "ï¿½ï¿½ï¿½ó‚¯‚Ü‚ï¿½ï¿½ï¿½ï¿½H";
     }
     public void OnPushInf3()
     {
         Questnum = QuestDataBase.GetQusetLists()[list[2]].GetNumber();
         messegedis.SetActive(true);
-        mesege.text = $"{QuestDataBase.GetQusetLists()[list[2]].GetQuestinf()}" + "\n" + "’B¬•ñV@" + $"{QuestDataBase.GetQusetLists()[list[2]].Getreward()}" + "‰~" + "\n" + "‚ğó‚¯‚Ü‚·‚©H";
+        mesege.text = $"{QuestDataBase.GetQusetLists()[list[2]].GetQuestinf()}" + "\n" + $"{QuestDataBase.GetQusetLists()[list[2]].Getreward()}" + "å††" + "\n" + "ï¿½ï¿½ï¿½ó‚¯‚Ü‚ï¿½ï¿½ï¿½ï¿½H";
     }
 }

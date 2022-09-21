@@ -16,14 +16,13 @@ public class Gomimanager : MonoBehaviour
     {
         
     }
+
     private void OnCollisionStay2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            
             if (Input.GetKey(KeyCode.Space))
             {
-              
                 GameObject.SetActive(false);
                 Restranquest.gominum++;
             }
