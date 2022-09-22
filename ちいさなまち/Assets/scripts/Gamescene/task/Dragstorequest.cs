@@ -2,14 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Hospitalquest : MonoBehaviour
+public class Dragstorequest : MonoBehaviour
 {
     [SerializeField] private QuestDataBase QuestDataBase;
     public static bool questclear;
-    
+
     void Update()
     {
-        if (QuestDataBase.GetQusetLists()[1].GetIsQuest() == true)
+        if (QuestDataBase.GetQusetLists()[2].GetIsQuest() == true)
         {
             questclear = true;
         }
