@@ -130,7 +130,6 @@ public class Move : MonoBehaviourPunCallbacks
                 {
                     Menumanager.menuKey = "talk";
                 }
-                
                 else
                 {
                     Menumanager.menuKey = "shop";
