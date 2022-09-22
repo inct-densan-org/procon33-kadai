@@ -38,6 +38,7 @@ public class NoticeText : MonoBehaviour
 
     //CallBack.csから呼び出し
     public void OnDisconnected(DisconnectCause cause){
+        displayText = GetComponent<TextMeshProUGUI>();
         displayText.text = $"オンラインに参加できませんでした。\nインターネットに接続されているかご確認ください。\n({cause})";
     }
 }

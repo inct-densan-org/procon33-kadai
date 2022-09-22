@@ -35,7 +35,6 @@ public class CallBack : MonoBehaviourPunCallbacks
 
     //ルーム参加時にシーン移行
     public override void OnJoinedRoom(){
-        Debug.Log("");
         SceneManager.LoadScene("GameScene", LoadSceneMode.Single);
     }
 }
