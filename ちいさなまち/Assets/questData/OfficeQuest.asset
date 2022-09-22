@@ -15,5 +15,5 @@ MonoBehaviour:
   QuestInf: "\u3082\u3046\u4E00\u3064\u306E\u30AA\u30D5\u30A3\u30B9\u306B\u66F8\u985E\u3092\u6301\u3063\u3066\u3044\u304F"
   reward_money: 300
   QuestNumber: 4
-  IsQuest: 1
+  IsQuest: 0
   IsQuria: 0

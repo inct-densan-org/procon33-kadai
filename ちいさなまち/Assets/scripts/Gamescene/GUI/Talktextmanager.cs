@@ -29,6 +29,20 @@ public class Talktextmanager : MonoBehaviour
                 }
             }
 
+            else if (Supermarketquest.questclear == true)
+            {
+                talktext.text = "店員\n「こちら報酬になります。」";
+                if (Input.GetMouseButton(0))
+                {
+                    talk.SetActive(false);
+                    Menumanager.menuKey = null;
+                    Moneymanager.Setmoney(QuestDataBase.GetQusetLists()[0].Getreward());
+                    QuestDataBase.GetQusetLists()[0].SetIsQuria(true);
+                    QuestDataBase.GetQusetLists()[0].SetIsQuest(false);
+                    Hospitalquest.questclear = false;
+                }
+            }
+
             else if (Hospitalquest.questclear == true)
             {
                 talktext.text = "受付\n「こちら報酬になります。」";
@@ -39,6 +53,20 @@ public class Talktextmanager : MonoBehaviour
                     Moneymanager.Setmoney(QuestDataBase.GetQusetLists()[1].Getreward());
                     QuestDataBase.GetQusetLists()[1].SetIsQuria(true);
                     QuestDataBase.GetQusetLists()[1].SetIsQuest(false);
+                    Hospitalquest.questclear = false;
+                }
+            }
+
+            else if (Dragstorequest.questclear == true)
+            {
+                talktext.text = "店員\n「こちら報酬になります。」";
+                if (Input.GetMouseButton(0))
+                {
+                    talk.SetActive(false);
+                    Menumanager.menuKey = null;
+                    Moneymanager.Setmoney(QuestDataBase.GetQusetLists()[2].Getreward());
+                    QuestDataBase.GetQusetLists()[2].SetIsQuria(true);
+                    QuestDataBase.GetQusetLists()[2].SetIsQuest(false);
                     Hospitalquest.questclear = false;
                 }
             }

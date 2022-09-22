@@ -152,16 +152,22 @@ public class Move : MonoBehaviourPunCallbacks
         {
             if (Input.GetKey(KeyCode.Space))
             {
-
-                Menumanager.menuKey = "durkstore";
+                if (Dragstorequest.questclear == true)
+                {
+                    Menumanager.menuKey = "talk";
+                }
+                else Menumanager.menuKey = "durkstore";
             }
         }
         if (collision.gameObject.CompareTag("foodstore") && photonView.IsMine)
         {
             if (Input.GetKey(KeyCode.Space))
             {
-
-                Menumanager.menuKey = "foodstore";
+                if (Supermarketquest.questclear == true)
+                {
+                    Menumanager.menuKey = "talk";
+                }
+                else Menumanager.menuKey = "foodstore";
             }
         }
         if (collision.gameObject.CompareTag("quest") && photonView.IsMine)
@@ -172,10 +178,7 @@ public class Move : MonoBehaviourPunCallbacks
                 {
                     Menumanager.menuKey = "talk";
                 }
-                else
-                {
-                Menumanager.menuKey = "quest";
-                }
+                else Menumanager.menuKey = "quest";
             }
         }
         if (collision.gameObject.CompareTag("rule") && photonView.IsMine)
