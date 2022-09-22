@@ -33,7 +33,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -52,7 +52,7 @@ TextureImporter:
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
   alphaIsTransparency: 1
-  spriteTessellationDetail: -1
+  spriteTessellationDetail: 0
   textureType: 8
   textureShape: 1
   singleChannelComponent: 0
@@ -76,14 +76,74 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites: []
     outline: []
-    physicsShape: []
+    physicsShape:
+    - - {x: -1024, y: 1024}
+      - {x: -1024, y: -1024}
+      - {x: -915, y: -1024}
+      - {x: -915, y: -575}
+      - {x: -1012, y: -578}
+      - {x: -995, y: 525}
+      - {x: -729, y: 521}
+      - {x: -725, y: 468}
+      - {x: -477, y: 465}
+      - {x: -476, y: 557}
+      - {x: -322, y: 557}
+      - {x: -324, y: 247}
+      - {x: -594, y: 245}
+      - {x: -595, y: -521}
+      - {x: -188, y: -525}
+      - {x: -189, y: -579}
+      - {x: -645, y: -580}
+      - {x: -643, y: -1019}
+      - {x: 90.69116, y: -1021.2006}
+      - {x: 93, y: -580}
+      - {x: 11, y: -581}
+      - {x: 7, y: 526}
+      - {x: 273, y: 524}
+      - {x: 276, y: 464}
+      - {x: 545, y: 464}
+      - {x: 541, y: 561}
+      - {x: 678, y: 562}
+      - {x: 687, y: 249}
+      - {x: 416, y: 246}
+      - {x: 426, y: -521}
+      - {x: 827, y: -525}
+      - {x: 825, y: -583}
+      - {x: 376, y: -579}
+      - {x: 377, y: -1017}
+      - {x: 1024, y: -1024}
+      - {x: 1024, y: 1024}
     bones: []
     spriteID: 5e97eb03825dee720800000000000000
-    internalID: 0
+    internalID: 1537655665
     vertices: []
     indices: 
     edges: []

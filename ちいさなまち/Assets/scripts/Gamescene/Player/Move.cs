@@ -168,7 +168,14 @@ public class Move : MonoBehaviourPunCallbacks
         {
             if (Input.GetKey(KeyCode.Space) || Input.GetKey(KeyCode.KeypadEnter))
             {
+                if (Officequest.questclear == true)
+                {
+                    Menumanager.menuKey = "talk";
+                }
+                else
+                {
                 Menumanager.menuKey = "quest";
+                }
             }
         }
         if (collision.gameObject.CompareTag("rule") && photonView.IsMine)

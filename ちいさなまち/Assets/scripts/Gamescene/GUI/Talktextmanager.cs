@@ -42,6 +42,20 @@ public class Talktextmanager : MonoBehaviour
                     Hospitalquest.questclear = false;
                 }
             }
+
+            else if (Officequest.questclear == true)
+            {
+                talktext.text = "職員\n「ありがとう。これはお礼だよ。」";
+                if (Input.GetMouseButton(0))
+                {
+                    talk.SetActive(false);
+                    Menumanager.menuKey = null;
+                    Moneymanager.Setmoney(QuestDataBase.GetQusetLists()[4].Getreward());
+                    QuestDataBase.GetQusetLists()[4].SetIsQuria(true);
+                    QuestDataBase.GetQusetLists()[4].SetIsQuest(false);
+                    Officequest.questclear = false;
+                }
+            }
         }
     }
 }

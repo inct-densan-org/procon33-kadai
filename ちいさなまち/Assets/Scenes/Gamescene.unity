@@ -24976,7 +24976,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.778626, y: 1}
+    m_SensorSize: {x: 1.7777778, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -28345,6 +28345,7 @@ GameObject:
   - component: {fileID: 1592744646}
   - component: {fileID: 1592744660}
   - component: {fileID: 1592744661}
+  - component: {fileID: 1592744662}
   m_Layer: 5
   m_Name: "\u8077\u5834"
   m_TagString: Untagged
@@ -28811,6 +28812,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.06695175, y: 4.001074}
   m_EdgeRadius: 0
+--- !u!114 &1592744662
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1592744642}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4990dd2c8ee88294c8a584138cb6ca95, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  QuestDataBase: {fileID: 11400000, guid: dbe97d534128f9a4ebc46e7f4d87208e, type: 2}
 --- !u!1 &1600961719
 GameObject:
   m_ObjectHideFlags: 0
