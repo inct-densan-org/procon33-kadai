@@ -9,8 +9,8 @@ using System.Collections.Generic;
 // MonoBehaviourPunCallbacks���p�����āAphotonView�v���p�e�B���g����悤�ɂ���
 public class Move : MonoBehaviourPunCallbacks
 {
-    private bool ispush,ishor,isver,infection,isStart;
-    private int idX = Animator.StringToHash("x"), idY = Animator.StringToHash("y"),myplayernum;
+    private bool ispush, ishor, isver, infection, isStart;
+    private int idX = Animator.StringToHash("x"), idY = Animator.StringToHash("y"), myplayernum;
     private Animator animator = null;
     public static Vector3 popo;
     private Vector3 input;
@@ -24,24 +24,24 @@ public class Move : MonoBehaviourPunCallbacks
     private PUN2Server server;
     public void Start()
     {
-        
-        var  playernum = PUN2Server.playernum;
-        
+
+        var playernum = PUN2Server.playernum;
+
         player = PhotonNetwork.LocalPlayer;
         myplayernum = player.ActorNumber;
         myplayername = this.gameObject.name;
         GameObject oya = GameObject.Find("Canvas");
         var player1 = PhotonNetwork.PlayerList;
-        
+
         animator = GetComponent<Animator>();
         transform.parent = oya.transform;
-        if (player1[0] == PhotonNetwork.LocalPlayer){ transform.localPosition = new Vector3(-3.6f, 10.6f, -1);}
-        if(playernum>=2)  if (player1[1] == PhotonNetwork.LocalPlayer) { transform.localPosition = new Vector3(-1.1f, 10.6f, -1); }
+        if (player1[0] == PhotonNetwork.LocalPlayer) { transform.localPosition = new Vector3(-3.6f, 10.6f, -1); }
+        if (playernum >= 2) if (player1[1] == PhotonNetwork.LocalPlayer) { transform.localPosition = new Vector3(-1.1f, 10.6f, -1); }
         if (playernum >= 3) if (player1[2] == PhotonNetwork.LocalPlayer) { transform.localPosition = new Vector3(-16f, 10.6f, -1); }
         if (playernum >= 4) if (player1[3] == PhotonNetwork.LocalPlayer) { transform.localPosition = new Vector3(-13.5f, 5.7f, -1); }
         if (playernum >= 5) if (player1[4] == PhotonNetwork.LocalPlayer) { transform.localPosition = new Vector3(-16f, 5.7f, -1); }
         if (playernum >= 6) if (player1[5] == PhotonNetwork.LocalPlayer) { transform.localPosition = new Vector3(-13.5f, -1.9f, -1); }
-        if(playernum>=7)   if (player1[6] == PhotonNetwork.LocalPlayer) { transform.localPosition = new Vector3(16.4f, -1.9f,-1); }
+        if (playernum >= 7) if (player1[6] == PhotonNetwork.LocalPlayer) { transform.localPosition = new Vector3(16.4f, -1.9f, -1); }
         if (playernum >= 8) if (player1[7] == PhotonNetwork.LocalPlayer) { transform.localPosition = new Vector3(14f, -1.9f, -1); }
 
         var byou = GetComponent<itibyou>();
@@ -55,7 +55,7 @@ public class Move : MonoBehaviourPunCallbacks
         {
             gameObject.AddComponent<itibyou>();
         }
-        
+
         byou.Init(() =>
         {
             // infection = Customproperties.Getplayerinf(player.ActorNumber);
@@ -67,11 +67,11 @@ public class Move : MonoBehaviourPunCallbacks
     private void Update()
     {
         infection = Infection2.GetPlayerinf(myplayernum);
-        
+
         var menuKey = Menumanager.menuKey;
-        
+
         var x = Input.GetAxisRaw("Horizontal");
-        var  y = Input.GetAxisRaw("Vertical");
+        var y = Input.GetAxisRaw("Vertical");
         //if (infection == true&&isdurk==false)
         //{
         //    speed = 1f;
@@ -84,7 +84,7 @@ public class Move : MonoBehaviourPunCallbacks
         //{
         //    speed = 5f;
         //}デバッグのために外します
-        
+
         if (photonView.IsMine)
         {
             if (menuKey == null)
@@ -102,7 +102,7 @@ public class Move : MonoBehaviourPunCallbacks
                     input = new Vector3(0, 0, 0f);
                 }
                 transform.Translate(speed * Time.deltaTime * input.normalized);
-                
+
                 if (Input.GetKeyUp(KeyCode.D) || Input.GetKeyUp(KeyCode.RightArrow)) { animator.SetFloat(idX, 0.5f); animator.SetFloat(idY, 0); ispush = false; ishor = false; }
                 if (Input.GetKeyUp(KeyCode.A) || Input.GetKeyUp(KeyCode.LeftArrow)) { animator.SetFloat(idX, -0.5f); animator.SetFloat(idY, 0); ispush = false; ishor = false; }
                 if (x > 0.1 && ispush == false) { animator.SetFloat(idX, 1); ispush = true; }
@@ -111,8 +111,8 @@ public class Move : MonoBehaviourPunCallbacks
                 if (Input.GetKeyUp(KeyCode.S) || Input.GetKeyUp(KeyCode.DownArrow)) { animator.SetFloat(idY, -0.5f); animator.SetFloat(idX, 0); ispush = false; isver = false; }
                 if (y > 0.1 && ispush == false) { animator.SetFloat(idY, 1); ispush = true; }
                 if (y < -0.1 && ispush == false) { animator.SetFloat(idY, -1); ispush = true; }
-            } 
-            
+            }
+            if (menuKey != null) { animator.SetFloat(idX, 0); animator.SetFloat(idX, 0); }
             popo = transform.position;
         }
     }
@@ -126,10 +126,11 @@ public class Move : MonoBehaviourPunCallbacks
         {
             if (Input.GetKey(KeyCode.Space))
             {
-                if(Restranquest.questclear == true)
+                if (Restranquest.questclear == true)
                 {
                     Menumanager.menuKey = "talk";
                 }
+
                 else
                 {
                     Menumanager.menuKey = "shop";
@@ -147,7 +148,23 @@ public class Move : MonoBehaviourPunCallbacks
                 else Menumanager.menuKey = "hospitalshop";
             }
         }
-            if (collision.gameObject.CompareTag("quest") && photonView.IsMine)
+        if (collision.gameObject.CompareTag("drukstore") && photonView.IsMine)
+        {
+            if (Input.GetKey(KeyCode.Space))
+            {
+
+                Menumanager.menuKey = "durkstore";
+            }
+        }
+        if (collision.gameObject.CompareTag("foodstore") && photonView.IsMine)
+        {
+            if (Input.GetKey(KeyCode.Space))
+            {
+
+                Menumanager.menuKey = "foodstore";
+            }
+        }
+        if (collision.gameObject.CompareTag("quest") && photonView.IsMine)
         {
             if (Input.GetKey(KeyCode.Space) || Input.GetKey(KeyCode.KeypadEnter))
             {
@@ -163,4 +180,3 @@ public class Move : MonoBehaviourPunCallbacks
         }
     }
 }
-

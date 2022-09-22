@@ -17,6 +17,8 @@ TagManager:
   - apartment
   - rule
   - hospitalshop
+  - foodstore
+  - drukstore
   layers:
   - Default
   - TransparentFX
