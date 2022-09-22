@@ -9,7 +9,7 @@ using Photon.Realtime;
 public class Infection2 : MonoBehaviourPunCallbacks
 {
     private bool cooltime ,iti, infected;
-    
+
     public bool NPCinf;
     public int infectionProbability = 1000;
     private CircleCollider2D collider2;
@@ -48,7 +48,7 @@ public class Infection2 : MonoBehaviourPunCallbacks
     {
         myinfsee = GetPlayerinf(Player);
         var isman = PUN2Server.isman;
-        
+
         if (infected == true)
         {
             if (isman == 1) { collider2.radius = 9f; }
@@ -61,7 +61,7 @@ public class Infection2 : MonoBehaviourPunCallbacks
         }
         if (ismask == true&&iti==false)
         {
-            
+
             iti = true;
             infectionProbability = 1;
             Invoke(nameof(Effecttime), 10);
@@ -96,7 +96,7 @@ public class Infection2 : MonoBehaviourPunCallbacks
                 if (rnd <= infectionProbability)
                 {
                    // await Task.Delay(20000);
-                  
+
                     photonView.RPC(nameof(Setplayerinf), RpcTarget.All, Player, true);
 
                 }
@@ -105,7 +105,7 @@ public class Infection2 : MonoBehaviourPunCallbacks
         if (collision.gameObject.CompareTag("NPC") && photonView.IsMine)
         {
             var NPCname = collision.gameObject.name;
-            
+
             NPCinf = Customproperties.GetNPCinf(NPCname);
             if (NPCinf == true)
             {
@@ -114,13 +114,13 @@ public class Infection2 : MonoBehaviourPunCallbacks
                 if (rnd <= infectionProbability)
                 {
                    // await Task.Delay(20000);
-                    
+
                     photonView.RPC(nameof(Setplayerinf), RpcTarget.All, Player, true);
                     PhotonNetwork.CurrentRoom.SetCustomProperties(roomHash);
                 }
             }
         }
-        
+
 
     }
 
@@ -132,7 +132,7 @@ public class Infection2 : MonoBehaviourPunCallbacks
     {
         if (collision.gameObject.CompareTag("kansen")&&photonView.IsMine)
         {
-         
+
             // await Task.Delay(20000);
 
            // Customproperties.Setplayerinf(true, Player);
@@ -154,9 +154,11 @@ public class Infection2 : MonoBehaviourPunCallbacks
             case 8:p8inf = inf; break;
         }
     }
+
+    //numberに取得したいプレイヤーのIDを渡す
     public static  bool GetPlayerinf(int number)
     {
-         
+
         switch (number)
         {
             case 1:myinf=  p1inf ; break;

@@ -35,12 +35,6 @@ public class BackGroundManager : MonoBehaviour
     }
 
     void ChangeImage(){
-        string aa = "";
-        foreach(Sprite a in shuffle){
-            aa = $"{aa} {a}";
-        }
-        Debug.Log(aa);
-
         if(shuffle.Count < 1){
             foreach(Sprite image in images){
                 shuffle.Add(image);

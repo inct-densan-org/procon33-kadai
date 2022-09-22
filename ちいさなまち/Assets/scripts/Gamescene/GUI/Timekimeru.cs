@@ -11,15 +11,16 @@ public class Timekimeru : MonoBehaviourPunCallbacks
 {
     public static ExitGames.Client.Photon.Hashtable roomHash;
     public  int hour, minite, second,time1;
-    public static int time;
+    public static int time = 600;
     // Start is called before the first frame update
     void Start()
     {
+        time1=10;
         var player = PhotonNetwork.PlayerList;
         var p1 = player[0];
         if (p1 == PhotonNetwork.LocalPlayer)
         {
-            
+
             var byou = GetComponent<itibyou>();
 
             if (byou == null)
@@ -28,7 +29,7 @@ public class Timekimeru : MonoBehaviourPunCallbacks
             }
             byou.Init(() =>
             {
-                time1++;
+                time1--;
 
                 photonView.RPC(nameof(SetTime), RpcTarget.All, time1);
             });
