@@ -25,7 +25,10 @@ public class Shopmanager : MonoBehaviourPunCallbacks
    
     
     private bool w;
-    public List<int> shopitemlist = new List<int>(); //int型のListを定義
+    private List<int> restoranshopitemlist = new List<int>();
+    private List<int> hospitalshopitemlist = new List<int>();
+    private List<int> drukstoreshopitemlist = new List<int>();
+    private List<int> foodstoreshopitemlist = new List<int>();//int型のListを定義
     [SerializeField]
     GameObject iconPrefab = null;
     [SerializeField]
@@ -36,6 +39,7 @@ public class Shopmanager : MonoBehaviourPunCallbacks
     public TextMeshProUGUI Iteminf, goukei,moneytext;
     public TMP_InputField inputField;
     private int  s;
+  public  Dictionary<int, GameObject> buttons = new Dictionary<int, GameObject>();
     // Start is called before the first frame update
     void Start()
     {
@@ -43,13 +47,40 @@ public class Shopmanager : MonoBehaviourPunCallbacks
         //time = Mathf.Clamp(time, MIN, MAX);
         for (int i = 0; i < itemDataBase.GetItemLists().Count; i++)
         {
+            Debug.Log(itemDataBase.GetItemLists()[i].GetKindOfItem().ToString());
             itemDataBase.GetItemLists()[i].syokika();
             if (itemDataBase.GetItemLists()[i].GetKindOfItem().ToString() == "restaurant")
             {
-                shopitemlist.Add(i);
+                restoranshopitemlist.Add(i);
+            }
+            if (itemDataBase.GetItemLists()[i].GetKindOfItem().ToString() == "hospital")
+            {
+                hospitalshopitemlist.Add(i);
+            }
+            if (itemDataBase.GetItemLists()[i].GetKindOfItem().ToString() == "drugstore")
+            {
+                drukstoreshopitemlist.Add(i);
+            }
+            if (itemDataBase.GetItemLists()[i].GetKindOfItem().ToString() == "foodstore")
+            {
+                foodstoreshopitemlist.Add(i);
             }
         }
-       
+        
+
+    }
+    void iconmake(int num,int i)
+    {
+        GameObject button = Instantiate(iconPrefab, iconParent);
+        button.name = itemDataBase.GetItemLists()[num].GetItemName();
+        GameObject inf = button.transform.GetChild(0).gameObject;
+        inf.GetComponent<TextMeshProUGUI>().text = itemDataBase.GetItemLists()[num].GetItemName();
+        GameObject en = button.transform.GetChild(1).gameObject;
+        en.GetComponent<TextMeshProUGUI>().text = $"{itemDataBase.GetItemLists()[num].Getmoney()}" + "円";
+        GameObject icon = button.transform.GetChild(2).gameObject;
+        icon.GetComponent<Image>().sprite = itemDataBase.GetItemLists()[num].GetIcon();
+        button.GetComponent<Button>().onClick.AddListener(OnPushItem);
+        buttons.Add(i, button);
     }
     // Update is called once per frame
     void Update()
@@ -64,20 +95,53 @@ public class Shopmanager : MonoBehaviourPunCallbacks
             if (a == false)
             {
                 a = true;
-                for (int i = 0; i < shopitemlist.Count; i++)
+                for (int i = 0; i < restoranshopitemlist.Count; i++)
                 {
-                    var num = shopitemlist[i];
-                    GameObject button = Instantiate(iconPrefab, iconParent);
-                    button.name = itemDataBase.GetItemLists()[num].GetItemName();
-                    GameObject inf = button.transform.GetChild(0).gameObject;
-                    inf.GetComponent<TextMeshProUGUI>().text = itemDataBase.GetItemLists()[num].GetItemName();
-                    GameObject en = button.transform.GetChild(1).gameObject;
-                    en.GetComponent<TextMeshProUGUI>().text = $"{itemDataBase.GetItemLists()[num].Getmoney()}" + "円";
-                    GameObject icon = button.transform.GetChild(2).gameObject;
-                    icon.GetComponent<Image>().sprite = itemDataBase.GetItemLists()[num].GetIcon();
-                    button.GetComponent<Button>().onClick.AddListener(OnPushItem);
+                    var num = restoranshopitemlist[i];
+                    iconmake(num, i);
                 }
-
+            }
+        }
+        if(menuKey== "hospitalshop")
+        {
+            shopmenu.SetActive(true);
+            moneytext.text = $"{money}円";
+            if (a == false)
+            {
+                a = true;
+                for (int i = 0; i < hospitalshopitemlist.Count; i++)
+                {
+                    var num = hospitalshopitemlist[i];
+                    iconmake(num, i);
+                }
+            }
+        }
+        if (menuKey == "foodstore")
+        {
+            shopmenu.SetActive(true);
+            moneytext.text = $"{money}円";
+            if (a == false)
+            {
+                a = true;
+                for (int i = 0; i < foodstoreshopitemlist.Count; i++)
+                {
+                    var num = foodstoreshopitemlist[i];
+                    iconmake(num, i);
+                }
+            }
+        }
+        if (menuKey == "durkstore")
+        {
+            shopmenu.SetActive(true);
+            moneytext.text = $"{money}円";
+            if (a == false)
+            {
+                a = true;
+                for (int i = 0; i < drukstoreshopitemlist.Count; i++)
+                {
+                    var num = drukstoreshopitemlist[i];
+                    iconmake(num, i);
+                }
             }
         }
     }
@@ -122,9 +186,19 @@ public class Shopmanager : MonoBehaviourPunCallbacks
     }
     public void onpushshopback()
     {
+        a = false;
         shopmenu.SetActive(false);
         Menumanager.menuKey = null;
-        
+        var d = buttons.Count;
+        for(int i=0; i < d; i++)
+        {
+            
+            GameObject icon = buttons[i];
+            // アイテムのアイコンを削除
+            Destroy(icon);
+            // アイコンのディクショナリから対象のアイテムを削除
+            buttons.Remove(i);
+        }
     }
     void mesagedele()
     {
