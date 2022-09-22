@@ -10,22 +10,27 @@ public class CallBack : MonoBehaviourPunCallbacks
     public NoticeText noticeText;
 
     public override void OnConnectedToMaster(){
+        Debug.Log("接続しました。");
         PhotonNetwork.JoinLobby();
     }
     public override void OnDisconnected(DisconnectCause cause){
+        Debug.Log($"切断されました。{cause}");
+        noticeText.OnDisconnected(cause);
     }
 
 
     public override void OnJoinedLobby(){
+        Debug.Log("ロビーに接続しました。");
         roomList.ListInit();
     }
     public override void OnLeftLobby(){
+        Debug.Log("ロビーから退出しました。");
         roomList.ListInit();
     }
 
     public override void OnRoomListUpdate(List<RoomInfo> list){
+        Debug.Log("リストが更新されました。");
         roomList.OnRoomListUpdate(list);
-        noticeText.CheckRoomList();
     }
 
     //ルーム参加時にシーン移行

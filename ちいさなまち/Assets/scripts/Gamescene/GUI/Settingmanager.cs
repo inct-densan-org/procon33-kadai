@@ -12,7 +12,7 @@ public class Settingmanager : MonoBehaviourPunCallbacks
     void Start()
     {
         AudioSource = Camera.gameObject.GetComponent<AudioSource>();
-        AudioSource.volume = 0.5f;
+        AudioSource.volume = 0.25f;
     }
     public void OnPushsetting()
     {
