@@ -47,7 +47,7 @@ public class Shopmanager : MonoBehaviourPunCallbacks
         //time = Mathf.Clamp(time, MIN, MAX);
         for (int i = 0; i < itemDataBase.GetItemLists().Count; i++)
         {
-            Debug.Log(itemDataBase.GetItemLists()[i].GetKindOfItem().ToString());
+            
             itemDataBase.GetItemLists()[i].syokika();
             if (itemDataBase.GetItemLists()[i].GetKindOfItem().ToString() == "restaurant")
             {

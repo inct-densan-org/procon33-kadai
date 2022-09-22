@@ -53,7 +53,8 @@ public class Menumanager : MonoBehaviour
         GameObject icon = Instantiate(iconPrefab, iconParent);
         icon.GetComponent<Image>().sprite = GetItem(itemName).GetIcon();
         icon.GetComponent<Button>().onClick.AddListener(onPush);
-
+        GameObject kosuutext= icon.transform.GetChild(0).gameObject;
+        kosuutext.name = itemName;
         icon.name = itemName;
         icons.Add(index, icon);
     }

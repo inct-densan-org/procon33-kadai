@@ -16,5 +16,5 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: da26a6a1c08e9794cb0bdf8685739c5e, type: 3}
   itemName: "\u3044\u3044\u85AC"
   information: "\u75C5\u6C17\u306E\u75C7\u72B6\u3092\u7DE9\u548C\u3059\u308B"
-  money: 0
+  money: 30
   kosuu: 0

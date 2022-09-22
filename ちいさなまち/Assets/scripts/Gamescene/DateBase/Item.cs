@@ -34,7 +34,7 @@ public class Item : ScriptableObject
 	private int money;
 	[SerializeField]
 	private int kosuu;
-	public GameObject game;
+	private GameObject game;
 	public KindOfItem GetKindOfItem()
 	{
 		return kindOfItem;
