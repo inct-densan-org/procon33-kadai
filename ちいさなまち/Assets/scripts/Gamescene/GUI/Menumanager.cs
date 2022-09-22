@@ -97,7 +97,7 @@ public class Menumanager : MonoBehaviour
         button_ob = eventSystem.currentSelectedGameObject;
 
         ItemName = button_ob.name;
-        Debug.Log(ItemName);
+        
         mesasege.text = GetItem(ItemName).GetItemName() + "\n" + GetItem(ItemName).GetInformation() + "\n" + "を使用しますか？";
     }
 

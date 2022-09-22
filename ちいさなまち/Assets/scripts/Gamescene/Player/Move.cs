@@ -130,17 +130,25 @@ public class Move : MonoBehaviourPunCallbacks
                 {
                     Menumanager.menuKey = "talk";
                 }
-                else if (Hospitalquest.questclear == true)
-                {
-                    Menumanager.menuKey = "talk";
-                }
+                
                 else
                 {
                     Menumanager.menuKey = "shop";
                 }
             }
         }
-        if (collision.gameObject.CompareTag("quest") && photonView.IsMine)
+        if (collision.gameObject.CompareTag("hospitalshop") && photonView.IsMine)
+        {
+            if (Input.GetKey(KeyCode.Space))
+            {
+                if (Hospitalquest.questclear == true)
+                {
+                    Menumanager.menuKey = "talk";
+                }
+                else Menumanager.menuKey = "hospitalshop";
+            }
+        }
+            if (collision.gameObject.CompareTag("quest") && photonView.IsMine)
         {
             if (Input.GetKey(KeyCode.Space) || Input.GetKey(KeyCode.KeypadEnter))
             {
