@@ -53,9 +53,13 @@ public class FlushController : MonoBehaviourPunCallbacks
     // Update is called once per frame
     void Update()
     {
-        GameObject ds = GameObject.Find("man(Clone)");
-        if (ds == null) ds = GameObject.Find("woman(Clone)");
-        infection2 = ds.GetComponent<Infection2>();
+        if (infection2 == null)
+        {
+            GameObject ds = GameObject.Find("man(Clone)");
+            if (ds == null) ds = GameObject.Find("woman(Clone)");
+            infection2 = ds.GetComponent<Infection2>();
+            
+        }
         trigger = infection2.GetPlayerinf(Player);
 
         Image image = GameObject.GetComponent<Image>();

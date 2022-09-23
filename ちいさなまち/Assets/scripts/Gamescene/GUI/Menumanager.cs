@@ -18,8 +18,8 @@ public class Menumanager : MonoBehaviour
     public string menuKeysee;
     private string ItemName;
     private Infection2 infection2;
-    private Watergaugemanager watergaugemanager;
-    private Foodgaugemanager foodgaugemanager;
+    private Gaugemanager gaugemanager;
+    
     private Move move;
     private TasManager tasManager;
     private int questnum;
@@ -34,7 +34,9 @@ public class Menumanager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        menuKey = null;
         itemFlags = new bool[itemDataBase.GetItemLists().Count];
+        gaugemanager = GameObject.Find("menumaneger").GetComponent<Gaugemanager>();
     }
     int Index(string itemName)
     {
@@ -123,21 +125,21 @@ public class Menumanager : MonoBehaviour
             }
             if (ItemName == "おにぎり" && GetItem(ItemName).Getkosuu() > 0)
             {
-                Foodgaugemanager.Setfood(20);
-                itemDataBase.GetItemLists()[3].Setkosuu(-1);
+                gaugemanager.Setfood(20);
+                GetItem(ItemName).Setkosuu(-1);
                 messegedis.SetActive(false);
             }
             if (ItemName == "お茶" && GetItem(ItemName).Getkosuu() > 0)
             {
-                Watergaugemanager.Setwater(20);
-                itemDataBase.GetItemLists()[2].Setkosuu(-1);
+                gaugemanager.SetWater(20);
+                GetItem(ItemName).Setkosuu(-1);
                 messegedis.SetActive(false);
             }
             if (ItemName == "普通の薬" && GetItem(ItemName).Getkosuu() > 0)
             {
                 Move.isdurk = true;
 
-                itemDataBase.GetItemLists()[1].Setkosuu(-1);
+                GetItem(ItemName).Setkosuu(-1);
                 messegedis.SetActive(false);
                 await Task.Delay(10000);
                 Move.Effecttime();

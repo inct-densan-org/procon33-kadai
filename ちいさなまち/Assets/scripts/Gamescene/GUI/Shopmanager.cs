@@ -150,6 +150,7 @@ public class Shopmanager : MonoBehaviourPunCallbacks
         buydis.SetActive(true);
         button_ob = eventSystem.currentSelectedGameObject;
         s = 0;
+        inputField.text = "0";
         ItemName = button_ob.name;
         buybutton.name = ItemName;
         Iteminf.text = $"{GetItem(ItemName).GetItemName()}\n{GetItem(ItemName).GetInformation()}";

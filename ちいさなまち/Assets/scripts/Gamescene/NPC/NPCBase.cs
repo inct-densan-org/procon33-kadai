@@ -33,9 +33,8 @@ public class NPCBase : MonoBehaviourPunCallbacks
         byou.Init(() =>
         {
             NPCinfsee = Customproperties.GetNPCinf(Objname);
-            GameObject ds = GameObject.Find("man(Clone)");
-            if (ds == null) ds = GameObject.Find("woman(Clone)");
-            infection2 = ds.GetComponent<Infection2>();
+            
+           
         });
         byou.Play();
     }
@@ -62,7 +61,8 @@ public class NPCBase : MonoBehaviourPunCallbacks
         if (collision.gameObject.CompareTag("Player") && cooltime == false)
         {
             cooltime = true;
-            
+            GameObject ds = collision.gameObject;
+            infection2 = ds.GetComponent<Infection2>();
             var player = collision.gameObject.GetPhotonView();
             var playernum = player.OwnerActorNr;
             a = playernum;

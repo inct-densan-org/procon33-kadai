@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Foodgaugemanager : MonoBehaviour
+public class gaugemanager : MonoBehaviour
 {
     
     public static float time = 0;
