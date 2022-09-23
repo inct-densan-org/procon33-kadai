@@ -7,21 +7,23 @@ using UnityEngine.UI;
 using Random = UnityEngine.Random;
 using TMPro;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 // MonoBehaviourPunCallbacksを継承して、PUNのコールバックを受け取れるようにする
 public class PUN2Server : MonoBehaviourPunCallbacks
 {
-    public static bool isStart, ii;
-    public static GameObject clone;
+    public  bool isStart, ii;
+    public  GameObject clone;
     public GameObject gamestart, wait;
     public TextMeshProUGUI joinnum;
-    public static int isman;
+    public  int isman;
     public static ExitGames.Client.Photon.Hashtable roomHash;
-    public static Player localplayer;
+    public  Player localplayer;
     public bool issee;
     private bool a, b;
-    public static int playernum;
+    public  int playernum;
     private int f, localplayernum;
     private GameObject[] tagObjects;
+    private Infection2 infection2;
     private void Start()
     {
         gamestart.SetActive(false);
@@ -77,10 +79,10 @@ public class PUN2Server : MonoBehaviourPunCallbacks
         }
         if (Input.GetKeyDown(KeyCode.H))
         {
-
-            var tagObjects = GameObject.FindGameObjectsWithTag("Player").Length;
+            infection2 = tagObjects[0].gameObject.GetComponent<Infection2>();
+            var tagObjectsnum = tagObjects.Length;
             // for (int i = 0; i < tagObjects; i++) Debug.Log($"{i + 1}" + ";" + Customproperties.Getplayerinf(i + 1));
-            for (int i = 0; i < tagObjects; i++) Debug.Log($"{i + 1}" + ";" + Infection2.GetPlayerinf(i + 1));
+            for (int i = 0; i < tagObjectsnum; i++) Debug.Log($"{i + 1}" + ";" + infection2.GetPlayerinf(i + 1));
             var npcobj = GameObject.FindGameObjectsWithTag("NPC");
             var npcobjnum = GameObject.FindGameObjectsWithTag("NPC").Length;
             foreach (GameObject item in npcobj)
@@ -118,5 +120,10 @@ public class PUN2Server : MonoBehaviourPunCallbacks
         {
             clone = PhotonNetwork.Instantiate("woman", new Vector3(20, 15, -1), Quaternion.identity);
         }
+    }
+    public override void OnLeftRoom()
+    {
+        Debug.Log("ルームから退出しました");
+        SceneManager.LoadScene("Endscene",LoadSceneMode.Single);
     }
 }

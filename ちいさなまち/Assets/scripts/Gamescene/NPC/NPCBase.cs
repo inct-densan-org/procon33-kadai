@@ -13,11 +13,13 @@ public class NPCBase : MonoBehaviourPunCallbacks
     public string Objname,asee;
     public bool NPCinfsee;
     private int infectionProbability=100;
-    public static Player player;
+    public  Player player;
     public int a;
+    public Infection2 infection2;
     // Start is called before the first frame update
     void Start()
     {
+        
         NPCinf = false;
         Objname = this.gameObject.name;
         roomHash = new ExitGames.Client.Photon.Hashtable();
@@ -31,6 +33,9 @@ public class NPCBase : MonoBehaviourPunCallbacks
         byou.Init(() =>
         {
             NPCinfsee = Customproperties.GetNPCinf(Objname);
+            GameObject ds = GameObject.Find("man(Clone)");
+            if (ds == null) ds = GameObject.Find("woman(Clone)");
+            infection2 = ds.GetComponent<Infection2>();
         });
         byou.Play();
     }
@@ -63,7 +68,7 @@ public class NPCBase : MonoBehaviourPunCallbacks
             a = playernum;
             Invoke(nameof(Cooldowm), 5f);
             // infected = Customproperties.Getplayerinf(playernum);
-            infected = Infection2.GetPlayerinf(playernum);
+            infected = infection2.GetPlayerinf(playernum);
             if (infected == true)
             {
                 int rnd = Random.Range(0, 100);

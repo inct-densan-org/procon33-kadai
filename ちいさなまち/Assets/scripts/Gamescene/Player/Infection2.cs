@@ -17,14 +17,16 @@ public class Infection2 : MonoBehaviourPunCallbacks
     public Shopmanager shopmanager;
     public static bool ismask;
     private NPCBase NPCShop;
-    private PUN2Server PUN2Server;
+    private PUN2Server pun2server;
     public  bool infecsee,myinfsee;
     public  int Player;
     public static ExitGames.Client.Photon.Hashtable roomHash;
-    public static bool p1inf, p2inf, p3inf, p4inf, p5inf, p6inf, p7inf, p8inf,myinf;
+    public  bool p1inf, p2inf, p3inf, p4inf, p5inf, p6inf, p7inf, p8inf,myinf;
     // Start is called before the first frame update
     void Start()
     {
+        GameObject menu = GameObject.Find("PUN2Sever");
+         pun2server = menu.GetComponent<PUN2Server>();
         Player = PhotonNetwork.LocalPlayer.ActorNumber;
         Debug.Log(Player);
         collider2 = this.GetComponent<CircleCollider2D>();
@@ -46,8 +48,9 @@ public class Infection2 : MonoBehaviourPunCallbacks
     // Update is called once per frame
     void Update()
     {
+       
         myinfsee = GetPlayerinf(Player);
-        var isman = PUN2Server.isman;
+        var isman = pun2server.isman;
 
         if (infected == true)
         {
@@ -156,7 +159,7 @@ public class Infection2 : MonoBehaviourPunCallbacks
     }
 
     //numberに取得したいプレイヤーのIDを渡す
-    public static  bool GetPlayerinf(int number)
+    public   bool GetPlayerinf(int number)
     {
 
         switch (number)

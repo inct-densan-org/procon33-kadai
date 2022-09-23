@@ -11,15 +11,16 @@ public class FlushController : MonoBehaviourPunCallbacks
     private Move move;
     public static ExitGames.Client.Photon.Hashtable roomHash;
     private PUN2Server pUN2Server;
-    private static Player player;
+    private Player player;
     private  Image image;
     public int Player;
     public GameObject GameObject;
-    private Infection2@infection ;
+    public Infection2 infection2 ;
     public bool trigger;
     // Start is called before the first frame update
     void Start()
     {
+        
         //var tagObjects = GameObject.FindGameObjectsWithTag("Player");
         // var playernum = tagObjects.Length;
         // var playerlist = PhotonNetwork.PlayerList;
@@ -52,7 +53,10 @@ public class FlushController : MonoBehaviourPunCallbacks
     // Update is called once per frame
     void Update()
     {
-        trigger = Infection2.GetPlayerinf(Player);
+        GameObject ds = GameObject.Find("man(Clone)");
+        if (ds == null) ds = GameObject.Find("woman(Clone)");
+        infection2 = ds.GetComponent<Infection2>();
+        trigger = infection2.GetPlayerinf(Player);
 
         Image image = GameObject.GetComponent<Image>();
         image.color = Color.Lerp(Color.clear, target, Mathf.PingPong(Time.time, 1));

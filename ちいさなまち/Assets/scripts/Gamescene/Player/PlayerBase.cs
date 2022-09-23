@@ -14,14 +14,17 @@ public class PlayerBase : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        isStart =PUN2Server.isStart;
+        GameObject menu = GameObject.Find("PUN2Sever");
+        var pun2server = menu.GetComponent<PUN2Server>();
+        isStart =pun2server.isStart;
         if (isStart == true && a == false)
         {
             a = true;
             gameObject.AddComponent<Move>();
             gameObject.AddComponent<Infection2>();
-            gameObject.AddComponent<TileController>();
-            gameObject.AddComponent<Timekimeru>();
+            
+           // gameObject.AddComponent<Timekimeru>();
         }
     }
+
 }

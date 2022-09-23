@@ -5340,7 +5340,6 @@ GameObject:
   - component: {fileID: 382721695}
   - component: {fileID: 382721699}
   - component: {fileID: 382721698}
-  - component: {fileID: 382721697}
   - component: {fileID: 382721696}
   m_Layer: 5
   m_Name: tokei
@@ -5391,23 +5390,6 @@ MonoBehaviour:
   sceneViewId: 42
   InstantiationId: 0
   isRuntimeInstantiated: 0
---- !u!114 &382721697
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 382721694}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 206b4b93766d7b9408c7da20dea1160b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hour: 0
-  minite: 0
-  second: 0
-  time: 0
-  text: {fileID: 382721698}
 --- !u!114 &382721698
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7403,6 +7385,9 @@ GameObject:
   - component: {fileID: 428023890}
   - component: {fileID: 428023891}
   - component: {fileID: 428023892}
+  - component: {fileID: 428023893}
+  - component: {fileID: 428023894}
+  - component: {fileID: 428023895}
   m_Layer: 0
   m_Name: menumaneger
   m_TagString: Untagged
@@ -7527,6 +7512,52 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Ruledis: {fileID: 756470517}
+--- !u!114 &428023893
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 428023884}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 206b4b93766d7b9408c7da20dea1160b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hour: 0
+  minite: 0
+  second: 0
+  time: 0
+  text: {fileID: 382721698}
+--- !u!114 &428023894
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 428023884}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8928e447c50d8ef478a7c704978df97e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &428023895
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 428023884}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15225912ff08dd740b914d44ee52280a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hour: 0
+  minite: 0
+  second: 0
+  time1: 0
+  time: 600
 --- !u!1 &446492134
 GameObject:
   m_ObjectHideFlags: 0
@@ -8704,10 +8735,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: afd0b4f069f876d4f94b0fab16348b8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isStart: 0
+  ii: 0
+  clone: {fileID: 0}
   gamestart: {fileID: 1066603924}
   wait: {fileID: 1415260659}
   joinnum: {fileID: 1426286743}
+  isman: 0
   issee: 0
+  playernum: 0
 --- !u!4 &504948808
 Transform:
   m_ObjectHideFlags: 0
@@ -16296,7 +16332,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 540b37d2e7ff58d4b97dbe8494596390, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  QuestDataBase: {fileID: 0}
+  QuestDataBase: {fileID: 11400000, guid: dbe97d534128f9a4ebc46e7f4d87208e, type: 2}
 --- !u!1 &856626160
 GameObject:
   m_ObjectHideFlags: 0
@@ -28915,7 +28951,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53dec690435f36241b3fcbbff05b7d3c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  QuestDataBase: {fileID: 0}
+  QuestDataBase: {fileID: 11400000, guid: dbe97d534128f9a4ebc46e7f4d87208e, type: 2}
 --- !u!1 &1601514881
 GameObject:
   m_ObjectHideFlags: 0

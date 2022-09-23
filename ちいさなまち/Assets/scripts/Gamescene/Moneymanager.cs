@@ -7,6 +7,10 @@ public class Moneymanager : MonoBehaviour
     public static int Money;
     public TextMeshProUGUI text;
     // Update is called once per frame
+    private void Start()
+    {
+        Money = 0;
+    }
     void Update()
     {
         text.text = $"{Money}"+"円";

@@ -22,11 +22,14 @@ public class Move : MonoBehaviourPunCallbacks
     public static string myplayername;
     private Player player;
     private PUN2Server server;
+    public Infection2 infection2;
     public void Start()
     {
-
-        var playernum = PUN2Server.playernum;
-
+        GameObject menu = GameObject.Find("PUN2Sever");
+        var pun2server = menu.GetComponent<PUN2Server>();
+        var playernum = pun2server.playernum;
+       
+        infection2 = this.gameObject.GetComponent<Infection2>();
         player = PhotonNetwork.LocalPlayer;
         myplayernum = player.ActorNumber;
         myplayername = this.gameObject.name;
@@ -66,7 +69,7 @@ public class Move : MonoBehaviourPunCallbacks
 
     private void Update()
     {
-        infection = Infection2.GetPlayerinf(myplayernum);
+        infection = infection2.GetPlayerinf(myplayernum);
 
         var menuKey = Menumanager.menuKey;
 

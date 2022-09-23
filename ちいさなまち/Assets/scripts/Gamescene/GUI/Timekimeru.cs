@@ -6,16 +6,19 @@ using Photon.Pun;
 using Photon.Realtime;
 using ExitGames.Client.Photon;
 using System;
-
+using UnityEngine.SceneManagement;
 public class Timekimeru : MonoBehaviourPunCallbacks
 {
     public static ExitGames.Client.Photon.Hashtable roomHash;
     public  int hour, minite, second,time1;
-    public static int time = 600;
+    public  int time = 600;
+    private new GameObject gameObject;
+    private Tokei tokei;
     // Start is called before the first frame update
     void Start()
     {
-        time1=10;
+        
+        time1=600;
         var player = PhotonNetwork.PlayerList;
         var p1 = player[0];
         if (p1 == PhotonNetwork.LocalPlayer)
@@ -32,6 +35,7 @@ public class Timekimeru : MonoBehaviourPunCallbacks
                 time1--;
 
                 photonView.RPC(nameof(SetTime), RpcTarget.All, time1);
+                
             });
             byou.Play();
         }
@@ -41,4 +45,6 @@ public class Timekimeru : MonoBehaviourPunCallbacks
     {
         time = second;
     }
+    
+
 }

@@ -7,35 +7,30 @@ using Photon.Realtime;
 using ExitGames.Client.Photon;
 using System;
 using TMPro;
-
+using UnityEngine.SceneManagement;
 public  class Tokei : MonoBehaviourPunCallbacks
 {
     public int hour, minite, second,time;
     public TextMeshProUGUI text;
     private ExitGames.Client.Photon.Hashtable roomHash;
-    //private itibyou byou;
-    //private timekimeru timekimeru;
-    // Start is called before the first frame update
+    private Timekimeru timekimeru;
+    private GameObject menumanager;
     void Start()
     {
-        var byou = GetComponent<itibyou>();
-
-        if (byou == null)
-        {
-            byou=  gameObject.AddComponent<itibyou>();
-        }
-        byou.Init(() =>
-        {
-            time = Timekimeru.time;
-            second = time % 60;
-            minite = time / 60;
-            if (minite == 60) minite = 0;
-            hour = time / 3600;if (hour == 24) hour = 0;
-        });
-        byou.Play();
+        time = 600;
+        
+        menumanager = GameObject.Find("menumaneger");
+        timekimeru = menumanager.GetComponent<Timekimeru>();
+        
     }
     void Update()
     {
-        text.text = $"{hour}" + "時間" + $"{minite}" + "分" + $"{second}" + "秒";
+        time = timekimeru.time;
+        second = time % 60;
+        minite = time / 60;
+        if (minite == 60) minite = 0;
+        hour = time / 3600; if (hour == 24) hour = 0;
+        text.text =   $"{minite}" + "分" + $"{second}" + "秒";
     }
+   
 }
