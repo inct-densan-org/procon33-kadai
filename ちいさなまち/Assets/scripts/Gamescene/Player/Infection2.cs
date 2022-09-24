@@ -22,9 +22,11 @@ public class Infection2 : MonoBehaviourPunCallbacks
     public  int Player;
     public static ExitGames.Client.Photon.Hashtable roomHash;
     public  bool p1inf, p2inf, p3inf, p4inf, p5inf, p6inf, p7inf, p8inf,myinf;
+    private Customproperties customproperties;
     // Start is called before the first frame update
     void Start()
     {
+        customproperties = GameObject.Find("PUN2Sever").gameObject.GetComponent<Customproperties>();
         GameObject menu = GameObject.Find("PUN2Sever");
          pun2server = menu.GetComponent<PUN2Server>();
         Player = PhotonNetwork.LocalPlayer.ActorNumber;
@@ -109,7 +111,7 @@ public class Infection2 : MonoBehaviourPunCallbacks
         {
             var NPCname = collision.gameObject.name;
 
-            NPCinf = Customproperties.GetNPCinf(NPCname);
+            NPCinf = customproperties.GetNPCinf(NPCname);
             if (NPCinf == true)
             {
 

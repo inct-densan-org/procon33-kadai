@@ -5,33 +5,27 @@ using UnityEngine;
 using Photon.Pun;
 using System;
 using ExitGames.Client.Photon;
-public  static class Customproperties 
+using System.Threading.Tasks;
+
+public   class Customproperties :MonoBehaviourPunCallbacks
 {
-    public static int hour, minite, second;
-    public static ExitGames.Client.Photon.Hashtable roomHash;
-
-    public static void custam()
+   
+    public  ExitGames.Client.Photon.Hashtable roomHash;
+    private void Start()
     {
-        var a = false;
-        roomHash = new ExitGames.Client.Photon.Hashtable
+        NPCcustom();
+    }
+
+    public  async void NPCcustom()
+    {
+        await Task.Delay(1000);
+        roomHash = new ExitGames.Client.Photon.Hashtable();
+        var npcobj = GameObject.FindGameObjectsWithTag("NPC");
+        var npcobjnum = GameObject.FindGameObjectsWithTag("NPC").Length;
+        foreach (GameObject item in npcobj)
         {
-            //{ "hour", hour },
-            //{ "minite", minite },
-        };
-        PhotonNetwork.CurrentRoom.SetCustomProperties(roomHash);
-    }
-    
-    public static void mycustom(int player)
-    {
-        roomHash.Add($"{player}", false);
-        PhotonNetwork.CurrentRoom.SetCustomProperties(roomHash);
-
-    }
-    public static void NPCcustom(string NPC)
-    {
-
-        roomHash.Add($"{NPC}", false);
-        
+            roomHash.Add($"{item.name}", false);
+        }
         PhotonNetwork.CurrentRoom.SetCustomProperties(roomHash);
 
     }
@@ -39,9 +33,9 @@ public  static class Customproperties
     //{
     //    return (PhotonNetwork.CurrentRoom.CustomProperties[$"{player}"] is bool inf) ? inf : false;
     //}
-    public static bool GetNPCinf(string name)
+    public  bool GetNPCinf(string name)
     {
-        return (PhotonNetwork.CurrentRoom.CustomProperties[$"{name}"] is bool inf) ? inf : false;
+        return (bool) roomHash[$"{name}"];
     }
 
     //public static void Setplayerinf( bool inf, int player)
@@ -53,13 +47,15 @@ public  static class Customproperties
     //   roomHash.Clear();
     //}
     
-    public static void SetNPCinf(string name,bool inf)
+    public  void SetNPCinf(string name,bool inf)
     {
-        PhotonNetwork.CurrentRoom.CustomProperties[$"{name}"] = inf;
+        roomHash[$"{name}"] = inf;
         PhotonNetwork.CurrentRoom.SetCustomProperties(roomHash);
-        roomHash.Clear();
+        
+        
+        
     }
-    public static void Show()
+    public  void Show()
     {
         foreach (var prop in roomHash)
         {

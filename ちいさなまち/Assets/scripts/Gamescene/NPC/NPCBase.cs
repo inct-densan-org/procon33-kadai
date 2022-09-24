@@ -12,14 +12,15 @@ public class NPCBase : MonoBehaviourPunCallbacks
     private bool NPCinf, cooltime, infected;
     public string Objname,asee;
     public bool NPCinfsee;
-    private int infectionProbability=100;
+    private int infectionProbability=1;
     public  Player player;
     public int a;
     public Infection2 infection2;
+    private Customproperties customproperties;
     // Start is called before the first frame update
     void Start()
     {
-        
+        customproperties = GameObject.Find("PUN2Sever").gameObject.GetComponent<Customproperties>();
         NPCinf = false;
         Objname = this.gameObject.name;
         roomHash = new ExitGames.Client.Photon.Hashtable();
@@ -29,10 +30,10 @@ public class NPCBase : MonoBehaviourPunCallbacks
         {
             byou = gameObject.AddComponent<itibyou>();
         }
-        Customproperties.NPCcustom(Objname);
+        
         byou.Init(() =>
         {
-            NPCinfsee = Customproperties.GetNPCinf(Objname);
+            NPCinfsee = customproperties.GetNPCinf(Objname);
             
            
         });
@@ -46,7 +47,7 @@ public class NPCBase : MonoBehaviourPunCallbacks
             cooltime = true;
             Invoke(nameof(Cooldowm), 5f);
 
-            infected = Customproperties.GetNPCinf(collision.gameObject.name);
+            infected = customproperties.GetNPCinf(collision.gameObject.name);
             if (infected == true)
             {
                 int rnd = Random.Range(0, 100);
@@ -54,7 +55,7 @@ public class NPCBase : MonoBehaviourPunCallbacks
                 {
                     Invoke(nameof(EffictTime), 180);
                     NPCinf = true;
-                    Customproperties.SetNPCinf(Objname, NPCinf);
+                    customproperties.SetNPCinf(Objname, NPCinf);
                 }
             }
         }
@@ -76,7 +77,7 @@ public class NPCBase : MonoBehaviourPunCallbacks
                 {
                     Invoke(nameof(EffictTime), 180);
                     NPCinf = true;
-                    Customproperties.SetNPCinf(Objname, NPCinf);
+                    customproperties.SetNPCinf(Objname, NPCinf);
                 }
             }
         }
@@ -89,6 +90,6 @@ public class NPCBase : MonoBehaviourPunCallbacks
     void EffictTime()
     {
         NPCinf = false;
-        Customproperties.SetNPCinf(Objname, NPCinf);
+        customproperties.SetNPCinf(Objname, NPCinf);
     }
 }

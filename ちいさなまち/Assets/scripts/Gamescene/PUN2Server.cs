@@ -24,8 +24,10 @@ public class PUN2Server : MonoBehaviourPunCallbacks
     private int f, localplayernum;
     private GameObject[] tagObjects;
     private Infection2 infection2;
+    private Customproperties customproperties;
     private void Start()
     {
+        customproperties = this.gameObject.GetComponent<Customproperties>();
         gamestart.SetActive(false);
         wait.SetActive(true);
 
@@ -35,11 +37,8 @@ public class PUN2Server : MonoBehaviourPunCallbacks
         var p1 = player[0];
        
 
-        if (p1 == PhotonNetwork.LocalPlayer)
-        {
-            Customproperties.custam();
-        }
-        Customproperties.mycustom(localplayernum);
+        
+       
     }
 
     // マスターサーバーへの接続が成功した時に呼ばれるコールバック
@@ -88,7 +87,7 @@ public class PUN2Server : MonoBehaviourPunCallbacks
             foreach (GameObject item in npcobj)
             {
                 var j = item.name;
-                Debug.Log($"{j}" + ";" + Customproperties.GetNPCinf(j));
+                Debug.Log($"{j}" + ";" + customproperties.GetNPCinf(j));
             }
 
         }

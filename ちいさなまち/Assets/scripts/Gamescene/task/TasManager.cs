@@ -29,7 +29,7 @@ public class TasManager : MonoBehaviourPunCallbacks
             QuestDataBase.GetQusetLists()[i].SetIsQuria(false);
         }
         int choiceNum;
-        List<int> ramdumlist = new List<int>(); ;
+        List<int> ramdumlist = new List<int>(); 
         for (int i = 0; i < QuestDataBase.GetQusetLists().Count; i++)
         {
             ramdumlist.Add(i);
