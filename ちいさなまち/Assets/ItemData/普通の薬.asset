@@ -18,3 +18,6 @@ MonoBehaviour:
   information: "\u611F\u67D3\u306B\u3088\u308B\u72B6\u614B\u7570\u5E38\u3092\u5C11\u3057\u7DE9\u548C\u3055\u305B\u308B\u3002"
   money: 30
   kosuu: 0
+  waterrecovery: 0
+  foodrecovery: 0
+  other_effect: 1

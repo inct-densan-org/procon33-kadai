@@ -34,6 +34,12 @@ public class Item : ScriptableObject
 	private int money;
 	[SerializeField]
 	private int kosuu;
+	[SerializeField]
+	private int waterrecovery;
+	[SerializeField]
+	private int foodrecovery;
+	[SerializeField]
+	private bool other_effect;
 	private GameObject game;
 	public KindOfItem GetKindOfItem()
 	{
@@ -62,6 +68,18 @@ public class Item : ScriptableObject
 	{
 		return kosuu;
 	}
+	public int Getfoodrecovery()
+	{
+		return foodrecovery;
+	}
+	public int Getwaterrecovery()
+	{
+		return waterrecovery;
+	}
+	public bool Getother_effect()
+    {
+		return other_effect;
+    }
 	public void Setkosuu(int itemkazu)
     {
 		game = GameObject.Find("menumaneger");

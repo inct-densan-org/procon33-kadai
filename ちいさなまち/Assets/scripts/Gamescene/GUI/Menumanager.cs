@@ -111,39 +111,46 @@ public class Menumanager : MonoBehaviour
     {
         if (menuKey == "menu")
         {
-
-            if (ItemName == "マスク" && GetItem(ItemName).Getkosuu() > 0)
-            {
-                itemDataBase.GetItemLists()[0].Setkosuu(-1);
-                Infection2.ismask = true;
-                messegedis.SetActive(false);
-            }
             if (GetItem(ItemName).Getkosuu() == 0)
             {
                 warning.text = "アイテムがありません";
                 Invoke(nameof(Delwarning), 3);
             }
-            if (ItemName == "おにぎり" && GetItem(ItemName).Getkosuu() > 0)
+            else if(ItemName != null&& GetItem(ItemName).Getkosuu() > 0)
             {
-                gaugemanager.Setfood(20);
+                gaugemanager.Setfood(GetItem(ItemName).Getfoodrecovery());
+                gaugemanager.SetWater(GetItem(ItemName).Getwaterrecovery());
                 GetItem(ItemName).Setkosuu(-1);
                 messegedis.SetActive(false);
+                if (GetItem(ItemName).Getother_effect())
+                {
+                    if(ItemName == "マスク")
+                    {
+                        Infection2.ismask = true;
+                    }
+                    if (ItemName == "普通の薬" )
+                    {
+                        Move.isdurk = true;   
+                       await Task.Delay(10000);
+                        Move.Effecttime();
+                    }
+                }
             }
-            if (ItemName == "お茶" && GetItem(ItemName).Getkosuu() > 0)
-            {
-                gaugemanager.SetWater(20);
-                GetItem(ItemName).Setkosuu(-1);
-                messegedis.SetActive(false);
-            }
-            if (ItemName == "普通の薬" && GetItem(ItemName).Getkosuu() > 0)
-            {
-                Move.isdurk = true;
-
-                GetItem(ItemName).Setkosuu(-1);
-                messegedis.SetActive(false);
-                await Task.Delay(10000);
-                Move.Effecttime();
-            }
+           
+            
+            //if (ItemName == "おにぎり" && GetItem(ItemName).Getkosuu() > 0)
+            //{
+            //    gaugemanager.Setfood(20);
+            //    GetItem(ItemName).Setkosuu(-1);
+            //    messegedis.SetActive(false);
+            //}
+            //if (ItemName == "お茶" && GetItem(ItemName).Getkosuu() > 0)
+            //{
+            //    gaugemanager.SetWater(20);
+            //    GetItem(ItemName).Setkosuu(-1);
+            //    messegedis.SetActive(false);
+            //}
+            
         }
 
         if (menuKey == "quest")

@@ -18,4 +18,6 @@ MonoBehaviour:
   information: "\u75C5\u6C17\u306E\u75C7\u72B6\u3092\u304B\u306A\u308A\u7DE9\u548C\u3059\u308B"
   money: 40
   kosuu: 0
-  game: {fileID: 0}
+  waterrecovery: 0
+  foodrecovery: 0
+  other_effect: 1
