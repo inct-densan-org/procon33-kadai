@@ -3591,7 +3591,7 @@ MonoBehaviour:
   m_OnEndEdit:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1184559390}
+      - m_Target: {fileID: 428023899}
         m_TargetAssemblyTypeName: Shopmanager, Assembly-CSharp
         m_MethodName: exitkosuu
         m_Mode: 1
@@ -7380,6 +7380,7 @@ GameObject:
   - component: {fileID: 428023898}
   - component: {fileID: 428023896}
   - component: {fileID: 428023897}
+  - component: {fileID: 428023899}
   m_Layer: 0
   m_Name: menumaneger
   m_TagString: Untagged
@@ -7595,6 +7596,30 @@ MonoBehaviour:
   playerlistdis: {fileID: 2105352130}
   menu: {fileID: 267392835}
   textParent: {fileID: 431859643}
+--- !u!114 &428023899
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 428023884}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb154bda08a88fa44b99d9ec7d6fe40f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shopmenu: {fileID: 950251382}
+  mesege: {fileID: 765894951}
+  itemDataBase: {fileID: 11400000, guid: 95fa6098fd019724ab6a92cf42ab58f9, type: 2}
+  eventSystem: {fileID: 464247222}
+  iconPrefab: {fileID: 7628514604303875603, guid: f6fa26937150c614ba1732841921c27c, type: 3}
+  iconParent: {fileID: 962863412}
+  buydis: {fileID: 1833195087}
+  buybutton: {fileID: 753133407}
+  Iteminf: {fileID: 1081094865}
+  goukei: {fileID: 878105360}
+  moneytext: {fileID: 214522699}
+  inputField: {fileID: 267957610}
 --- !u!1 &431859642
 GameObject:
   m_ObjectHideFlags: 0
@@ -13370,7 +13395,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u8CFC\u5165"
+  m_text: "\u6CE8\u6587\u3059\u308B"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e1de8b657c721b94489882522f187a99, type: 2}
   m_sharedMaterial: {fileID: 566186933589780251, guid: e1de8b657c721b94489882522f187a99, type: 2}
@@ -13683,7 +13708,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1184559390}
+      - m_Target: {fileID: 428023899}
         m_TargetAssemblyTypeName: Shopmanager, Assembly-CSharp
         m_MethodName: Onpushbuy
         m_Mode: 1
@@ -13998,7 +14023,7 @@ MonoBehaviour:
   m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e1de8b657c721b94489882522f187a99, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 566186933589780251, guid: e1de8b657c721b94489882522f187a99, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -15221,7 +15246,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1184559390}
+      - m_Target: {fileID: 428023899}
         m_TargetAssemblyTypeName: Shopmanager, Assembly-CSharp
         m_MethodName: Onbushback
         m_Mode: 1
@@ -15597,7 +15622,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1184559390}
+      - m_Target: {fileID: 428023899}
         m_TargetAssemblyTypeName: Shopmanager, Assembly-CSharp
         m_MethodName: onpushshopback
         m_Mode: 1
@@ -24021,7 +24046,6 @@ GameObject:
   - component: {fileID: 1184559386}
   - component: {fileID: 1184559389}
   - component: {fileID: 1184559387}
-  - component: {fileID: 1184559390}
   m_Layer: 5
   m_Name: shop
   m_TagString: shop
@@ -24127,30 +24151,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &1184559390
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1184559385}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bb154bda08a88fa44b99d9ec7d6fe40f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  shopmenu: {fileID: 950251382}
-  mesege: {fileID: 765894951}
-  itemDataBase: {fileID: 11400000, guid: 95fa6098fd019724ab6a92cf42ab58f9, type: 2}
-  eventSystem: {fileID: 464247222}
-  iconPrefab: {fileID: 7628514604303875603, guid: f6fa26937150c614ba1732841921c27c, type: 3}
-  iconParent: {fileID: 962863412}
-  buydis: {fileID: 1833195087}
-  buybutton: {fileID: 753133407}
-  Iteminf: {fileID: 1081094865}
-  goukei: {fileID: 878105360}
-  moneytext: {fileID: 214522699}
-  inputField: {fileID: 267957610}
 --- !u!1 &1212539616
 GameObject:
   m_ObjectHideFlags: 0

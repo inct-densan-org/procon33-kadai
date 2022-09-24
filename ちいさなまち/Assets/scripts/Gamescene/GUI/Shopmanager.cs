@@ -38,11 +38,13 @@ public class Shopmanager : MonoBehaviourPunCallbacks
     private string ItemName;
     public TextMeshProUGUI Iteminf, goukei,moneytext;
     public TMP_InputField inputField;
+    private Gaugemanager gaugemanager;
     private int  s;
   public  Dictionary<int, GameObject> buttons = new Dictionary<int, GameObject>();
     // Start is called before the first frame update
     void Start()
     {
+        gaugemanager = this.gameObject.GetComponent<Gaugemanager>();
         inputField = inputField.GetComponent<TMP_InputField>();
         //time = Mathf.Clamp(time, MIN, MAX);
         for (int i = 0; i < itemDataBase.GetItemLists().Count; i++)
@@ -153,6 +155,15 @@ public class Shopmanager : MonoBehaviourPunCallbacks
         inputField.text = "0";
         ItemName = button_ob.name;
         buybutton.name = ItemName;
+        var buytext = buybutton.transform.GetChild(0).gameObject.GetComponent<TextMeshProUGUI>();
+        if(GetItem(ItemName).GetKindOfItem().ToString()== "restaurant")
+        {
+            buytext.text = "注文する";
+        }
+        else
+        {
+            buytext.text = "購入";
+        }
         Iteminf.text = $"{GetItem(ItemName).GetItemName()}\n{GetItem(ItemName).GetInformation()}";
         goukei.text = $"合計　{GetItem(ItemName).Getmoney() * s}円";
     }
@@ -167,9 +178,20 @@ public class Shopmanager : MonoBehaviourPunCallbacks
         if (money >= totalmoney && totalmoney != 0)
         {
             Moneymanager.Setmoney(-(totalmoney));
-            mesege.text = "購入しました";
-            Invoke(nameof(mesagedele), 3f);
-            GetItem(ItemName).Setkosuu(s);
+            if(GetItem(ItemName).GetKindOfItem().ToString()== "restaurant")
+            {
+                mesege.text = "食べました";
+                Invoke(nameof(mesagedele), 3f);
+                gaugemanager.Setfood(GetItem(ItemName).Getfoodrecovery());
+                gaugemanager.SetWater(GetItem(ItemName).Getwaterrecovery());
+            }
+            else
+            {
+                mesege.text = "購入しました";
+                Invoke(nameof(mesagedele), 3f);
+                GetItem(ItemName).Setkosuu(s);
+            }
+            
         }
     }
     public void exitkosuu()
