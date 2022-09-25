@@ -9,14 +9,15 @@ public class Route : MonoBehaviourPunCallbacks
 {
     [SerializeField] GameObject moveObj;
     [SerializeField] float speed=1;
-   public List<Transform> points;
+   private List<Transform> points;
    public int pointIdx = 0;
     Vector3 nextPos;
-    public Vector3 nowPos, maePos;
+    private Vector3 nowPos, maePos;
     private int idX = Animator.StringToHash("x"), idY = Animator.StringToHash("y");
     private Animator animator = null;
     public string e;
     private bool b;
+    public float waittime; 
     void Start()
     {
         points = new List<Transform>();
@@ -55,7 +56,7 @@ public class Route : MonoBehaviourPunCallbacks
                                   nextPos = points[pointIdx].position;
                 }
                 if (pointIdx == points.Count) { moveObj.SetActive(false); 
-                    Invoke(nameof(NPCReset), 3f); }
+                    Invoke(nameof(NPCReset), waittime); }
 
             }
             if (nowPos.x > maePos.x) { animator.SetFloat(idX, 1f); e = "right"; }

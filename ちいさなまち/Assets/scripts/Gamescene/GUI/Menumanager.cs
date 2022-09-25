@@ -175,18 +175,7 @@ public class Menumanager : MonoBehaviourPunCallbacks
             }
            
             
-            //if (ItemName == "おにぎり" && GetItem(ItemName).Getkosuu() > 0)
-            //{
-            //    gaugemanager.Setfood(20);
-            //    GetItem(ItemName).Setkosuu(-1);
-            //    messegedis.SetActive(false);
-            //}
-            //if (ItemName == "お茶" && GetItem(ItemName).Getkosuu() > 0)
-            //{
-            //    gaugemanager.SetWater(20);
-            //    GetItem(ItemName).Setkosuu(-1);
-            //    messegedis.SetActive(false);
-            //}
+          
             
         }
 

@@ -63,7 +63,7 @@ public class PUN2Server : MonoBehaviourPunCallbacks
         if (Input.GetKey(KeyCode.Space) && isStart == false)
         {
             
-            photonView.RPC(nameof(IsStart), RpcTarget.All);
+            photonView.RPC(nameof(playermake), RpcTarget.All);
 
             PhotonNetwork.CurrentRoom.IsOpen = false;
         }
@@ -93,24 +93,13 @@ public class PUN2Server : MonoBehaviourPunCallbacks
         }
     }
 
-    [PunRPC]
-    public void IsStart()
-    {
-        isStart = true;
-        isman = Random.Range(0, 2);
-        if (isman == 1)
-        {
-            clone = PhotonNetwork.Instantiate("man", new Vector3(20, 15, -1), Quaternion.identity);
-        }
-        else
-        {
-            clone = PhotonNetwork.Instantiate("woman", new Vector3(20, 15, -1), Quaternion.identity);
-        }
-    }
+   
     [PunRPC]
     public void playermake()
     {
+        isStart = true;
         isman = ClientData.currentCharacter;
+        Debug.Log(isman);
         if (isman == 0)
         {
             clone = PhotonNetwork.Instantiate("man", new Vector3(20, 15, -1), Quaternion.identity);

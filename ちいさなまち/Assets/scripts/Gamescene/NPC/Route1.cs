@@ -10,10 +10,11 @@ public class Route1 : MonoBehaviourPunCallbacks
     [SerializeField] GameObject moveObj;
     [SerializeField] float speed=1;
     public int orikaesi;
-    public List<Transform> points;
+    private List<Transform> points;
     public int pointIdx = 0;
+    public float waittime,orikaesiwait;
     Vector3 nextPos;
-    public Vector3 nowPos, maePos;
+    private Vector3 nowPos, maePos;
     private int idX = Animator.StringToHash("x"), idY = Animator.StringToHash("y");
     private Animator animator = null;
     public string e;
@@ -50,7 +51,7 @@ public class Route1 : MonoBehaviourPunCallbacks
                     if (pointIdx == orikaesi)
                     {
                         moveObj.SetActive(false); c = true;
-                        Invoke(nameof(NPCorikaesi), 3f);
+                        Invoke(nameof(NPCorikaesi), orikaesiwait);
                     }
                     if (pointIdx < points.Count)
                     {
@@ -59,7 +60,7 @@ public class Route1 : MonoBehaviourPunCallbacks
                     if (pointIdx == points.Count)
                     {
                         moveObj.SetActive(false); 
-                        Invoke(nameof(NPCReset), 3f);
+                        Invoke(nameof(NPCReset), waittime);
                     }
                 }
             }
@@ -107,11 +108,7 @@ public class Route1 : MonoBehaviourPunCallbacks
     void NPCorikaesi() {
         moveObj.SetActive(true);
 
-        //moveObj.transform.position = points[orikaesi].position;
-        //points = new List<Transform>();
-        //points = GetComponentsInChildren<Transform>().Where(t => t != transform).ToList();
-        //pointIdx =orikaesi+ 1;
-        //nextPos = points[pointIdx].position;
+      
         c = false;
     }
     private async void maepos(Vector3 vector3)

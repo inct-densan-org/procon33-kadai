@@ -30,8 +30,8 @@ public class Infection2 : MonoBehaviourPunCallbacks
         GameObject menu = GameObject.Find("PUN2Sever");
          pun2server = menu.GetComponent<PUN2Server>();
         Player = PhotonNetwork.LocalPlayer.ActorNumber;
-        Debug.Log(Player);
-        collider2 = this.GetComponent<CircleCollider2D>();
+        
+        collider2 = this.transform.GetChild(0).gameObject.GetComponent<CircleCollider2D>();
         var byou = GetComponent<itibyou>();
        // Customproperties.Setplayerinf(false, Player);
         if (byou == null)
@@ -50,11 +50,11 @@ public class Infection2 : MonoBehaviourPunCallbacks
     // Update is called once per frame
     void Update()
     {
-       
-        myinfsee = GetPlayerinf(Player);
+
+        var myinf = GetPlayerinf(Player);
         var isman = pun2server.isman;
 
-        if (infected == true)
+        if (myinf == true)
         {
             if (isman == 1) { collider2.radius = 9f; }
             if (isman == 0) { collider2.radius = 5f; }
@@ -94,7 +94,7 @@ public class Infection2 : MonoBehaviourPunCallbacks
 
             //infected = Customproperties.Getplayerinf(e);
             infected = GetPlayerinf(e);
-            if (infected == true )
+            if (infected == true &&GetPlayerinf(Player)==false)
             {
 
                 int rnd = Random.Range(0, 100);
@@ -103,7 +103,8 @@ public class Infection2 : MonoBehaviourPunCallbacks
                    // await Task.Delay(20000);
 
                     photonView.RPC(nameof(Setplayerinf), RpcTarget.All, Player, true);
-
+                    await Task.Delay(20000);
+                    photonView.RPC(nameof(Setplayerinf), RpcTarget.All, Player, false);
                 }
             }
         }
@@ -112,7 +113,7 @@ public class Infection2 : MonoBehaviourPunCallbacks
             var NPCname = collision.gameObject.name;
 
             NPCinf = customproperties.GetNPCinf(NPCname);
-            if (NPCinf == true)
+            if (NPCinf == true && GetPlayerinf(Player) == false)
             {
 
                 int rnd = Random.Range(0, 100);
@@ -121,6 +122,8 @@ public class Infection2 : MonoBehaviourPunCallbacks
                    // await Task.Delay(20000);
 
                     photonView.RPC(nameof(Setplayerinf), RpcTarget.All, Player, true);
+                    await Task.Delay(20000);
+                    photonView.RPC(nameof(Setplayerinf), RpcTarget.All, Player, false);
                     PhotonNetwork.CurrentRoom.SetCustomProperties(roomHash);
                 }
             }
