@@ -33,7 +33,7 @@ public class Shopmanager : MonoBehaviourPunCallbacks
     GameObject iconPrefab = null;
     [SerializeField]
     Transform iconParent = null;
-    public GameObject buydis, buybutton;
+    public GameObject buydis, buybutton,shopdis;
     private GameObject button_ob;
     private string ItemName;
     public TextMeshProUGUI Iteminf, goukei,moneytext;
@@ -150,6 +150,7 @@ public class Shopmanager : MonoBehaviourPunCallbacks
     void OnPushItem()
     {
         buydis.SetActive(true);
+        shopdis.SetActive(false);
         button_ob = eventSystem.currentSelectedGameObject;
         s = 0;
         inputField.text = "0";
@@ -206,6 +207,8 @@ public class Shopmanager : MonoBehaviourPunCallbacks
     public void Onbushback()
     {
         buydis.SetActive(false);
+        mesege.text = null;
+        shopdis.SetActive(true);
     }
     public void onpushshopback()
     {
@@ -215,7 +218,6 @@ public class Shopmanager : MonoBehaviourPunCallbacks
         var d = buttons.Count;
         for(int i=0; i < d; i++)
         {
-            
             GameObject icon = buttons[i];
             // アイテムのアイコンを削除
             Destroy(icon);

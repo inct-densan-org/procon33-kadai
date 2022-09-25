@@ -47,8 +47,7 @@ public class GameStart : MonoBehaviourPunCallbacks
             {
                 customproperties.SetNPCinf(NPClist[list[i]], true);
             }
-            Debug.Log(NPClist[list[i]]);
-            Debug.Log(customproperties.GetNPCinf(NPClist[list[i]]));
+           
         }
         
         

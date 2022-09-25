@@ -21,23 +21,11 @@ public class FlushController : MonoBehaviourPunCallbacks
     void Start()
     {
         
-        //var tagObjects = GameObject.FindGameObjectsWithTag("Player");
-        // var playernum = tagObjects.Length;
-        // var playerlist = PhotonNetwork.PlayerList;
-        // for(int i = 0; i < playernum; i++)
-        // {
-        //     if (playerlist[i]==PhotonNetwork.LocalPlayer)Player=i+1;
-        // }
         Player = PhotonNetwork.LocalPlayer.ActorNumber;
         image =GameObject. GetComponent<Image>();
         image.color = Color.clear;
         var byou = GetComponent<itibyou>();
-      //var  tagObjects = GameObject.FindGameObjectsWithTag("Player");
-      //  foreach(var q in tagObjects)
-      //  {
-      //    var r=  q.GetPhotonView();
-
-      //  }
+      
         if (byou == null)
         {
             byou = gameObject.AddComponent<itibyou>();
@@ -65,8 +53,8 @@ public class FlushController : MonoBehaviourPunCallbacks
         Image image = GameObject.GetComponent<Image>();
         image.color = Color.Lerp(Color.clear, target, Mathf.PingPong(Time.time, 1));
         Vector3 pos = GameObject.transform.localPosition;
-        if (trigger) pos.z = -5.0f;
-        else pos.z = -50.0f;
+        if (trigger) GameObject.SetActive(true);
+        else GameObject.SetActive(false);
         GameObject.transform.localPosition = pos;
     }
 }

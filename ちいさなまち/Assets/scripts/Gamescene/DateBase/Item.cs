@@ -40,6 +40,8 @@ public class Item : ScriptableObject
 	private int foodrecovery;
 	[SerializeField]
 	private bool other_effect;
+	[SerializeField]
+	private bool eat_when_infected;
 	private GameObject game;
 	public KindOfItem GetKindOfItem()
 	{
@@ -80,6 +82,10 @@ public class Item : ScriptableObject
     {
 		return other_effect;
     }
+	public bool GetEatWhenInfected()
+	{
+		return eat_when_infected;
+	}
 	public void Setkosuu(int itemkazu)
     {
 		game = GameObject.Find("menumaneger");
