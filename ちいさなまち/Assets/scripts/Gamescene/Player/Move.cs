@@ -75,14 +75,11 @@ public class Move : MonoBehaviourPunCallbacks
 
         var x = Input.GetAxisRaw("Horizontal");
         var y = Input.GetAxisRaw("Vertical");
-        //if (infection == true&&isdurk==false)
+        //if (infection == true)
         //{
         //    speed = 1f;
         //}
-        //if (infection == true && isdurk == true)
-        //{
-        //    speed = 3f;
-        //}
+       
         //if(infection==false)
         //{
         //    speed = 5f;
@@ -115,7 +112,7 @@ public class Move : MonoBehaviourPunCallbacks
                 if (y > 0.1 && ispush == false) { animator.SetFloat(idY, 1); ispush = true; }
                 if (y < -0.1 && ispush == false) { animator.SetFloat(idY, -1); ispush = true; }
             }
-            if (menuKey != null) { animator.SetFloat(idX, 0); animator.SetFloat(idX, 0); }
+            if (menuKey != null) { animator.SetFloat(idX, 0); animator.SetFloat(idY, 0); }
             popo = transform.position;
         }
     }

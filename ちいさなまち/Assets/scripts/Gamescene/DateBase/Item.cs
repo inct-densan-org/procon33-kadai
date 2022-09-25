@@ -30,6 +30,7 @@ public class Item : ScriptableObject
 	//�@�A�C�e���̏��
 	[SerializeField]
 	private string information;
+	
 	[SerializeField]
 	private int money;
 	[SerializeField]
@@ -62,6 +63,7 @@ public class Item : ScriptableObject
 	{
 		return information;
 	}
+	
 	public int Getmoney()
 	{
 		return money;

@@ -5,8 +5,9 @@ using UnityEngine.UI;
 using TMPro;
 using System.Threading.Tasks;
 using UnityEngine.EventSystems;
+using Photon.Pun;
 
-public class Menumanager : MonoBehaviour
+public class Menumanager : MonoBehaviourPunCallbacks
 {
     [SerializeField]
     private QuestDataBase QuestDataBase;
@@ -34,6 +35,7 @@ public class Menumanager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        
         menuKey = null;
         itemFlags = new bool[itemDataBase.GetItemLists().Count];
         gaugemanager = GameObject.Find("menumaneger").GetComponent<Gaugemanager>();
@@ -109,8 +111,10 @@ public class Menumanager : MonoBehaviour
 
     public async void Onyes()
     {
+
         if (menuKey == "menu")
         {
+            infection2 = GameObject.FindGameObjectsWithTag("Player")[0].gameObject.GetComponent<Infection2>();
             if (GetItem(ItemName).Getkosuu() == 0)
             {
                 warning.text = "アイテムがありません";
@@ -118,23 +122,56 @@ public class Menumanager : MonoBehaviour
             }
             else if(ItemName != null&& GetItem(ItemName).Getkosuu() > 0)
             {
-                gaugemanager.Setfood(GetItem(ItemName).Getfoodrecovery());
-                gaugemanager.SetWater(GetItem(ItemName).Getwaterrecovery());
-                GetItem(ItemName).Setkosuu(-1);
-                messegedis.SetActive(false);
-                if (GetItem(ItemName).Getother_effect())
+                if (infection2.GetPlayerinf(PhotonNetwork.LocalPlayer.ActorNumber) == true)
                 {
-                    if(ItemName == "マスク")
+                    if (GetItem(ItemName).GetEatWhenInfected() == true)
                     {
-                        Infection2.ismask = true;
+                        gaugemanager.Setfood(GetItem(ItemName).Getfoodrecovery());
+                        gaugemanager.SetWater(GetItem(ItemName).Getwaterrecovery());
+                        GetItem(ItemName).Setkosuu(-1);
+                        messegedis.SetActive(false);
+                        if (GetItem(ItemName).Getother_effect())
+                        {
+                            if (ItemName == "マスク")
+                            {
+                                Infection2.ismask = true;
+                            }
+                            if (ItemName == "普通の薬")
+                            {
+                                Move.isdurk = true;
+                                await Task.Delay(10000);
+                                Move.Effecttime();
+                            }
+                        }
                     }
-                    if (ItemName == "普通の薬" )
+                    else
                     {
-                        Move.isdurk = true;   
-                       await Task.Delay(10000);
-                        Move.Effecttime();
+                        warning.text = "感染してるため使うことが出来ません";
+                        Invoke(nameof(Delwarning), 3);
                     }
                 }
+                else
+                {
+                    gaugemanager.Setfood(GetItem(ItemName).Getfoodrecovery());
+                    gaugemanager.SetWater(GetItem(ItemName).Getwaterrecovery());
+                    GetItem(ItemName).Setkosuu(-1);
+                    messegedis.SetActive(false);
+                    if (GetItem(ItemName).Getother_effect())
+                    {
+                        if (ItemName == "マスク")
+                        {
+                            Infection2.ismask = true;
+                        }
+                        if (ItemName == "普通の薬")
+                        {
+                            Move.isdurk = true;
+                            await Task.Delay(10000);
+                            Move.Effecttime();
+                        }
+                    }
+                }
+                
+                
             }
            
             
