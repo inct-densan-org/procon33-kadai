@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: "\u3059\u3054\u304F\u3044\u3044\u6F22\u65B9"
   m_EditorClassIdentifier: 
   kindOfItem: 3
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: bf796b39e74e565469b80f230f564e48, type: 3}
   itemName: "\u3059\u3054\u304F\u3044\u3044\u6F22\u65B9"
   information: "\u306E\u3069\u306E\u75C7\u72B6\u3092\u3088\u304F\u7DE9\u548C\u3059\u308B"
   money: 800
