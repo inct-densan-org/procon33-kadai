@@ -55,10 +55,12 @@ public class Menumanager : MonoBehaviourPunCallbacks
     {
         int index = Index(itemName);
         GameObject icon = Instantiate(iconPrefab, iconParent);
-        icon.GetComponent<Image>().sprite = GetItem(itemName).GetIcon();
+        
         icon.GetComponent<Button>().onClick.AddListener(onPush);
         GameObject kosuutext= icon.transform.GetChild(0).gameObject;
         kosuutext.name = itemName;
+        GameObject iconsprite = icon.transform.GetChild(1).gameObject;
+        iconsprite.GetComponent<Image>().sprite = GetItem(itemName).GetIcon();
         icon.name = itemName;
         icons.Add(index, icon);
     }
