@@ -39,6 +39,7 @@ public class Menumanager : MonoBehaviourPunCallbacks
         menuKey = null;
         itemFlags = new bool[itemDataBase.GetItemLists().Count];
         gaugemanager = GameObject.Find("menumaneger").GetComponent<Gaugemanager>();
+       
     }
     int Index(string itemName)
     {
@@ -104,7 +105,7 @@ public class Menumanager : MonoBehaviourPunCallbacks
         button_ob = eventSystem.currentSelectedGameObject;
 
         ItemName = button_ob.name;
-        
+        warning.text = null;
         mesasege.text = GetItem(ItemName).GetItemName() + "\n" + GetItem(ItemName).GetInformation() + "\n" + "を使用しますか？";
     }
 
@@ -117,6 +118,7 @@ public class Menumanager : MonoBehaviourPunCallbacks
         if (menuKey == "menu")
         {
             infection2 = GameObject.FindGameObjectsWithTag("Player")[0].gameObject.GetComponent<Infection2>();
+            move = GameObject.FindGameObjectsWithTag("Player")[0].gameObject.GetComponent<Move>();
             if (GetItem(ItemName).Getkosuu() == 0)
             {
                 warning.text = "アイテムがありません";
@@ -142,7 +144,7 @@ public class Menumanager : MonoBehaviourPunCallbacks
                                 infection2.ismask = false;
                                 
                             }
-                            if (ItemName == "マスク" && infection2.ismask == true||ItemName== "普通のせき止め" && infection2.kanpou == true|| ItemName == "すごくいいせき止め" && infection2.greatkanpou == false|| ItemName == "いいせき止め" && infection2.goodkanpou == false)
+                            if (ItemName == "マスク" && infection2.ismask == true||ItemName== "普通のせき止め" && infection2.kanpou == true|| ItemName == "すごくいいせき止め" && infection2.greatkanpou == false|| ItemName == "いいせき止め" && infection2.goodkanpou == false|| ItemName == "いい解熱剤" && move.iikai == false|| ItemName == "普通の解熱剤" && move.kai == false|| ItemName == "すごくいい解熱剤" && move.sugoikai == false)
                             {
                                 warning.text="効果は続いています";
                                 Invoke(nameof(Delwarning), 3);
@@ -169,11 +171,11 @@ public class Menumanager : MonoBehaviourPunCallbacks
                             if (ItemName == "すごくいいせき止め" && infection2.greatkanpou == false)
                             {
                                 infection2.greatkanpou = true;
-                                await Task.Delay(GetItem(ItemName).Geteffecttime() * 1000);
                                 GetItem(ItemName).Setkosuu(-1);
                                 messegedis.SetActive(false);
-                                infection2.greatkanpou = false;
+                                await Task.Delay(GetItem(ItemName).Geteffecttime() * 1000);
                                 
+                                infection2.greatkanpou = false;
                             }
                             if (ItemName == "漢方" && KANPOU==false)
                             {
@@ -181,8 +183,34 @@ public class Menumanager : MonoBehaviourPunCallbacks
                                 GetItem(ItemName).Setkosuu(-1);
                                 messegedis.SetActive(false);
                                 await Task.Delay(GetItem(ItemName).Geteffecttime() * 1000);
-                                KANPOU = false;
-                                
+                                KANPOU = false;  
+                            }
+                            if (ItemName == "いい解熱剤" && move.iikai == false)
+                            {
+                                move.iikai = true;
+                                GetItem(ItemName).Setkosuu(-1);
+                                messegedis.SetActive(false);
+                                await Task.Delay(GetItem(ItemName).Geteffecttime() * 1000);
+
+                                move.iikai = false;
+                            }
+                            if (ItemName == "普通の解熱剤" && move.kai == false)
+                            {
+                                move.kai = true;
+                                GetItem(ItemName).Setkosuu(-1);
+                                messegedis.SetActive(false);
+                                await Task.Delay(GetItem(ItemName).Geteffecttime() * 1000);
+
+                                move.kai = false;
+                            }
+                            if (ItemName == "すごくいい解熱剤" && move.sugoikai == false)
+                            {
+                                move.sugoikai = true;
+                                GetItem(ItemName).Setkosuu(-1);
+                                messegedis.SetActive(false);
+                                await Task.Delay(GetItem(ItemName).Geteffecttime() * 1000);
+
+                                move.sugoikai = false;
                             }
                         }
                         else
@@ -201,7 +229,7 @@ public class Menumanager : MonoBehaviourPunCallbacks
                 }
                 else//感染してないとき
                 {
-                    if (ItemName == "普通のせき止め" || ItemName == "いいせき止め" || ItemName == "すごくいいせき止め"||ItemName=="漢方")
+                    if (ItemName == "普通のせき止め" || ItemName == "いいせき止め" || ItemName == "すごくいいせき止め"||ItemName=="漢方"||ItemName == "すごくいい解熱剤"|| ItemName == "いい解熱剤"||ItemName == "普通の解熱剤")
                     {
                         warning.text = "感染してないため使えません";
                     }

@@ -16,7 +16,7 @@ public class Move : MonoBehaviourPunCallbacks
     private Vector3 input;
     private Menumanager menumanager;
     private QuestDataBase QuestDataBase;
-    public static bool isdurk;
+    public  bool kai,iikai,sugoikai;
     private float speed = 5f;
     public static ExitGames.Client.Photon.Hashtable roomHash;
     public static string myplayername;
@@ -47,23 +47,9 @@ public class Move : MonoBehaviourPunCallbacks
         if (playernum >= 7) if (player1[6] == PhotonNetwork.LocalPlayer) { transform.localPosition = new Vector3(16.4f, -1.9f, -1); }
         if (playernum >= 8) if (player1[7] == PhotonNetwork.LocalPlayer) { transform.localPosition = new Vector3(14f, -1.9f, -1); }
 
-        var byou = GetComponent<itibyou>();
+       
 
-        if (byou == null)
-        {
-            byou = gameObject.AddComponent<itibyou>();
-        }
-
-        if (byou == null)
-        {
-            gameObject.AddComponent<itibyou>();
-        }
-
-        byou.Init(() =>
-        {
-            // infection = Customproperties.Getplayerinf(player.ActorNumber);
-        });
-        byou.Play();
+       
 
     }
 
@@ -75,15 +61,27 @@ public class Move : MonoBehaviourPunCallbacks
 
         var x = Input.GetAxisRaw("Horizontal");
         var y = Input.GetAxisRaw("Vertical");
-        //if (infection == true)
-        //{
-        //    speed = 1f;
-        //}
-       
-        //if(infection==false)
-        //{
-        //    speed = 5f;
-        //}デバッグのために外します
+        if (infection == true&&!iikai&&!kai&&!sugoikai)
+        {
+            speed = 1f;
+        }
+       else if (infection == true && sugoikai)
+        {
+            speed = 4f;
+        }
+        else if (infection == true && iikai)
+        {
+            speed = 3f;
+        }
+        else if (infection == true && kai)
+        {
+            speed = 2f;
+        }
+        if (infection == false)
+        {
+            speed = 5f;
+        }
+      
 
         if (photonView.IsMine)
         {
@@ -116,10 +114,7 @@ public class Move : MonoBehaviourPunCallbacks
             popo = transform.position;
         }
     }
-    public static void Effecttime()
-    {
-        isdurk = false;
-    }
+    
     private void OnTriggerStay2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("shop") && photonView.IsMine)

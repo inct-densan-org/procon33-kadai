@@ -63,7 +63,7 @@ public class Infection2 : MonoBehaviourPunCallbacks
         }
         else if(myinf&&greatkanpou)
         {
-          
+           
             if (isman == 1) { collider2.radius = 6f; }
             if (isman == 0) { collider2.radius = 3.5f; }
         }
