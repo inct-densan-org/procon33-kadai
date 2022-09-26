@@ -20,10 +20,11 @@ public class Menumanager : MonoBehaviourPunCallbacks
     private string ItemName;
     private Infection2 infection2;
     private Gaugemanager gaugemanager;
-    private bool KANPOU, kanpou, goodkanpou, greatkanpou;
+    private bool  kanpou, goodkanpou, greatkanpou;
     private Move move;
     private TasManager tasManager;
     private int questnum;
+    public bool KANPOU;
     [SerializeField]
     GameObject iconPrefab = null;
     [SerializeField]

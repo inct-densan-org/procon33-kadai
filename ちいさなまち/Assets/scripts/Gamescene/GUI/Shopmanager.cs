@@ -40,6 +40,7 @@ public class Shopmanager : MonoBehaviourPunCallbacks
     public TMP_InputField inputField;
     private Gaugemanager gaugemanager;
     private int  s;
+    private Infection2 infection2;
   public  Dictionary<int, GameObject> buttons = new Dictionary<int, GameObject>();
     // Start is called before the first frame update
     void Start()
@@ -171,6 +172,7 @@ public class Shopmanager : MonoBehaviourPunCallbacks
     
     public void Onpushbuy()
     {
+        infection2 = GameObject.FindGameObjectsWithTag("Player")[0].gameObject.GetComponent<Infection2>();
         var totalmoney = GetItem(ItemName).Getmoney() * s;
         button_ob = eventSystem.currentSelectedGameObject;
         ItemName = button_ob.name;
@@ -179,12 +181,29 @@ public class Shopmanager : MonoBehaviourPunCallbacks
         if (money >= totalmoney && totalmoney != 0)
         {
             Moneymanager.Setmoney(-(totalmoney));
-            if(GetItem(ItemName).GetKindOfItem().ToString()== "restaurant")
+            if(GetItem(ItemName).GetKindOfItem().ToString()== "restaurant"&&!infection2.GetPlayerinf(PhotonNetwork.LocalPlayer.ActorNumber))
             {
                 mesege.text = "食べました";
                 Invoke(nameof(mesagedele), 3f);
                 gaugemanager.Setfood(GetItem(ItemName).Getfoodrecovery());
                 gaugemanager.SetWater(GetItem(ItemName).Getwaterrecovery());
+            }
+           else if (GetItem(ItemName).GetKindOfItem().ToString() == "restaurant" && infection2.GetPlayerinf(PhotonNetwork.LocalPlayer.ActorNumber))
+            {
+                var a = menumanager.KANPOU;
+                if (a)
+                {
+                    mesege.text = "食べました";
+                    Invoke(nameof(mesagedele), 3f);
+                    gaugemanager.Setfood(GetItem(ItemName).Getfoodrecovery());
+                    gaugemanager.SetWater(GetItem(ItemName).Getwaterrecovery());
+                }
+                else
+                {
+                    mesege.text = "感染しているため食べる事が出来ません。";
+                    Invoke(nameof(mesagedele), 3f);
+                }
+                
             }
             else
             {
