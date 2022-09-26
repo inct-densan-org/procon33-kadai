@@ -10,14 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0edc6a2b9a2b1694bb0a50be5648c706, type: 3}
-  m_Name: mask
+  m_Name: "\u3044\u3044\u305B\u304D\u6B62\u3081"
   m_EditorClassIdentifier: 
-  kindOfItem: 0
-  icon: {fileID: 21300000, guid: bde34050415b6714d9ba5f3028aeb26b, type: 3}
-  itemName: "\u30DE\u30B9\u30AF"
-  information: "\u611F\u67D3\u3057\u305A\u3089\u304F\u306A\u308B"
-  money: 29
+  kindOfItem: 3
+  icon: {fileID: 0}
+  itemName: "\u3044\u3044\u305B\u304D\u6B62\u3081"
+  information: "\u305B\u304D\u306E\u75C7\u72B6\u3092\u7DE9\u548C\u3059\u308B"
+  money: 600
   kosuu: 0
   waterrecovery: 0
   foodrecovery: 0
   other_effect: 1
+  eat_when_infected: 1

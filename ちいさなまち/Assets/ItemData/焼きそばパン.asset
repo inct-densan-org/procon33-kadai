@@ -15,6 +15,10 @@ MonoBehaviour:
   kindOfItem: 0
   icon: {fileID: 21300000, guid: adef97ff0b6b2774190299f92212f47c, type: 3}
   itemName: "\u713C\u304D\u305D\u3070\u30D1\u30F3"
-  information: "\u98DF\u6599\u30B2\u30FC\u30B8\u3092\u56DE\u5FA9\u3059\u308B"
-  money: 60
+  information: "\u98DF\u6599\u30B2\u30FC\u30B8\u309230\u56DE\u5FA9\u3059\u308B"
+  money: 90
   kosuu: 0
+  waterrecovery: 0
+  foodrecovery: 30
+  other_effect: 0
+  eat_when_infected: 0
