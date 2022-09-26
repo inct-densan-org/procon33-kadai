@@ -11,27 +11,49 @@ public   class Customproperties :MonoBehaviourPunCallbacks
 {
    
     public  ExitGames.Client.Photon.Hashtable roomHash;
+    private GameObject[] npcobj;
+    private bool s;
     private void Start()
     {
-        NPCcustom();
+        npcobj = GameObject.FindGameObjectsWithTag("NPC");
+        roomHash = new ExitGames.Client.Photon.Hashtable();
     }
 
-    public  async void NPCcustom()
+    public  void Update()
+    {
+
+         
+        if (npcobj.Length == 0)
+        {
+             npcobj = GameObject.FindGameObjectsWithTag("NPC");
+        }
+        else
+        {
+            if (s == false)
+            {
+                s = true;
+                SEtNPCcustom();
+            }
+           
+        }
+        
+
+    }
+   async void SEtNPCcustom()
     {
         await Task.Delay(1000);
-        roomHash = new ExitGames.Client.Photon.Hashtable();
-        var npcobj = GameObject.FindGameObjectsWithTag("NPC");
+        npcobj = GameObject.FindGameObjectsWithTag("NPC");
         var npcobjnum = GameObject.FindGameObjectsWithTag("NPC").Length;
         foreach (GameObject item in npcobj)
         {
             roomHash.Add($"{item.name}", false);
+            
         }
         PhotonNetwork.CurrentRoom.SetCustomProperties(roomHash);
-
     }
-   
     public  bool GetNPCinf(string name)
     {
+        
         return (bool) roomHash[$"{name}"];
     }
 

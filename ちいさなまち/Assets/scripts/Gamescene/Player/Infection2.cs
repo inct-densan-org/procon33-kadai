@@ -12,13 +12,14 @@ public class Infection2 : MonoBehaviourPunCallbacks
 
     public bool NPCinf;
     public int infectionProbability = 1000;
-    private CircleCollider2D collider2;
+    public CircleCollider2D collider2;
     public GameObject kansenhani;
     public Shopmanager shopmanager;
-    public static bool ismask;
+    public  bool ismask;
+    private Menumanager menumanager;
     private NPCBase NPCShop;
     private PUN2Server pun2server;
-    public  bool infecsee,myinfsee;
+    public  bool infecsee,myinfsee,kanpou,goodkanpou,greatkanpou;
     public  int Player;
     public static ExitGames.Client.Photon.Hashtable roomHash;
     public  bool p1inf, p2inf, p3inf, p4inf, p5inf, p6inf, p7inf, p8inf,myinf;
@@ -30,7 +31,7 @@ public class Infection2 : MonoBehaviourPunCallbacks
         GameObject menu = GameObject.Find("PUN2Sever");
          pun2server = menu.GetComponent<PUN2Server>();
         Player = PhotonNetwork.LocalPlayer.ActorNumber;
-        
+        menumanager= GameObject.Find("menumanager").gameObject.GetComponent<Menumanager>();
         collider2 = this.transform.GetChild(0).gameObject.GetComponent<CircleCollider2D>();
         var byou = GetComponent<itibyou>();
        // Customproperties.Setplayerinf(false, Player);
@@ -50,36 +51,47 @@ public class Infection2 : MonoBehaviourPunCallbacks
     // Update is called once per frame
     void Update()
     {
-
+        if(collider2==null) collider2 = this.transform.GetChild(0).gameObject.GetComponent<CircleCollider2D>();
         var myinf = GetPlayerinf(Player);
         var isman = pun2server.isman;
-
-        if (myinf == true)
+        
+        if (myinf == true&&!kanpou&&!goodkanpou&&!greatkanpou)
         {
+            
             if (isman == 1) { collider2.radius = 9f; }
             if (isman == 0) { collider2.radius = 5f; }
         }
-        else
+        else if(myinf&&greatkanpou)
         {
+          
             if (isman == 1) { collider2.radius = 6f; }
             if (isman == 0) { collider2.radius = 3.5f; }
         }
-        if (ismask == true&&iti==false)
+        else if (myinf && goodkanpou)
+        {
+            
+            if (isman == 1) { collider2.radius = 7f; }
+            if (isman == 0) { collider2.radius = 4f; }
+        }
+        else if (myinf && kanpou)
+        {
+            
+            if (isman == 1) { collider2.radius = 8f; }
+            if (isman == 0) { collider2.radius = 4.5f; }
+        }
+        if (ismask == true)
         {
 
-            iti = true;
+            
             infectionProbability = 1;
-            Invoke(nameof(Effecttime), 10);
+            
         }
         if (ismask == false)
         {
             infectionProbability = 100;
         }
     }
-    void Effecttime()
-    {
-        iti = false; ismask = false;
-    }
+    
     private async void OnTriggerEnter2D(Collider2D collision)
     {
 

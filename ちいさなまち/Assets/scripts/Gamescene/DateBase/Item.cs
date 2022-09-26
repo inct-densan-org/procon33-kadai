@@ -30,7 +30,8 @@ public class Item : ScriptableObject
 	//�@�A�C�e���̏��
 	[SerializeField]
 	private string information;
-	
+	[SerializeField]
+	private int effecttime;
 	[SerializeField]
 	private int money;
 	[SerializeField]
@@ -67,6 +68,10 @@ public class Item : ScriptableObject
 	public int Getmoney()
 	{
 		return money;
+	}
+	public int Geteffecttime()
+	{
+		return effecttime;
 	}
 	public int Getkosuu()
 	{

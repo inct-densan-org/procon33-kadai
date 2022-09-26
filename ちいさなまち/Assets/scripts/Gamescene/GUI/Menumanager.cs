@@ -20,7 +20,7 @@ public class Menumanager : MonoBehaviourPunCallbacks
     private string ItemName;
     private Infection2 infection2;
     private Gaugemanager gaugemanager;
-    
+    private bool KANPOU, kanpou, goodkanpou, greatkanpou;
     private Move move;
     private TasManager tasManager;
     private int questnum;
@@ -124,9 +124,88 @@ public class Menumanager : MonoBehaviourPunCallbacks
             }
             else if(ItemName != null&& GetItem(ItemName).Getkosuu() > 0)
             {
-                if (infection2.GetPlayerinf(PhotonNetwork.LocalPlayer.ActorNumber) == true)
+                if (infection2.GetPlayerinf(PhotonNetwork.LocalPlayer.ActorNumber) == true&&KANPOU==false)
                 {
                     if (GetItem(ItemName).GetEatWhenInfected() == true)
+                    {
+                        gaugemanager.Setfood(GetItem(ItemName).Getfoodrecovery());
+                        gaugemanager.SetWater(GetItem(ItemName).Getwaterrecovery());
+                        
+                        if (GetItem(ItemName).Getother_effect())
+                        {
+                            if (ItemName == "マスク"&& infection2.ismask ==false)
+                            {
+                                infection2.ismask = true;
+                                GetItem(ItemName).Setkosuu(-1);
+                                messegedis.SetActive(false);
+                                await Task.Delay(GetItem(ItemName).Geteffecttime() * 1000);
+                                infection2.ismask = false;
+                                
+                            }
+                            if (ItemName == "マスク" && infection2.ismask == true||ItemName== "普通のせき止め" && infection2.kanpou == true|| ItemName == "すごくいいせき止め" && infection2.greatkanpou == false|| ItemName == "いいせき止め" && infection2.goodkanpou == false)
+                            {
+                                warning.text="効果は続いています";
+                                Invoke(nameof(Delwarning), 3);
+                            }
+                            
+                            if (ItemName == "普通のせき止め" && infection2.kanpou == false)
+                            {
+                                infection2.kanpou = true;
+                                GetItem(ItemName).Setkosuu(-1);
+                                messegedis.SetActive(false);
+                                await Task.Delay(GetItem(ItemName).Geteffecttime()*1000);
+                                infection2.kanpou = false;
+                                
+                            }
+                            if (ItemName == "いいせき止め" && infection2.goodkanpou == false)
+                            {
+                                infection2.goodkanpou = true;
+                                GetItem(ItemName).Setkosuu(-1);
+                                messegedis.SetActive(false);
+                                await Task.Delay(GetItem(ItemName).Geteffecttime() * 1000);
+                                infection2.goodkanpou = false;
+                                
+                            }
+                            if (ItemName == "すごくいいせき止め" && infection2.greatkanpou == false)
+                            {
+                                infection2.greatkanpou = true;
+                                await Task.Delay(GetItem(ItemName).Geteffecttime() * 1000);
+                                GetItem(ItemName).Setkosuu(-1);
+                                messegedis.SetActive(false);
+                                infection2.greatkanpou = false;
+                                
+                            }
+                            if (ItemName == "漢方" && KANPOU==false)
+                            {
+                                KANPOU = true;
+                                GetItem(ItemName).Setkosuu(-1);
+                                messegedis.SetActive(false);
+                                await Task.Delay(GetItem(ItemName).Geteffecttime() * 1000);
+                                KANPOU = false;
+                                
+                            }
+                        }
+                        else
+                        {
+                            GetItem(ItemName).Setkosuu(-1);
+                            messegedis.SetActive(false);
+                        }
+                        
+                        
+                    }
+                    else
+                    {
+                        warning.text = "感染してるため使うことが出来ません";
+                        Invoke(nameof(Delwarning), 3);
+                    }
+                }
+                else//感染してないとき
+                {
+                    if (ItemName == "普通のせき止め" || ItemName == "いいせき止め" || ItemName == "すごくいいせき止め"||ItemName=="漢方")
+                    {
+                        warning.text = "感染してないため使えません";
+                    }
+                    else
                     {
                         gaugemanager.Setfood(GetItem(ItemName).Getfoodrecovery());
                         gaugemanager.SetWater(GetItem(ItemName).Getwaterrecovery());
@@ -136,41 +215,14 @@ public class Menumanager : MonoBehaviourPunCallbacks
                         {
                             if (ItemName == "マスク")
                             {
-                                Infection2.ismask = true;
+                                infection2.ismask = true;
                             }
-                            if (ItemName == "普通の薬")
-                            {
-                                Move.isdurk = true;
-                                await Task.Delay(10000);
-                                Move.Effecttime();
-                            }
+
+
                         }
                     }
-                    else
-                    {
-                        warning.text = "感染してるため使うことが出来ません";
-                        Invoke(nameof(Delwarning), 3);
-                    }
-                }
-                else
-                {
-                    gaugemanager.Setfood(GetItem(ItemName).Getfoodrecovery());
-                    gaugemanager.SetWater(GetItem(ItemName).Getwaterrecovery());
-                    GetItem(ItemName).Setkosuu(-1);
-                    messegedis.SetActive(false);
-                    if (GetItem(ItemName).Getother_effect())
-                    {
-                        if (ItemName == "マスク")
-                        {
-                            Infection2.ismask = true;
-                        }
-                        if (ItemName == "普通の薬")
-                        {
-                            Move.isdurk = true;
-                            await Task.Delay(10000);
-                            Move.Effecttime();
-                        }
-                    }
+                   
+                    
                 }
                 
                 
