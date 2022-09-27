@@ -7,11 +7,12 @@ using Unity.VisualScripting;
 using Photon.Realtime;
 using ExitGames.Client.Photon;
 using Hashtable = ExitGames.Client.Photon.Hashtable;
+using UnityEngine.UI;
 
 public class TasManager : MonoBehaviourPunCallbacks
 {
     public GameObject Questmenu, messegedis;
-    public TextMeshProUGUI inf1, inf2, inf3, messege;
+    public TextMeshProUGUI inf1, inf2, inf3, messege,mesegetitle;
     [SerializeField]
     private QuestDataBase QuestDataBase;
     private Moneymanager Moneymanager;
@@ -22,9 +23,12 @@ public class TasManager : MonoBehaviourPunCallbacks
     public GameObject t1, t2, t3;
     public int quriacount;
     private int qiestnum;
+    public Sprite menusp, questsp;
+    private Image mesegeimage;
     // Start is called before the first frame update
     void Start()
     {
+      mesegeimage=   messegedis.GetComponent<Image>() ;
         qiestnum = QuestDataBase.GetQusetLists().Count;
         for (int i = 0; i < QuestDataBase.GetQusetLists().Count; i++)
         {
@@ -50,9 +54,19 @@ public class TasManager : MonoBehaviourPunCallbacks
     // Update is called once per frame
     void Update()
     {
+
         menuKey = Menumanager.menuKey;
-        if (menuKey=="quest")
+        if (menuKey == "menu")
         {
+            mesegetitle.text = "アイテム詳細";
+            mesegeimage.sprite = menusp;
+            mesegeimage.color = new Color32(189, 247, 255, 255);
+        }
+        if (menuKey=="quest")
+        {//189,247,255,255
+            mesegetitle.text = "クエスト詳細";
+            mesegeimage.sprite = questsp;
+            mesegeimage.color= new Color32(255, 255, 255, 255);
             if (QuestDataBase.GetQusetLists()[list[0]].GetIsQuest()) t1.SetActive(true); else t1.SetActive(false);
             if (QuestDataBase.GetQusetLists()[list[1]].GetIsQuest()) t2.SetActive(true); else t2.SetActive(false);
             if (QuestDataBase.GetQusetLists()[list[2]].GetIsQuest()) t3.SetActive(true); else t3.SetActive(false);
