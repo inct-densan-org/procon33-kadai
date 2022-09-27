@@ -20,9 +20,12 @@ public class TasManager : MonoBehaviourPunCallbacks
     public List<int> list = new List<int>();
     public static int Questnum;
     public GameObject t1, t2, t3;
+    public int quriacount;
+    private int qiestnum;
     // Start is called before the first frame update
     void Start()
     {
+        qiestnum = QuestDataBase.GetQusetLists().Count;
         for (int i = 0; i < QuestDataBase.GetQusetLists().Count; i++)
         {
             QuestDataBase.GetQusetLists()[i].SetIsQuest(false);
@@ -60,9 +63,32 @@ public class TasManager : MonoBehaviourPunCallbacks
         }
         for (int i = 0; i < QuestDataBase.GetQusetLists().Count; i++)
         {
-            if (QuestDataBase.GetQusetLists()[i].GetIsQuria()) taskquria(i);
+            if (QuestDataBase.GetQusetLists()[i].GetIsQuria())
+            {
+                taskquria(i);
+                quriacount++;
+            }
+           
+            
         }
-
+        if(quriacount== qiestnum)
+        {
+            quriacount = 0;
+            int choiceNum;
+            List<int> ramdumlist = new List<int>();
+            for (int i = 0; i < QuestDataBase.GetQusetLists().Count; i++)
+            {
+                ramdumlist.Add(i);
+            }
+            var e = ramdumlist.Count;
+            for (int i = 0; i < e; i++)
+            {
+                int ramdam = ramdumlist[Random.Range(0, ramdumlist.Count)];
+                list.Add(ramdam);
+                choiceNum = ramdumlist.IndexOf(ramdam);
+                ramdumlist.RemoveAt(choiceNum);
+            } 
+        }
     }
     public void taskquria(int i)
     {
