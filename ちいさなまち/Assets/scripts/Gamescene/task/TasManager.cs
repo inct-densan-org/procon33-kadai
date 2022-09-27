@@ -10,7 +10,7 @@ using Hashtable = ExitGames.Client.Photon.Hashtable;
 
 public class TasManager : MonoBehaviourPunCallbacks
 {
-    public GameObject Questmenu, messegedis, questNPC;
+    public GameObject Questmenu, messegedis;
     public TextMeshProUGUI inf1, inf2, inf3, messege;
     [SerializeField]
     private QuestDataBase QuestDataBase;

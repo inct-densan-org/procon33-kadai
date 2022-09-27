@@ -52,6 +52,7 @@ public class Shopmanager : MonoBehaviourPunCallbacks
         {
             
             itemDataBase.GetItemLists()[i].syokika();
+            Debug.Log(itemDataBase.GetItemLists()[i].GetKindOfItem().ToString());
             if (itemDataBase.GetItemLists()[i].GetKindOfItem().ToString() == "restaurant")
             {
                 restoranshopitemlist.Add(i);
@@ -80,7 +81,7 @@ public class Shopmanager : MonoBehaviourPunCallbacks
         inf.GetComponent<TextMeshProUGUI>().text = itemDataBase.GetItemLists()[num].GetItemName();
         GameObject en = button.transform.GetChild(1).gameObject;
         en.GetComponent<TextMeshProUGUI>().text = $"{itemDataBase.GetItemLists()[num].Getmoney()}" + "円";
-        GameObject icon = button.transform.GetChild(2).gameObject;
+        GameObject icon = button.transform.GetChild(3).gameObject;
         icon.GetComponent<Image>().sprite = itemDataBase.GetItemLists()[num].GetIcon();
         button.GetComponent<Button>().onClick.AddListener(OnPushItem);
         buttons.Add(i, button);

@@ -11,7 +11,8 @@ public class Infection2 : MonoBehaviourPunCallbacks
     private bool cooltime ,iti, infected;
 
     public bool NPCinf;
-    public int infectionProbability = 1000;
+    private int infectionProbability ;
+    public int notmaskinfectionProbability;
     public CircleCollider2D collider2;
     public GameObject kansenhani;
     public Shopmanager shopmanager;
@@ -83,12 +84,12 @@ public class Infection2 : MonoBehaviourPunCallbacks
         {
 
             
-            infectionProbability = 1;
+            infectionProbability = 5;
             
         }
         if (ismask == false)
         {
-            infectionProbability = 100;
+            infectionProbability = 10;
         }
     }
     
@@ -115,7 +116,7 @@ public class Infection2 : MonoBehaviourPunCallbacks
                    // await Task.Delay(20000);
 
                     photonView.RPC(nameof(Setplayerinf), RpcTarget.All, Player, true);
-                    await Task.Delay(20000);
+                    await Task.Delay(40000);
                     photonView.RPC(nameof(Setplayerinf), RpcTarget.All, Player, false);
                 }
             }
@@ -134,7 +135,7 @@ public class Infection2 : MonoBehaviourPunCallbacks
                    // await Task.Delay(20000);
 
                     photonView.RPC(nameof(Setplayerinf), RpcTarget.All, Player, true);
-                    await Task.Delay(20000);
+                    await Task.Delay(40000);
                     photonView.RPC(nameof(Setplayerinf), RpcTarget.All, Player, false);
                     PhotonNetwork.CurrentRoom.SetCustomProperties(roomHash);
                 }

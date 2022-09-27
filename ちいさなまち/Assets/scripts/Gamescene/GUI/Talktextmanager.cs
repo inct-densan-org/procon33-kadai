@@ -38,7 +38,7 @@ public class Talktextmanager : MonoBehaviour
                     Menumanager.menuKey = null;
                     Moneymanager.Setmoney(QuestDataBase.GetQusetLists()[0].Getreward());
                     QuestDataBase.GetQusetLists()[0].SetIsQuria(true);
-                    QuestDataBase.GetQusetLists()[0].SetIsQuest(false);
+                    
                     Hospitalquest.questclear = false;
                 }
             }
@@ -52,7 +52,7 @@ public class Talktextmanager : MonoBehaviour
                     Menumanager.menuKey = null;
                     Moneymanager.Setmoney(QuestDataBase.GetQusetLists()[1].Getreward());
                     QuestDataBase.GetQusetLists()[1].SetIsQuria(true);
-                    QuestDataBase.GetQusetLists()[1].SetIsQuest(false);
+                   
                     Hospitalquest.questclear = false;
                 }
             }
@@ -66,7 +66,7 @@ public class Talktextmanager : MonoBehaviour
                     Menumanager.menuKey = null;
                     Moneymanager.Setmoney(QuestDataBase.GetQusetLists()[2].Getreward());
                     QuestDataBase.GetQusetLists()[2].SetIsQuria(true);
-                    QuestDataBase.GetQusetLists()[2].SetIsQuest(false);
+                    
                     Hospitalquest.questclear = false;
                 }
             }
@@ -80,7 +80,7 @@ public class Talktextmanager : MonoBehaviour
                     Menumanager.menuKey = null;
                     Moneymanager.Setmoney(QuestDataBase.GetQusetLists()[4].Getreward());
                     QuestDataBase.GetQusetLists()[4].SetIsQuria(true);
-                    QuestDataBase.GetQusetLists()[4].SetIsQuest(false);
+                    
                     Officequest.questclear = false;
                 }
             }

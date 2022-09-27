@@ -46,7 +46,7 @@ public class Gaugemanager : MonoBehaviourPunCallbacks
             foodtime += 10;
             watertime += 10;
         }
-        foodBar.fillAmount = 1 - (foodtime / 100);
+        foodBar.fillAmount = 1 - (foodtime / 200);
         waterBar.fillAmount = 1 - (watertime / 100);
         if (watertime == 90 && a == false)
         {
