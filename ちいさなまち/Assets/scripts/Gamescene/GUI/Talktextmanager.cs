@@ -38,13 +38,13 @@ public class Talktextmanager : MonoBehaviour
                     Menumanager.menuKey = null;
                     Moneymanager.Setmoney(QuestDataBase.GetQusetLists()[0].Getreward());
                     QuestDataBase.GetQusetLists()[0].SetIsQuria(true);
-<<<<<<< Updated upstream
+
                     
                     Hospitalquest.questclear = false;
-=======
+
                     QuestDataBase.GetQusetLists()[0].SetIsQuest(false);
                     Supermarketquest.questclear = false;
->>>>>>> Stashed changes
+
                 }
             }
 
@@ -71,13 +71,12 @@ public class Talktextmanager : MonoBehaviour
                     Menumanager.menuKey = null;
                     Moneymanager.Setmoney(QuestDataBase.GetQusetLists()[2].Getreward());
                     QuestDataBase.GetQusetLists()[2].SetIsQuria(true);
-<<<<<<< Updated upstream
+
                     
                     Hospitalquest.questclear = false;
-=======
                     QuestDataBase.GetQusetLists()[2].SetIsQuest(false);
                     Dragstorequest.questclear = false;
->>>>>>> Stashed changes
+
                 }
             }
 
