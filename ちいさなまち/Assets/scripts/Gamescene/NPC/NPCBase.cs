@@ -5,6 +5,7 @@ using Photon.Pun;
 using Unity.VisualScripting;
 using Photon.Realtime;
 using ExitGames.Client.Photon;
+using System.Threading.Tasks;
 
 public class NPCBase : MonoBehaviourPunCallbacks
 {
@@ -12,7 +13,7 @@ public class NPCBase : MonoBehaviourPunCallbacks
     private bool NPCinf, cooltime, infected;
     public string Objname,asee;
     public bool NPCinfsee;
-    private int infectionProbability=1;
+    private int infectionProbability=5;
     public  Player player;
     public int a;
     public Infection2 infection2;
@@ -40,7 +41,7 @@ public class NPCBase : MonoBehaviourPunCallbacks
         byou.Play();
     }
 
-    public void OnTriggerStay2D(Collider2D collision)
+    public async void OnTriggerStay2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("NPC") && cooltime == false)
         {
@@ -48,7 +49,7 @@ public class NPCBase : MonoBehaviourPunCallbacks
             Invoke(nameof(Cooldowm), 5f);
 
             infected = customproperties.GetNPCinf(collision.gameObject.name);
-            if (infected == true)
+            if (infected == true&& customproperties.GetNPCinf(gameObject.name))
             {
                 int rnd = Random.Range(0, 100);
                 if (rnd <= infectionProbability)
@@ -56,10 +57,12 @@ public class NPCBase : MonoBehaviourPunCallbacks
                     Invoke(nameof(EffictTime), 180);
                     NPCinf = true;
                     customproperties.SetNPCinf(Objname, NPCinf);
+                    await Task.Delay(100000);
+                    customproperties.SetNPCinf(Objname, false);
                 }
             }
         }
-        if (collision.gameObject.CompareTag("Player") && cooltime == false)
+        if (collision.gameObject.CompareTag("Player") && cooltime == false && customproperties.GetNPCinf(gameObject.name))
         {
             cooltime = true;
             GameObject ds = collision.gameObject;
@@ -78,6 +81,8 @@ public class NPCBase : MonoBehaviourPunCallbacks
                     Invoke(nameof(EffictTime), 180);
                     NPCinf = true;
                     customproperties.SetNPCinf(Objname, NPCinf);
+                    await Task.Delay(100000);
+                    customproperties.SetNPCinf(Objname, false);
                 }
             }
         }
