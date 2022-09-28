@@ -127,7 +127,7 @@ public class Menumanager : MonoBehaviourPunCallbacks
             }
             else if(ItemName != null&& GetItem(ItemName).Getkosuu() > 0)
             {
-                if (infection2.GetPlayerinf(PhotonNetwork.LocalPlayer.ActorNumber) == true&&KANPOU==false)
+                if (infection2.GetPlayerinfeffect(PhotonNetwork.LocalPlayer.ActorNumber) == true&&KANPOU==false)
                 {
                     if (GetItem(ItemName).GetEatWhenInfected() == true)
                     {

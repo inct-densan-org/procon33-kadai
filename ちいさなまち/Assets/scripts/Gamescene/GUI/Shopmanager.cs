@@ -182,14 +182,14 @@ public class Shopmanager : MonoBehaviourPunCallbacks
         if (money >= totalmoney && totalmoney != 0)
         {
             Moneymanager.Setmoney(-(totalmoney));
-            if(GetItem(ItemName).GetKindOfItem().ToString()== "restaurant"&&!infection2.GetPlayerinf(PhotonNetwork.LocalPlayer.ActorNumber))
+            if(GetItem(ItemName).GetKindOfItem().ToString()== "restaurant"&&!infection2.GetPlayerinfeffect(PhotonNetwork.LocalPlayer.ActorNumber))
             {
                 mesege.text = "食べました";
                 Invoke(nameof(mesagedele), 3f);
                 gaugemanager.Setfood(GetItem(ItemName).Getfoodrecovery());
                 gaugemanager.SetWater(GetItem(ItemName).Getwaterrecovery());
             }
-           else if (GetItem(ItemName).GetKindOfItem().ToString() == "restaurant" && infection2.GetPlayerinf(PhotonNetwork.LocalPlayer.ActorNumber))
+           else if (GetItem(ItemName).GetKindOfItem().ToString() == "restaurant" && infection2.GetPlayerinfeffect(PhotonNetwork.LocalPlayer.ActorNumber))
             {
                 var a = menumanager.KANPOU;
                 if (a)

@@ -55,7 +55,7 @@ public class Move : MonoBehaviourPunCallbacks
 
     private void Update()
     {
-        infection = infection2.GetPlayerinf(myplayernum);
+        infection = infection2.GetPlayerinfeffect(myplayernum);
 
         var menuKey = Menumanager.menuKey;
 

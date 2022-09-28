@@ -48,7 +48,7 @@ public class FlushController : MonoBehaviourPunCallbacks
             infection2 = ds.GetComponent<Infection2>();
             
         }
-        trigger = infection2.GetPlayerinf(Player);
+        trigger = infection2.GetPlayerinfeffect(Player);
 
         Image image = GameObject.GetComponent<Image>();
         image.color = Color.Lerp(Color.clear, target, Mathf.PingPong(Time.time, 1));

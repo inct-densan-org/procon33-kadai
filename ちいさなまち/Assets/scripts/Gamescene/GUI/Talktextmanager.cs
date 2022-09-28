@@ -18,7 +18,7 @@ public class Talktextmanager : MonoBehaviour
             talk.SetActive(true);
             if (Restranquest.questclear == true)
             {
-                talktext.text = "店員\n 「掃除をしてくれたのですね。ありがとうございます。これ報酬金です。」";
+                talktext.text = "「掃除をしてくれたのですね。ありがとうございます。これ報酬金です。」";
                 if (Input.GetMouseButton(0))
                 {
                     talk.SetActive(false);
@@ -31,7 +31,7 @@ public class Talktextmanager : MonoBehaviour
 
             else if (Supermarketquest.questclear == true)
             {
-                talktext.text = "店員\n「こちら報酬になります。」";
+                talktext.text = "「こちら報酬になります。」";
                 if (Input.GetMouseButton(0))
                 {
                     talk.SetActive(false);
@@ -45,7 +45,7 @@ public class Talktextmanager : MonoBehaviour
 
             else if (Hospitalquest.questclear == true)
             {
-                talktext.text = "受付\n「こちら報酬になります。」";
+                talktext.text = "「こちら報酬になります。」";
                 if (Input.GetMouseButton(0))
                 {
                     talk.SetActive(false);
@@ -59,7 +59,7 @@ public class Talktextmanager : MonoBehaviour
 
             else if (Dragstorequest.questclear == true)
             {
-                talktext.text = "店員\n「こちら報酬になります。」";
+                talktext.text = "「こちら報酬になります。」";
                 if (Input.GetMouseButton(0))
                 {
                     talk.SetActive(false);
@@ -73,7 +73,7 @@ public class Talktextmanager : MonoBehaviour
 
             else if (Officequest.questclear == true)
             {
-                talktext.text = "職員\n「ありがとう。これはお礼だよ。」";
+                talktext.text = "「ありがとう。これはお礼だよ。」";
                 if (Input.GetMouseButton(0))
                 {
                     talk.SetActive(false);
