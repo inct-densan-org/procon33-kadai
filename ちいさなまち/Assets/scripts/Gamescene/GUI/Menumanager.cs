@@ -40,7 +40,7 @@ public class Menumanager : MonoBehaviourPunCallbacks
         menuKey = null;
         itemFlags = new bool[itemDataBase.GetItemLists().Count];
         gaugemanager = GameObject.Find("menumaneger").GetComponent<Gaugemanager>();
-       
+        
     }
     int Index(string itemName)
     {
@@ -250,16 +250,8 @@ public class Menumanager : MonoBehaviourPunCallbacks
 
                         }
                     }
-                   
-                    
                 }
-                
-                
             }
-           
-            
-          
-            
         }
 
         if (menuKey == "quest")

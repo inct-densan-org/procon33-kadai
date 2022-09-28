@@ -9,9 +9,6 @@ public class Hospitalquest : MonoBehaviour
     
     void Update()
     {
-        if (QuestDataBase.GetQusetLists()[1].GetIsQuest() == true)
-        {
-            questclear = true;
-        }
+        
     }
 }

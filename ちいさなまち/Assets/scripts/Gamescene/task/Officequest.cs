@@ -9,9 +9,6 @@ public class Officequest : MonoBehaviour
     
     void Update()
     {
-        if (QuestDataBase.GetQusetLists()[4].GetIsQuest() == true)
-        {
-            questclear = true;
-        }
+        
     }
 }

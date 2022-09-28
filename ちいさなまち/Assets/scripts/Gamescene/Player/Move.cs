@@ -28,7 +28,7 @@ public class Move : MonoBehaviourPunCallbacks
         GameObject menu = GameObject.Find("PUN2Sever");
         var pun2server = menu.GetComponent<PUN2Server>();
         var playernum = pun2server.playernum;
-       
+        
         infection2 = this.gameObject.GetComponent<Infection2>();
         player = PhotonNetwork.LocalPlayer;
         myplayernum = player.ActorNumber;
@@ -47,10 +47,6 @@ public class Move : MonoBehaviourPunCallbacks
         if (playernum >= 7) if (player1[6] == PhotonNetwork.LocalPlayer) { transform.localPosition = new Vector3(16.4f, -1.9f, -1); }
         if (playernum >= 8) if (player1[7] == PhotonNetwork.LocalPlayer) { transform.localPosition = new Vector3(14f, -1.9f, -1); }
 
-       
-
-       
-
     }
 
     private void Update()
@@ -65,7 +61,7 @@ public class Move : MonoBehaviourPunCallbacks
         {
             speed = 1f;
         }
-       else if (infection == true && sugoikai)
+        else if (infection == true && sugoikai)
         {
             speed = 4f;
         }
@@ -81,7 +77,6 @@ public class Move : MonoBehaviourPunCallbacks
         {
             speed = 5f;
         }
-      
 
         if (photonView.IsMine)
         {
@@ -181,6 +176,32 @@ public class Move : MonoBehaviourPunCallbacks
             if (Input.GetKeyDown(KeyCode.Space) || Input.GetKey(KeyCode.KeypadEnter))
             {
                 Menumanager.menuKey = "rule";
+            }
+        }
+
+        if (collision.gameObject.CompareTag("reception") && photonView.IsMine)
+        {
+            if (Input.GetKey(KeyCode.Space) || Input.GetKey(KeyCode.KeypadEnter))
+            {
+                if (QuestDataBase.GetQusetLists()[0].GetIsQuest() == true)
+                {
+                    Supermarketquest.questclear = true;
+                }
+
+                else if (QuestDataBase.GetQusetLists()[1].GetIsQuest() == true)
+                {
+                    Hospitalquest.questclear = true;
+                }
+
+                else if (QuestDataBase.GetQusetLists()[2].GetIsQuest() == true)
+                {
+                    Dragstorequest.questclear = true;
+                }
+
+                else if (QuestDataBase.GetQusetLists()[4].GetIsQuest() == true)
+                {
+                    Officequest.questclear = true;
+                }
             }
         }
     }

@@ -19,6 +19,7 @@ TagManager:
   - hospitalshop
   - foodstore
   - drukstore
+  - reception
   layers:
   - Default
   - TransparentFX

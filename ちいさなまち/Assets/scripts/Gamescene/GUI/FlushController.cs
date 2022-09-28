@@ -25,7 +25,7 @@ public class FlushController : MonoBehaviourPunCallbacks
         image =GameObject. GetComponent<Image>();
         image.color = Color.clear;
         var byou = GetComponent<itibyou>();
-      
+        
         if (byou == null)
         {
             byou = gameObject.AddComponent<itibyou>();

@@ -32,5 +32,4 @@ public  class Tokei : MonoBehaviourPunCallbacks
         hour = time / 3600; if (hour == 24) hour = 0;
         text.text =   $"{minite}" + "分" + $"{second}" + "秒";
     }
-   
 }

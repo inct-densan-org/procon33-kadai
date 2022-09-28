@@ -12,7 +12,7 @@ public class Itemnum : MonoBehaviour
     void Start()
     {
         kosuu = this.gameObject;
-      kosuutext=  kosuu.GetComponent<TextMeshProUGUI>();
+        kosuutext=  kosuu.GetComponent<TextMeshProUGUI>();
         itemName = kosuu.name;
     }
 

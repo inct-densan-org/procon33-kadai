@@ -9,9 +9,6 @@ public class Dragstorequest : MonoBehaviour
 
     void Update()
     {
-        if (QuestDataBase.GetQusetLists()[2].GetIsQuest() == true)
-        {
-            questclear = true;
-        }
+        
     }
 }

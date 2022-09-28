@@ -6,9 +6,8 @@ using System.Threading.Tasks;
 using Photon.Pun;
 public class NoticeManager : MonoBehaviourPunCallbacks
 {
-   
     public GameObject textpre;
-   public  Transform textParent = null;
+    public  Transform textParent = null;
     // Start is called before the first frame update
     void Start()
     {

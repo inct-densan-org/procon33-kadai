@@ -9,7 +9,7 @@ using UnityEngine.EventSystems;
 public class Shopmanager : MonoBehaviourPunCallbacks
 {
     public GameObject shopmenu;
-   
+    
     // private Sprite sp1, sp2, sp3, sp4;
     public TextMeshProUGUI mesege;
     //public static bool isshop;
@@ -22,7 +22,7 @@ public class Shopmanager : MonoBehaviourPunCallbacks
     private Moneymanager Moneymanager;
     private string menuKey;
     [SerializeField] private EventSystem eventSystem;
-   
+    
     
     private bool w;
     private List<int> restoranshopitemlist = new List<int>();
@@ -41,7 +41,7 @@ public class Shopmanager : MonoBehaviourPunCallbacks
     private Gaugemanager gaugemanager;
     private int  s;
     private Infection2 infection2;
-  public  Dictionary<int, GameObject> buttons = new Dictionary<int, GameObject>();
+    public  Dictionary<int, GameObject> buttons = new Dictionary<int, GameObject>();
     // Start is called before the first frame update
     void Start()
     {

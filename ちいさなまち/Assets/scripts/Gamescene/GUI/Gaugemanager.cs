@@ -60,7 +60,6 @@ public class Gaugemanager : MonoBehaviourPunCallbacks
             noticeManager.Notice($"{PhotonNetwork.LocalPlayer.NickName}が餓死しそうだ");
         }
         if (watertime != 90 && b == true) b= false;
-       
     }
     public void Setfood(int value)
     {

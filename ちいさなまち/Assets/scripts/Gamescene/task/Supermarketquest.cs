@@ -9,9 +9,6 @@ public class Supermarketquest : MonoBehaviour
     
     void Update()
     {
-        if (QuestDataBase.GetQusetLists()[0].GetIsQuest() == true)
-        {
-            questclear = true;
-        }
+        
     }
 }
