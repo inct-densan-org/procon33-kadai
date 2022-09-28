@@ -8608,6 +8608,7 @@ MonoBehaviour:
   SettingSence: {fileID: 1873321332}
   Camera: {fileID: 41655906}
   menu: {fileID: 267392835}
+  slider: {fileID: 392711119}
 --- !u!114 &428023892
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28015,7 +28016,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7766498, y: 1}
+    m_SensorSize: {x: 1.7765585, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0

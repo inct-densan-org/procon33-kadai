@@ -31,7 +31,7 @@ public class CallBack : MonoBehaviourPunCallbacks
     public override void OnRoomListUpdate(List<RoomInfo> list){
         Debug.Log("リストが更新されました。");
         roomList.OnRoomListUpdate(list);
-        WindowManager.instance.RoomSelector();
+        if(WindowManager.instance.currentStatus == 1){WindowManager.instance.RoomSelector();}
     }
 
     //ルーム参加時にシーン移行

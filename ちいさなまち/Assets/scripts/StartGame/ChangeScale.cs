@@ -6,6 +6,7 @@ public class ChangeScale : MonoBehaviour
 {
     public float movingTime = 0.05f;
     public float[] widthTargets = new float[4];
+    public float[] heightTargets = new float[4];
     private RectTransform rectTransform;
     private float scaleYTarget;
     private Vector2 velocity = Vector2.zero;
@@ -20,6 +21,7 @@ public class ChangeScale : MonoBehaviour
         //非表示0, サーバーセレクター1, ルール2, 設定3
         if (status > 0){
             rectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, widthTargets[status]);
+            rectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, heightTargets[status]);
             scaleYTarget = 1;
         }else{
             scaleYTarget = 0;

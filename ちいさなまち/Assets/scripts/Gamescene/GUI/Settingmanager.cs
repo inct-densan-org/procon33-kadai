@@ -6,13 +6,14 @@ using TMPro;
 using UnityEngine.UI;
 public class Settingmanager : MonoBehaviourPunCallbacks
 {
-    public GameObject SettingSence,Camera,menu;
+    public GameObject SettingSence,Camera,menu, slider;
     private AudioSource AudioSource;
     // Start is called before the first frame update
     void Start()
     {
         AudioSource = Camera.gameObject.GetComponent<AudioSource>();
-        AudioSource.volume = 0.25f;
+        AudioSource.volume = ClientData.bgmVolume;
+        slider.GetComponent<Slider>().value = ClientData.bgmVolume;
     }
     public void OnPushsetting()
     {
@@ -29,6 +30,7 @@ public class Settingmanager : MonoBehaviourPunCallbacks
     public void SoundSliderOnValueChange(float newSliderValue)
     {
         // ���y�̉��ʂ��X���C�h�o�[�̒l�ɕύX
-        AudioSource.volume = newSliderValue;
+        ClientData.bgmVolume = newSliderValue;
+        AudioSource.volume = ClientData.bgmVolume;
     }
 }

@@ -13,6 +13,8 @@ public class WindowManager : MonoBehaviour
 
     public static WindowManager instance;
 
+    public int currentStatus;
+
     void Awake(){
         if(instance == null){
             instance = this;
@@ -42,6 +44,7 @@ public class WindowManager : MonoBehaviour
     }
 
     void Windows(int status){
+        currentStatus = status;
         windows.SetActive(true);
         windows.GetComponent<ChangeScale>().Move(status);
 
