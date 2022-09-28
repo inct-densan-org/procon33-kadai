@@ -6,11 +6,18 @@ public class WindowManager : MonoBehaviour
 {
     private GameObject menuButton;
     private GameObject title;
-
     private GameObject windows;
     private GameObject roomSelector;
     private GameObject rules;
     private GameObject settings;
+
+    public static WindowManager instance;
+
+    void Awake(){
+        if(instance == null){
+            instance = this;
+        }
+    }
 
     void Start(){
         menuButton = transform.Find("MenuButton").gameObject;
