@@ -52,7 +52,7 @@ public class Shopmanager : MonoBehaviourPunCallbacks
         {
             
             itemDataBase.GetItemLists()[i].syokika();
-            Debug.Log(itemDataBase.GetItemLists()[i].GetKindOfItem().ToString());
+          
             if (itemDataBase.GetItemLists()[i].GetKindOfItem().ToString() == "restaurant")
             {
                 restoranshopitemlist.Add(i);
@@ -184,7 +184,8 @@ public class Shopmanager : MonoBehaviourPunCallbacks
             Moneymanager.Setmoney(-(totalmoney));
             if(GetItem(ItemName).GetKindOfItem().ToString()== "restaurant"&&!infection2.GetPlayerinfeffect(PhotonNetwork.LocalPlayer.ActorNumber))
             {
-                mesege.text = "食べました";
+                shopdis.SetActive(true);
+                buydis.SetActive(false);
                 Invoke(nameof(mesagedele), 3f);
                 gaugemanager.Setfood(GetItem(ItemName).Getfoodrecovery());
                 gaugemanager.SetWater(GetItem(ItemName).Getwaterrecovery());
@@ -194,7 +195,8 @@ public class Shopmanager : MonoBehaviourPunCallbacks
                 var a = menumanager.KANPOU;
                 if (a)
                 {
-                    mesege.text = "食べました";
+                    shopdis.SetActive(true);
+                    buydis.SetActive(false);
                     Invoke(nameof(mesagedele), 3f);
                     gaugemanager.Setfood(GetItem(ItemName).Getfoodrecovery());
                     gaugemanager.SetWater(GetItem(ItemName).Getwaterrecovery());
@@ -208,7 +210,8 @@ public class Shopmanager : MonoBehaviourPunCallbacks
             }
             else
             {
-                mesege.text = "購入しました";
+                shopdis.SetActive(true);
+                buydis.SetActive(false);
                 Invoke(nameof(mesagedele), 3f);
                 GetItem(ItemName).Setkosuu(s);
             }

@@ -98,14 +98,15 @@ public class Move : MonoBehaviourPunCallbacks
 
                 if (Input.GetKeyUp(KeyCode.D) || Input.GetKeyUp(KeyCode.RightArrow)) { animator.SetFloat(idX, 0.5f); animator.SetFloat(idY, 0); ispush = false; ishor = false; }
                 if (Input.GetKeyUp(KeyCode.A) || Input.GetKeyUp(KeyCode.LeftArrow)) { animator.SetFloat(idX, -0.5f); animator.SetFloat(idY, 0); ispush = false; ishor = false; }
-                if (x > 0.1 && ispush == false) { animator.SetFloat(idX, 1); ispush = true; }
-                if (x < -0.1 && ispush == false) { animator.SetFloat(idX, -1); ispush = true; }
+                
                 if (Input.GetKeyUp(KeyCode.W) || Input.GetKeyUp(KeyCode.UpArrow)) { animator.SetFloat(idY, 0.5f); animator.SetFloat(idX, 0); ispush = false; isver = false; }
                 if (Input.GetKeyUp(KeyCode.S) || Input.GetKeyUp(KeyCode.DownArrow)) { animator.SetFloat(idY, -0.5f); animator.SetFloat(idX, 0); ispush = false; isver = false; }
                 if (y > 0.1 && ispush == false) { animator.SetFloat(idY, 1); ispush = true; }
                 if (y < -0.1 && ispush == false) { animator.SetFloat(idY, -1); ispush = true; }
+                if (x > 0.1 && ispush == false) { animator.SetFloat(idX, 1); ispush = true; }
+                if (x < -0.1 && ispush == false) { animator.SetFloat(idX, -1); ispush = true; }
             }
-            if (menuKey != null) { animator.SetFloat(idX, 0); animator.SetFloat(idY, 0); }
+           
             popo = transform.position;
         }
     }

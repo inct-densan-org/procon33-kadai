@@ -50,7 +50,7 @@ public class Timekimeru : MonoBehaviourPunCallbacks
     }
     async void itibyou()
     {
-        Debug.Log(2);
+       
         time1--;
         photonView.RPC(nameof(SetTime), RpcTarget.All, time1);
         await Task.Delay(1000);

@@ -56,8 +56,7 @@ public class Infection2 : MonoBehaviourPunCallbacks
         var myinf = GetPlayerinf(Player);
         var isman = pun2server.isman;
         infeffect = GetPlayerinfeffect(Player);
-        if (myinf) Debug.Log("kansensita");
-        if (infeffect) Debug.Log("症状がでた");
+       
         if (myinf && !la)
         {
             la = true;

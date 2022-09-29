@@ -11,7 +11,7 @@ public class Menumanager : MonoBehaviourPunCallbacks
 {
     [SerializeField]
     private QuestDataBase QuestDataBase;
-    public GameObject menu, messegedis;
+    public GameObject menu, messegedis,itemdis;
     public static string menuKey;
     public TextMeshProUGUI mesasege, warning;
 
@@ -89,6 +89,7 @@ public class Menumanager : MonoBehaviourPunCallbacks
             {
                 case "menu":
                     menu.SetActive(false);
+                    itemdis.SetActive(false);
                     menuKey = null;
                     break;
 

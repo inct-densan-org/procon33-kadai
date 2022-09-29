@@ -28,7 +28,7 @@ public class NoticeManager : MonoBehaviourPunCallbacks
     public async void notice(string value)
     {
         GameObject text = Instantiate(textpre, textParent);
-        var notice = text.GetComponent<TextMeshProUGUI>();
+        var notice = text.transform.GetChild(1).gameObject. GetComponent<TextMeshProUGUI>();
         notice.text = value;
         await Task.Delay(3000);
         DestroyImmediate(text);

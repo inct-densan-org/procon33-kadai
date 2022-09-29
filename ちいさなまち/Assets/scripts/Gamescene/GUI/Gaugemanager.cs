@@ -53,13 +53,15 @@ public class Gaugemanager : MonoBehaviourPunCallbacks
         }
         foodBar.fillAmount = 1 - (foodtime / 200);
         waterBar.fillAmount = 1 - (watertime / 100);
-        if (watertime == 90 && a == false)
+       
+       
+        if (foodtime == 190 && a == false)
         {
             a = true;
             noticeManager.Notice($"{PhotonNetwork.LocalPlayer.NickName}が脱水症状で逝きそうだ");
         }
-        if (watertime != 90 && a == true) a = false;
-        if (foodtime == 90 && b == false)
+        if (foodtime != 190 && a == true) a = false;
+        if (watertime == 90 && b == false)
         {
             b = true;
             noticeManager.Notice($"{PhotonNetwork.LocalPlayer.NickName}が餓死しそうだ");
