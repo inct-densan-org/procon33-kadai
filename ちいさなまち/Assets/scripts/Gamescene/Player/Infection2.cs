@@ -32,7 +32,7 @@ public class Infection2 : MonoBehaviourPunCallbacks
         GameObject menu = GameObject.Find("PUN2Sever");
         pun2server = menu.GetComponent<PUN2Server>();
         Player = PhotonNetwork.LocalPlayer.ActorNumber;
-        menumanager = GameObject.Find("menumanager").gameObject.GetComponent<Menumanager>();
+        menumanager = GameObject.Find("menumaneger").gameObject.GetComponent<Menumanager>();
         collider2 = this.transform.GetChild(0).gameObject.GetComponent<CircleCollider2D>();
         var byou = GetComponent<itibyou>();
         // Customproperties.Setplayerinf(false, Player);

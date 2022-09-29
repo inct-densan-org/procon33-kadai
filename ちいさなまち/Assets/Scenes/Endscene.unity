@@ -1971,7 +1971,7 @@ MonoBehaviour:
   reason: 
   gameclear: {fileID: 1906575645}
   gameover: {fileID: 1422848524}
-  reasontext: {fileID: 0}
+  reasontext: {fileID: 1758802290}
 --- !u!1 &1977278553
 GameObject:
   m_ObjectHideFlags: 0

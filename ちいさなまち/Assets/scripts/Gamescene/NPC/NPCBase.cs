@@ -25,20 +25,16 @@ public class NPCBase : MonoBehaviourPunCallbacks
         NPCinf = false;
         Objname = this.gameObject.name;
         roomHash = new ExitGames.Client.Photon.Hashtable();
-        var byou = GetComponent<itibyou>();
-
-        if (byou == null)
-        {
-            byou = gameObject.AddComponent<itibyou>();
-        }
-        
-        byou.Init(() =>
-        {
-            NPCinfsee = customproperties.GetNPCinf(Objname);
-        });
-        byou.Play();
+        itibyou();
     }
+    async void itibyou()
+    {
+        NPCinfsee = customproperties.GetNPCinf(Objname);
 
+
+        await Task.Delay(1000);
+        itibyou();
+    }
     public async void OnTriggerStay2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("NPC") && cooltime == false)

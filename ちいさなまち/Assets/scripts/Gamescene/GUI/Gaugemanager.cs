@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using Photon.Pun;
+using System.Threading.Tasks;
+
 public class Gaugemanager : MonoBehaviourPunCallbacks
 {
     
@@ -16,19 +18,22 @@ public class Gaugemanager : MonoBehaviourPunCallbacks
     // Start is called before the first frame update
     void Start()
     {
+        itibyou();
         noticeManager = this.gameObject.GetComponent<NoticeManager>();
         GameObject foodimage_object = GameObject.Find("ge-zi");
         foodBar = foodimage_object.GetComponent<Image>();
         GameObject waterimage_object = GameObject.Find("watergauge");
         waterBar = waterimage_object.GetComponent<Image>();
-        var byou = gameObject.AddComponent<itibyou>();
-        byou.Init(() =>
-        {
-            watertime++;
-            foodtime++;
-            // Bar.fillAmount = 1 - (time / 100);
-        });
-        byou.Play();
+       
+    }
+    async void itibyou()
+    {
+      
+        watertime++;
+        foodtime++;
+      
+        await Task.Delay(1000);
+        itibyou();
     }
     private bool K;
     // Update is called once per frame

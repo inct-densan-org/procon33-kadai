@@ -24,18 +24,7 @@ public class FlushController : MonoBehaviourPunCallbacks
         Player = PhotonNetwork.LocalPlayer.ActorNumber;
         image =GameObject. GetComponent<Image>();
         image.color = Color.clear;
-        var byou = GetComponent<itibyou>();
         
-        if (byou == null)
-        {
-            byou = gameObject.AddComponent<itibyou>();
-        }
-        byou.Init(() =>
-        {
-           // trigger = Customproperties.Getplayerinf(Player);
-           //
-        });
-        byou.Play();
     }
 
     // Update is called once per frame

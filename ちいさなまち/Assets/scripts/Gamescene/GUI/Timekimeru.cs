@@ -7,6 +7,8 @@ using Photon.Realtime;
 using ExitGames.Client.Photon;
 using System;
 using UnityEngine.SceneManagement;
+using System.Threading.Tasks;
+
 public class Timekimeru : MonoBehaviourPunCallbacks
 {
     public static ExitGames.Client.Photon.Hashtable roomHash;
@@ -23,27 +25,36 @@ public class Timekimeru : MonoBehaviourPunCallbacks
         var p1 = player[0];
         if (p1 == PhotonNetwork.LocalPlayer)
         {
+            itibyou();
+            //var byou = GetComponent<itibyou>();
 
-            var byou = GetComponent<itibyou>();
+            //if (byou == null)
+            //{
+            //    byou = gameObject.AddComponent<itibyou>();
+            //}
+            //byou.Init(() =>
+            //{
+            //    Debug.Log("asd");
+            //    time1--;
 
-            if (byou == null)
-            {
-                byou = gameObject.AddComponent<itibyou>();
-            }
-            byou.Init(() =>
-            {
-                time1--;
-
-                photonView.RPC(nameof(SetTime), RpcTarget.All, time1);
+            //    photonView.RPC(nameof(SetTime), RpcTarget.All, time1);
                 
-            });
-            byou.Play();
+            //});
+            //byou.Play();
         }
     }
     [PunRPC]
     public void SetTime(int second)
     {
         time = second;
+    }
+    async void itibyou()
+    {
+        Debug.Log(2);
+        time1--;
+        photonView.RPC(nameof(SetTime), RpcTarget.All, time1);
+        await Task.Delay(1000);
+        itibyou();
     }
     
 
