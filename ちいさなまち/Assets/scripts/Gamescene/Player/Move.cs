@@ -179,6 +179,13 @@ public class Move : MonoBehaviourPunCallbacks
                 Menumanager.menuKey = "rule";
             }
         }
+        if (collision.gameObject.CompareTag("hotel") && photonView.IsMine)
+        {
+            if (Input.GetKeyDown(KeyCode.Space) || Input.GetKey(KeyCode.KeypadEnter))
+            {
+                Menumanager.menuKey = "hotel";
+            }
+        }
 
         if (collision.gameObject.CompareTag("reception") && photonView.IsMine)
         {

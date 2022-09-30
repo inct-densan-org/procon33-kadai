@@ -21,6 +21,7 @@ TagManager:
   - drukstore
   - reception
   - apart
+  - hotel
   layers:
   - Default
   - TransparentFX
