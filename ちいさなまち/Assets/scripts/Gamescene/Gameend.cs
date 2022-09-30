@@ -45,7 +45,7 @@ public class Gameend : MonoBehaviourPun
             reason = $"{PhotonNetwork.LocalPlayer.NickName}‚ª’E…Çó‚ÅÀ‚Á‚½";
             photonView.RPC(nameof(gameover), RpcTarget.All,reason);
         }
-        if (water == 100)
+        if (food == 200)
         {
             reason = $"{PhotonNetwork.LocalPlayer.NickName}‚ª‰ì€‚µ‚½";
             photonView.RPC(nameof(gameover), RpcTarget.All, reason);
