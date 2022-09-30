@@ -4,7 +4,7 @@ using UnityEngine;
 using Photon.Pun;
 using System.Threading.Tasks;
 using Photon.Realtime;
-[RequireComponent(typeof(itibyou))]
+
 
 public class Infection2 : MonoBehaviourPunCallbacks
 {
@@ -25,6 +25,7 @@ public class Infection2 : MonoBehaviourPunCallbacks
     public static ExitGames.Client.Photon.Hashtable roomHash;
     private bool p1inf, p2inf, p3inf, p4inf, p5inf, p6inf, p7inf, p8inf, myinf, p1infef, p2infef, p3infef, p4infef, p5infef, p6infef, p7infef, p8infef;
     private Customproperties customproperties;
+    public bool isapart;
     // Start is called before the first frame update
     void Start()
     {
@@ -34,18 +35,7 @@ public class Infection2 : MonoBehaviourPunCallbacks
         Player = PhotonNetwork.LocalPlayer.ActorNumber;
         menumanager = GameObject.Find("menumaneger").gameObject.GetComponent<Menumanager>();
         collider2 = this.transform.GetChild(0).gameObject.GetComponent<CircleCollider2D>();
-        var byou = GetComponent<itibyou>();
-        // Customproperties.Setplayerinf(false, Player);
-        if (byou == null)
-        {
-            byou = gameObject.AddComponent<itibyou>();
-        }
-        byou.Init(() =>
-        {
-            // infecsee = Customproperties.Getplayerinf(Player);
-
-        });
-        byou.Play();
+       
 
     }
 
@@ -114,7 +104,7 @@ public class Infection2 : MonoBehaviourPunCallbacks
 
             //infected = Customproperties.Getplayerinf(e);
             infected = GetPlayerinf(e);
-            if (infected == true && GetPlayerinf(Player) == false)
+            if (infected == true && GetPlayerinf(Player) == false&&!isapart)
             {
 
                 int rnd = Random.Range(0, 100);
@@ -130,7 +120,7 @@ public class Infection2 : MonoBehaviourPunCallbacks
                 }
             }
         }
-        if (collision.gameObject.CompareTag("NPC") && photonView.IsMine)
+        if (collision.gameObject.CompareTag("NPC") && photonView.IsMine && !isapart)
         {
             var NPCname = collision.gameObject.name;
 
@@ -151,10 +141,20 @@ public class Infection2 : MonoBehaviourPunCallbacks
                 }
             }
         }
+        if (collision.gameObject.CompareTag("apart") && photonView.IsMine)
+        {
+            isapart = true;
+        }
 
 
     }
-
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("apart") && photonView.IsMine)
+        {
+            isapart = false;
+        }
+    }
     void Cooldowm()
     {
         cooltime = false;

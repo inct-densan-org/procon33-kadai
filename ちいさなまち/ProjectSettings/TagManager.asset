@@ -20,6 +20,7 @@ TagManager:
   - foodstore
   - drukstore
   - reception
+  - apart
   layers:
   - Default
   - TransparentFX
