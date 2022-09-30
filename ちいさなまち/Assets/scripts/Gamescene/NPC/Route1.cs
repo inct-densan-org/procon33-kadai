@@ -8,7 +8,7 @@ using Photon.Pun;
 public class Route1 : MonoBehaviourPunCallbacks
 {
     [SerializeField] GameObject moveObj;
-    [SerializeField] float speed=1;
+    [SerializeField] float speed;
     public int orikaesi;
     private List<Transform> points;
     public int pointIdx = 0;
@@ -22,6 +22,9 @@ public class Route1 : MonoBehaviourPunCallbacks
     public bool c;
     void Start()
     {
+        speed = UnityEngine.Random.Range(1.0f, 2.0f);
+        waittime = UnityEngine.Random.Range(1.0f, 15.0f);
+        orikaesiwait = UnityEngine.Random.Range(1.0f, 15.0f);
         points = new List<Transform>();
         points = GetComponentsInChildren<Transform>().Where(t => t != transform).ToList();
         nextPos = points[pointIdx].position;
@@ -52,6 +55,8 @@ public class Route1 : MonoBehaviourPunCallbacks
                     {
                         moveObj.SetActive(false); c = true;
                         Invoke(nameof(NPCorikaesi), orikaesiwait);
+                        speed = UnityEngine.Random.Range(1.0f, 2.0f);
+                        orikaesiwait = UnityEngine.Random.Range(1.0f, 15.0f);
                     }
                     if (pointIdx < points.Count)
                     {
@@ -59,12 +64,14 @@ public class Route1 : MonoBehaviourPunCallbacks
                     }
                     if (pointIdx == points.Count)
                     {
-                        moveObj.SetActive(false); 
+                        moveObj.SetActive(false);
                         Invoke(nameof(NPCReset), waittime);
+                        speed = UnityEngine.Random.Range(1.0f, 2.0f);
+                        waittime = UnityEngine.Random.Range(1.0f, 15.0f);
                     }
                 }
             }
-            
+
             if (nowPos.x > maePos.x) { animator.SetFloat(idX, 1f); e = "right"; }
             if (nowPos.x == maePos.x)
             {
@@ -108,12 +115,12 @@ public class Route1 : MonoBehaviourPunCallbacks
     void NPCorikaesi() {
         moveObj.SetActive(true);
 
-      
+
         c = false;
     }
     private async void maepos(Vector3 vector3)
     {
         await Task.Delay(100);
         maePos = vector3;
-    } 
+    }
 }
