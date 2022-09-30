@@ -627,8 +627,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveObj: {fileID: 768152921}
+  speed: 1
   orikaesi: 4
   pointIdx: 0
+  waittime: 3
+  orikaesiwait: 4
   e: 
   c: 0
 --- !u!1 &22741638
@@ -1984,8 +1987,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveObj: {fileID: 1122803062}
+  speed: 1
   orikaesi: 6
   pointIdx: 0
+  waittime: 3
+  orikaesiwait: 4
   e: 
   c: 0
 --- !u!1 &85907471
@@ -3249,8 +3255,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveObj: {fileID: 822969531}
+  speed: 1
   orikaesi: 6
   pointIdx: 0
+  waittime: 3
+  orikaesiwait: 4
   e: 
   c: 0
 --- !u!1 &164701884
@@ -3588,8 +3597,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveObj: {fileID: 425617070}
+  speed: 1
   orikaesi: 6
   pointIdx: 0
+  waittime: 3
+  orikaesiwait: 4
   e: 
   c: 0
 --- !u!1 &178891903
@@ -7141,8 +7153,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveObj: {fileID: 292765728}
+  speed: 1
   orikaesi: 6
   pointIdx: 0
+  waittime: 3
+  orikaesiwait: 4
   e: 
   c: 0
 --- !u!1 &288917454
@@ -8163,8 +8178,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveObj: {fileID: 1019729356}
+  speed: 1
   orikaesi: 6
   pointIdx: 0
+  waittime: 3
+  orikaesiwait: 4
   e: 
   c: 0
 --- !u!1 &337982993
@@ -15475,8 +15493,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveObj: {fileID: 119470150}
+  speed: 1
   orikaesi: 6
   pointIdx: 0
+  waittime: 3
+  orikaesiwait: 4
   e: 
   c: 0
 --- !u!1 &592085408
@@ -16146,8 +16167,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveObj: {fileID: 545273075}
+  speed: 1
   orikaesi: 6
   pointIdx: 0
+  waittime: 3
+  orikaesiwait: 4
   e: 
   c: 0
 --- !u!1 &611484115
@@ -18028,8 +18052,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveObj: {fileID: 1598160823}
+  speed: 1
   orikaesi: 5
   pointIdx: 0
+  waittime: 3
+  orikaesiwait: 4
   e: 
   c: 0
 --- !u!1 &680586517
@@ -19049,8 +19076,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveObj: {fileID: 1349087952}
+  speed: 1
   orikaesi: 5
   pointIdx: 0
+  waittime: 3
+  orikaesiwait: 4
   e: 
   c: 0
 --- !u!1 &730662587
@@ -22174,8 +22204,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveObj: {fileID: 329787552}
+  speed: 1
   orikaesi: 6
   pointIdx: 0
+  waittime: 3
+  orikaesiwait: 4
   e: 
   c: 0
 --- !u!1 &792010999
@@ -24524,8 +24557,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveObj: {fileID: 1588208036}
+  speed: 1
   orikaesi: 6
   pointIdx: 0
+  waittime: 3
+  orikaesiwait: 4
   e: 
   c: 0
 --- !u!1 &856626160
@@ -25051,8 +25087,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveObj: {fileID: 1898603965}
+  speed: 1
   orikaesi: 6
   pointIdx: 0
+  waittime: 3
+  orikaesiwait: 4
   e: 
   c: 0
 --- !u!1 &865550758
@@ -26232,8 +26271,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveObj: {fileID: 2060630066}
+  speed: 1
   orikaesi: 6
   pointIdx: 0
+  waittime: 3
+  orikaesiwait: 4
   e: 
   c: 0
 --- !u!1 &905154480
@@ -26293,8 +26335,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveObj: {fileID: 896513595}
+  speed: 1
   orikaesi: 6
   pointIdx: 0
+  waittime: 3
+  orikaesiwait: 4
   e: 
   c: 0
 --- !u!1 &907170392
@@ -26594,8 +26639,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveObj: {fileID: 212867252}
+  speed: 1
   orikaesi: 6
   pointIdx: 0
+  waittime: 3
+  orikaesiwait: 4
   e: 
   c: 0
 --- !u!1 &914471086
@@ -27052,8 +27100,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveObj: {fileID: 545273075}
+  speed: 1
   orikaesi: 6
   pointIdx: 0
+  waittime: 3
+  orikaesiwait: 4
   e: 
   c: 0
 --- !u!1 &923944456
@@ -27113,8 +27164,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveObj: {fileID: 2101488388}
+  speed: 1
   orikaesi: 6
   pointIdx: 0
+  waittime: 3
+  orikaesiwait: 4
   e: 
   c: 0
 --- !u!1 &924393979
@@ -30608,6 +30662,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4032137023545071844, guid: c0263383bd637974f9828cbe674786f6, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: cd61c96828fe2b74d8fef648353ac531, type: 2}
     - target: {fileID: 4032137023545071846, guid: c0263383bd637974f9828cbe674786f6, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -32433,8 +32491,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveObj: {fileID: 425617070}
+  speed: 1
   orikaesi: 6
   pointIdx: 0
+  waittime: 3
+  orikaesiwait: 4
   e: 
   c: 0
 --- !u!1 &1113374629
@@ -34767,9 +34828,29 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4032137023545071844, guid: c0263383bd637974f9828cbe674786f6, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 7c1e210545c635a4fa1d6185665b456e, type: 2}
+    - target: {fileID: 4032137023545071845, guid: c0263383bd637974f9828cbe674786f6, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 1015443202, guid: 9c9d7f77b3c2e2548b0dff802857e46c, type: 3}
     - target: {fileID: 4032137023545071846, guid: c0263383bd637974f9828cbe674786f6, type: 3}
       propertyPath: m_RootOrder
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4032137023545071846, guid: c0263383bd637974f9828cbe674786f6, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4032137023545071846, guid: c0263383bd637974f9828cbe674786f6, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4032137023545071846, guid: c0263383bd637974f9828cbe674786f6, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.01
       objectReference: {fileID: 0}
     - target: {fileID: 4032137023545071846, guid: c0263383bd637974f9828cbe674786f6, type: 3}
       propertyPath: m_LocalPosition.x
@@ -34868,7 +34949,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.25, y: 0.46}
+    oldSize: {x: 3.8310661, y: 10.83}
     newSize: {x: 0.25, y: 0.46}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -35161,8 +35242,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveObj: {fileID: 425617070}
+  speed: 1
   orikaesi: 6
   pointIdx: 0
+  waittime: 3
+  orikaesiwait: 4
   e: 
   c: 0
 --- !u!1 &1203747881
@@ -35549,8 +35633,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveObj: {fileID: 2085880293}
+  speed: 1
   orikaesi: 6
   pointIdx: 0
+  waittime: 3
+  orikaesiwait: 4
   e: 
   c: 0
 --- !u!1 &1230826520
@@ -35890,8 +35977,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveObj: {fileID: 940726504}
+  speed: 1
   orikaesi: 6
   pointIdx: 0
+  waittime: 3
+  orikaesiwait: 4
   e: 
   c: 0
 --- !u!1 &1239837032
@@ -37491,8 +37581,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveObj: {fileID: 1753134088}
+  speed: 1
   orikaesi: 6
   pointIdx: 0
+  waittime: 3
+  orikaesiwait: 4
   e: 
   c: 0
 --- !u!1 &1344403231
@@ -39613,8 +39706,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveObj: {fileID: 1392889008}
+  speed: 1
   orikaesi: 6
   pointIdx: 0
+  waittime: 3
+  orikaesiwait: 4
   e: 
   c: 0
 --- !u!1 &1455492723
@@ -44247,8 +44343,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveObj: {fileID: 859293932}
+  speed: 1
   orikaesi: 4
   pointIdx: 0
+  waittime: 3
+  orikaesiwait: 4
   e: 
   c: 0
 --- !u!1 &1632235309
@@ -44509,8 +44608,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveObj: {fileID: 1727788907}
+  speed: 1
   orikaesi: 6
   pointIdx: 0
+  waittime: 3
+  orikaesiwait: 4
   e: 
   c: 0
 --- !u!1 &1653774917
@@ -45161,8 +45263,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveObj: {fileID: 1939494087}
+  speed: 1
   orikaesi: 5
   pointIdx: 0
+  waittime: 3
+  orikaesiwait: 4
   e: 
   c: 0
 --- !u!1 &1695567668
@@ -45420,8 +45525,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveObj: {fileID: 119470150}
+  speed: 1
   orikaesi: 6
   pointIdx: 0
+  waittime: 3
+  orikaesiwait: 4
   e: 
   c: 0
 --- !u!1 &1706435286
@@ -45920,8 +46028,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveObj: {fileID: 990702323}
+  speed: 1
   orikaesi: 6
   pointIdx: 0
+  waittime: 3
+  orikaesiwait: 4
   e: 
   c: 0
 --- !u!1 &1713939045
@@ -48985,8 +49096,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveObj: {fileID: 766335391}
+  speed: 1
   orikaesi: 6
   pointIdx: 0
+  waittime: 3
+  orikaesiwait: 4
   e: 
   c: 0
 --- !u!1 &1868061805
@@ -50959,8 +51073,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveObj: {fileID: 1727788907}
+  speed: 1
   orikaesi: 5
   pointIdx: 0
+  waittime: 3
+  orikaesiwait: 4
   e: 
   c: 0
 --- !u!1 &1943636335
@@ -51099,8 +51216,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveObj: {fileID: 1122803062}
+  speed: 1
   orikaesi: 5
   pointIdx: 0
+  waittime: 3
+  orikaesiwait: 4
   e: 
   c: 0
 --- !u!1 &1944836025
@@ -51158,8 +51278,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveObj: {fileID: 1982548562}
+  speed: 1
   orikaesi: 5
   pointIdx: 0
+  waittime: 3
+  orikaesiwait: 4
   e: 
   c: 0
 --- !u!1 &1945462107
@@ -54344,8 +54467,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveObj: {fileID: 425617070}
+  speed: 1
   orikaesi: 5
   pointIdx: 0
+  waittime: 3
+  orikaesiwait: 4
   e: 
   c: 0
 --- !u!1 &2124044145
@@ -54624,6 +54750,10 @@ PrefabInstance:
     - target: {fileID: 2956899708831029426, guid: fa1ba4dbc0a66fb4280ea5360766bf54, type: 3}
       propertyPath: m_Name
       value: man
+      objectReference: {fileID: 0}
+    - target: {fileID: 2956899708831029426, guid: fa1ba4dbc0a66fb4280ea5360766bf54, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2956899708831029431, guid: fa1ba4dbc0a66fb4280ea5360766bf54, type: 3}
       propertyPath: m_RootOrder
@@ -54956,6 +55086,10 @@ PrefabInstance:
     - target: {fileID: 8939397545219300127, guid: 154256adac542644db9502c34b598091, type: 3}
       propertyPath: m_Name
       value: woman
+      objectReference: {fileID: 0}
+    - target: {fileID: 8939397545219300127, guid: 154256adac542644db9502c34b598091, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 154256adac542644db9502c34b598091, type: 3}
