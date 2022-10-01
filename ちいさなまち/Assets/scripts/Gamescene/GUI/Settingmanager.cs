@@ -16,6 +16,7 @@ public class Settingmanager : MonoBehaviourPunCallbacks
         AudioSource = Camera.gameObject.GetComponent<AudioSource>();
         AudioSource.volume = ClientData.bgmVolume;
         slider.GetComponent<Slider>().value = ClientData.bgmVolume;
+        
     }
     public void OnPushsetting()
     {

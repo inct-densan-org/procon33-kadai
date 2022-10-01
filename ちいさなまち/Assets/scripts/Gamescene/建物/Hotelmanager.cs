@@ -9,7 +9,7 @@ public class Hotelmanager : MonoBehaviourPunCallbacks
 {
     public GameObject hoteldis,itigou,nigou,urikere,itigoudoa,nigoudoa;
     public TextMeshProUGUI moneytext,mesege;
-    private bool isitigou, isnigou;
+    public bool isitigou, isnigou;
     // Start is called before the first frame update
     void Start()
     {
@@ -34,7 +34,7 @@ public class Hotelmanager : MonoBehaviourPunCallbacks
             else urikere.SetActive(false);
         }
     }
-   async void Onpush1gou()
+  public async void Onpush1gou()
     {
         if (Moneymanager.Money >= 1000)
         {
@@ -53,9 +53,9 @@ public class Hotelmanager : MonoBehaviourPunCallbacks
             mesege.text = null;
         }
     }
-    async void Onpush2gou()
+   public  async void Onpush2gou()
     {
-        if (Moneymanager.Money <= 1000)
+        if (Moneymanager.Money >= 1000)
         {
             nigou.SetActive(false);
             Moneymanager.Setmoney(-1000);
