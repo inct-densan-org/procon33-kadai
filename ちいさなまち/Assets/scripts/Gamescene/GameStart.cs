@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using UnityEngine;
 using Photon.Pun;
+using Photon.Realtime;
+
 public class GameStart : MonoBehaviourPunCallbacks
 {
     Dictionary<int, string> NPClist = new Dictionary<int, string>();
@@ -10,20 +12,22 @@ public class GameStart : MonoBehaviourPunCallbacks
     public GameObject[] asd;
     public int StartNpcInf;
     private Customproperties customproperties;
+    private PUN2Server pUN2Server;
+    private Player p1;
+    private bool ab;
     // Start is called before the first frame update
     void   Start()
     {
+        pUN2Server = GameObject.Find("PUN2Sever").gameObject.GetComponent<PUN2Server>();
         customproperties = GameObject.Find("PUN2Sever").gameObject.GetComponent<Customproperties>();
         var player = PhotonNetwork.PlayerList;
-        var p1 = player[0];
-        if (p1 == PhotonNetwork.LocalPlayer)
-        {
-          a();
-        }
+         p1 = player[0];
+        
     }
-    public async void a()
+    public  void a()
     {
-        await Task.Delay(2000);
+      //  await Task.Delay(2000);
+        
         asd= GameObject.FindGameObjectsWithTag("NPC");
         List<int> ramdumlist = new List<int>(); ;
         for (int i = 0; i < asd.Length; i++)
@@ -48,16 +52,22 @@ public class GameStart : MonoBehaviourPunCallbacks
                 Debug.Log(NPClist[list[i]]);
                 customproperties.SetNPCinf(NPClist[list[i]], true);
             }
-           
+            
         }
         
-        
-        
-       
+
+
+
+
     }
     // Update is called once per frame
     void Update()
     {
-        
+        if (p1 == PhotonNetwork.LocalPlayer&&pUN2Server.isStart&&!ab)
+        {
+            
+            ab = true;
+            a();
+        }
     }
 }

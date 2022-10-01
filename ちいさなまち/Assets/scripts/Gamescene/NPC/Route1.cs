@@ -22,6 +22,7 @@ public class Route1 : MonoBehaviourPunCallbacks
     public bool c;
     void Start()
     {
+        
         speed = UnityEngine.Random.Range(1.0f, 2.0f);
         waittime = UnityEngine.Random.Range(1.0f, 15.0f);
         orikaesiwait = UnityEngine.Random.Range(1.0f, 15.0f);
@@ -37,6 +38,7 @@ public class Route1 : MonoBehaviourPunCallbacks
         var p1 = player[0];
         if (p1 == PhotonNetwork.LocalPlayer)
         {
+            
             if(b == false) moveObj.transform.position = points[0].position;b = true;
             nowPos = moveObj.transform.position;
             var a = moveObj.transform.position;
@@ -120,7 +122,7 @@ public class Route1 : MonoBehaviourPunCallbacks
     }
     private async void maepos(Vector3 vector3)
     {
-        await Task.Delay(100);
+        await Task.Delay(10);
         maePos = vector3;
     }
 }

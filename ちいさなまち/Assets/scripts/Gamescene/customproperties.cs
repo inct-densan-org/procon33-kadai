@@ -13,6 +13,7 @@ public   class Customproperties :MonoBehaviourPunCallbacks
     public  ExitGames.Client.Photon.Hashtable roomHash;
     private GameObject[] npcobj;
     private bool s;
+    
     private void Start()
     {
         npcobj = GameObject.FindGameObjectsWithTag("NPC");
@@ -41,9 +42,10 @@ public   class Customproperties :MonoBehaviourPunCallbacks
     }
    async void SEtNPCcustom()
     {
-        await Task.Delay(1000);
+      //  await Task.Delay(1000);
         npcobj = GameObject.FindGameObjectsWithTag("NPC");
         var npcobjnum = GameObject.FindGameObjectsWithTag("NPC").Length;
+        Debug.Log(npcobjnum);
         foreach (GameObject item in npcobj)
         {
             roomHash.Add($"{item.name}", false);

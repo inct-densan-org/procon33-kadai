@@ -11,7 +11,7 @@ public class NPCBase : MonoBehaviourPunCallbacks
 {
     public static ExitGames.Client.Photon.Hashtable roomHash;
     private bool NPCinf, cooltime, infected;
-    public string Objname,asee;
+    public string Objname;
     public bool NPCinfsee;
     private int infectionProbability=5;
     public  Player player;
@@ -30,21 +30,22 @@ public class NPCBase : MonoBehaviourPunCallbacks
     async void itibyou()
     {
         NPCinfsee = customproperties.GetNPCinf(Objname);
-
+       
 
         await Task.Delay(1000);
         itibyou();
     }
-    public async void OnTriggerStay2D(Collider2D collision)
+    public async void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("NPC") && cooltime == false)
+        if (collision.gameObject.CompareTag("NPC") )
         {
-            cooltime = true;
-            Invoke(nameof(Cooldowm), 5f);
+            
 
             infected = customproperties.GetNPCinf(collision.gameObject.name);
-            if (infected == true&& customproperties.GetNPCinf(gameObject.name))
+            
+            if (infected == true&&! customproperties.GetNPCinf(gameObject.name))
             {
+              
                 int rnd = Random.Range(0, 100);
                 if (rnd <= infectionProbability)
                 {
@@ -56,9 +57,9 @@ public class NPCBase : MonoBehaviourPunCallbacks
                 }
             }
         }
-        if (collision.gameObject.CompareTag("Player") && cooltime == false && customproperties.GetNPCinf(gameObject.name))
+        if (collision.gameObject.CompareTag("Player")  && !customproperties.GetNPCinf(gameObject.name))
         {
-            cooltime = true;
+            Debug.Log("player");
             GameObject ds = collision.gameObject;
             infection2 = ds.GetComponent<Infection2>();
             var player = collision.gameObject.GetPhotonView();
