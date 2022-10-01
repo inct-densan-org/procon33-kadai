@@ -163,7 +163,7 @@ public class Move : MonoBehaviourPunCallbacks
         }
         if (collision.gameObject.CompareTag("quest") && photonView.IsMine)
         {
-            if (Input.GetKey(KeyCode.Space) || Input.GetKey(KeyCode.KeypadEnter))
+            if (Input.GetKey(KeyCode.Space) )
             {
                 if (Officequest.questclear == true)
                 {
@@ -174,14 +174,14 @@ public class Move : MonoBehaviourPunCallbacks
         }
         if (collision.gameObject.CompareTag("rule") && photonView.IsMine)
         {
-            if (Input.GetKeyDown(KeyCode.Space) || Input.GetKey(KeyCode.KeypadEnter))
+            if (Input.GetKeyDown(KeyCode.Space) )
             {
                 Menumanager.menuKey = "rule";
             }
         }
         if (collision.gameObject.CompareTag("hotel") && photonView.IsMine)
         {
-            if (Input.GetKeyDown(KeyCode.Space) || Input.GetKey(KeyCode.KeypadEnter))
+            if (Input.GetKeyDown(KeyCode.Space) )
             {
                 Menumanager.menuKey = "hotel";
             }
