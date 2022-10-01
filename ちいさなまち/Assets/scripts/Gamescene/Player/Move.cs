@@ -10,7 +10,7 @@ using System.Collections.Generic;
 public class Move : MonoBehaviourPunCallbacks
 {
     private bool ispush, ishor, isver, infection, isStart;
-    private int idX = Animator.StringToHash("x"), idY = Animator.StringToHash("y"), myplayernum;
+    private int idX = Animator.StringToHash("x"), idY = Animator.StringToHash("y"), myplayernum, idismask = Animator.StringToHash("ismask");
     private Animator animator = null;
     public static Vector3 popo;
     private Vector3 input;
@@ -54,7 +54,8 @@ public class Move : MonoBehaviourPunCallbacks
         infection = infection2.GetPlayerinfeffect(myplayernum);
 
         var menuKey = Menumanager.menuKey;
-
+        if (infection2.ismask == true) animator.SetBool(idismask, true);
+        else animator.SetBool(idismask, false);
         var x = Input.GetAxisRaw("Horizontal");
         var y = Input.GetAxisRaw("Vertical");
         if (infection == true&&!iikai&&!kai&&!sugoikai)

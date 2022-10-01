@@ -99,7 +99,7 @@ public class PUN2Server : MonoBehaviourPunCallbacks
     {
         isStart = true;
         isman = ClientData.currentCharacter;
-        Debug.Log(isman);
+        
         if (isman == 0)
         {
             clone = PhotonNetwork.Instantiate("man", new Vector3(20, 15, -1), Quaternion.identity);
