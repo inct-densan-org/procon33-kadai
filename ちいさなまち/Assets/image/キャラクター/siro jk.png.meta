@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: ab33f633725d7ef4aa59146261719a37
+guid: 43a902e0af6fa9345af9b43f3b1392c6
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -104,13 +104,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: kuro jk_0
+      name: siro jk_0
       rect:
         serializedVersion: 2
-        x: 80
-        y: 1169
+        x: 72
+        y: 1150
         width: 383
-        height: 1084
+        height: 1083
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -118,18 +118,102 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 82b051067106528439a16630b5352152
-      internalID: 1132240603
+      spriteID: b46eb21357d36cf48a3bdf9051aab0a5
+      internalID: -572590969
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: kuro jk_1
+      name: siro jk_1
       rect:
         serializedVersion: 2
-        x: 537
-        y: 1162
+        x: 550
+        y: 1167
+        width: 423
+        height: 1104
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1212aa78cd7bbcf419ef786d57135364
+      internalID: -1865352375
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: siro jk_2
+      rect:
+        serializedVersion: 2
+        x: 1074
+        y: 1167
+        width: 424
+        height: 1104
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 150b8a5a26816364f89f8f2b0ff34d97
+      internalID: -1893566404
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: siro jk_3
+      rect:
+        serializedVersion: 2
+        x: 1642
+        y: 1179
+        width: 383
+        height: 1083
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 27780bf722a004a45bbd797d812cde62
+      internalID: 2142594753
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: siro jk_4
+      rect:
+        serializedVersion: 2
+        x: 2149
+        y: 1154
+        width: 424
+        height: 1104
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6d8252a425bddda4badc3111ee17c731
+      internalID: 1832568357
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: siro jk_5
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 19
         width: 423
         height: 1102
       alignment: 7
@@ -139,102 +223,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 50e35a38145933a47b2cd3a9c277ceef
-      internalID: 357234279
+      spriteID: 34f6ee9904abf0c42b7262c2cbc26e0d
+      internalID: -1735889271
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: kuro jk_2
+      name: siro jk_6
       rect:
         serializedVersion: 2
-        x: 1035
-        y: 1163
-        width: 424
-        height: 1103
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 70d428f54d8d15144bc9b0246312c940
-      internalID: -1791905731
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: kuro jk_3
-      rect:
-        serializedVersion: 2
-        x: 1647
-        y: 1175
-        width: 383
-        height: 1083
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 9c7e67a27bd65364ab8c32aeed6646bb
-      internalID: -1887151874
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: kuro jk_4
-      rect:
-        serializedVersion: 2
-        x: 2165
-        y: 1141
-        width: 423
-        height: 1104
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d3da41526bdad8741b3d92221f7091f7
-      internalID: 1070416859
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: kuro jk_5
-      rect:
-        serializedVersion: 2
-        x: 19
-        y: 20
-        width: 423
-        height: 1104
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c2415fb40600ee44c9d48e4d70f4137c
-      internalID: -1420540297
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: kuro jk_6
-      rect:
-        serializedVersion: 2
-        x: 558
-        y: 51
+        x: 593
+        y: 54
         width: 402
         height: 1083
       alignment: 7
@@ -244,19 +244,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ca4c26d82241571479bddfc0eb67889b
-      internalID: 192023139
+      spriteID: beb60308c3914ef4e9b2436ccde8f5d1
+      internalID: 1664447049
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: kuro jk_7
+      name: siro jk_7
       rect:
         serializedVersion: 2
-        x: 1116
-        y: 58
-        width: 462
+        x: 1113
+        y: 54
+        width: 464
         height: 1062
       alignment: 7
       pivot: {x: 0.5, y: 0}
@@ -265,19 +265,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a0086d9a384a5f14592d85675a45fb7e
-      internalID: 659311517
+      spriteID: 62c05dce9a56ff7429fe32a26b99a09d
+      internalID: 261238723
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: kuro jk_8
+      name: siro jk_8
       rect:
         serializedVersion: 2
-        x: 1699
-        y: 57
-        width: 484
+        x: 1708
+        y: 44
+        width: 483
         height: 1063
       alignment: 7
       pivot: {x: 0.5, y: 0}
@@ -286,8 +286,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8821ed90e36ed6a4bad937f7e24841cb
-      internalID: 1895526751
+      spriteID: 4a598a74f1cf1864fab6ebae6adb292d
+      internalID: -2071443770
       vertices: []
       indices: 
       edges: []
@@ -303,15 +303,15 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      kuro jk_2: -1791905731
-      kuro jk_7: 659311517
-      kuro jk_0: 1132240603
-      kuro jk_5: -1420540297
-      kuro jk_6: 192023139
-      kuro jk_8: 1895526751
-      kuro jk_4: 1070416859
-      kuro jk_3: -1887151874
-      kuro jk_1: 357234279
+      siro jk_7: 261238723
+      siro jk_3: 2142594753
+      siro jk_2: -1893566404
+      siro jk_0: -572590969
+      siro jk_6: 1664447049
+      siro jk_1: -1865352375
+      siro jk_8: -2071443770
+      siro jk_4: 1832568357
+      siro jk_5: -1735889271
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
