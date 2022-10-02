@@ -12,7 +12,7 @@ public   class Customproperties :MonoBehaviourPunCallbacks
    
     public  ExitGames.Client.Photon.Hashtable roomHash;
     private GameObject[] npcobj;
-    private bool s;
+    private bool s,q;
     
     private void Start()
     {
@@ -52,11 +52,14 @@ public   class Customproperties :MonoBehaviourPunCallbacks
             
         }
         PhotonNetwork.CurrentRoom.SetCustomProperties(roomHash);
+        q = true;
     }
     public  bool GetNPCinf(string name)
     {
-        
-        return (bool) roomHash[$"{name}"];
+        if (q) return (bool)roomHash[$"{name}"];
+        else return false;
+
+
     }
 
     public  void SetNPCinf(string name,bool inf)

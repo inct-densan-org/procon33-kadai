@@ -59,7 +59,7 @@ public class NPCBase : MonoBehaviourPunCallbacks
         }
         if (collision.gameObject.CompareTag("Player")  && !customproperties.GetNPCinf(gameObject.name))
         {
-            Debug.Log("player");
+          
             GameObject ds = collision.gameObject;
             infection2 = ds.GetComponent<Infection2>();
             var player = collision.gameObject.GetPhotonView();
