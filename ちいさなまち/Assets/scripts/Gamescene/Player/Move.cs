@@ -24,6 +24,7 @@ public class Move : MonoBehaviourPunCallbacks
     private Player player;
     private PUN2Server server;
     public Infection2 infection2;
+    public string Movekey;
     public void Start()
     {
         GameObject menu = GameObject.Find("PUN2Sever");
@@ -110,13 +111,10 @@ public class Move : MonoBehaviourPunCallbacks
             }
             popo = transform.position;
         }
-    }
-    
-    private void OnTriggerStay2D(Collider2D collision)
-    {
-        if (collision.gameObject.CompareTag("shop") && photonView.IsMine)
+        if (Movekey == "shop")
         {
-            if (Input.GetKey(KeyCode.Space))
+
+            if (Input.GetKeyDown(KeyCode.Space))
             {
                 if (Restranquest.questclear == true)
                 {
@@ -129,9 +127,10 @@ public class Move : MonoBehaviourPunCallbacks
                 }
             }
         }
-        if (collision.gameObject.CompareTag("hospitalshop") && photonView.IsMine)
+        if (Movekey == "hospitalshop")
         {
-            if (Input.GetKey(KeyCode.Space))
+
+            if (Input.GetKeyDown(KeyCode.Space))
             {
                 if (Hospitalquest.questclear == true)
                 {
@@ -140,9 +139,10 @@ public class Move : MonoBehaviourPunCallbacks
                 else Menumanager.menuKey = "hospitalshop";
             }
         }
-        if (collision.gameObject.CompareTag("drukstore") && photonView.IsMine)
+        if(Movekey == "durk")
         {
-            if (Input.GetKey(KeyCode.Space))
+
+            if (Input.GetKeyDown(KeyCode.Space))
             {
                 if (Dragstorequest.questclear == true)
                 {
@@ -151,12 +151,12 @@ public class Move : MonoBehaviourPunCallbacks
                 else Menumanager.menuKey = "durkstore";
             }
         }
-        if (collision.gameObject.CompareTag("foodstore") && photonView.IsMine)
+        if (Movekey == "food")
         {
-            Debug.Log("iru");
-            if (Input.GetKey(KeyCode.Space))
+           
+            if (Input.GetKeyDown(KeyCode.Space))
             {
-                Debug.Log("osita");
+                
                 if (Supermarketquest.questclear == true)
                 {
                     Menumanager.menuKey = "foodtalk";
@@ -164,31 +164,32 @@ public class Move : MonoBehaviourPunCallbacks
                 else Menumanager.menuKey = "foodstore";
             }
         }
-        if (collision.gameObject.CompareTag("quest") && photonView.IsMine)
+        if (Movekey == "quest")
         {
-            if (Input.GetKey(KeyCode.Space) )
+            if (Input.GetKeyDown(KeyCode.Space))
             {
-                
-                 Menumanager.menuKey = "quest";
+
+                Menumanager.menuKey = "quest";
             }
         }
-        if (collision.gameObject.CompareTag("rule") && photonView.IsMine)
+        if (Movekey == "rule")
         {
-            if (Input.GetKey(KeyCode.Space) )
+            if (Input.GetKeyDown(KeyCode.Space))
             {
                 Menumanager.menuKey = "rule";
             }
         }
-        if (collision.gameObject.CompareTag("hotel") && photonView.IsMine)
+        if (Movekey == "hotel")
         {
-            if (Input.GetKey(KeyCode.Space) )
+
+            if (Input.GetKeyDown(KeyCode.Space))
             {
                 Menumanager.menuKey = "hotel";
             }
         }
-
-        if (collision.gameObject.CompareTag("reception") && photonView.IsMine)
+        if (Movekey == "reception")
         {
+
             if (Input.GetKey(KeyCode.Space))
             {
                 if (Officequest.questclear == true)
@@ -200,12 +201,78 @@ public class Move : MonoBehaviourPunCallbacks
                     Menumanager.menuKey = "talk";
                     reception = true;
                 }
-                
-               
-            
-            
-            
             }
         }
     }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("shop") && photonView.IsMine)
+        {
+            Movekey = "shop";
+        }
+        if (collision.gameObject.CompareTag("hospitalshop") && photonView.IsMine)
+        {
+            Movekey = "hospitalshop";
+        }
+        if (collision.gameObject.CompareTag("drukstore") && photonView.IsMine)
+        {
+            Movekey = "durk";
+        }
+        if (collision.gameObject.CompareTag("foodstore") && photonView.IsMine)
+        {
+            Movekey="food";
+        }
+        if (collision.gameObject.CompareTag("quest") && photonView.IsMine)
+        {
+            Movekey = "quest";
+        }
+        if (collision.gameObject.CompareTag("rule") && photonView.IsMine)
+        {
+            Movekey = "rule";
+        }
+        if (collision.gameObject.CompareTag("hotel") && photonView.IsMine)
+        {
+            Movekey = "hotel";
+        }
+        if (collision.gameObject.CompareTag("reception") && photonView.IsMine)
+        {
+            Movekey = "reception";
+        }
+    }
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("shop") && photonView.IsMine)
+        {
+            Movekey = null;
+        }
+        if (collision.gameObject.CompareTag("hospitalshop") && photonView.IsMine)
+        {
+            Movekey = null;
+        }
+        if (collision.gameObject.CompareTag("drukstore") && photonView.IsMine)
+        {
+            Movekey = null;
+        }
+        if (collision.gameObject.CompareTag("foodstore") && photonView.IsMine)
+        {
+            Movekey = null;
+        }
+        if (collision.gameObject.CompareTag("quest") && photonView.IsMine)
+        {
+            Movekey = null;
+        }
+        if (collision.gameObject.CompareTag("rule") && photonView.IsMine)
+        {
+            Movekey = null;
+        }
+        if (collision.gameObject.CompareTag("hotel") && photonView.IsMine)
+        {
+            Movekey = null;
+        }
+        if (collision.gameObject.CompareTag("reception") && photonView.IsMine)
+        {
+            Movekey = null;
+        }
+    }
+   
 }
