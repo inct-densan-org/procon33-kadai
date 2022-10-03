@@ -39,9 +39,6 @@ public class Talktextmanager : MonoBehaviour
                     Moneymanager.Setmoney(QuestDataBase.GetQusetLists()[0].Getreward());
                     QuestDataBase.GetQusetLists()[0].SetIsQuria(true);
 
-                    
-                    Hospitalquest.questclear = false;
-
                     QuestDataBase.GetQusetLists()[0].SetIsQuest(false);
                     Supermarketquest.questclear = false;
 
@@ -57,7 +54,7 @@ public class Talktextmanager : MonoBehaviour
                     Menumanager.menuKey = null;
                     Moneymanager.Setmoney(QuestDataBase.GetQusetLists()[1].Getreward());
                     QuestDataBase.GetQusetLists()[1].SetIsQuria(true);
-                   
+                    
                     Hospitalquest.questclear = false;
                 }
             }
@@ -71,10 +68,6 @@ public class Talktextmanager : MonoBehaviour
                     Menumanager.menuKey = null;
                     Moneymanager.Setmoney(QuestDataBase.GetQusetLists()[2].Getreward());
                     QuestDataBase.GetQusetLists()[2].SetIsQuria(true);
-
-                    
-                    Hospitalquest.questclear = false;
-                    QuestDataBase.GetQusetLists()[2].SetIsQuest(false);
                     Dragstorequest.questclear = false;
 
                 }
@@ -91,6 +84,17 @@ public class Talktextmanager : MonoBehaviour
                     QuestDataBase.GetQusetLists()[4].SetIsQuria(true);
                     
                     Officequest.questclear = false;
+                }
+            }
+
+            else if (Move.reception = true) 
+            {
+                talktext.text = "こちらを配達してください。";
+                if (Input.GetMouseButton(0))
+                {
+                    talk.SetActive(false);
+                    MenuManager.menuKey = null;
+                    Move.reception = false;
                 }
             }
         }

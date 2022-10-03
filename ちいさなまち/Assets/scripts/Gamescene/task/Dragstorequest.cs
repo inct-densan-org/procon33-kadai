@@ -14,5 +14,9 @@ public class Dragstorequest : MonoBehaviour
             questclear = true;
             a = false;
         }
+        else if (QuestDataBase.GetQusetLists()[2].GetIsQuest() == false) 
+        {
+            a = false;
+        }
     }
 }

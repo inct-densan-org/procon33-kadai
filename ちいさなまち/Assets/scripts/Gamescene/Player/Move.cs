@@ -13,6 +13,7 @@ public class Move : MonoBehaviourPunCallbacks
     private int idX = Animator.StringToHash("x"), idY = Animator.StringToHash("y"), myplayernum, idismask = Animator.StringToHash("ismask");
     private Animator animator = null;
     public static Vector3 popo;
+    public static bool reception = false;
     private Vector3 input;
     private Menumanager menumanager;
     private QuestDataBase QuestDataBase;
@@ -107,7 +108,6 @@ public class Move : MonoBehaviourPunCallbacks
                 if (x > 0.1 && ispush == false) { animator.SetFloat(idX, 1); ispush = true; }
                 if (x < -0.1 && ispush == false) { animator.SetFloat(idX, -1); ispush = true; }
             }
-           
             popo = transform.position;
         }
     }
@@ -190,10 +190,16 @@ public class Move : MonoBehaviourPunCallbacks
 
         if (collision.gameObject.CompareTag("reception") && photonView.IsMine)
         {
+            if (input.GetKeyDown(Keycode.Space))
+            {
+            reception = true;
+
+            Menumanager.menuKey = "talk";
             Supermarketquest.a = true;
             Hospitalquest.a = true;
             Dragstorequest.a = true;
             Officequest.a = true;
+            }
         }
     }
 }
