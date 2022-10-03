@@ -54,12 +54,6 @@ public class GetItemData : MonoBehaviour
 
         }
 
-        Debug.Log(itemList.Count);
-        Debug.Log(itemList[0].Count);
-        Debug.Log(itemList[1].Count);
-        Debug.Log(itemList[2].Count);
-        Debug.Log(itemList[3].Count);
-
         for(int i = skipChild; i < itemList.Count+skipChild; i++){
             foreach (var item in itemList[i-skipChild]){
                 GameObject itemData = Instantiate(prefab, transform.position, Quaternion.identity);

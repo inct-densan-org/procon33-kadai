@@ -6213,7 +6213,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 0.5
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -10665,7 +10665,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 16732709}
   m_HandleRect: {fileID: 16732708}
   m_Direction: 0
-  m_Value: 0
+  m_Value: 1
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -16179,7 +16179,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 144955586}
   m_HandleRect: {fileID: 144955585}
   m_Direction: 2
-  m_Value: 1
+  m_Value: 0
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
