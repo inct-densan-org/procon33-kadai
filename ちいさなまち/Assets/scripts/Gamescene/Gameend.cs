@@ -16,7 +16,7 @@ public class Gameend : MonoBehaviourPun
     private int playernum;
     private Gaugemanager gaugemanager;
     private Infection2 infection2;
-    public GameObject countdown;
+    
     private TextMeshProUGUI counttext;
     private bool a;
     // Start is called before the first frame update
@@ -29,7 +29,7 @@ public class Gameend : MonoBehaviourPun
         menumanager = GameObject.Find("menumaneger");
         timekimeru = menumanager.GetComponent<Timekimeru>();
         gaugemanager = menumanager.GetComponent<Gaugemanager>();
-        counttext = countdown.GetComponent<TextMeshProUGUI>();
+    
     }
 
     // Update is called once per frame
@@ -37,7 +37,7 @@ public class Gameend : MonoBehaviourPun
     {
         var player = PhotonNetwork.PlayerList;
         var p1 = player[0];
-       counttext.text = $"{time}";
+     
         water = gaugemanager.watertime;
         food = gaugemanager.foodtime;
         if (water == 100)
@@ -58,11 +58,8 @@ public class Gameend : MonoBehaviourPun
            
         }
         time = timekimeru.time;
-        if (time == 10 && p1 == PhotonNetwork.LocalPlayer&&a==false)
-        {
-            a = true;
-            photonView.RPC(nameof(Countdoen), RpcTarget.All);
-        }
+         
+        
         if (time == 0&&p1 == PhotonNetwork.LocalPlayer)
         {
             photonView.RPC(nameof(gameEnd), RpcTarget.All);
@@ -96,13 +93,5 @@ public class Gameend : MonoBehaviourPun
         else { iswin = true; }
         PhotonNetwork.LeaveRoom();
     }
-    [PunRPC]
-    public void Countdoen()
-    {
-        countdown.SetActive(true);
-        
-        
-        
-        
-    }
+   
 }

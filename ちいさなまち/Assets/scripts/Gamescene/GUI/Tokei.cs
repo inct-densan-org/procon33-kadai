@@ -12,6 +12,7 @@ public  class Tokei : MonoBehaviourPunCallbacks
 {
     public int hour, minite, second,time;
     public TextMeshProUGUI text;
+    
     private ExitGames.Client.Photon.Hashtable roomHash;
     private Timekimeru timekimeru;
     private GameObject menumanager;
@@ -30,6 +31,6 @@ public  class Tokei : MonoBehaviourPunCallbacks
         minite = time / 60;
         if (minite == 60) minite = 0;
         hour = time / 3600; if (hour == 24) hour = 0;
-        text.text =   $"{minite}" + "分" + $"{second}" + "秒";
+        text.text =   $"{minite}" + ":" + $"{second}" ;
     }
 }

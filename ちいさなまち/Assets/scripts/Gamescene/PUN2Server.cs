@@ -74,7 +74,7 @@ public class PUN2Server : MonoBehaviourPunCallbacks
             wait.SetActive(false);
             a = true;
             clone.SetActive(true);
-            Moneymanager.Money = 0;
+            Moneymanager.Money = 1000;
         }
         if (Input.GetKeyDown(KeyCode.H))
         {

@@ -96,7 +96,7 @@ public class Infection2 : MonoBehaviourPunCallbacks
         if (collision.gameObject.CompareTag("Player") && photonView.IsMine)// && cooltime == false)
         {
             var playername = collision.gameObject.name;
-            cooltime = true;
+           
             Invoke(nameof(Cooldowm), 5f);
             var a = collision.gameObject.GetPhotonView();
             Debug.Log("hureta");
@@ -120,10 +120,11 @@ public class Infection2 : MonoBehaviourPunCallbacks
                 }
             }
         }
-        if (collision.gameObject.CompareTag("NPC") && photonView.IsMine && !isapart)
+        if (collision.gameObject.CompareTag("NPC") && photonView.IsMine && !isapart&&!cooltime)
         {
             var NPCname = collision.gameObject.name;
-
+            cooltime = true;
+            
             NPCinf = customproperties.GetNPCinf(NPCname);
             if (NPCinf == true && GetPlayerinf(Player) == false)
             {
@@ -140,6 +141,8 @@ public class Infection2 : MonoBehaviourPunCallbacks
                     la = false;
                 }
             }
+            await Task.Delay(1000);
+            cooltime = false;
         }
         if (collision.gameObject.CompareTag("apart") && photonView.IsMine)
         {

@@ -103,10 +103,10 @@ public class Move : MonoBehaviourPunCallbacks
                 
                 if (Input.GetKeyUp(KeyCode.W) || Input.GetKeyUp(KeyCode.UpArrow)) { animator.SetFloat(idY, 0.5f); animator.SetFloat(idX, 0); ispush = false; isver = false; }
                 if (Input.GetKeyUp(KeyCode.S) || Input.GetKeyUp(KeyCode.DownArrow)) { animator.SetFloat(idY, -0.5f); animator.SetFloat(idX, 0); ispush = false; isver = false; }
-                if (y > 0.1 && ispush == false) { animator.SetFloat(idY, 1); ispush = true; }
-                if (y < -0.1 && ispush == false) { animator.SetFloat(idY, -1); ispush = true; }
-                if (x > 0.1 && ispush == false) { animator.SetFloat(idX, 1); ispush = true; }
-                if (x < -0.1 && ispush == false) { animator.SetFloat(idX, -1); ispush = true; }
+                if (Input.GetKey(KeyCode.W) && ispush == false || Input.GetKey(KeyCode.UpArrow) && ispush == false) { animator.SetFloat(idY, 1); ispush = true; }
+                if (Input.GetKey(KeyCode.S) && ispush == false || Input.GetKey(KeyCode.DownArrow) && ispush == false) { animator.SetFloat(idY, -1); ispush = true; }
+                if (Input.GetKey(KeyCode.D) && ispush == false || Input.GetKey(KeyCode.RightArrow) && ispush == false) { animator.SetFloat(idX, 1); ispush = true; }
+                if (Input.GetKey(KeyCode.A) && ispush == false || Input.GetKey(KeyCode.LeftArrow) && ispush == false) { animator.SetFloat(idX, -1); ispush = true; }
             }
             popo = transform.position;
         }
@@ -153,8 +153,10 @@ public class Move : MonoBehaviourPunCallbacks
         }
         if (collision.gameObject.CompareTag("foodstore") && photonView.IsMine)
         {
+            Debug.Log("iru");
             if (Input.GetKey(KeyCode.Space))
             {
+                Debug.Log("osita");
                 if (Supermarketquest.questclear == true)
                 {
                     Menumanager.menuKey = "talk";
@@ -175,14 +177,14 @@ public class Move : MonoBehaviourPunCallbacks
         }
         if (collision.gameObject.CompareTag("rule") && photonView.IsMine)
         {
-            if (Input.GetKeyDown(KeyCode.Space) )
+            if (Input.GetKey(KeyCode.Space) )
             {
                 Menumanager.menuKey = "rule";
             }
         }
         if (collision.gameObject.CompareTag("hotel") && photonView.IsMine)
         {
-            if (Input.GetKeyDown(KeyCode.Space) )
+            if (Input.GetKey(KeyCode.Space) )
             {
                 Menumanager.menuKey = "hotel";
             }
@@ -190,7 +192,7 @@ public class Move : MonoBehaviourPunCallbacks
 
         if (collision.gameObject.CompareTag("reception") && photonView.IsMine)
         {
-            if (input.GetKeyDown(Keycode.Space))
+            if (Input.GetKey(KeyCode.Space))
             {
             reception = true;
 

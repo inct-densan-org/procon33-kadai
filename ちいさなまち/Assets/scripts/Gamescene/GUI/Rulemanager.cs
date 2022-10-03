@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class Rulemanager : MonoBehaviour
 {
-    public GameObject Ruledis;
+    
+    public GameObject Ruledis,menudis;
+    private bool ismenu;
     // Update is called once per frame
     void Update()
     {
@@ -15,7 +17,24 @@ public class Rulemanager : MonoBehaviour
     }
     public void OnPushback()
     {
-        Ruledis.SetActive(false);
-        Menumanager.menuKey = null;
+        
+        if (ismenu)
+        {
+            Ruledis.SetActive(false);
+            menudis.SetActive(true);
+            Menumanager.menuKey = "menu";
+            ismenu = false;
+        }
+        else
+        {
+            Ruledis.SetActive(false);
+            Menumanager.menuKey = null;
+        }
+    }
+    public void OnPushhelp()
+    {
+        ismenu = true;
+        menudis.SetActive(false);
+        Menumanager.menuKey = "rule";
     }
 }

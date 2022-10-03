@@ -19,7 +19,7 @@ public class Talktextmanager : MonoBehaviour
             if (Restranquest.questclear == true)
             {
                 talktext.text = "「掃除をしてくれたのですね。ありがとうございます。これ報酬金です。」";
-                if (Input.GetMouseButton(0))
+                if (Input.GetMouseButton(0)||Input.GetKeyDown(KeyCode.Space))
                 {
                     talk.SetActive(false);
                     Menumanager.menuKey = null;
@@ -32,7 +32,7 @@ public class Talktextmanager : MonoBehaviour
             else if (Supermarketquest.questclear == true)
             {
                 talktext.text = "「こちら報酬になります。」";
-                if (Input.GetMouseButton(0))
+                if (Input.GetMouseButton(0) || Input.GetKeyDown(KeyCode.Space))
                 {
                     talk.SetActive(false);
                     Menumanager.menuKey = null;
@@ -48,7 +48,7 @@ public class Talktextmanager : MonoBehaviour
             else if (Hospitalquest.questclear == true)
             {
                 talktext.text = "「こちら報酬になります。」";
-                if (Input.GetMouseButton(0))
+                if (Input.GetMouseButton(0) || Input.GetKeyDown(KeyCode.Space))
                 {
                     talk.SetActive(false);
                     Menumanager.menuKey = null;
@@ -62,7 +62,7 @@ public class Talktextmanager : MonoBehaviour
             else if (Dragstorequest.questclear == true)
             {
                 talktext.text = "「こちら報酬になります。」";
-                if (Input.GetMouseButton(0))
+                if (Input.GetMouseButton(0) || Input.GetKeyDown(KeyCode.Space))
                 {
                     talk.SetActive(false);
                     Menumanager.menuKey = null;
@@ -76,7 +76,7 @@ public class Talktextmanager : MonoBehaviour
             else if (Officequest.questclear == true)
             {
                 talktext.text = "「ありがとう。これはお礼だよ。」";
-                if (Input.GetMouseButton(0))
+                if (Input.GetMouseButton(0) || Input.GetKeyDown(KeyCode.Space))
                 {
                     talk.SetActive(false);
                     Menumanager.menuKey = null;
@@ -90,10 +90,11 @@ public class Talktextmanager : MonoBehaviour
             else if (Move.reception = true) 
             {
                 talktext.text = "こちらを配達してください。";
-                if (Input.GetMouseButton(0))
+                if (Input.GetMouseButton(0) || Input.GetKeyDown(KeyCode.Space))
                 {
                     talk.SetActive(false);
-                    MenuManager.menuKey = null;
+                    Menumanager.menuKey = null;
+                    
                     Move.reception = false;
                 }
             }

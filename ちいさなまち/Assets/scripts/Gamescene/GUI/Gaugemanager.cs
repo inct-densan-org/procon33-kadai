@@ -52,7 +52,7 @@ public class Gaugemanager : MonoBehaviourPunCallbacks
             watertime += 10;
         }
         foodBar.fillAmount = 1 - (foodtime / 200);
-        waterBar.fillAmount = 1 - (watertime / 100);
+        waterBar.fillAmount = 1 - (watertime / 150);
        
        
         if (foodtime == 190 && a == false)
@@ -61,12 +61,12 @@ public class Gaugemanager : MonoBehaviourPunCallbacks
             noticeManager.Notice($"{PhotonNetwork.LocalPlayer.NickName}が脱水症状で逝きそうだ");
         }
         if (foodtime != 190 && a == true) a = false;
-        if (watertime == 90 && b == false)
+        if (watertime == 140 && b == false)
         {
             b = true;
             noticeManager.Notice($"{PhotonNetwork.LocalPlayer.NickName}が餓死しそうだ");
         }
-        if (watertime != 90 && b == true) b= false;
+        if (watertime != 140 && b == true) b= false;
     }
     public void Setfood(int value)
     {

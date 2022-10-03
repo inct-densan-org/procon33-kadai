@@ -9,7 +9,7 @@ public class asd : MonoBehaviour
 
 
 
-    private float speed = 0.05f;
+    private float speed = 0.03f;
 
     void Start()
     {
@@ -43,7 +43,10 @@ public class asd : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             Debug.Log("asd");
-
+            if (Input.GetKey(KeyCode.Space))
+            {
+                Debug.Log("osita");
+            }
         }
     }
 }
