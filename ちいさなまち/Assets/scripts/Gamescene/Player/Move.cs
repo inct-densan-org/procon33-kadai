@@ -190,28 +190,10 @@ public class Move : MonoBehaviourPunCallbacks
 
         if (collision.gameObject.CompareTag("reception") && photonView.IsMine)
         {
-            if (Input.GetKey(KeyCode.Space) || Input.GetKey(KeyCode.KeypadEnter))
-            {
-                if (QuestDataBase.GetQusetLists()[0].GetIsQuest() == true)
-                {
-                    Supermarketquest.questclear = true;
-                }
-
-                else if (QuestDataBase.GetQusetLists()[1].GetIsQuest() == true)
-                {
-                    Hospitalquest.questclear = true;
-                }
-
-                else if (QuestDataBase.GetQusetLists()[2].GetIsQuest() == true)
-                {
-                    Dragstorequest.questclear = true;
-                }
-
-                else if (QuestDataBase.GetQusetLists()[4].GetIsQuest() == true)
-                {
-                    Officequest.questclear = true;
-                }
-            }
+            Supermarketquest.a = true;
+            Hospitalquest.a = true;
+            Dragstorequest.a = true;
+            Officequest.a = true;
         }
     }
 }
