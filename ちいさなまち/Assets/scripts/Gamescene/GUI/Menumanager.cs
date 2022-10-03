@@ -11,7 +11,7 @@ public class Menumanager : MonoBehaviourPunCallbacks
 {
     [SerializeField]
     private QuestDataBase QuestDataBase;
-    public GameObject menu, messegedis,itemdis;
+    public GameObject menu, messegedis,itemdis,yesbutton;
     public static string menuKey;
     public TextMeshProUGUI mesasege, warning;
 
@@ -108,7 +108,17 @@ public class Menumanager : MonoBehaviourPunCallbacks
 
         ItemName = button_ob.name;
         warning.text = null;
-        mesasege.text = GetItem(ItemName).GetItemName() + "\n" + GetItem(ItemName).GetInformation() + "\n" + "を使用しますか？";
+        if (GetItem(ItemName).GetKindOfItem().ToString() == "quest")
+        {
+            mesasege.text = GetItem(ItemName).GetItemName() + "\n" + GetItem(ItemName).GetInformation() + "\n";
+            yesbutton.SetActive(false);
+        }
+        else
+        {
+            mesasege.text = GetItem(ItemName).GetItemName() + "\n" + GetItem(ItemName).GetInformation() + "\n" + "を使用しますか？";
+            yesbutton.SetActive(true);
+        }
+       
     }
 
 
@@ -128,7 +138,8 @@ public class Menumanager : MonoBehaviourPunCallbacks
             }
             else if(ItemName != null&& GetItem(ItemName).Getkosuu() > 0)
             {
-                if (infection2.GetPlayerinfeffect(PhotonNetwork.LocalPlayer.ActorNumber) == true&&KANPOU==false)
+               
+               if (infection2.GetPlayerinfeffect(PhotonNetwork.LocalPlayer.ActorNumber) == true&&KANPOU==false)
                 {
                     if (GetItem(ItemName).GetEatWhenInfected() == true)
                     {
@@ -272,5 +283,11 @@ public class Menumanager : MonoBehaviourPunCallbacks
     public Item GetItem(string searchName)
     {
         return itemDataBase.GetItemLists().Find(itemName => itemName.GetItemName() == searchName);
+    }
+    public void ONPUSHmodoru()
+    {
+        menu.SetActive(false);
+        itemdis.SetActive(false);
+        menuKey = null;
     }
 }

@@ -7,6 +7,11 @@ public class Hospitalquest : MonoBehaviour
     [SerializeField] private QuestDataBase QuestDataBase;
     public static bool questclear;
     public static bool a = false;
+    private void Start()
+    {
+        questclear = false;
+        a = false;
+    }
     void Update()
     {
         if (QuestDataBase.GetQusetLists()[1].GetIsQuest() == true && a == true)
@@ -14,7 +19,7 @@ public class Hospitalquest : MonoBehaviour
             questclear = true;
             a = false;
         }
-        else if (QuestDataBase.GetQusetLists()[2].GetIsQuest() == false) 
+        else if (QuestDataBase.GetQusetLists()[1].GetIsQuest() == false) 
         {
             a = false;
         }

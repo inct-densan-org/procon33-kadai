@@ -86,7 +86,7 @@ public class Infection2 : MonoBehaviourPunCallbacks
         }
         if (ismask == false)
         {
-            infectionProbability = 100;
+            infectionProbability = 20;
         }
     }
 

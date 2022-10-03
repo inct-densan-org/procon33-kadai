@@ -13,7 +13,10 @@ public class Quest : ScriptableObject
 	[SerializeField]
 	private string QuestInf;
 	//?@?A?C?e??????
-	
+	[SerializeField]
+	private string QuestName;
+	[SerializeField]
+	private string Questitem;
 	[SerializeField]
 	private int reward_money;
 	[SerializeField]
@@ -26,6 +29,14 @@ public class Quest : ScriptableObject
 	public string GetQuestinf()
 	{
 		return QuestInf;
+	}
+	public string GetQuestitem()
+	{
+		return Questitem;
+	}
+	public string GetQuestName()
+	{
+		return QuestName;
 	}
 	public int Getreward()
 	{

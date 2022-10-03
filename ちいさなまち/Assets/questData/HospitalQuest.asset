@@ -12,7 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4b51947a79d8c54d88ddf9819b9a1d8, type: 3}
   m_Name: HospitalQuest
   m_EditorClassIdentifier: 
-  QuestInf: "\u75C5\u9662\u306B\u85AC\u54C1\u3092\u5C4A\u3051\u3088\u3046"
+  QuestInf: "\u8077\u5834\u306E\u8077\u54E1\u304B\u3089\u914D\u9054\u3059\u308B\u30A2\u30A4\u30C6\u30E0\u3092\u53D7\u3051\u53D6\u3063\u305F\u3042\u3068\u3001\u75C5\u9662\u306B\u305D\u306E\u30A2\u30A4\u30C6\u30E0\u3092\u5C4A\u3051\u3088\u3046\u3002"
+  QuestName: "\u75C5\u9662\u3078\u914D\u9054"
+  Questitem: "\u914D\u9054\u7528\u306E\u85AC"
   reward_money: 300
   QuestNumber: 1
   IsQuest: 0

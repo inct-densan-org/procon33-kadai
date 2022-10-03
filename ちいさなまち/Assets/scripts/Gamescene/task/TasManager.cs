@@ -11,7 +11,7 @@ using UnityEngine.UI;
 
 public class TasManager : MonoBehaviourPunCallbacks
 {
-    public GameObject Questmenu, messegedis;
+    public GameObject Questmenu, messegedis,yesbutton;
     public TextMeshProUGUI inf1, inf2, inf3, messege,mesegetitle;
     [SerializeField]
     private QuestDataBase QuestDataBase;
@@ -64,16 +64,44 @@ public class TasManager : MonoBehaviourPunCallbacks
         }
         if (menuKey=="quest")
         {//189,247,255,255
+            Questmenu.SetActive(true);
             mesegetitle.text = "クエスト詳細";
             mesegeimage.sprite = questsp;
             mesegeimage.color= new Color32(255, 255, 255, 255);
-            if (QuestDataBase.GetQusetLists()[list[0]].GetIsQuest()) t1.SetActive(true); else t1.SetActive(false);
-            if (QuestDataBase.GetQusetLists()[list[1]].GetIsQuest()) t2.SetActive(true); else t2.SetActive(false);
-            if (QuestDataBase.GetQusetLists()[list[2]].GetIsQuest()) t3.SetActive(true); else t3.SetActive(false);
-            Questmenu.SetActive(true);
-            inf1.text =  $"{QuestDataBase.GetQusetLists()[list[0]].GetQuestinf()}" + "\n" + " クリアほうしゅう" + $"{QuestDataBase.GetQusetLists()[list[0]].Getreward()}" + "円";
-            inf2.text =  $"{QuestDataBase.GetQusetLists()[list[1]].GetQuestinf()}" + "\n" + " クリアほうしゅう" + $"{QuestDataBase.GetQusetLists()[list[1]].Getreward()}" + "円";
-            inf3.text =   $"{QuestDataBase.GetQusetLists()[list[2]].GetQuestinf()}" + "\n" + " クリアほうしゅう" + $"{QuestDataBase.GetQusetLists()[list[2]].Getreward()}" + "円";
+            var listnum = list.Count;
+            if (listnum > 0)
+            {
+                inf1.text = $"{QuestDataBase.GetQusetLists()[list[0]].GetQuestName()}" + "\n" + " クリア報酬" + $"{QuestDataBase.GetQusetLists()[list[0]].Getreward()}" + "円";
+                if (QuestDataBase.GetQusetLists()[list[0]].GetIsQuest()) t1.SetActive(true);
+                else t1.SetActive(false); 
+            }
+            else
+            {
+                inf1.text = null;
+                t1.SetActive(false);
+            }
+            if (listnum > 1)
+            {
+                inf2.text = $"{QuestDataBase.GetQusetLists()[list[1]].GetQuestName()}" + "\n" + " クリア報酬" + $"{QuestDataBase.GetQusetLists()[list[1]].Getreward()}" + "円";
+                if (QuestDataBase.GetQusetLists()[list[1]].GetIsQuest()) t2.SetActive(true);
+                else t2.SetActive(false);
+            }
+            else
+            {
+                inf2.text = null;
+                t2.SetActive(false);
+            }
+            if (listnum > 2)
+            {
+                inf3.text = $"{QuestDataBase.GetQusetLists()[list[2]].GetQuestName()}" + "\n" + " クリア報酬" + $"{QuestDataBase.GetQusetLists()[list[2]].Getreward()}" + "円";
+                if (QuestDataBase.GetQusetLists()[list[2]].GetIsQuest()) t3.SetActive(true);
+                else t3.SetActive(false);
+            }
+            else
+            {
+                inf3.text = null;
+                t3.SetActive(false);
+            }
         }
         for (int i = 0; i < QuestDataBase.GetQusetLists().Count; i++)
         {
@@ -116,20 +144,23 @@ public class TasManager : MonoBehaviourPunCallbacks
     }
     public void OnPushInf1()
     {
+        yesbutton.SetActive(true);
         Questnum = QuestDataBase.GetQusetLists()[list[0]].GetNumber();
         messegedis.SetActive(true);
-        messege.text = $"{QuestDataBase.GetQusetLists()[list[0]].GetQuestinf()}" + "\n" + $"{QuestDataBase.GetQusetLists()[list[0]].Getreward()}" + "円" + "\n" + "���󂯂܂����H";
+        messege.text = $"{QuestDataBase.GetQusetLists()[list[0]].GetQuestinf()}" + "\n" + $"クエスト報酬{QuestDataBase.GetQusetLists()[list[0]].Getreward()}" + "円" + "\n" + "このクエストを受けますか？";
     }
     public void OnPushInf2()
     {
+        yesbutton.SetActive(true);
         Questnum = QuestDataBase.GetQusetLists()[list[1]].GetNumber();
         messegedis.SetActive(true);
-        messege.text = $"{QuestDataBase.GetQusetLists()[list[1]].GetQuestinf()}" + "\n" + $"{QuestDataBase.GetQusetLists()[list[1]].Getreward()}" + "円" + "\n" + "���󂯂܂����H";
+        messege.text = $"{QuestDataBase.GetQusetLists()[list[1]].GetQuestinf()}" + "\n" + $"クエスト報酬{QuestDataBase.GetQusetLists()[list[1]].Getreward()}" + "円" + "\n" + "このクエストを受けますか？";
     }
     public void OnPushInf3()
     {
+        yesbutton.SetActive(true);
         Questnum = QuestDataBase.GetQusetLists()[list[2]].GetNumber();
         messegedis.SetActive(true);
-        messege.text = $"{QuestDataBase.GetQusetLists()[list[2]].GetQuestinf()}" + "\n" + $"{QuestDataBase.GetQusetLists()[list[2]].Getreward()}" + "円" + "\n" + "���󂯂܂����H";
+        messege.text = $"{QuestDataBase.GetQusetLists()[list[2]].GetQuestinf()}" + "\n" + $"クエスト報酬{QuestDataBase.GetQusetLists()[list[2]].Getreward()}" + "円" + "\n" + "このクエストを受けますか？";
     }
 }

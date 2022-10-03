@@ -12,7 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4b51947a79d8c54d88ddf9819b9a1d8, type: 3}
   m_Name: OfficeQuest
   m_EditorClassIdentifier: 
-  QuestInf: "\u3082\u3046\u4E00\u3064\u306E\u30AA\u30D5\u30A3\u30B9\u306B\u66F8\u985E\u3092\u6301\u3063\u3066\u3044\u304F"
+  QuestInf: "\u8077\u54E1\u304B\u3089\u66F8\u985E\u3092\u53D7\u3051\u53D6\u308A\u3082\u3046\u4E00\u3064\u306E\u8077\u5834\u306B\u3044\u308B\u8077\u54E1\u306B\u5C4A\u3051\u3088\u3046"
+  QuestName: "\u3082\u3046\u4E00\u3064\u306E\u8077\u5834\u3078\u5C4A\u3051\u7269"
+  Questitem: "\u66F8\u985E"
   reward_money: 300
   QuestNumber: 4
   IsQuest: 0

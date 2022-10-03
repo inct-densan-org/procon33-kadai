@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0edc6a2b9a2b1694bb0a50be5648c706, type: 3}
+  m_Name: "\u66F8\u985E"
+  m_EditorClassIdentifier: 
+  kindOfItem: 4
+  icon: {fileID: 21300000, guid: dafeaf9475ebc274c81cac483bebbbdc, type: 3}
+  itemName: "\u66F8\u985E"
+  information: "\u3053\u308C\u3092\u3082\u3046\u4E00\u3064\u306E\u8077\u5834\u306E\u8077\u54E1\u306B\u5C4A\u3051\u308B"
+  effecttime: 0
+  money: 0
+  kosuu: 0
+  waterrecovery: 0
+  foodrecovery: 0
+  other_effect: 0
+  eat_when_infected: 0

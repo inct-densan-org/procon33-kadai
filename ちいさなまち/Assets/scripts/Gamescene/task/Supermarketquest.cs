@@ -14,7 +14,7 @@ public class Supermarketquest : MonoBehaviour
             questclear = true;
             a = false;
         }
-        else if (QuestDataBase.GetQusetLists()[2].GetIsQuest() == false) 
+        else if (QuestDataBase.GetQusetLists()[0].GetIsQuest() == false) 
         {
             a = false;
         }

@@ -7,6 +7,10 @@ public class Officequest : MonoBehaviour
     [SerializeField] private QuestDataBase QuestDataBase;
     public static bool questclear;
     public static bool a = false;
+    private void Start()
+    {
+        questclear = false;
+    }
     void Update()
     {
         if (QuestDataBase.GetQusetLists()[4].GetIsQuest() == true && a == true)
@@ -14,7 +18,7 @@ public class Officequest : MonoBehaviour
             questclear = true;
             a = false;
         }
-        else if (QuestDataBase.GetQusetLists()[2].GetIsQuest() == false) 
+        else if (QuestDataBase.GetQusetLists()[4].GetIsQuest() == false) 
         {
             a = false;
         }

@@ -120,7 +120,7 @@ public class Move : MonoBehaviourPunCallbacks
             {
                 if (Restranquest.questclear == true)
                 {
-                    Menumanager.menuKey = "talk";
+                    Menumanager.menuKey = "shoptalk";
                 }
 
                 else
@@ -135,7 +135,7 @@ public class Move : MonoBehaviourPunCallbacks
             {
                 if (Hospitalquest.questclear == true)
                 {
-                    Menumanager.menuKey = "talk";
+                    Menumanager.menuKey = "hostalk";
                 }
                 else Menumanager.menuKey = "hospitalshop";
             }
@@ -146,7 +146,7 @@ public class Move : MonoBehaviourPunCallbacks
             {
                 if (Dragstorequest.questclear == true)
                 {
-                    Menumanager.menuKey = "talk";
+                    Menumanager.menuKey = "dragtalk";
                 }
                 else Menumanager.menuKey = "durkstore";
             }
@@ -159,7 +159,7 @@ public class Move : MonoBehaviourPunCallbacks
                 Debug.Log("osita");
                 if (Supermarketquest.questclear == true)
                 {
-                    Menumanager.menuKey = "talk";
+                    Menumanager.menuKey = "foodtalk";
                 }
                 else Menumanager.menuKey = "foodstore";
             }
@@ -168,11 +168,8 @@ public class Move : MonoBehaviourPunCallbacks
         {
             if (Input.GetKey(KeyCode.Space) )
             {
-                if (Officequest.questclear == true)
-                {
-                    Menumanager.menuKey = "talk";
-                }
-                else Menumanager.menuKey = "quest";
+                
+                 Menumanager.menuKey = "quest";
             }
         }
         if (collision.gameObject.CompareTag("rule") && photonView.IsMine)
@@ -194,13 +191,20 @@ public class Move : MonoBehaviourPunCallbacks
         {
             if (Input.GetKey(KeyCode.Space))
             {
-            reception = true;
-
-            Menumanager.menuKey = "talk";
-            Supermarketquest.a = true;
-            Hospitalquest.a = true;
-            Dragstorequest.a = true;
-            Officequest.a = true;
+                if (Officequest.questclear == true)
+                {
+                    Menumanager.menuKey = "questtalk";
+                }
+                else
+                {
+                    Menumanager.menuKey = "talk";
+                    reception = true;
+                }
+                
+               
+            
+            
+            
             }
         }
     }

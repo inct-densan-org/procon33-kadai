@@ -15,7 +15,8 @@ public class Item : ScriptableObject
 		drugstore,
 		foodstore,
 		restaurant,
-		hospital,        
+		hospital,     
+		quest
 	}
 
 	//�@�A�C�e���̎��
