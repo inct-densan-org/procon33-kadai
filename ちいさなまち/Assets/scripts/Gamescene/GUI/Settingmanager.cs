@@ -23,6 +23,7 @@ public class Settingmanager : MonoBehaviourPunCallbacks
         menu.SetActive(false);
         SettingSence.SetActive(true);
         Menumanager.menuKey = "Setting";
+        inputField.text = null;
     }
     public void OnPushBack()
     {

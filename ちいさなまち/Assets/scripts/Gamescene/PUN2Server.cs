@@ -13,10 +13,10 @@ public class PUN2Server : MonoBehaviourPunCallbacks
 {
     public  bool isStart, ii;
     public  GameObject clone;
-    public GameObject gamestart, wait;
+    public GameObject gamestart, wait,OK,rule,ruleicon;
     public TextMeshProUGUI joinnum;
     public  int isman;
-    public static ExitGames.Client.Photon.Hashtable roomHash;
+    public  ExitGames.Client.Photon.Hashtable roomHash;
     public  Player localplayer;
     public bool issee;
     private bool a, b;
@@ -30,7 +30,9 @@ public class PUN2Server : MonoBehaviourPunCallbacks
         customproperties = this.gameObject.GetComponent<Customproperties>();
         gamestart.SetActive(false);
         wait.SetActive(true);
-
+        roomHash = new ExitGames.Client.Photon.Hashtable();
+        roomHash.Add("OK", 0);
+        PhotonNetwork.CurrentRoom.SetCustomProperties(roomHash);
         localplayer = PhotonNetwork.LocalPlayer;
         localplayernum = localplayer.ActorNumber;
         var player = PhotonNetwork.PlayerList;
@@ -47,26 +49,35 @@ public class PUN2Server : MonoBehaviourPunCallbacks
 
     public void Update()
     {
-
+        
         issee = isStart;
         tagObjects = GameObject.FindGameObjectsWithTag("Player");
         playernum = PhotonNetwork.PlayerList.Length;
         if (isStart == false)
         {
 
-
-
+            var player = PhotonNetwork.PlayerList;
+          var  p1 = player[0];
+            if(p1 == PhotonNetwork.LocalPlayer)
+            {
+                var w = (int)roomHash["OK"];
+                if (w == playernum)
+                {
+                    photonView.RPC(nameof(playermake), RpcTarget.All);
+                    PhotonNetwork.CurrentRoom.IsOpen = false;
+                }
+            }
 
             joinnum.text = "参加人数　" + $"{playernum}" + "/8　　";
 
         }
-        if (Input.GetKey(KeyCode.Space) && isStart == false)
-        {
+        //if (Input.GetKey(KeyCode.Space) && isStart == false)
+        //{
             
-            photonView.RPC(nameof(playermake), RpcTarget.All);
+        //    photonView.RPC(nameof(playermake), RpcTarget.All);
 
-            PhotonNetwork.CurrentRoom.IsOpen = false;
-        }
+        //    PhotonNetwork.CurrentRoom.IsOpen = false;
+        //}
         if (isStart == true && a == false)
         {
 
@@ -92,8 +103,24 @@ public class PUN2Server : MonoBehaviourPunCallbacks
 
         }
     }
-
-   
+    public void OnpushOK()
+    {
+        var a = (int)roomHash["OK"];
+        a++;
+        roomHash["OK"] = a;
+        PhotonNetwork.CurrentRoom.SetCustomProperties(roomHash);
+        OK.SetActive(false);
+    }
+   public void Onpushhihyouzi()
+    {
+        rule.SetActive(false);
+        ruleicon.SetActive(true);
+    }
+    public void OnPushicon()
+    {
+        rule.SetActive(true);
+        ruleicon.SetActive(false);
+    }
     [PunRPC]
     public void playermake()
     {
