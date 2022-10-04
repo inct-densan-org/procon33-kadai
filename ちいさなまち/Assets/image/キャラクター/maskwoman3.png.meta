@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 741f1d120f67aeb4eb71073c373a126d
+guid: 4131c4816cc18c947bff707f211bd2f6
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -104,13 +104,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: maskwoman (1)_0
+      name: maskwoman3_0
       rect:
         serializedVersion: 2
-        x: 143
-        y: 298
-        width: 246
-        height: 632
+        x: 1809
+        y: 1435
+        width: 5
+        height: 6
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -118,20 +118,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2bc2b19c017890e46af8cc79e150de86
-      internalID: -2116820102
+      spriteID: 0e181d4543d295644b63114cabd452f0
+      internalID: 2146986122
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: maskwoman (1)_1
+      name: maskwoman3_1
       rect:
         serializedVersion: 2
-        x: 515
-        y: 310
-        width: 241
-        height: 628
+        x: 364
+        y: 584
+        width: 328
+        height: 840
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -139,20 +139,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9642115a21e056145b4b204d53f0d4a9
-      internalID: 1855508579
+      spriteID: ed85cd456795e0a4b9e49740f0747b26
+      internalID: 548302432
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: maskwoman (1)_2
+      name: maskwoman3_2
       rect:
         serializedVersion: 2
-        x: 876
-        y: 315
-        width: 242
-        height: 628
+        x: 858
+        y: 598
+        width: 322
+        height: 835
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -160,8 +160,50 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 76b7ace8e1874774b81df15527e7d652
-      internalID: -1013330416
+      spriteID: bdb724f189a2a2e44999a30b53f41350
+      internalID: 1220179638
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: maskwoman3_3
+      rect:
+        serializedVersion: 2
+        x: 1340
+        y: 603
+        width: 322
+        height: 823
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d0c823020ae60924cb010ef292574931
+      internalID: 886590620
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: maskwoman3_4
+      rect:
+        serializedVersion: 2
+        x: 1809
+        y: 528
+        width: 5
+        height: 5
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 529a49c0b103bfb4e9ee824451f3c84c
+      internalID: -1453339479
       vertices: []
       indices: 
       edges: []
@@ -177,9 +219,11 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      maskwoman (1)_1: 1855508579
-      maskwoman (1)_0: -2116820102
-      maskwoman (1)_2: -1013330416
+      maskwoman3_4: -1453339479
+      maskwoman3_3: 886590620
+      maskwoman3_1: 548302432
+      maskwoman3_2: 1220179638
+      maskwoman3_0: 2146986122
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
