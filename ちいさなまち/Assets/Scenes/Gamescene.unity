@@ -70062,12 +70062,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5816043955833526730, guid: 154256adac542644db9502c34b598091, type: 3}
       propertyPath: m_Size.y
-      value: 4.88
+      value: 5.32
       objectReference: {fileID: 0}
     - target: {fileID: 5816043955833526730, guid: 154256adac542644db9502c34b598091, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: -1564450400, guid: 4cd57eede4779c643b0d66a2da00f737, type: 3}
+      objectReference: {fileID: -567624320, guid: 4cd57eede4779c643b0d66a2da00f737, type: 3}
     - target: {fileID: 5816043955833526749, guid: 154256adac542644db9502c34b598091, type: 3}
       propertyPath: m_RootOrder
       value: 2
