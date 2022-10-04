@@ -81,12 +81,12 @@ public class Infection2 : MonoBehaviourPunCallbacks
         {
 
 
-            infectionProbability = 5;
+            infectionProbability = 4;
 
         }
         if (ismask == false)
         {
-            infectionProbability = 20;
+            infectionProbability = 15;
         }
     }
 
@@ -99,7 +99,7 @@ public class Infection2 : MonoBehaviourPunCallbacks
            
             Invoke(nameof(Cooldowm), 5f);
             var a = collision.gameObject.GetPhotonView();
-            Debug.Log("hureta");
+            
             var e = a.OwnerActorNr;
 
             //infected = Customproperties.Getplayerinf(e);
@@ -113,10 +113,12 @@ public class Infection2 : MonoBehaviourPunCallbacks
                     // await Task.Delay(20000);
 
                     photonView.RPC(nameof(Setplayerinf), RpcTarget.All, Player, true);
-                    await Task.Delay(40000);
+                    await Task.Delay(60000);
+                    Debug.Log("感染解除");
                     photonView.RPC(nameof(Setplayerinfeffect), RpcTarget.All, Player, false);
-                    
+                    photonView.RPC(nameof(Setplayerinf), RpcTarget.All, Player, false);
                     la = false;
+
                 }
             }
         }
@@ -135,9 +137,9 @@ public class Infection2 : MonoBehaviourPunCallbacks
                     // await Task.Delay(20000);
 
                     photonView.RPC(nameof(Setplayerinf), RpcTarget.All, Player, true);
-                    await Task.Delay(40000);
+                    await Task.Delay(60000);
                     photonView.RPC(nameof(Setplayerinfeffect), RpcTarget.All, Player, false);
-                  
+                    photonView.RPC(nameof(Setplayerinf), RpcTarget.All, Player, false);
                     la = false;
                 }
             }

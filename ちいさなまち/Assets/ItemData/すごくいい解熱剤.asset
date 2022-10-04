@@ -16,7 +16,7 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: 6a0cd49f391a6674db8f5974ac7014c3, type: 3}
   itemName: "\u3059\u3054\u304F\u3044\u3044\u89E3\u71B1\u5264"
   information: "\u71B1\u306E\u75C7\u72B6\u3092\u3088\u304F\u7DE9\u548C\u3059\u308B"
-  effecttime: 120
+  effecttime: 50
   money: 800
   kosuu: 0
   waterrecovery: 0

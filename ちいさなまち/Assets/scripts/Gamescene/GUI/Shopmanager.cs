@@ -161,7 +161,7 @@ public class Shopmanager : MonoBehaviourPunCallbacks
         var buytext = buybutton.transform.GetChild(0).gameObject.GetComponent<TextMeshProUGUI>();
         if(GetItem(ItemName).GetKindOfItem().ToString()== "restaurant")
         {
-            buytext.text = "注文する";
+            buytext.text = "食べる";
         }
         else
         {

@@ -40,12 +40,12 @@ public class Gameend : MonoBehaviourPun
      
         water = gaugemanager.watertime;
         food = gaugemanager.foodtime;
-        if (water == 150)
+        if (water == gaugemanager.watergauge)
         {
             reason = $"{PhotonNetwork.LocalPlayer.NickName}‚ª’E…Çó‚ÅÀ‚Á‚½";
             photonView.RPC(nameof(gameover), RpcTarget.All,reason);
         }
-        if (food == 200)
+        if (food == gaugemanager.foodgauge)
         {
             reason = $"{PhotonNetwork.LocalPlayer.NickName}‚ª‰ì€‚µ‚½";
             photonView.RPC(nameof(gameover), RpcTarget.All, reason);

@@ -31,6 +31,15 @@ public  class Tokei : MonoBehaviourPunCallbacks
         minite = time / 60;
         if (minite == 60) minite = 0;
         hour = time / 3600; if (hour == 24) hour = 0;
-        text.text =   $"{minite}" + ":" + $"{second}" ;
+        if (second < 10&&minite>0)
+        {
+            text.text = $"{minite}" + ":" + $"0{second}";
+        }
+       else if (minite == 0)
+        {
+            text.text =  $"{second}";
+        }
+        else text.text = $"{minite}" + ":" + $"{second}";
+
     }
 }

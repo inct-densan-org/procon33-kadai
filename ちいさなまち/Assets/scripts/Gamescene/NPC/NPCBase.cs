@@ -49,9 +49,10 @@ public class NPCBase : MonoBehaviourPunCallbacks
                 int rnd = Random.Range(0, 100);
                 if (rnd <= infectionProbability)
                 {
-                    Invoke(nameof(EffictTime), 180);
+                    Debug.Log($"Š´õ‚µ‚½{Objname}");
                     NPCinf = true;
                     customproperties.SetNPCinf(Objname, NPCinf);
+                    
                     await Task.Delay(100000);
                     customproperties.SetNPCinf(Objname, false);
                 }
@@ -65,7 +66,7 @@ public class NPCBase : MonoBehaviourPunCallbacks
             var player = collision.gameObject.GetPhotonView();
             var playernum = player.OwnerActorNr;
             a = playernum;
-            Invoke(nameof(Cooldowm), 5f);
+          ;
             // infected = Customproperties.Getplayerinf(playernum);
             infected = infection2.GetPlayerinf(playernum);
             if (infected == true)
@@ -73,9 +74,10 @@ public class NPCBase : MonoBehaviourPunCallbacks
                 int rnd = Random.Range(0, 100);
                 if (rnd <= infectionProbability)
                 {
-                    Invoke(nameof(EffictTime), 180);
+                    Debug.Log($"Š´õ‚µ‚½{Objname}");
                     NPCinf = true;
                     customproperties.SetNPCinf(Objname, NPCinf);
+                   
                     await Task.Delay(100000);
                     customproperties.SetNPCinf(Objname, false);
                 }
