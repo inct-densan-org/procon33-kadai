@@ -32,6 +32,23 @@ public class Talktextmanager : MonoBehaviour
                 }
             }
         }
+        if (Menumanager.menuKey == "hoteltalk")
+        {
+            talk.SetActive(true);
+            if (Hotelquest.questclear == true)
+            {
+                talktext.text = "「掃除をしてくれたのですね。ありがとうございます。これ報酬金です。」";
+                if (Input.GetMouseButton(0))
+                {
+                    talk.SetActive(false);
+                    Menumanager.menuKey = null;
+                    Hotelquest.questclear = false;
+                    Moneymanager.Setmoney(QuestDataBase.GetQusetLists()[5].Getreward());
+                    QuestDataBase.GetQusetLists()[5].SetIsQuest(false);
+                    QuestDataBase.GetQusetLists()[5].SetIsQuria(true);
+                }
+            }
+        }
         if (Menumanager.menuKey == "foodtalk")
         {
             talk.SetActive(true);

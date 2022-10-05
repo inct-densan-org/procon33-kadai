@@ -66,7 +66,7 @@ public class NPCBase : MonoBehaviourPunCallbacks
             var player = collision.gameObject.GetPhotonView();
             var playernum = player.OwnerActorNr;
             a = playernum;
-          ;
+          
             // infected = Customproperties.Getplayerinf(playernum);
             infected = infection2.GetPlayerinf(playernum);
             if (infected == true)

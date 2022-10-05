@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b4b51947a79d8c54d88ddf9819b9a1d8, type: 3}
-  m_Name: OfficeQuest
+  m_Name: hotelquest
   m_EditorClassIdentifier: 
-  QuestInf: "\u8077\u54E1\u304B\u3089\u66F8\u985E\u3092\u53D7\u3051\u53D6\u308A\u3082\u3046\u4E00\u3064\u306E\u8077\u5834\u306B\u3044\u308B\u8077\u54E1\u306B\u5C4A\u3051\u3088\u3046"
-  QuestName: "\u3082\u3046\u4E00\u3064\u306E\u8077\u5834\u3078\u5C4A\u3051\u7269"
-  Questitem: "\u66F8\u985E"
-  reward_money: 500
-  QuestNumber: 4
+  QuestInf: "\u30DB\u30C6\u30EB\u3078\u884C\u304D\u3001\u3054\u307F\u3092\u30B9\u30DA\u30FC\u30B9\u30AD\u30FC\u3092\u304A\u3057\u3066\u6383\u9664\u3057\u305F\u5F8C\u3001\u5E97\u54E1\u306B\u8A71\u3057\u304B\u3088\u3046\u3002"
+  QuestName: "\u30DB\u30C6\u30EB\u306E\u6383\u9664"
+  Questitem: 
+  reward_money: 700
+  QuestNumber: 5
   IsQuest: 0
   IsQuria: 0

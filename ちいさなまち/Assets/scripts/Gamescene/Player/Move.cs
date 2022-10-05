@@ -184,7 +184,15 @@ public class Move : MonoBehaviourPunCallbacks
 
             if (Input.GetKeyDown(KeyCode.Space))
             {
-                Menumanager.menuKey = "hotel";
+                if (Hotelquest.questclear == true)
+                {
+                    Menumanager.menuKey = "hoteltalk";
+                }
+                else
+                {
+                    Menumanager.menuKey = "hotel";
+                }
+                
             }
         }
         if (Movekey == "reception")
