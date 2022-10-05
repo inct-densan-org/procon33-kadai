@@ -25,6 +25,7 @@ public class PUN2Server : MonoBehaviourPunCallbacks
     private GameObject[] tagObjects;
     private Infection2 infection2;
     private Customproperties customproperties;
+    private string difficulty;
     private void Start()
     {
         customproperties = this.gameObject.GetComponent<Customproperties>();
@@ -37,9 +38,16 @@ public class PUN2Server : MonoBehaviourPunCallbacks
         localplayernum = localplayer.ActorNumber;
         var player = PhotonNetwork.PlayerList;
         var p1 = player[0];
-       
-
+        if (p1 == PhotonNetwork.LocalPlayer)
+        {
+            difficulty = Difficulty.difficulty;
+            if (difficulty == null) difficulty = "nomal";
+            
+            customproperties.SEtdifficulty(difficulty);
+           
+        }
         
+            
        
     }
 
@@ -49,6 +57,13 @@ public class PUN2Server : MonoBehaviourPunCallbacks
 
     public void Update()
     {
+        if (customproperties.Getdifficulty() == "Null"|| customproperties.Getdifficulty() == null)
+        {
+            
+            difficulty = Difficulty.difficulty;
+            if (difficulty == null) difficulty = "nomal";
+            customproperties.SEtdifficulty(difficulty);
+        }
         
         issee = isStart;
         tagObjects = GameObject.FindGameObjectsWithTag("Player");
@@ -85,7 +100,9 @@ public class PUN2Server : MonoBehaviourPunCallbacks
             wait.SetActive(false);
             a = true;
             clone.SetActive(true);
-            Moneymanager.Money = 1000;
+            if (customproperties.Getdifficulty() == "nomal") Moneymanager.Money = 1000;
+            if (customproperties.Getdifficulty() == "ez") Moneymanager.Money = 1500;
+            if (customproperties.Getdifficulty() == "hard") Moneymanager.Money = 0;
         }
         if (Input.GetKeyDown(KeyCode.H))
         {
@@ -102,6 +119,14 @@ public class PUN2Server : MonoBehaviourPunCallbacks
             }
 
         }
+        if (Input.GetKeyDown(KeyCode.K))
+        {
+            customproperties.ShowCustom();
+            Debug.Log(customproperties.Getdifficulty());
+        }
+
+
+
     }
     public void OnpushOK()
     {

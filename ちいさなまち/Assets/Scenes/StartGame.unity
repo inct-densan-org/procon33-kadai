@@ -5743,6 +5743,7 @@ GameObject:
   - component: {fileID: 471880757}
   - component: {fileID: 471880758}
   - component: {fileID: 471880759}
+  - component: {fileID: 471880760}
   m_Layer: 5
   m_Name: Photon
   m_TagString: Untagged
@@ -5839,6 +5840,19 @@ MonoBehaviour:
   listButtonPrefab: {fileID: 5522672505398849517, guid: 921144cf43b30414db4d6e193dfce91e, type: 3}
   optionButtons: {fileID: 271266105}
   selector: {fileID: 599551113}
+--- !u!114 &471880760
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 471880753}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13418f99fefd66643a76b1b287afd43b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  optionButtons: {fileID: 2012085113}
 --- !u!1 &475241277
 GameObject:
   m_ObjectHideFlags: 0
@@ -11866,8 +11880,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 16732709}
   m_HandleRect: {fileID: 16732708}
   m_Direction: 0
-  m_Value: 1
-  m_Size: 1
+  m_Value: 0
+  m_Size: 0.99999994
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -14959,7 +14973,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1143825764
 RectTransform:
   m_ObjectHideFlags: 0
@@ -25904,7 +25918,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2090427732
 RectTransform:
   m_ObjectHideFlags: 0
@@ -26226,6 +26240,18 @@ MonoBehaviour:
       - m_Target: {fileID: 2099933212}
         m_TargetAssemblyTypeName: CreateRoomButton, Assembly-CSharp
         m_MethodName: OnClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 471880760}
+        m_TargetAssemblyTypeName: Difficulty, Assembly-CSharp
+        m_MethodName: osita
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
