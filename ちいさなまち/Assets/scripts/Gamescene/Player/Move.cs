@@ -99,17 +99,18 @@ public class Move : MonoBehaviourPunCallbacks
                     input = new Vector3(0, 0, 0f);
                 }
                 transform.Translate(speed * Time.deltaTime * input.normalized);
-
-                if (Input.GetKeyUp(KeyCode.D) || Input.GetKeyUp(KeyCode.RightArrow)) { animator.SetFloat(idX, 0.5f); animator.SetFloat(idY, 0); ispush = false; ishor = false; }
-                if (Input.GetKeyUp(KeyCode.A) || Input.GetKeyUp(KeyCode.LeftArrow)) { animator.SetFloat(idX, -0.5f); animator.SetFloat(idY, 0); ispush = false; ishor = false; }
-                
-                if (Input.GetKeyUp(KeyCode.W) || Input.GetKeyUp(KeyCode.UpArrow)) { animator.SetFloat(idY, 0.5f); animator.SetFloat(idX, 0); ispush = false; isver = false; }
-                if (Input.GetKeyUp(KeyCode.S) || Input.GetKeyUp(KeyCode.DownArrow)) { animator.SetFloat(idY, -0.5f); animator.SetFloat(idX, 0); ispush = false; isver = false; }
                 if (Input.GetKey(KeyCode.W) && ispush == false || Input.GetKey(KeyCode.UpArrow) && ispush == false) { animator.SetFloat(idY, 1); ispush = true; }
                 if (Input.GetKey(KeyCode.S) && ispush == false || Input.GetKey(KeyCode.DownArrow) && ispush == false) { animator.SetFloat(idY, -1); ispush = true; }
                 if (Input.GetKey(KeyCode.D) && ispush == false || Input.GetKey(KeyCode.RightArrow) && ispush == false) { animator.SetFloat(idX, 1); ispush = true; }
                 if (Input.GetKey(KeyCode.A) && ispush == false || Input.GetKey(KeyCode.LeftArrow) && ispush == false) { animator.SetFloat(idX, -1); ispush = true; }
             }
+
+            if (Input.GetKeyUp(KeyCode.D) || Input.GetKeyUp(KeyCode.RightArrow)) { animator.SetFloat(idX, 0.5f); animator.SetFloat(idY, 0); ispush = false; ishor = false; }
+            if (Input.GetKeyUp(KeyCode.A) || Input.GetKeyUp(KeyCode.LeftArrow)) { animator.SetFloat(idX, -0.5f); animator.SetFloat(idY, 0); ispush = false; ishor = false; }
+
+            if (Input.GetKeyUp(KeyCode.W) || Input.GetKeyUp(KeyCode.UpArrow)) { animator.SetFloat(idY, 0.5f); animator.SetFloat(idX, 0); ispush = false; isver = false; }
+            if (Input.GetKeyUp(KeyCode.S) || Input.GetKeyUp(KeyCode.DownArrow)) { animator.SetFloat(idY, -0.5f); animator.SetFloat(idX, 0); ispush = false; isver = false; }
+            
             popo = transform.position;
         }
         if (Movekey == "shop")
