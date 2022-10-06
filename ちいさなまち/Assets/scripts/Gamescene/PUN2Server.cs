@@ -19,27 +19,33 @@ public class PUN2Server : MonoBehaviourPunCallbacks
     public  ExitGames.Client.Photon.Hashtable roomHash;
     public  Player localplayer;
     public bool issee;
-    private bool a, b;
-    public  int playernum;
+    private bool a, b,c;
+    public  int playernum,s;
     private int f, localplayernum;
     private GameObject[] tagObjects;
     private Infection2 infection2;
     private Customproperties customproperties;
     private string difficulty;
+    private Player p1;
+    private bool p1ok, p2ok, p3ok, p4ok, p5ok, p6ok, p7ok, p8ok;
+  
     private void Start()
     {
         customproperties = this.gameObject.GetComponent<Customproperties>();
         gamestart.SetActive(false);
         wait.SetActive(true);
         roomHash = new ExitGames.Client.Photon.Hashtable();
-        roomHash.Add("OK", 0);
-        PhotonNetwork.CurrentRoom.SetCustomProperties(roomHash);
+        
+       
         localplayer = PhotonNetwork.LocalPlayer;
         localplayernum = localplayer.ActorNumber;
         var player = PhotonNetwork.PlayerList;
-        var p1 = player[0];
+         p1 = player[0];
         if (p1 == PhotonNetwork.LocalPlayer)
         {
+            
+            
+
             difficulty = Difficulty.difficulty;
             if (difficulty == null) difficulty = "nomal";
             
@@ -57,30 +63,44 @@ public class PUN2Server : MonoBehaviourPunCallbacks
 
     public void Update()
     {
-        if (customproperties.Getdifficulty() == "Null"|| customproperties.Getdifficulty() == null)
+        if (customproperties.Getdifficulty() == "Null"&& p1 == PhotonNetwork.LocalPlayer || customproperties.Getdifficulty() == null&& p1 == PhotonNetwork.LocalPlayer)
         {
             
             difficulty = Difficulty.difficulty;
             if (difficulty == null) difficulty = "nomal";
             customproperties.SEtdifficulty(difficulty);
         }
+      
+        else c = true;
         
         issee = isStart;
         tagObjects = GameObject.FindGameObjectsWithTag("Player");
         playernum = PhotonNetwork.PlayerList.Length;
         if (isStart == false)
         {
-
+            
             var player = PhotonNetwork.PlayerList;
           var  p1 = player[0];
+            
             if(p1 == PhotonNetwork.LocalPlayer)
             {
-                var w = (int)roomHash["OK"];
-                if (w == playernum)
+                Debug.Log(playernum);
+                for(int i = 0; i < player.Length; i++)
                 {
-                    photonView.RPC(nameof(playermake), RpcTarget.All);
-                    PhotonNetwork.CurrentRoom.IsOpen = false;
+                    if (Getok(i+1))
+                    {
+                        s++;
+                        if (s == playernum)
+                        {
+
+                            photonView.RPC(nameof(playermake), RpcTarget.All);
+                            PhotonNetwork.CurrentRoom.IsOpen = false;
+                        }
+                       
+                    }
                 }
+                s = 0;
+                
             }
 
             joinnum.text = "参加人数　" + $"{playernum}" + "/8　　";
@@ -121,7 +141,8 @@ public class PUN2Server : MonoBehaviourPunCallbacks
         }
         if (Input.GetKeyDown(KeyCode.K))
         {
-            customproperties.ShowCustom();
+           
+            
             Debug.Log(customproperties.Getdifficulty());
         }
 
@@ -130,10 +151,9 @@ public class PUN2Server : MonoBehaviourPunCallbacks
     }
     public void OnpushOK()
     {
-        var a = (int)roomHash["OK"];
-        a++;
-        roomHash["OK"] = a;
-        PhotonNetwork.CurrentRoom.SetCustomProperties(roomHash);
+       var localplayer = PhotonNetwork.LocalPlayer;
+       var localplayernum = localplayer.ActorNumber;
+        photonView.RPC(nameof(Setok), RpcTarget.All, localplayernum, true);
         OK.SetActive(false);
     }
    public void Onpushhihyouzi()
@@ -165,5 +185,38 @@ public class PUN2Server : MonoBehaviourPunCallbacks
     {
         Debug.Log("ルームから退出しました");
         SceneManager.LoadScene("Endscene",LoadSceneMode.Single);
+    }
+    [PunRPC]
+    void Setok(int number, bool inf)
+    {
+        switch (number)
+        {
+            case 1: p1ok = inf; break;
+            case 2: p2ok = inf; break;
+            case 3: p3ok = inf; break;
+            case 4: p4ok = inf; break;
+            case 5: p5ok = inf; break;
+            case 6: p6ok = inf; break;
+            case 7: p7ok = inf; break;
+            case 8: p8ok = inf; break;
+        }
+    }
+
+    //numberに取得したいプレイヤーのIDを渡す
+    public bool Getok(int number)
+    {
+        var myinf=false;
+        switch (number)
+        {
+            case 1: myinf = p1ok; break;
+            case 2: myinf = p2ok; break;
+            case 3: myinf = p3ok; break;
+            case 4: myinf = p4ok; break;
+            case 5: myinf = p5ok; break;
+            case 6: myinf = p6ok; break;
+            case 7: myinf = p7ok; break;
+            case 8: myinf = p8ok; break;
+        }
+        return (myinf);
     }
 }

@@ -19,6 +19,7 @@ public   class Customproperties :MonoBehaviourPunCallbacks
         npcobj = GameObject.FindGameObjectsWithTag("NPC");
         roomHash = new ExitGames.Client.Photon.Hashtable();
     }
+   
     public void SEtdifficulty(string difficulty)
     {
         
@@ -63,6 +64,7 @@ public   class Customproperties :MonoBehaviourPunCallbacks
     {
         return (string)roomHash["difficulty"];
     }
+   
     public  bool GetNPCinf(string name)
     {
         if (q) return (bool)roomHash[$"{name}"];
@@ -76,9 +78,8 @@ public   class Customproperties :MonoBehaviourPunCallbacks
         roomHash[$"{name}"] = inf;
         PhotonNetwork.CurrentRoom.SetCustomProperties(roomHash);
         
-        
-        
     }
+   
      public void ShowCustom()
     {
         foreach (var prop in roomHash)

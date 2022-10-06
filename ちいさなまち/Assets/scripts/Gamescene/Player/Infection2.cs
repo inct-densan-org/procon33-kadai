@@ -116,7 +116,7 @@ public class Infection2 : MonoBehaviourPunCallbacks
 
                     photonView.RPC(nameof(Setplayerinf), RpcTarget.All, Player, true);
                     await Task.Delay(60000);
-                    Debug.Log("感染解除");
+                  
                     photonView.RPC(nameof(Setplayerinfeffect), RpcTarget.All, Player, false);
                     photonView.RPC(nameof(Setplayerinf), RpcTarget.All, Player, false);
                     la = false;
