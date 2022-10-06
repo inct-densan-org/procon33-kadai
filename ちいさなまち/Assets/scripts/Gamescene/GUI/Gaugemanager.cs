@@ -29,7 +29,7 @@ public class Gaugemanager : MonoBehaviourPunCallbacks
         watertime++;
         foodtime++;
       
-        await Task.Delay(1000);
+        await Task.Delay(1500);
         itibyou();
     }
     private bool K;

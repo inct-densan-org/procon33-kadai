@@ -178,7 +178,7 @@ public class Shopmanager : MonoBehaviourPunCallbacks
         button_ob = eventSystem.currentSelectedGameObject;
         ItemName = button_ob.name;
         if (money < totalmoney) { mesege.text = "所持金が足りません"; Invoke(nameof(mesagedele), 3f); }
-        if (totalmoney == 0) { mesege.text = "アイテムを選んでください"; Invoke(nameof(mesagedele), 3f); }
+        if (totalmoney == 0) { mesege.text = "個数を指定してください"; Invoke(nameof(mesagedele), 3f); }
         if (money >= totalmoney && totalmoney != 0)
         {
             Moneymanager.Setmoney(-(totalmoney));
