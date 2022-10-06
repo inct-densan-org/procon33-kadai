@@ -25,12 +25,13 @@ public class Move : MonoBehaviourPunCallbacks
     private PUN2Server server;
     public Infection2 infection2;
     public string Movekey;
+    private Talktextmanager talktextmanager;
     public void Start()
     {
         GameObject menu = GameObject.Find("PUN2Sever");
         var pun2server = menu.GetComponent<PUN2Server>();
         var playernum = pun2server.playernum;
-        
+        talktextmanager = GameObject.Find("menumaneger").GetComponent<Talktextmanager>();
         infection2 = this.gameObject.GetComponent<Infection2>();
         player = PhotonNetwork.LocalPlayer;
         myplayernum = player.ActorNumber;
@@ -198,7 +199,7 @@ public class Move : MonoBehaviourPunCallbacks
         if (Movekey == "reception")
         {
 
-            if (Input.GetKey(KeyCode.Space))
+            if (Input.GetKey(KeyCode.Space)&&!talktextmanager.cooltime)
             {
                 if (Officequest.questclear == true)
                 {

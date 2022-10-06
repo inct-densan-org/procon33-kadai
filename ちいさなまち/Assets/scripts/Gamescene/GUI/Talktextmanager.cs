@@ -1,8 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using System.Threading.Tasks;
 using TMPro;
+
+
 public class Talktextmanager : MonoBehaviour
 {
     public TextMeshProUGUI talktext;
@@ -12,8 +14,9 @@ public class Talktextmanager : MonoBehaviour
     [SerializeField]
     private ItemDataBase ItemDataBase;
     private int a;
+    public bool cooltime;
     // Update is called once per frame
-    void Update()
+   async void Update()
     {
         if (Menumanager.menuKey == "shoptalk")
         {
@@ -38,7 +41,7 @@ public class Talktextmanager : MonoBehaviour
             if (Hotelquest.questclear == true)
             {
                 talktext.text = "「掃除をしてくれたのですね。ありがとうございます。これ報酬金です。」";
-                if (Input.GetMouseButton(0))
+                if (Input.GetMouseButton(0)||Input.GetKeyDown(KeyCode.Space))
                 {
                     talk.SetActive(false);
                     Menumanager.menuKey = null;
@@ -55,7 +58,7 @@ public class Talktextmanager : MonoBehaviour
             if (Supermarketquest.questclear == true)
             {
                 talktext.text = "「こちら報酬になります。」";
-                if (Input.GetMouseButton(0) )
+                if (Input.GetMouseButton(0) || Input.GetKeyDown(KeyCode.Space))
                 {
                     talk.SetActive(false);
                     Menumanager.menuKey = null;
@@ -75,7 +78,7 @@ public class Talktextmanager : MonoBehaviour
             if (Hospitalquest.questclear == true)
             {
                 talktext.text = "「こちら報酬になります。」";
-                if (Input.GetMouseButton(0) )
+                if (Input.GetMouseButton(0) || Input.GetKeyDown(KeyCode.Space))
                 {
                     talk.SetActive(false);
                     Menumanager.menuKey = null;
@@ -93,7 +96,7 @@ public class Talktextmanager : MonoBehaviour
             if (Dragstorequest.questclear == true)
             {
                 talktext.text = "「こちら報酬になります。」";
-                if (Input.GetMouseButton(0) )
+                if (Input.GetMouseButton(0) || Input.GetKeyDown(KeyCode.Space))
                 {
                     talk.SetActive(false);
                     Menumanager.menuKey = null;
@@ -112,7 +115,7 @@ public class Talktextmanager : MonoBehaviour
             if (Officequest.questclear == true)
             {
                 talktext.text = "「ありがとう。これはお礼だよ。」";
-                if (Input.GetMouseButton(0) )
+                if (Input.GetMouseButton(0) || Input.GetKeyDown(KeyCode.Space))
                 {
                     talk.SetActive(false);
                     Menumanager.menuKey = null;
@@ -130,6 +133,7 @@ public class Talktextmanager : MonoBehaviour
             talk.SetActive(true);
             if (Move.reception == true)
             {
+                
                 a = 0;
                 for (int i = 0; i < QuestDataBase.GetQusetLists().Count; i++)
                 {
@@ -143,10 +147,12 @@ public class Talktextmanager : MonoBehaviour
                 if (a > 0)
                 {
                     talktext.text = "こちらを配達してください。";
-                    if (Input.GetMouseButton(0) )
+                    if (Input.GetMouseButton(0) || Input.GetKeyDown(KeyCode.Space))
                     {
                         talk.SetActive(false);
                         Menumanager.menuKey = null;
+                        cooltime = true;
+                        
 
                         Move.reception = false;
                         if (QuestDataBase.GetQusetLists()[2].GetIsQuest() == true)
@@ -170,16 +176,21 @@ public class Talktextmanager : MonoBehaviour
                             Supermarketquest.a = true;
                             GetItem("配達用の食料").Setkosuu(1);
                         }
+                        await Task.Delay(500);
+                        cooltime = false;
                     }
                 }
                 else
                 {
 
                     talktext.text = "私はここでクエストアイテムの受け渡しをしています。";
-                    if (Input.GetMouseButton(0) )
+                    if (Input.GetMouseButton(0) || Input.GetKeyDown(KeyCode.Space))
                     {
+                        cooltime = true;
                         talk.SetActive(false);
                         Menumanager.menuKey = null;
+                        await Task.Delay(500);
+                        cooltime = false;
                     }
                 }
             }
