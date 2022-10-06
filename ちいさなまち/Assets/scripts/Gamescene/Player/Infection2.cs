@@ -79,16 +79,16 @@ public class Infection2 : MonoBehaviourPunCallbacks
         }
         if (ismask == true)
         {
-            if(customproperties.Getdifficulty()=="nomal") infectionProbability = 4;
-            if (customproperties.Getdifficulty() == "ez") infectionProbability = 2;
-            if (customproperties.Getdifficulty() == "hard") infectionProbability = 10;
+            if(pun2server.difficulty=="nomal") infectionProbability = 4;
+            if (pun2server.difficulty == "ez") infectionProbability = 2;
+            if (pun2server.difficulty == "hard") infectionProbability = 10;
 
         }
         if (ismask == false)
         {
-            if (customproperties.Getdifficulty() == "nomal") infectionProbability = 15;
-            if (customproperties.Getdifficulty() == "ez") infectionProbability = 10;
-            if (customproperties.Getdifficulty() == "hard") infectionProbability = 25;
+            if (pun2server.difficulty == "nomal") infectionProbability = 15;
+            if (pun2server.difficulty == "ez") infectionProbability = 10;
+            if (pun2server.difficulty == "hard") infectionProbability = 25;
         }
     }
 

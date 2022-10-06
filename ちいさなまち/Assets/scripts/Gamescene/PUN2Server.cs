@@ -19,13 +19,13 @@ public class PUN2Server : MonoBehaviourPunCallbacks
     public  ExitGames.Client.Photon.Hashtable roomHash;
     public  Player localplayer;
     public bool issee;
-    private bool a, b,c;
+    private bool a, b,c,q;
     public  int playernum,s;
     private int f, localplayernum;
     private GameObject[] tagObjects;
     private Infection2 infection2;
     private Customproperties customproperties;
-    private string difficulty;
+    public  string difficulty;
     private Player p1;
     private bool p1ok, p2ok, p3ok, p4ok, p5ok, p6ok, p7ok, p8ok;
   
@@ -63,17 +63,22 @@ public class PUN2Server : MonoBehaviourPunCallbacks
 
     public void Update()
     {
-        if (customproperties.Getdifficulty() == "Null"&& p1 == PhotonNetwork.LocalPlayer || customproperties.Getdifficulty() == null&& p1 == PhotonNetwork.LocalPlayer)
+        if (customproperties.Getdifficulty() == "Null" && p1 == PhotonNetwork.LocalPlayer || customproperties.Getdifficulty() == null && p1 == PhotonNetwork.LocalPlayer)
         {
-            
+
             difficulty = Difficulty.difficulty;
             if (difficulty == null) difficulty = "nomal";
             customproperties.SEtdifficulty(difficulty);
         }
-      
-        else c = true;
-        
-        issee = isStart;
+
+        else
+        {
+           
+            c = true;
+        }
+
+       
+            issee = isStart;
         tagObjects = GameObject.FindGameObjectsWithTag("Player");
         playernum = PhotonNetwork.PlayerList.Length;
         if (isStart == false)
@@ -84,7 +89,7 @@ public class PUN2Server : MonoBehaviourPunCallbacks
             
             if(p1 == PhotonNetwork.LocalPlayer)
             {
-                Debug.Log(playernum);
+               
                 for(int i = 0; i < player.Length; i++)
                 {
                     if (Getok(i+1))
@@ -92,7 +97,7 @@ public class PUN2Server : MonoBehaviourPunCallbacks
                         s++;
                         if (s == playernum)
                         {
-
+                            photonView.RPC(nameof(setdif), RpcTarget.All,difficulty);
                             photonView.RPC(nameof(playermake), RpcTarget.All);
                             PhotonNetwork.CurrentRoom.IsOpen = false;
                         }
@@ -120,9 +125,9 @@ public class PUN2Server : MonoBehaviourPunCallbacks
             wait.SetActive(false);
             a = true;
             clone.SetActive(true);
-            if (customproperties.Getdifficulty() == "nomal") Moneymanager.Money = 1000;
-            if (customproperties.Getdifficulty() == "ez") Moneymanager.Money = 1500;
-            if (customproperties.Getdifficulty() == "hard") Moneymanager.Money = 0;
+            if (difficulty == "nomal") Moneymanager.Money = 1000;
+            if (difficulty == "ez") Moneymanager.Money = 1500;
+            if (difficulty == "hard") Moneymanager.Money = 0;
         }
         if (Input.GetKeyDown(KeyCode.H))
         {
@@ -135,18 +140,18 @@ public class PUN2Server : MonoBehaviourPunCallbacks
             foreach (GameObject item in npcobj)
             {
                 var j = item.name;
+                
                 Debug.Log($"{j}" + ";" + customproperties.GetNPCinf(j));
             }
 
         }
         if (Input.GetKeyDown(KeyCode.K))
         {
-           
-            
-            Debug.Log(customproperties.Getdifficulty());
+
+
+            Debug.Log(difficulty);
+
         }
-
-
 
     }
     public void OnpushOK()
@@ -165,6 +170,11 @@ public class PUN2Server : MonoBehaviourPunCallbacks
     {
         rule.SetActive(true);
         ruleicon.SetActive(false);
+    }
+    [PunRPC]
+    public void setdif(string dif)
+    {
+        difficulty = dif;
     }
     [PunRPC]
     public void playermake()
@@ -201,6 +211,7 @@ public class PUN2Server : MonoBehaviourPunCallbacks
             case 8: p8ok = inf; break;
         }
     }
+    
 
     //numberに取得したいプレイヤーのIDを渡す
     public bool Getok(int number)

@@ -18,9 +18,12 @@ public class NPCBase : MonoBehaviourPunCallbacks
     public int a;
     public Infection2 infection2;
     private Customproperties customproperties;
+    private Player p1;
     // Start is called before the first frame update
     void Start()
     {
+        var player = PhotonNetwork.PlayerList;
+        p1 = player[0];
         customproperties = GameObject.Find("PUN2Sever").gameObject.GetComponent<Customproperties>();
         NPCinf = false;
         Objname = this.gameObject.name;
@@ -37,19 +40,19 @@ public class NPCBase : MonoBehaviourPunCallbacks
     }
     public async void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("NPC") )
+        if (collision.gameObject.CompareTag("NPC") &&p1 == PhotonNetwork.LocalPlayer )
         {
             
 
             infected = customproperties.GetNPCinf(collision.gameObject.name);
-            
+           
             if (infected == true&&! customproperties.GetNPCinf(gameObject.name))
             {
-              
+                Debug.Log("npchureta");
                 int rnd = Random.Range(0, 100);
                 if (rnd <= infectionProbability)
                 {
-                    Debug.Log($"Š´õ‚µ‚½{Objname}");
+                    
                     NPCinf = true;
                     customproperties.SetNPCinf(Objname, NPCinf);
                     
@@ -58,7 +61,7 @@ public class NPCBase : MonoBehaviourPunCallbacks
                 }
             }
         }
-        if (collision.gameObject.CompareTag("Player")  && !customproperties.GetNPCinf(gameObject.name))
+        if (collision.gameObject.CompareTag("Player")  && !customproperties.GetNPCinf(gameObject.name)&&p1 == PhotonNetwork.LocalPlayer)
         {
           
             GameObject ds = collision.gameObject;
@@ -66,15 +69,16 @@ public class NPCBase : MonoBehaviourPunCallbacks
             var player = collision.gameObject.GetPhotonView();
             var playernum = player.OwnerActorNr;
             a = playernum;
-          
+            
             // infected = Customproperties.Getplayerinf(playernum);
             infected = infection2.GetPlayerinf(playernum);
             if (infected == true)
             {
+                Debug.Log("hureta");
                 int rnd = Random.Range(0, 100);
                 if (rnd <= infectionProbability)
                 {
-                    Debug.Log($"Š´õ‚µ‚½{Objname}");
+                   
                     NPCinf = true;
                     customproperties.SetNPCinf(Objname, NPCinf);
                    
@@ -84,14 +88,5 @@ public class NPCBase : MonoBehaviourPunCallbacks
             }
         }
     }
-    void Cooldowm()
-    {
-        cooltime = false;
-    }
-
-    void EffictTime()
-    {
-        NPCinf = false;
-        customproperties.SetNPCinf(Objname, NPCinf);
-    }
+    
 }
