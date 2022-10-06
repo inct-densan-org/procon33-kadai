@@ -36,6 +36,19 @@ public class Route1 : MonoBehaviourPunCallbacks
     {
         var player = PhotonNetwork.PlayerList;
         var p1 = player[0];
+        if (moveObj.transform.position == points[orikaesi].position)
+        {
+            moveObj.SetActive(false);
+        }
+       else if (moveObj.transform.position == points[points.Count-1].position)
+        {
+            moveObj.SetActive(false);
+        }
+        else
+        {
+            moveObj.SetActive(true);
+        }
+       
         if (p1 == PhotonNetwork.LocalPlayer)
         {
             
@@ -55,7 +68,8 @@ public class Route1 : MonoBehaviourPunCallbacks
 
                     if (pointIdx == orikaesi)
                     {
-                        moveObj.SetActive(false); c = true;
+                       moveObj.SetActive(false); c = true;
+                      // photonView.RPC(nameof(Nothyozi), RpcTarget.All, moveObj);
                         Invoke(nameof(NPCorikaesi), orikaesiwait);
                         speed = UnityEngine.Random.Range(1.0f, 2.0f);
                         orikaesiwait = UnityEngine.Random.Range(1.0f, 15.0f);
@@ -66,7 +80,8 @@ public class Route1 : MonoBehaviourPunCallbacks
                     }
                     if (pointIdx == points.Count)
                     {
-                        moveObj.SetActive(false);
+                       moveObj.SetActive(false);
+                     //   photonView.RPC(nameof(Nothyozi), RpcTarget.All, moveObj);
                         Invoke(nameof(NPCReset), waittime);
                         speed = UnityEngine.Random.Range(1.0f, 2.0f);
                         waittime = UnityEngine.Random.Range(1.0f, 15.0f);
@@ -102,12 +117,16 @@ public class Route1 : MonoBehaviourPunCallbacks
                 }
             }
             if (nowPos.y > maePos.y) { animator.SetFloat(idY, 1f); e = "back"; }
+            if (e != "right")
+            {
+                moveObj.GetComponent<SpriteRenderer>().flipX = false;
+            }
         }
     }
     void NPCReset()
     {
         moveObj.SetActive(true);
-
+       // photonView.RPC(nameof(Hyozi), RpcTarget.All, moveObj);
         moveObj.transform.position = points[0].position;
         points = new List<Transform>();
         points = GetComponentsInChildren<Transform>().Where(t => t != transform).ToList();
@@ -116,7 +135,7 @@ public class Route1 : MonoBehaviourPunCallbacks
     }
     void NPCorikaesi() {
         moveObj.SetActive(true);
-
+     //  photonView.RPC(nameof(Hyozi), RpcTarget.All, moveObj);
 
         c = false;
     }
@@ -124,5 +143,17 @@ public class Route1 : MonoBehaviourPunCallbacks
     {
         await Task.Delay(10);
         maePos = vector3;
+    }
+    [PunRPC]
+   public void Hyozi(GameObject moveObj)
+    {
+        Debug.Log("adw");
+        gameObject.SetActive(true);
+    }
+    [PunRPC]
+  public  void Nothyozi(GameObject moveObj)
+    {
+        Debug.Log("adw");
+        moveObj.SetActive(false);
     }
 }

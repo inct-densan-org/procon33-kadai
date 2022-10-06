@@ -69,6 +69,10 @@ MonoBehaviour:
   - setdif
   - stn
   - Setnpc
+  - hyozi
+  - nothyozi
+  - Hyozi
+  - Nothyozi
   DisableAutoOpenWizard: 1
   ShowSettings: 1
   DevRegionSetOnce: 0
