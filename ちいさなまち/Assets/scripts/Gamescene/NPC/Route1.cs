@@ -57,8 +57,9 @@ public class Route1 : MonoBehaviourPunCallbacks
 
                     if (pointIdx == orikaesi)
                     {
-                       moveObj.SetActive(false); c = true;
-                       photonView.RPC(nameof(Nothyozi), RpcTarget.All, moveObj);
+                     //  moveObj.SetActive(false);
+                        c = true;
+                      photonView.RPC(nameof(Nothyozi), RpcTarget.All);
                         Invoke(nameof(NPCorikaesi), orikaesiwait);
                         speed = UnityEngine.Random.Range(1.0f, 2.0f);
                         orikaesiwait = UnityEngine.Random.Range(1.0f, 15.0f);
@@ -69,8 +70,8 @@ public class Route1 : MonoBehaviourPunCallbacks
                     }
                     if (pointIdx == points.Count)
                     {
-                       moveObj.SetActive(false);
-                       photonView.RPC(nameof(Nothyozi), RpcTarget.All, moveObj);
+                     //  moveObj.SetActive(false);
+                      photonView.RPC(nameof(Nothyozi), RpcTarget.All);
                         Invoke(nameof(NPCReset), waittime);
                         speed = UnityEngine.Random.Range(1.0f, 2.0f);
                         waittime = UnityEngine.Random.Range(1.0f, 15.0f);
@@ -79,7 +80,7 @@ public class Route1 : MonoBehaviourPunCallbacks
             }
 
             if (nowPos.x > maePos.x) { animator.SetFloat(idX, 1f); e = "right"; }
-            if (nowPos.x == maePos.x)
+            if (nowPos.x == maePos.x&& nowPos.y != maePos.y)
             {
                 switch (e)
                 {
@@ -93,7 +94,7 @@ public class Route1 : MonoBehaviourPunCallbacks
             }
             if (nowPos.x < maePos.x) { animator.SetFloat(idX, -1f); e = "left"; }
             if (nowPos.y < maePos.y) { animator.SetFloat(idY, -1f); e = "front"; }
-            if (nowPos.y == maePos.y)
+            if (nowPos.y == maePos.y&& nowPos.x != maePos.x)
             {
                 switch (e)
                 {
@@ -105,7 +106,11 @@ public class Route1 : MonoBehaviourPunCallbacks
                         animator.SetFloat(idY, 0); break;
                 }
             }
-            if (nowPos.y > maePos.y) { animator.SetFloat(idY, 1f); e = "back"; }
+            if (nowPos.y == maePos.y && nowPos.x == maePos.x)
+            {
+               
+            }
+                if (nowPos.y > maePos.y) { animator.SetFloat(idY, 1f); e = "back"; }
             if (e != "right")
             {
                 moveObj.GetComponent<SpriteRenderer>().flipX = false;
@@ -114,8 +119,8 @@ public class Route1 : MonoBehaviourPunCallbacks
     }
     void NPCReset()
     {
-        moveObj.SetActive(true);
-        photonView.RPC(nameof(Hyozi), RpcTarget.All, moveObj);
+      //  moveObj.SetActive(true);
+       photonView.RPC(nameof(Hyozi), RpcTarget.All);
         moveObj.transform.position = points[0].position;
         points = new List<Transform>();
         points = GetComponentsInChildren<Transform>().Where(t => t != transform).ToList();
@@ -123,8 +128,8 @@ public class Route1 : MonoBehaviourPunCallbacks
         nextPos = points[pointIdx].position;
     }
     void NPCorikaesi() {
-        moveObj.SetActive(true);
-       photonView.RPC(nameof(Hyozi), RpcTarget.All, moveObj);
+       // moveObj.SetActive(true);
+      photonView.RPC(nameof(Hyozi), RpcTarget.All);
 
         c = false;
     }
@@ -134,15 +139,16 @@ public class Route1 : MonoBehaviourPunCallbacks
         maePos = vector3;
     }
     [PunRPC]
-   public void Hyozi(GameObject moveObj)
+   public void Hyozi()
     {
         Debug.Log("adw");
         moveObj.SetActive(true);
     }
     [PunRPC]
-  public  void Nothyozi(GameObject moveObj)
+  public  void Nothyozi()
     {
         Debug.Log("adw");
         moveObj.SetActive(false);
     }
+    
 }

@@ -19,8 +19,8 @@ public class Timekimeru : MonoBehaviourPunCallbacks
     // Start is called before the first frame update
     void Start()
     {
-        
-        
+
+        Debug.Log("asdw");
         var player = PhotonNetwork.PlayerList;
         var p1 = player[0];
         if (p1 == PhotonNetwork.LocalPlayer)
