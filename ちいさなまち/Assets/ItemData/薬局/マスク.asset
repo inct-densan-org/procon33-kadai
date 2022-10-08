@@ -18,7 +18,7 @@ MonoBehaviour:
   information: "\u75C5\u6C17\u306B\u611F\u67D3\u3057\u3065\u3089\u304F\u3059\u308B<br>\u5468\u308A\u306E\u4EBA\u306B\u75C5\u6C17\u3092\u3046\u3064\u3057\u306B\u304F\u304F\u3059\u308B"
   effecttime: 60
   money: 180
-  kosuu: 0
+  kosuu: 1
   waterrecovery: 0
   foodrecovery: 0
   other_effect: 1
