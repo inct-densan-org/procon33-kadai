@@ -136,41 +136,42 @@ public class Menumanager : MonoBehaviourPunCallbacks
                 warning.text = "アイテムがありません";
                 Invoke(nameof(Delwarning), 3);
             }
-            else if(ItemName != null&& GetItem(ItemName).Getkosuu() > 0)
+            else if (ItemName != null && GetItem(ItemName).Getkosuu() > 0)
             {
-               
-               if (infection2.GetPlayerinfeffect(PhotonNetwork.LocalPlayer.ActorNumber) == true&&KANPOU==false)
+
+                if (infection2.GetPlayerinfeffect(PhotonNetwork.LocalPlayer.ActorNumber) == true && KANPOU == false)
                 {
                     if (GetItem(ItemName).GetEatWhenInfected() == true)
                     {
                         gaugemanager.Setfood(GetItem(ItemName).Getfoodrecovery());
                         gaugemanager.SetWater(GetItem(ItemName).Getwaterrecovery());
-                        
+
                         if (GetItem(ItemName).Getother_effect())
                         {
-                            if (ItemName == "マスク"&& infection2.ismask ==false)
+                            if (ItemName == "マスク" && infection2.ismask == false)
                             {
                                 infection2.ismask = true;
                                 GetItem(ItemName).Setkosuu(-1);
                                 messegedis.SetActive(false);
+                                Debug.Log(infection2.ismask);
                                 await Task.Delay(GetItem(ItemName).Geteffecttime() * 1000);
                                 infection2.ismask = false;
-                                
+                                Debug.Log(infection2.ismask);
                             }
-                            if (ItemName == "マスク" && infection2.ismask == true||ItemName== "普通のせき止め" && infection2.kanpou == true|| ItemName == "すごくいいせき止め" && infection2.greatkanpou == false|| ItemName == "いいせき止め" && infection2.goodkanpou == false|| ItemName == "いい解熱剤" && move.iikai == false|| ItemName == "普通の解熱剤" && move.kai == false|| ItemName == "すごくいい解熱剤" && move.sugoikai == false)
+                            if (ItemName == "マスク" && infection2.ismask == true || ItemName == "普通のせき止め" && infection2.kanpou == true || ItemName == "すごくいいせき止め" && infection2.greatkanpou == false || ItemName == "いいせき止め" && infection2.goodkanpou == false || ItemName == "いい解熱剤" && move.iikai == false || ItemName == "普通の解熱剤" && move.kai == false || ItemName == "すごくいい解熱剤" && move.sugoikai == false)
                             {
-                                warning.text="効果は続いています";
+                                warning.text = "効果は続いています";
                                 Invoke(nameof(Delwarning), 3);
                             }
-                            
+
                             if (ItemName == "普通のせき止め" && infection2.kanpou == false)
                             {
                                 infection2.kanpou = true;
                                 GetItem(ItemName).Setkosuu(-1);
                                 messegedis.SetActive(false);
-                                await Task.Delay(GetItem(ItemName).Geteffecttime()*1000);
+                                await Task.Delay(GetItem(ItemName).Geteffecttime() * 1000);
                                 infection2.kanpou = false;
-                                
+
                             }
                             if (ItemName == "いいせき止め" && infection2.goodkanpou == false)
                             {
@@ -179,7 +180,7 @@ public class Menumanager : MonoBehaviourPunCallbacks
                                 messegedis.SetActive(false);
                                 await Task.Delay(GetItem(ItemName).Geteffecttime() * 1000);
                                 infection2.goodkanpou = false;
-                                
+
                             }
                             if (ItemName == "すごくいいせき止め" && infection2.greatkanpou == false)
                             {
@@ -187,16 +188,16 @@ public class Menumanager : MonoBehaviourPunCallbacks
                                 GetItem(ItemName).Setkosuu(-1);
                                 messegedis.SetActive(false);
                                 await Task.Delay(GetItem(ItemName).Geteffecttime() * 1000);
-                                
+
                                 infection2.greatkanpou = false;
                             }
-                            if (ItemName == "漢方" && KANPOU==false)
+                            if (ItemName == "漢方" && KANPOU == false)
                             {
                                 KANPOU = true;
                                 GetItem(ItemName).Setkosuu(-1);
                                 messegedis.SetActive(false);
                                 await Task.Delay(GetItem(ItemName).Geteffecttime() * 1000);
-                                KANPOU = false;  
+                                KANPOU = false;
                             }
                             if (ItemName == "いい解熱剤" && move.iikai == false)
                             {
@@ -231,8 +232,8 @@ public class Menumanager : MonoBehaviourPunCallbacks
                             GetItem(ItemName).Setkosuu(-1);
                             messegedis.SetActive(false);
                         }
-                        
-                        
+
+
                     }
                     else
                     {
@@ -242,7 +243,7 @@ public class Menumanager : MonoBehaviourPunCallbacks
                 }
                 else//感染してないとき
                 {
-                    if (ItemName == "普通のせき止め" || ItemName == "いいせき止め" || ItemName == "すごくいいせき止め"||ItemName=="漢方"||ItemName == "すごくいい解熱剤"|| ItemName == "いい解熱剤"||ItemName == "普通の解熱剤")
+                    if (ItemName == "普通のせき止め" || ItemName == "いいせき止め" || ItemName == "すごくいいせき止め" || ItemName == "漢方" || ItemName == "すごくいい解熱剤" || ItemName == "いい解熱剤" || ItemName == "普通の解熱剤")
                     {
                         warning.text = "感染してないため使えません";
                     }
@@ -254,31 +255,44 @@ public class Menumanager : MonoBehaviourPunCallbacks
                         messegedis.SetActive(false);
                         if (GetItem(ItemName).Getother_effect())
                         {
-                            if (ItemName == "マスク")
+                            if (ItemName == "マスク" && infection2.ismask == true)
+                            {
+                                warning.text = "効果は続いています";
+                                Invoke(nameof(Delwarning), 3);
+                            }
+                            if (ItemName == "マスク" && infection2.ismask == false)
                             {
                                 infection2.ismask = true;
+                                GetItem(ItemName).Setkosuu(-1);
+                                messegedis.SetActive(false);
+                                Debug.Log(infection2.ismask);
+                                await Task.Delay(GetItem(ItemName).Geteffecttime() * 1000);
+                                infection2.ismask = false;
+                                Debug.Log(infection2.ismask);
+
+
+
                             }
-
-
                         }
                     }
                 }
             }
         }
 
-        if (menuKey == "quest")
-        {
-            for (int i = 0; i < QuestDataBase.GetQusetLists().Count; i++)
+            if (menuKey == "quest")
             {
-                if (QuestDataBase.GetQusetLists()[i].GetNumber() == questnum)
+                for (int i = 0; i < QuestDataBase.GetQusetLists().Count; i++)
                 {
-                    QuestDataBase.GetQusetLists()[i].SetIsQuest(true);
+                    if (QuestDataBase.GetQusetLists()[i].GetNumber() == questnum)
+                    {
+                        QuestDataBase.GetQusetLists()[i].SetIsQuest(true);
+                    }
                 }
-            }
-            messegedis.SetActive(false);
-        }//yesおしたらそのクエストのisQuestをオンにしたい
-
+                messegedis.SetActive(false);
+            }//yesおしたらそのクエストのisQuestをオンにしたい
+        
     }
+    
     void Delwarning() { warning.text = null; }
     public Item GetItem(string searchName)
     {
@@ -289,5 +303,6 @@ public class Menumanager : MonoBehaviourPunCallbacks
         menu.SetActive(false);
         itemdis.SetActive(false);
         menuKey = null;
+        warning.text = null;
     }
 }

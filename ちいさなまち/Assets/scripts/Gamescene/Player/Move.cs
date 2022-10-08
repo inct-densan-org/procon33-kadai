@@ -26,8 +26,10 @@ public class Move : MonoBehaviourPunCallbacks
     public Infection2 infection2;
     public string Movekey;
     private Talktextmanager talktextmanager;
+    
     public void Start()
     {
+       var collider2D = gameObject.GetComponent<BoxCollider2D>();
         GameObject menu = GameObject.Find("PUN2Sever");
         var pun2server = menu.GetComponent<PUN2Server>();
         var playernum = pun2server.playernum;
@@ -44,12 +46,12 @@ public class Move : MonoBehaviourPunCallbacks
         if (player1[0] == PhotonNetwork.LocalPlayer) { transform.localPosition = new Vector3(-3.6f, 10.6f, -1); }
         if (playernum >= 2) if (player1[1] == PhotonNetwork.LocalPlayer) { transform.localPosition = new Vector3(-1.1f, 10.6f, -1); }
         if (playernum >= 3) if (player1[2] == PhotonNetwork.LocalPlayer) { transform.localPosition = new Vector3(-16f, 10.6f, -1); }
-        if (playernum >= 4) if (player1[3] == PhotonNetwork.LocalPlayer) { transform.localPosition = new Vector3(-13.5f, 5.7f, -1); }
-        if (playernum >= 5) if (player1[4] == PhotonNetwork.LocalPlayer) { transform.localPosition = new Vector3(-16f, 5.7f, -1); }
+        if (playernum >= 4) if (player1[3] == PhotonNetwork.LocalPlayer) { transform.localPosition = new Vector3(-13.5f, 10.6f, -1); }
+        if (playernum >= 5) if (player1[4] == PhotonNetwork.LocalPlayer) { transform.localPosition = new Vector3(-16f, -1.9f, -1); }
         if (playernum >= 6) if (player1[5] == PhotonNetwork.LocalPlayer) { transform.localPosition = new Vector3(-13.5f, -1.9f, -1); }
         if (playernum >= 7) if (player1[6] == PhotonNetwork.LocalPlayer) { transform.localPosition = new Vector3(16.4f, -1.9f, -1); }
         if (playernum >= 8) if (player1[7] == PhotonNetwork.LocalPlayer) { transform.localPosition = new Vector3(14f, -1.9f, -1); }
-
+        collider2D.isTrigger = false;
     }
 
     private void Update()

@@ -141,13 +141,13 @@ public class Route1 : MonoBehaviourPunCallbacks
     [PunRPC]
    public void Hyozi()
     {
-        Debug.Log("adw");
+        
         moveObj.SetActive(true);
     }
     [PunRPC]
   public  void Nothyozi()
     {
-        Debug.Log("adw");
+        
         moveObj.SetActive(false);
     }
     

@@ -48,7 +48,7 @@ public class NPCBase : MonoBehaviourPunCallbacks
            
             if (infected == true&&! customproperties.GetNPCinf(gameObject.name))
             {
-                Debug.Log("npchureta");
+                
                 int rnd = Random.Range(0, 100);
                 if (rnd <= infectionProbability)
                 {

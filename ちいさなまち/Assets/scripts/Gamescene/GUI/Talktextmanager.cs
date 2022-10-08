@@ -137,7 +137,7 @@ public class Talktextmanager : MonoBehaviour
                 a = 0;
                 for (int i = 0; i < QuestDataBase.GetQusetLists().Count; i++)
                 {
-                    if (i == 3) continue;
+                    if (i == 3||i==5) continue;
                     if (QuestDataBase.GetQusetLists()[i].GetIsQuest() == true && GetItem(QuestDataBase.GetQusetLists()[i].GetQuestitem()).Getkosuu() == 0)
                     {
                         a++;

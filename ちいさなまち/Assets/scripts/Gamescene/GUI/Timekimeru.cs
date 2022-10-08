@@ -20,7 +20,7 @@ public class Timekimeru : MonoBehaviourPunCallbacks
     void Start()
     {
 
-        Debug.Log("asdw");
+        
         var player = PhotonNetwork.PlayerList;
         var p1 = player[0];
         if (p1 == PhotonNetwork.LocalPlayer)
