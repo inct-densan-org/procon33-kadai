@@ -227,6 +227,8 @@ public class Menumanager : MonoBehaviourPunCallbacks
                                 move.sugoikai = false;
                             }
                         }
+
+                        
                         else
                         {
                             GetItem(ItemName).Setkosuu(-1);
@@ -241,6 +243,92 @@ public class Menumanager : MonoBehaviourPunCallbacks
                         Invoke(nameof(Delwarning), 3);
                     }
                 }
+                if (infection2.GetPlayerinfeffect(PhotonNetwork.LocalPlayer.ActorNumber) == true && KANPOU == true)
+                {//感染していて漢方飲んだ時
+
+                    if (GetItem(ItemName).GetEatWhenInfected() == true)
+                    {
+                        gaugemanager.Setfood(GetItem(ItemName).Getfoodrecovery());
+                        gaugemanager.SetWater(GetItem(ItemName).Getwaterrecovery());
+
+                        if (GetItem(ItemName).Getother_effect())
+                        {
+
+                            if (ItemName == "マスク" && infection2.ismask == false)
+                            {
+                                infection2.ismask = true;
+                                GetItem(ItemName).Setkosuu(-1);
+                                messegedis.SetActive(false);
+                                Debug.Log(infection2.ismask);
+                                await Task.Delay(GetItem(ItemName).Geteffecttime() * 1000);
+                                infection2.ismask = false;
+                                Debug.Log(infection2.ismask);
+                            }
+                            if (ItemName == "マスク" && infection2.ismask == true || ItemName == "普通のせき止め" && infection2.kanpou == true || ItemName == "すごくいいせき止め" && infection2.greatkanpou == true || ItemName == "いいせき止め" && infection2.goodkanpou == true || ItemName == "いい解熱剤" && move.iikai == true || ItemName == "普通の解熱剤" && move.kai == true || ItemName == "すごくいい解熱剤" && move.sugoikai == true || ItemName == "漢方" && KANPOU == true)
+                            {
+                                warning.text = "効果は続いています";
+                                Invoke(nameof(Delwarning), 3);
+                            }
+
+                            if (ItemName == "普通のせき止め" && infection2.kanpou == false)
+                            {
+                                infection2.kanpou = true;
+                                GetItem(ItemName).Setkosuu(-1);
+                                messegedis.SetActive(false);
+                                await Task.Delay(GetItem(ItemName).Geteffecttime() * 1000);
+                                infection2.kanpou = false;
+
+                            }
+                            if (ItemName == "いいせき止め" && infection2.goodkanpou == false)
+                            {
+                                infection2.goodkanpou = true;
+                                GetItem(ItemName).Setkosuu(-1);
+                                messegedis.SetActive(false);
+                                await Task.Delay(GetItem(ItemName).Geteffecttime() * 1000);
+                                infection2.goodkanpou = false;
+
+                            }
+                            if (ItemName == "すごくいいせき止め" && infection2.greatkanpou == false)
+                            {
+                                infection2.greatkanpou = true;
+                                GetItem(ItemName).Setkosuu(-1);
+                                messegedis.SetActive(false);
+                                await Task.Delay(GetItem(ItemName).Geteffecttime() * 1000);
+
+                                infection2.greatkanpou = false;
+                            }
+
+                            if (ItemName == "いい解熱剤" && move.iikai == false)
+                            {
+                                move.iikai = true;
+                                GetItem(ItemName).Setkosuu(-1);
+                                messegedis.SetActive(false);
+                                await Task.Delay(GetItem(ItemName).Geteffecttime() * 1000);
+
+                                move.iikai = false;
+                            }
+                            if (ItemName == "普通の解熱剤" && move.kai == false)
+                            {
+                                move.kai = true;
+                                GetItem(ItemName).Setkosuu(-1);
+                                messegedis.SetActive(false);
+                                await Task.Delay(GetItem(ItemName).Geteffecttime() * 1000);
+
+                                move.kai = false;
+                            }
+                            if (ItemName == "すごくいい解熱剤" && move.sugoikai == false)
+                            {
+                                move.sugoikai = true;
+                                GetItem(ItemName).Setkosuu(-1);
+                                messegedis.SetActive(false);
+                                await Task.Delay(GetItem(ItemName).Geteffecttime() * 1000);
+
+                                move.sugoikai = false;
+                            }
+                        
+                        }
+                    }
+                }
                 else//感染してないとき
                 {
                     if (ItemName == "普通のせき止め" || ItemName == "いいせき止め" || ItemName == "すごくいいせき止め" || ItemName == "漢方" || ItemName == "すごくいい解熱剤" || ItemName == "いい解熱剤" || ItemName == "普通の解熱剤")
@@ -251,7 +339,7 @@ public class Menumanager : MonoBehaviourPunCallbacks
                     {
                         gaugemanager.Setfood(GetItem(ItemName).Getfoodrecovery());
                         gaugemanager.SetWater(GetItem(ItemName).Getwaterrecovery());
-                        GetItem(ItemName).Setkosuu(-1);
+                        
                         messegedis.SetActive(false);
                         if (GetItem(ItemName).Getother_effect())
                         {
@@ -273,6 +361,10 @@ public class Menumanager : MonoBehaviourPunCallbacks
 
 
                             }
+                        }
+                        else
+                        {
+                            GetItem(ItemName).Setkosuu(-1);
                         }
                     }
                 }

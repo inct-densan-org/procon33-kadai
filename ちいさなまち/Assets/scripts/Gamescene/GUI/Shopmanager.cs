@@ -192,20 +192,20 @@ public class Shopmanager : MonoBehaviourPunCallbacks
             }
            else if (GetItem(ItemName).GetKindOfItem().ToString() == "restaurant" && infection2.GetPlayerinfeffect(PhotonNetwork.LocalPlayer.ActorNumber))
             {
-                var a = menumanager.KANPOU;
-                if (a)
-                {
-                    shopdis.SetActive(true);
-                    buydis.SetActive(false);
-                    Invoke(nameof(mesagedele), 3f);
-                    gaugemanager.Setfood(GetItem(ItemName).Getfoodrecovery());
-                    gaugemanager.SetWater(GetItem(ItemName).Getwaterrecovery());
-                }
-                else
-                {
+                //var a = menumanager.KANPOU;
+                //if (a)
+                //{
+                //    shopdis.SetActive(true);
+                //    buydis.SetActive(false);
+                //    Invoke(nameof(mesagedele), 3f);
+                //    gaugemanager.Setfood(GetItem(ItemName).Getfoodrecovery());
+                //    gaugemanager.SetWater(GetItem(ItemName).Getwaterrecovery());
+                //}
+                //else
+                //{
                     mesege.text = "感染しているため食べる事が出来ません。";
                     Invoke(nameof(mesagedele), 3f);
-                }
+                //}
                 
             }
             else
