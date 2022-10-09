@@ -55,27 +55,26 @@ public class Infection2 : MonoBehaviourPunCallbacks
         }
         if (infeffect == true && !kanpou && !goodkanpou && !greatkanpou)
         {
-
-            if (isman == 1) { collider2.radius = 9f; }
-            if (isman == 0) { collider2.radius = 5f; }
+            collider2.radius = 6f;
         }
         else if (infeffect && greatkanpou)
         {
+            collider2.radius = 3.5f;
 
-            if (isman == 1) { collider2.radius = 6f; }
-            if (isman == 0) { collider2.radius = 3.5f; }
         }
         else if (infeffect && goodkanpou)
         {
+            collider2.radius = 4.2f;
 
-            if (isman == 1) { collider2.radius = 7f; }
-            if (isman == 0) { collider2.radius = 4f; }
         }
         else if (infeffect && kanpou)
         {
+            collider2.radius = 5f;
 
-            if (isman == 1) { collider2.radius = 8f; }
-            if (isman == 0) { collider2.radius = 4.5f; }
+        }
+        else
+        {
+            collider2.radius = 2.8f;
         }
         if (ismask == true)
         {
