@@ -12,8 +12,7 @@ using System.Threading.Tasks;
 public class Timekimeru : MonoBehaviourPunCallbacks
 {
     public static ExitGames.Client.Photon.Hashtable roomHash;
-    public  int hour, minite, second;
-    private int time1;
+    public  int hour, minite, second,time1;
     public  int time = 600;
     private new GameObject gameObject;
     private Tokei tokei;
@@ -26,9 +25,6 @@ public class Timekimeru : MonoBehaviourPunCallbacks
         var p1 = player[0];
         if (p1 == PhotonNetwork.LocalPlayer)
         {
-            var pun2server = GameObject.Find("PUN2Sever").gameObject.GetComponent<PUN2Server>();
-            if (pun2server.difficulty == "ez") time1 = 300;
-            else time1 = 600;
             itibyou();
             //var byou = GetComponent<itibyou>();
 
