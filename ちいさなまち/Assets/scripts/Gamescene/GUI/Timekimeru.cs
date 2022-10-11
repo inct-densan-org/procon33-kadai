@@ -19,8 +19,11 @@ public class Timekimeru : MonoBehaviourPunCallbacks
     // Start is called before the first frame update
     void Start()
     {
+        var pun2server= GameObject.Find("PUN2Sever").gameObject.GetComponent<PUN2Server>();
+        if (pun2server.difficulty == "nomal") time1 = 600;
+        if (pun2server.difficulty == "ez") time1 = 300;
+        if (pun2server.difficulty == "hard") time1 = 600;
 
-        
         var player = PhotonNetwork.PlayerList;
         var p1 = player[0];
         if (p1 == PhotonNetwork.LocalPlayer)

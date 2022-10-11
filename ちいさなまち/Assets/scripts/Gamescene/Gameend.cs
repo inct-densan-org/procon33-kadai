@@ -42,12 +42,12 @@ public class Gameend : MonoBehaviourPun
         food = gaugemanager.foodtime;
         if (water == gaugemanager.watergauge)
         {
-            reason = $"{PhotonNetwork.LocalPlayer.NickName}が脱水症状で逝った";
+            reason = $"{PhotonNetwork.LocalPlayer.NickName}が目の前が真っ暗になった。";
             photonView.RPC(nameof(gameover), RpcTarget.All,reason);
         }
         if (food == gaugemanager.foodgauge)
         {
-            reason = $"{PhotonNetwork.LocalPlayer.NickName}が餓死した";
+            reason = $"{PhotonNetwork.LocalPlayer.NickName}が力尽きた。";
             photonView.RPC(nameof(gameover), RpcTarget.All, reason);
         }
         if (infection2 == null)

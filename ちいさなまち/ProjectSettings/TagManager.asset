@@ -22,6 +22,7 @@ TagManager:
   - reception
   - apart
   - hotel
+  - wash
   layers:
   - Default
   - TransparentFX

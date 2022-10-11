@@ -25,10 +25,14 @@ public class TasManager : MonoBehaviourPunCallbacks
     private int qiestnum;
     public Sprite menusp, questsp;
     private Image mesegeimage;
+    private Restranquest restranquest;
+    private Hotelquest hotelmanager;
     // Start is called before the first frame update
     void Start()
     {
       mesegeimage=   messegedis.GetComponent<Image>() ;
+        restranquest = GameObject.Find("Questmanager").gameObject.GetComponent<Restranquest>();
+        hotelmanager= GameObject.Find("Questmanager").gameObject.GetComponent<Hotelquest>();
         qiestnum = QuestDataBase.GetQusetLists().Count;
         for (int i = 0; i < QuestDataBase.GetQusetLists().Count; i++)
         {
@@ -117,6 +121,8 @@ public class TasManager : MonoBehaviourPunCallbacks
         {
             quriacount = 0;
             int choiceNum;
+            hotelmanager.ABReset();
+            restranquest.ABReset();
             List<int> ramdumlist = new List<int>();
             for (int i = 0; i < QuestDataBase.GetQusetLists().Count; i++)
             {

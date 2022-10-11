@@ -16,7 +16,7 @@ public class Infection2 : MonoBehaviourPunCallbacks
     public CircleCollider2D collider2;
     public GameObject kansenhani;
     public Shopmanager shopmanager;
-    public bool ismask;
+    public bool ismask,iswash;
     private Menumanager menumanager;
     private NPCBase NPCShop;
     private PUN2Server pun2server;
@@ -26,6 +26,7 @@ public class Infection2 : MonoBehaviourPunCallbacks
     private bool p1inf, p2inf, p3inf, p4inf, p5inf, p6inf, p7inf, p8inf, myinf, p1infef, p2infef, p3infef, p4infef, p5infef, p6infef, p7infef, p8infef;
     private Customproperties customproperties;
     public bool isapart;
+    private Talktextmanager talktextmanager;
     // Start is called before the first frame update
     void Start()
     {
@@ -35,7 +36,7 @@ public class Infection2 : MonoBehaviourPunCallbacks
         Player = PhotonNetwork.LocalPlayer.ActorNumber;
         menumanager = GameObject.Find("menumaneger").gameObject.GetComponent<Menumanager>();
         collider2 = this.transform.GetChild(0).gameObject.GetComponent<CircleCollider2D>();
-       
+       talktextmanager = GameObject.Find("menumaneger").gameObject.GetComponent<Talktextmanager>();
 
     }
 
@@ -46,45 +47,68 @@ public class Infection2 : MonoBehaviourPunCallbacks
         var myinf = GetPlayerinf(Player);
         var isman = pun2server.isman;
         infeffect = GetPlayerinfeffect(Player);
-       
+        iswash = talktextmanager.iswash;
         if (myinf && !la)
         {
             la = true;
             await Task.Delay(10000);
             Setplayerinfeffect(Player, true);
         }
-        if (infeffect == true && !kanpou && !goodkanpou && !greatkanpou)
+        if (infeffect  && !kanpou && !goodkanpou && !greatkanpou&&!ismask)
         {
-
-            if (isman == 1) { collider2.radius = 9f; }
-            if (isman == 0) { collider2.radius = 5f; }
+            collider2.radius = 9f;
         }
-        else if (infeffect && greatkanpou)
+       else if (infeffect && !kanpou && !goodkanpou && !greatkanpou && ismask)
         {
-
-            if (isman == 1) { collider2.radius = 6f; }
-            if (isman == 0) { collider2.radius = 3.5f; }
+            collider2.radius = 6.3f;
         }
-        else if (infeffect && goodkanpou)
+       
+        else if (infeffect && greatkanpou && ismask)
         {
-
-            if (isman == 1) { collider2.radius = 7f; }
-            if (isman == 0) { collider2.radius = 4f; }
+            collider2.radius = 3.4f;
         }
-        else if (infeffect && kanpou)
+        else if (infeffect && goodkanpou&&ismask)
         {
-
-            if (isman == 1) { collider2.radius = 8f; }
-            if (isman == 0) { collider2.radius = 4.5f; }
+            collider2.radius = 4.5f;
         }
-        if (ismask == true)
+        else if (infeffect && kanpou && ismask)
         {
+            collider2.radius = 5.5f;
+        }
+        else if (infeffect && kanpou && !ismask)
+        {
+            collider2.radius = 8f;
+        }
+        else if (infeffect && goodkanpou&&!ismask)
+        {
+            collider2.radius = 7f;
+        }
+        else if (infeffect && greatkanpou && !ismask)
+        {
+            collider2.radius = 6f;
+        }
+        
+        else if (!infeffect&&!ismask)
+        {
+            collider2.radius = 4f;
+        }
+        else if (!infeffect && ismask)
+        {
+            collider2.radius = 2.8f;
+        }
+        else
+        {
+            collider2.radius = 4f;
+        }
+        if (iswash == true)
+        {
+            
             if(pun2server.difficulty=="nomal") infectionProbability = 4;
             if (pun2server.difficulty == "ez") infectionProbability = 2;
             if (pun2server.difficulty == "hard") infectionProbability = 10;
 
         }
-        if (ismask == false)
+        if (iswash == false)
         {
             if (pun2server.difficulty == "nomal") infectionProbability = 15;
             if (pun2server.difficulty == "ez") infectionProbability = 10;
@@ -166,17 +190,7 @@ public class Infection2 : MonoBehaviourPunCallbacks
     {
         cooltime = false;
     }
-    //private async void OnCollisionEnter2D(Collision2D collision)
-    //{
-    //    if (collision.gameObject.CompareTag("kansen") && photonView.IsMine)
-    //    {
-
-    //        // await Task.Delay(20000);
-
-    //        // Customproperties.Setplayerinf(true, Player);
-    //        photonView.RPC(nameof(Setplayerinf), RpcTarget.All, Player, true);
-    //    }
-   // }
+    
     [PunRPC]
     void Setplayerinf(int number, bool inf)
     {

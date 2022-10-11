@@ -212,11 +212,19 @@ public class Move : MonoBehaviourPunCallbacks
                 {
                     Menumanager.menuKey = "talk";
                     reception = true;
+                  
                 }
             }
         }
+        if (Movekey == "wash")
+        {
+            if (Input.GetKeyDown(KeyCode.Space)&&!talktextmanager.cooltime)
+            {
+                Menumanager.menuKey = "wash";
+            }
+        }
     }
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("shop") && photonView.IsMine)
         {
@@ -232,7 +240,7 @@ public class Move : MonoBehaviourPunCallbacks
         }
         if (collision.gameObject.CompareTag("foodstore") && photonView.IsMine)
         {
-            Movekey="food";
+            Movekey = "food";
         }
         if (collision.gameObject.CompareTag("quest") && photonView.IsMine)
         {
@@ -248,11 +256,21 @@ public class Move : MonoBehaviourPunCallbacks
         }
         if (collision.gameObject.CompareTag("reception") && photonView.IsMine)
         {
+           
             Movekey = "reception";
         }
+        if (collision.gameObject.CompareTag("wash") && photonView.IsMine)
+        {
+            Movekey = "wash";
+        }
     }
+   
     private void OnTriggerExit2D(Collider2D collision)
     {
+    }
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+
         if (collision.gameObject.CompareTag("shop") && photonView.IsMine)
         {
             Movekey = null;
@@ -285,6 +303,9 @@ public class Move : MonoBehaviourPunCallbacks
         {
             Movekey = null;
         }
+        if (collision.gameObject.CompareTag("wash") && photonView.IsMine)
+        {
+            Movekey = null;
+        }
     }
-   
 }

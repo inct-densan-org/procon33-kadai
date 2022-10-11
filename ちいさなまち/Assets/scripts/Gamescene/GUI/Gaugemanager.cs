@@ -66,13 +66,13 @@ public class Gaugemanager : MonoBehaviourPunCallbacks
         if (foodtime == foodgauge-10 && a == false)
         {
             a = true;
-            noticeManager.Notice($"{PhotonNetwork.LocalPlayer.NickName}が脱水症状で逝きそうだ");
+            noticeManager.Notice($"{PhotonNetwork.LocalPlayer.NickName}が目の前が真っ暗になりそうだ");
         }
         if (foodtime != foodgauge - 10 && a == true) a = false;
         if (watertime == watergauge - 10 && b == false)
         {
             b = true;
-            noticeManager.Notice($"{PhotonNetwork.LocalPlayer.NickName}が餓死しそうだ");
+            noticeManager.Notice($"{PhotonNetwork.LocalPlayer.NickName}が力尽きそうだ");
         }
         if (watertime != watergauge - 10 && b == true) b= false;
     }

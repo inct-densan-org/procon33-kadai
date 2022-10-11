@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun;
 
-public class Gomimanager : MonoBehaviour
+public class Gomimanager : MonoBehaviourPunCallbacks
 {
     public GameObject GameObject;
     // Start is called before the first frame update
@@ -13,7 +14,7 @@ public class Gomimanager : MonoBehaviour
 
     private void OnCollisionStay2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Player"))
+        if (collision.gameObject.CompareTag("Player") && collision.gameObject.GetPhotonView().OwnerActorNr == PhotonNetwork.LocalPlayer.ActorNumber)
         {
             if (Input.GetKey(KeyCode.Space))
             {

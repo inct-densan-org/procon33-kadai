@@ -7,14 +7,16 @@ using TMPro;
 
 public class Talktextmanager : MonoBehaviour
 {
-    public TextMeshProUGUI talktext;
-    public GameObject talk;
+    public TextMeshProUGUI talktext,hitotext;
+    public GameObject talk,syokuba1,syokuba2;
     [SerializeField]
     private QuestDataBase QuestDataBase;
     [SerializeField]
     private ItemDataBase ItemDataBase;
     private int a;
     public bool cooltime;
+    public bool iswash;
+    public int syokuba;
     // Update is called once per frame
    async void Update()
     {
@@ -24,7 +26,7 @@ public class Talktextmanager : MonoBehaviour
             if (Restranquest.questclear == true)
             {
                 talktext.text = "「掃除をしてくれたのですね。ありがとうございます。これ報酬金です。」";
-                if (Input.GetMouseButton(0) )
+                if (Input.GetMouseButton(0) || Input.GetKeyDown(KeyCode.Space))
                 {
                     talk.SetActive(false);
                     Menumanager.menuKey = null;
@@ -127,9 +129,35 @@ public class Talktextmanager : MonoBehaviour
                 }
             }
         }
-
+        if (Menumanager.menuKey != "talk" || Menumanager.menuKey != "wash")
+        {
+            hitotext.text = "店員";
+        }
+        if (Menumanager.menuKey == "wash")
+        {
+            
+            talk.SetActive(true);
+            hitotext.text = "自分";
+            talktext.text = "手洗いうがいをしました。";
+            if (Input.GetMouseButton(0) || Input.GetKeyDown(KeyCode.Space))
+            {
+                
+                talk.SetActive(false);
+                Menumanager.menuKey = null;
+                cooltime1();
+                if (!iswash)
+                {
+                    iswash = true;
+                    await Task.Delay(40000);
+                    iswash = false;
+                }
+               
+            }
+        }
+        
         if (Menumanager.menuKey == "talk")
         {
+            hitotext.text = "職員";
             talk.SetActive(true);
             if (Move.reception == true)
             {
@@ -151,7 +179,7 @@ public class Talktextmanager : MonoBehaviour
                     {
                         talk.SetActive(false);
                         Menumanager.menuKey = null;
-                        cooltime = true;
+                        cooltime1();
                         
 
                         Move.reception = false;
@@ -163,8 +191,10 @@ public class Talktextmanager : MonoBehaviour
 
                         if (QuestDataBase.GetQusetLists()[4].GetIsQuest() == true)
                         {
-                            Officequest.a = true;
+                            
                             GetItem("書類").Setkosuu(1);
+
+                            derei();
                         }
                         if (QuestDataBase.GetQusetLists()[1].GetIsQuest() == true)
                         {
@@ -176,8 +206,7 @@ public class Talktextmanager : MonoBehaviour
                             Supermarketquest.a = true;
                             GetItem("配達用の食料").Setkosuu(1);
                         }
-                        await Task.Delay(500);
-                        cooltime = false;
+                        
                     }
                 }
                 else
@@ -198,6 +227,17 @@ public class Talktextmanager : MonoBehaviour
 
         }
         
+    }
+   async void cooltime1()
+    {
+        cooltime = true;
+        await Task.Delay(500);
+        cooltime = false;
+    }
+    async void derei()
+    {
+        await Task.Delay(12000);
+        Officequest.a = true;
     }
     public Item GetItem(string searchName)
     {

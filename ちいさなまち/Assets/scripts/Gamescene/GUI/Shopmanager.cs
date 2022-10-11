@@ -187,8 +187,8 @@ public class Shopmanager : MonoBehaviourPunCallbacks
                 shopdis.SetActive(true);
                 buydis.SetActive(false);
                 Invoke(nameof(mesagedele), 3f);
-                gaugemanager.Setfood(GetItem(ItemName).Getfoodrecovery());
-                gaugemanager.SetWater(GetItem(ItemName).Getwaterrecovery());
+                gaugemanager.Setfood(GetItem(ItemName).Getfoodrecovery()*s);
+                gaugemanager.SetWater(GetItem(ItemName).Getwaterrecovery()*s);
             }
            else if (GetItem(ItemName).GetKindOfItem().ToString() == "restaurant" && infection2.GetPlayerinfeffect(PhotonNetwork.LocalPlayer.ActorNumber))
             {
