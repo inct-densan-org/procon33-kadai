@@ -11,7 +11,7 @@ public class Menumanager : MonoBehaviourPunCallbacks
 {
     [SerializeField]
     private QuestDataBase QuestDataBase;
-    public GameObject menu, messegedis,itemdis,yesbutton;
+    public GameObject menu, messegedis,itemdis,yesbutton,questback;
     public static string menuKey;
     public TextMeshProUGUI mesasege, warning;
 
@@ -122,7 +122,14 @@ public class Menumanager : MonoBehaviourPunCallbacks
     }
 
 
-    public void Onno() { messegedis.SetActive(false); }
+    public void Onno()
+    { messegedis.SetActive(false);
+        if (menuKey == "quest")
+        {
+            questback.SetActive(true);
+        }
+        
+    }
 
     public async void Onyes()
     {
@@ -380,6 +387,7 @@ public class Menumanager : MonoBehaviourPunCallbacks
                         QuestDataBase.GetQusetLists()[i].SetIsQuest(true);
                     }
                 }
+                questback.SetActive(true);
                 messegedis.SetActive(false);
             }//yesおしたらそのクエストのisQuestをオンにしたい
         

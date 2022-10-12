@@ -11,7 +11,7 @@ using UnityEngine.UI;
 
 public class TasManager : MonoBehaviourPunCallbacks
 {
-    public GameObject Questmenu, messegedis,yesbutton;
+    public GameObject Questmenu, messegedis,yesbutton,backbutton;
     public TextMeshProUGUI inf1, inf2, inf3, messege,mesegetitle;
     [SerializeField]
     private QuestDataBase QuestDataBase;
@@ -150,6 +150,7 @@ public class TasManager : MonoBehaviourPunCallbacks
     }
     public void OnPushInf1()
     {
+        backbutton.SetActive(false);
         yesbutton.SetActive(true);
         Questnum = QuestDataBase.GetQusetLists()[list[0]].GetNumber();
         messegedis.SetActive(true);
@@ -157,6 +158,7 @@ public class TasManager : MonoBehaviourPunCallbacks
     }
     public void OnPushInf2()
     {
+        backbutton.SetActive(false);
         yesbutton.SetActive(true);
         Questnum = QuestDataBase.GetQusetLists()[list[1]].GetNumber();
         messegedis.SetActive(true);
@@ -164,6 +166,7 @@ public class TasManager : MonoBehaviourPunCallbacks
     }
     public void OnPushInf3()
     {
+        backbutton.SetActive(false);
         yesbutton.SetActive(true);
         Questnum = QuestDataBase.GetQusetLists()[list[2]].GetNumber();
         messegedis.SetActive(true);
