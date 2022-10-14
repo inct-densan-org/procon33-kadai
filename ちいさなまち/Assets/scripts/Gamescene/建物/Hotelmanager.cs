@@ -21,7 +21,7 @@ public class Hotelmanager : MonoBehaviourPunCallbacks
     {
         if (Menumanager.menuKey == "hotel")
         {
-            moneytext.text = $"{Moneymanager.Money}";
+            moneytext.text = $"{Moneymanager.Money}‰~";
             hoteldis.SetActive(true);
             if (!isitigou)
             {
