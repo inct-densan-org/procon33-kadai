@@ -9117,7 +9117,7 @@ GameObject:
   - component: {fileID: 210614046}
   - component: {fileID: 210614047}
   m_Layer: 5
-  m_Name: reseption
+  m_Name: reseption2
   m_TagString: reception
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -20453,6 +20453,7 @@ MonoBehaviour:
   messegedis: {fileID: 89070076}
   itemdis: {fileID: 89070076}
   yesbutton: {fileID: 874563186}
+  questback: {fileID: 1131848668}
   mesasege: {fileID: 226260822}
   warning: {fileID: 1978702134}
   itemDataBase: {fileID: 11400000, guid: 95fa6098fd019724ab6a92cf42ab58f9, type: 2}
@@ -20514,13 +20515,13 @@ MonoBehaviour:
   talktext: {fileID: 1543457121}
   hitotext: {fileID: 1843823541}
   talk: {fileID: 1235259183}
-  syokuba1: {fileID: 0}
-  syokuba2: {fileID: 0}
   QuestDataBase: {fileID: 11400000, guid: dbe97d534128f9a4ebc46e7f4d87208e, type: 2}
   ItemDataBase: {fileID: 11400000, guid: 95fa6098fd019724ab6a92cf42ab58f9, type: 2}
   cooltime: 0
   iswash: 0
   syokuba: 0
+  syokubaname: 
+  move: {fileID: 0}
 --- !u!114 &428023891
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -43869,17 +43870,7 @@ CompositeCollider2D:
   m_GeometryType: 1
   m_GenerationType: 0
   m_EdgeRadius: 0
-  m_ColliderPaths:
-  - m_Collider: {fileID: 949367783}
-    m_ColliderPaths:
-    - - X: 175014880
-        Y: 174781728
-      - X: -174963456
-        Y: 174781728
-      - X: -174963456
-        Y: -200009232
-      - X: 175014880
-        Y: -200009232
+  m_ColliderPaths: []
   m_CompositePaths:
     m_Paths:
     - - {x: 17.50146, y: -20.000923}
@@ -49708,7 +49699,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1066603925
 Transform:
   m_ObjectHideFlags: 0
@@ -52323,7 +52314,8 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: -10.000083}
   m_LocalScale: {x: 5.1282063, y: 2.5486717, z: 1.0000607}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1303315081}
   m_Father: {fileID: 1330266365}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -58959,17 +58951,17 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1303315080}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -10.000083}
-  m_LocalScale: {x: 0.5128206, y: 0.2548672, z: 1.0000607}
+  m_LocalPosition: {x: 0, y: 0, z: -0.00008487187}
+  m_LocalScale: {x: 0.1, y: 0.100000024, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1330266365}
-  m_RootOrder: 5
+  m_Father: {fileID: 1131848669}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0.6}
-  m_AnchoredPosition: {x: -0.24615407, y: -0.44000006}
-  m_SizeDelta: {x: -4.93544, y: -1.4830861}
+  m_AnchoredPosition: {x: -0.046000026, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1303315082
 MonoBehaviour:
@@ -59474,6 +59466,7 @@ MonoBehaviour:
   Questmenu: {fileID: 1278445139}
   messegedis: {fileID: 89070076}
   yesbutton: {fileID: 874563186}
+  backbutton: {fileID: 1131848668}
   inf1: {fileID: 244428149}
   inf2: {fileID: 1136400522}
   inf3: {fileID: 687489900}
@@ -60497,7 +60490,6 @@ RectTransform:
   - {fileID: 1371225304}
   - {fileID: 2065506562}
   - {fileID: 1131848669}
-  - {fileID: 1303315081}
   m_Father: {fileID: 1278445140}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -63913,7 +63905,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7783251, y: 1}
+    m_SensorSize: {x: 1.7766498, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -83711,7 +83703,7 @@ GameObject:
   - component: {fileID: 1854613782}
   - component: {fileID: 1854613783}
   m_Layer: 5
-  m_Name: reseption
+  m_Name: reseption1
   m_TagString: reception
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

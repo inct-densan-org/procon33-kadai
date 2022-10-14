@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Threading.Tasks;
 using TMPro;
+using Photon.Pun;
 
-
-public class Talktextmanager : MonoBehaviour
+public class Talktextmanager : MonoBehaviourPunCallbacks
 {
     public TextMeshProUGUI talktext,hitotext;
-    public GameObject talk,syokuba1,syokuba2;
+    public GameObject talk;
     [SerializeField]
     private QuestDataBase QuestDataBase;
     [SerializeField]
@@ -17,9 +17,23 @@ public class Talktextmanager : MonoBehaviour
     public bool cooltime;
     public bool iswash;
     public int syokuba;
+    public string syokubaname;
+    public Move move;
     // Update is called once per frame
-   async void Update()
+   
+    async void Update()
     {
+        var tagObjects = GameObject.FindGameObjectsWithTag("Player");
+        if (move == null)
+        {
+            for (int i = 0; i < tagObjects.Length; i++)
+            {
+                if (PhotonNetwork.LocalPlayer.ActorNumber == tagObjects[i].GetPhotonView().OwnerActorNr)
+                {
+                    move = tagObjects[i].GetComponent<Move>();
+                }
+            }
+        }
         if (Menumanager.menuKey == "shoptalk")
         {
             talk.SetActive(true);
@@ -126,6 +140,7 @@ public class Talktextmanager : MonoBehaviour
                     QuestDataBase.GetQusetLists()[4].SetIsQuest(false);
                     GetItem("書類").Setkosuu(-1);
                     Officequest.questclear = false;
+                    syokubaname = null;
                 }
             }
         }
@@ -158,6 +173,7 @@ public class Talktextmanager : MonoBehaviour
         if (Menumanager.menuKey == "talk")
         {
             hitotext.text = "職員";
+            
             talk.SetActive(true);
             if (Move.reception == true)
             {
@@ -193,8 +209,8 @@ public class Talktextmanager : MonoBehaviour
                         {
                             
                             GetItem("書類").Setkosuu(1);
-
-                            derei();
+                           syokubaname= move.Syokubanamereturn();
+                            Officequest.a = true;
                         }
                         if (QuestDataBase.GetQusetLists()[1].GetIsQuest() == true)
                         {
@@ -237,7 +253,7 @@ public class Talktextmanager : MonoBehaviour
     async void derei()
     {
         await Task.Delay(12000);
-        Officequest.a = true;
+        
     }
     public Item GetItem(string searchName)
     {

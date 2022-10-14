@@ -26,7 +26,7 @@ public class Move : MonoBehaviourPunCallbacks
     public Infection2 infection2;
     public string Movekey;
     private Talktextmanager talktextmanager;
-    
+    private string syokubaname,kakutei;
     public void Start()
     {
        var collider2D = gameObject.GetComponent<BoxCollider2D>();
@@ -204,8 +204,9 @@ public class Move : MonoBehaviourPunCallbacks
 
             if (Input.GetKey(KeyCode.Space)&&!talktextmanager.cooltime)
             {
-                if (Officequest.questclear == true)
+                if (Officequest.questclear == true&&talktextmanager.syokubaname!=syokubaname)
                 {
+                    
                     Menumanager.menuKey = "questtalk";
                 }
                 else
@@ -245,6 +246,7 @@ public class Move : MonoBehaviourPunCallbacks
         if (collision.gameObject.CompareTag("quest") && photonView.IsMine)
         {
             Movekey = "quest";
+            
         }
         if (collision.gameObject.CompareTag("rule") && photonView.IsMine)
         {
@@ -256,7 +258,7 @@ public class Move : MonoBehaviourPunCallbacks
         }
         if (collision.gameObject.CompareTag("reception") && photonView.IsMine)
         {
-           
+            syokubaname = collision.gameObject.name;
             Movekey = "reception";
         }
         if (collision.gameObject.CompareTag("wash") && photonView.IsMine)
@@ -307,5 +309,9 @@ public class Move : MonoBehaviourPunCallbacks
         {
             Movekey = null;
         }
+    }
+    public string Syokubanamereturn()
+    {
+        return syokubaname;
     }
 }
